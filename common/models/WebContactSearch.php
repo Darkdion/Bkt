@@ -19,7 +19,7 @@ class WebContactSearch extends WebContact
     {
         return [
             [['id', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'datail', 'phone', 'email'], 'safe'],
+            [['name', 'detail', 'phone', 'email'], 'safe'],
         ];
     }
 
@@ -62,7 +62,7 @@ class WebContactSearch extends WebContact
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'datail', $this->datail])
+            ->andFilterWhere(['like', 'detail', $this->detail])
             ->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'email', $this->email]);
 

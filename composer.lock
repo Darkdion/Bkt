@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c004050610bd902af2729e3a9afea785",
-    "content-hash": "863222399e865c91e03eeb3600eeafde",
+    "hash": "7741227da4364cd1a9c4a156a1a471b7",
+    "content-hash": "dde23315e26e460fc7194d9b9f8e1551",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -1804,6 +1804,47 @@
             "time": "2015-07-17 10:33:46"
         },
         {
+            "name": "prawee/yii2-widgets",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prawee/yii2-widgets.git",
+                "reference": "c4c2b16fe245c594b251d02305ed7cd503023cbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prawee/yii2-widgets/zipball/c4c2b16fe245c594b251d02305ed7cd503023cbd",
+                "reference": "c4c2b16fe245c594b251d02305ed7cd503023cbd",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "prawee\\widgets\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Prawee Wongsa",
+                    "email": "konkeanweb@gmail.com"
+                }
+            ],
+            "description": "yii2 widgets alert ",
+            "keywords": [
+                "alert",
+                "extension",
+                "yii2"
+            ],
+            "time": "2015-08-23 04:02:15"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.1",
             "source": {
@@ -1996,20 +2037,20 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "ca8d23707ae47d20b0454e4b135c156f6da6d7be"
+                "reference": "7452fd908a5023b8bb5ea1b123a174ca080de464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/ca8d23707ae47d20b0454e4b135c156f6da6d7be",
-                "reference": "ca8d23707ae47d20b0454e4b135c156f6da6d7be",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/7452fd908a5023b8bb5ea1b123a174ca080de464",
+                "reference": "7452fd908a5023b8bb5ea1b123a174ca080de464",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "1.0.0"
+                "composer-plugin-api": "^1.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -2039,7 +2080,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2015-03-01 06:22:44"
+            "time": "2016-02-06 00:49:24"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -2404,7 +2445,8 @@
     "stability-flags": {
         "kartik-v/yii2-grid": 20,
         "kartik-v/yii2-mpdf": 20,
-        "prawee/yii2-assets": 20
+        "prawee/yii2-assets": 20,
+        "prawee/yii2-widgets": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

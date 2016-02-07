@@ -282,4 +282,13 @@ return array (
       '@dosamigos/ckeditor' => $vendorDir . '/2amigos/yii2-ckeditor-widget/src',
     ),
   ),
+  'prawee/yii2-widgets' => 
+  array (
+    'name' => 'prawee/yii2-widgets',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@prawee/widgets' => $vendorDir . '/prawee/yii2-widgets',
+    ),
+  ),
 );

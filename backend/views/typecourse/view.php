@@ -6,33 +6,40 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Typecourse */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Typecourses', 'url' => ['index']];
+$this->title ='แสดงรายละเอียดรหัสที่ :'. $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'จัดการประเภทคอร์ส', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="typecourse-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="card card-bordered style-accent-dark ">
+        <div class="card-head">
+            <div class="tools">
+                <div class="btn-group">
+                    <div class="btn-group">
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                    </div>
+                    <a class="btn btn-icon-toggle btn-refresh"><i class="md md-refresh"></i></a>
+
+                </div>
+            </div>
+            <header> <h1><i class=" faa-flash animated fa fa-eye fa-2x"> </i> <?= Html::encode($this->title) ?></h1></header>
+        </div><!--end .card-head -->
+        <div class="card-body style-default-bright">
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+           // 'id',
             'name',
             'created_at',
             'updated_at',
         ],
     ]) ?>
+            <div class="text-center">
+                <button type="button" class="btn btn-default btn-raised" data-dismiss="modal"> <i class="faa-pulse  wa animated fa fa-ban"></i> ปิดหน้านี้</button>
 
-</div>
+
+            </div>
+
+        </div></div></div>

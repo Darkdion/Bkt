@@ -6,15 +6,10 @@ PwAsset::register($this);
 $this->title = 'My Yii Application';
 //$this->registerCssFile('/themes/assets/js/libs/bootstrap/bootstrap.min.js');
 ?>
-<div class="card">
-<div class="card-body">
-    <h1>จัดการระบบ</h1>
-    <div class="row">
 
-    </div>
-</div></div>
 
 <div class="row">
+    <br>
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -23,6 +18,7 @@ $this->title = 'My Yii Application';
                         <i class="faa-pulse animated  fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
+                        <span class="badge">42</span>
                         <div class="huge">26</div>
                         <div>New Comments!</div>
                     </div>
@@ -38,7 +34,7 @@ $this->title = 'My Yii Application';
         </div>
     </div>
     <div class="col-lg-3 col-md-6">
-        <div class="panel panel-green">
+        <div class="panel panel-danger ">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
@@ -104,6 +100,14 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <h1>จัดการระบบ</h1>
+        <div class="row">
+
+        </div>
+    </div></div>
 <style>
 
     .panel-red {

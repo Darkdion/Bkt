@@ -24,17 +24,17 @@ class WebContactController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            'access'=>[
-                'class'=>AccessControl::className(),
-                'rules'=>[
-                    [
-                        'allow'=>true,
-                        'actions'=>['index','view','create','update'],
-                        'roles'=>['@']
-                    ],
-
-                ]
-            ]
+//            'access'=>[
+//                'class'=>AccessControl::className(),
+//                'rules'=>[
+//                    [
+//                        'allow'=>true,
+//                        'actions'=>['index','view','create','update'],
+//                        'roles'=>['@']
+//                    ],
+//
+//                ]
+//            ]
         ];
     }
 
@@ -75,6 +75,8 @@ class WebContactController extends Controller
         $model = new WebContact();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

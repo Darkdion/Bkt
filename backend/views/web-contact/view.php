@@ -6,36 +6,43 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\WebContact */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Web Contacts', 'url' => ['index']];
+$this->title ='แสดงรายละเอียดการติดต่อรหัสที่:'. $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'จัดการติดต่อ', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="web-contact-view">
+<div class="web-contact-update">
+    <div class="card card-bordered style-warning">
+        <div class="card-head">
+            <div class="tools">
+                <div class="btn-group">
+                    <div class="btn-group">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                    </div>
+                    <a class="btn btn-icon-toggle btn-refresh"><i class="md md-refresh"></i></a>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                </div>
+            </div>
+            <header> <h1><i class=" faa-pulse animated fa fa-map-marker fa-2x"> </i> <?= Html::encode($this->title) ?></h1></header>
+        </div><!--end .card-head -->
+        <div class="card-body style-default-bright">
+
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+           // 'id',
             'name',
-            'datail',
+            'detail',
             'phone',
             'email:email',
             'created_at',
             'updated_at',
         ],
     ]) ?>
-
+            <div class="">
+                <?= Html::a('<i class="faa-pulse  wa animated fa fa-arrow-circle-left"></i> กลับหน้าหลัก', ['index'],
+                    ['class' => 'btn btn-warning btn-raised btn-sm']) ?>
+            </div>
+</div>
+    </div>
 </div>

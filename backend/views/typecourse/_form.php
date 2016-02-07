@@ -14,12 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <div class="form-group text-center">
+        <button type="button" class="btn btn-default btn-raised" data-dismiss="modal"> <i class="faa-pulse  wa animated fa fa-ban"></i> ยกเลิก</button>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '<i class=" faa-shake animated fa  fa-save"> </i> บันทีก' : '<i class="faa-shake animated fa fa-pencil-square-o"> </i>ปรับปรุง', ['class' => $model->isNewRecord ? 'btn  btn-success' : 'btn  btn-primary btn-raised']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

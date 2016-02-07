@@ -3,7 +3,7 @@
 namespace common\models;
 
 use Yii;
-
+use yii\behaviors\TimestampBehavior;
 /**
  * This is the model class for table "web_contact".
  *
@@ -20,6 +20,13 @@ class WebContact extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
     public static function tableName()
     {
         return 'web_contact';
@@ -32,9 +39,10 @@ class WebContact extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'updated_at'], 'integer'],
-            [['name', 'email'], 'string', 'max' => 50],
-            [['datail'], 'string', 'max' => 255],
-            [['phone'], 'string', 'max' => 10]
+            [['name'], 'string', 'max' => 50],
+            [['detail'], 'string', 'max' => 255],
+            [['email','email'],'required','message'=>'กรุณากรอกอีเมล์'],
+            ['phone', 'required','message'=>'กรุณากรอกเบอร์โทรศัพท์..'],
         ];
     }
 
@@ -46,7 +54,7 @@ class WebContact extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'ชื่อสถาบัน',
-            'datail' => 'รายละเอียด',
+            'detail' => 'รายละเอียด',
             'phone' => 'โทรศัทพ์',
             'email' => 'อีเมล์',
             'created_at' => 'วันที่สร้าง',

@@ -27,17 +27,7 @@ class TypecourseController extends Controller
                 ],
             ],
 
-            'access'=>[
-                'class'=>AccessControl::className(),
-                'rules'=>[
-                    [
-                        'allow'=>true,
-                        'actions'=>['index','view','create','update'],
-                        'roles'=>['@']
-                    ],
 
-                ]
-            ]
         ];
     }
 
@@ -63,7 +53,7 @@ class TypecourseController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderAjax('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -78,9 +68,9 @@ class TypecourseController extends Controller
         $model = new Typecourse();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }
@@ -97,9 +87,9 @@ class TypecourseController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }

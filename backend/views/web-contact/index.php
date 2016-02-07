@@ -9,6 +9,8 @@ use yii\grid\GridView;
 
 $this->title = 'จัดการติดต่อ';
 $this->params['breadcrumbs'][] = $this->title;
+use prawee\assets\PwAsset;
+PwAsset::register($this);
 ?>
 <div class="web-contact-index">
 
@@ -38,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             'name',
-            'datail',
+            'detail',
             'phone',
             'email:email',
             // 'created_at',

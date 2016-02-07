@@ -47,5 +47,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ],
     ]) ?>
+            <div class="">
+                <?= Html::a('<i class="faa-pulse  wa animated fa fa-arrow-circle-left"></i> กลับหน้าหลัก', ['index'],
+                    ['class' => 'btn btn-warning btn-raised btn-sm']) ?>
+            </div>
 
         </div></div></div>
