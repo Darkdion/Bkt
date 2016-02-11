@@ -26,7 +26,7 @@ class WebCourse extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public  $foder='imgcourse';
+    public  $foder='photos/photocourse';
     public static function tableName()
     {
         return 'web_course';

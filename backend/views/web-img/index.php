@@ -53,10 +53,10 @@ PwAsset::register($this);
             ['class' => 'btn btn-success btn-raised btn-sm']) ?>
 
     </div>
-
+    <div class="table-responsive">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        //'filterModel' => $searchModel,
+        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -84,17 +84,19 @@ PwAsset::register($this);
                 'format'=>'html',
                 'value'=>function($model){
                     return $model->status==0?'<i class="glyphicon glyphicon-remove"></i> <span class="text-danger">ปิดการใช้งาน</span>':'<i class="glyphicon glyphicon-ok"></i> <span class="text-success">เปิดการใช้งาน</span>';
-                }
+                },
+                'filter'=>Html::activeDropDownList($searchModel,'status',['0'=>'ปิดการใช้งาน','1'=>'เปิดการใช้งาน']
+        ,['class'=>'form-control','prompt'=>'ค้นหาสถานะ']),
             ],
-            'created_at:date',
-             'updated_at:date',
+//            'created_at:date',
+//             'updated_at:date',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
 
-</div>
+    </div></div>
 
     </div><!--end .card-body -->
 </div><!--end .card -->

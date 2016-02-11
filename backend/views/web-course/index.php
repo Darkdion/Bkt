@@ -30,6 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::a('<i class="faa-shake animated fa fa-plus"></i> สร้างคอร์สเรียน', ['create'], ['class' => 'btn btn-success btn-sm btn-raised']) ?>
             </div>
 
+
+            <div class="table-responsive">
+
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 // 'filterModel' => $searchModel,
@@ -73,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\ActionColumn'],
                 ],
             ]); ?>
-
+            </div>
         </div>
     </div>
 </div>

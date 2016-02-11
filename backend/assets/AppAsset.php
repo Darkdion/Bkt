@@ -36,7 +36,7 @@ class AppAsset extends AssetBundle
      public $js = [
 
 //         'themes/assets/js/libs/jquery/jquery-1.11.2.min.js',
-         'themes/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js',
+        // 'themes/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js',
          //'themes/assets/js/libs/bootstrap/bootstrap.min.js',
          'themes/assets/js/libs/spin.js/spin.min.js',
          'themes/assets/js/libs/autosize/jquery.autosize.min.js',

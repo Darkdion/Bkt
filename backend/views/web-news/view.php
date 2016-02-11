@@ -16,7 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="card-head"><header> <h1><i class=" faa-float animated fa fa-desktop "> </i> <?= Html::encode($this->title) ?></h1></header></div>
         <div class="card-body">
 
+<?php
 
+$view=$model->viewtotail+1;
+$model->viewtotail=$view;
+$model->save();
+?>
         <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [

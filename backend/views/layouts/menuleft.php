@@ -61,7 +61,7 @@
                 </a>
                 <ul>
                     <li><a href="<?=\yii\helpers\Url::to('?r=typecourse/index') ?>" ><span class="title">จัดการประเภทคอร์สเรียน</span></a></li>
-                    <li><a href="../../html/tables/dynamic.html" ><span class="title">Dynamic Tables</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::to('?r=course/index') ?>" ><span class="title">จัดการคอร์สเรียน</span></a></li>
                     <li><a href="../../html/tables/responsive.html" ><span class="title">Responsive Table</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->

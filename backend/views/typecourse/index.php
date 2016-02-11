@@ -52,7 +52,7 @@ use yii\bootstrap\Modal;
 
             </div>
 
-
+<div class="table-responsive">
             <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -96,7 +96,7 @@ use yii\bootstrap\Modal;
             ],
         ],
     ]); ?>
-
+</div>
         </div></div></div>
 <?php $this->registerJs('
         function init_click_handlers(){

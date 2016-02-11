@@ -25,6 +25,10 @@
         "kartik-v/yii2-widgets": "*",
         "2amigos/yii2-ckeditor-widget": "~1.0",
         "prawee/yii2-widgets": "dev-master"
+
+
+
+
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

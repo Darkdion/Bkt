@@ -182,7 +182,7 @@
           // always add a primary to the main option in a two-button dialog
           button.className = "btn-danger";
         } else {
-          button.className = "btn-default";
+          button.className = " btn-default";
         }
       }
     });

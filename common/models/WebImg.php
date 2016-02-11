@@ -21,7 +21,7 @@ class WebImg extends \yii\db\ActiveRecord
      * @inheritdoc
      */
 
-    public  $foder='imgslider';
+    public  $foder='photos/photoslider';
     public static function tableName()
     {
         return 'web_img';

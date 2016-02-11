@@ -114,9 +114,8 @@ class ActionColumn extends Column
                     'title' => Yii::t('yii', 'View'),
                     'aria-label' => Yii::t('yii', 'View'),
                     'data-pjax' => '0',
-                    'data-toggle'=>"tooltip",
                 ], $this->buttonOptions);
-                return Html::a('<span class="btn btn-icon-toggle glyphicon glyphicon-eye-open"></span>', $url, $options);
+                return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, $options);
             };
         }
         if (!isset($this->buttons['update'])) {
@@ -124,10 +123,9 @@ class ActionColumn extends Column
                 $options = array_merge([
                     'title' => Yii::t('yii', 'Update'),
                     'aria-label' => Yii::t('yii', 'Update'),
-                    'data-toggle'=>"tooltip",
                     'data-pjax' => '0',
                 ], $this->buttonOptions);
-                return Html::a('<span class="btn btn-icon-toggle glyphicon glyphicon-pencil"></span>', $url, $options);
+                return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, $options);
             };
         }
         if (!isset($this->buttons['delete'])) {
@@ -135,12 +133,11 @@ class ActionColumn extends Column
                 $options = array_merge([
                     'title' => Yii::t('yii', 'Delete'),
                     'aria-label' => Yii::t('yii', 'Delete'),
-                    'data-toggle'=>"tooltip",
                     'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
                     'data-method' => 'post',
                     'data-pjax' => '0',
                 ], $this->buttonOptions);
-                return Html::a('<span class="btn btn-icon-toggle glyphicon glyphicon-trash"></span>', $url, $options);
+                return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, $options);
             };
         }
     }
