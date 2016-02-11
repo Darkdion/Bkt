@@ -12,8 +12,12 @@ use yii\bootstrap\Modal;
     <div class="card">
     <div class="card-body">
 
-        <div style="width: 250px; height: 200px;">
-        <a href="<?=$model->photoViewer?>" class="thumbnail image-link" ">
+        <div style="width: 250px; height: 200px;
+        background-size: cover;
+                          background-position:center center;
+                          background-repeat:no-repeat;
+        ">
+        <a href="<?=$model->photoViewer?>" class="thumbnail image-link img-responsive" ">
             <img src="<?=$model->photoViewer?>" alt="">
         </a>
         </div>
