@@ -18,9 +18,12 @@ return [
     ],
     'language'=>'TH',
     'components' => [
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+           // 'enableSession' => true,
+           // 'authTimeout' => 20,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

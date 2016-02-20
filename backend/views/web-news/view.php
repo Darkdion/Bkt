@@ -3,6 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+use prawee\assets\PwAsset;
+
+PwAsset::register($this);
+
 /* @var $this yii\web\View */
 /* @var $model common\models\WebNews */
 
@@ -22,16 +26,19 @@ $view=$model->viewtotail+1;
 $model->viewtotail=$view;
 $model->save();
 ?>
-        <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+            <p>
+
+                <?= Html::a('<i class="faa-shake animated fa fa-plus"></i> สร้างข่าวประชาสัมพันธ์', ['create'], ['class' => 'btn btn-success btn-sm btn-raised']) ?>
+
+                <?= Html::a('<i class="faa-horizontal animated fa fa-edit"></i> ปรับปรุง', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm btn-raised']) ?>
+                <?= Html::a('<i class="faa-shake animated fa fa-trash"></i> ลบข้อมูล', ['delete', 'id' => $model->id], [
+                    'class' => 'btn btn-danger btn-sm btn-raised',
+                    'data' => [
+                        'confirm' => 'คุณต้องการลบข้อมูลนี้หรือไหม?',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </p>
 
     <?= DetailView::widget([
         'model' => $model,

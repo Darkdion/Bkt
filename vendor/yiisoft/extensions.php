@@ -111,24 +111,6 @@ return array (
       '@kartik/sidenav' => $vendorDir . '/kartik-v/yii2-widget-sidenav',
     ),
   ),
-  'kartik-v/yii2-widget-select2' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-select2',
-    'version' => '2.0.7.0',
-    'alias' => 
-    array (
-      '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2',
-    ),
-  ),
-  'kartik-v/yii2-widget-rating' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-rating',
-    'version' => '1.0.1.0',
-    'alias' => 
-    array (
-      '@kartik/rating' => $vendorDir . '/kartik-v/yii2-widget-rating',
-    ),
-  ),
   'kartik-v/yii2-widget-rangeinput' => 
   array (
     'name' => 'kartik-v/yii2-widget-rangeinput',
@@ -289,6 +271,43 @@ return array (
     'alias' => 
     array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii',
+    ),
+  ),
+  'mdmsoft/yii2-autonumber' => 
+  array (
+    'name' => 'mdmsoft/yii2-autonumber',
+    'version' => '1.4.0.0',
+    'alias' => 
+    array (
+      '@mdm/autonumber' => $vendorDir . '/mdmsoft/yii2-autonumber',
+    ),
+    'bootstrap' => 'mdm\\autonumber\\Bootstrap',
+  ),
+  '2amigos/yii2-date-picker-widget' => 
+  array (
+    'name' => '2amigos/yii2-date-picker-widget',
+    'version' => '1.0.5.0',
+    'alias' => 
+    array (
+      '@dosamigos/datepicker' => $vendorDir . '/2amigos/yii2-date-picker-widget/src',
+    ),
+  ),
+  'kartik-v/yii2-widget-select2' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-select2',
+    'version' => '2.0.8.0',
+    'alias' => 
+    array (
+      '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2',
+    ),
+  ),
+  'kartik-v/yii2-widget-rating' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-rating',
+    'version' => '1.0.2.0',
+    'alias' => 
+    array (
+      '@kartik/rating' => $vendorDir . '/kartik-v/yii2-widget-rating',
     ),
   ),
 );

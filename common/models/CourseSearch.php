@@ -18,8 +18,8 @@ class CourseSearch extends Course
     public function rules()
     {
         return [
-            [['id', 'price', 'typecourse_id', 'teacher_id'], 'integer'],
-            [['name', 'detail', 'date_s', 'date_c', 'photos'], 'safe'],
+            [['id',  'price', 'typecourse_id', 'teacher_id'], 'integer'],
+            [['name','cod_id', 'detail', 'date_s', 'date_c', 'photos'], 'safe'],
         ];
     }
 
@@ -57,6 +57,7 @@ class CourseSearch extends Course
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'cod_id'=>$this->cod_id,
             'price' => $this->price,
             'date_s' => $this->date_s,
             'date_c' => $this->date_c,
@@ -66,7 +67,8 @@ class CourseSearch extends Course
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'detail', $this->detail])
-            ->andFilterWhere(['like', 'photos', $this->photos]);
+            ->andFilterWhere(['like', 'cod_id', $this->cod_id])
+        ->andFilterWhere(['like', 'photos', $this->photos]);
 
         return $dataProvider;
     }

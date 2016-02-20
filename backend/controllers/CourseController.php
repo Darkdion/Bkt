@@ -51,7 +51,7 @@ class CourseController extends Controller
      */
     public function actionView($id)
     {
-        return $this->renderAjax('view', [
+        return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -100,7 +100,7 @@ class CourseController extends Controller
             return $this->redirect(['index', 'id' => $model->id]);
         } else {
 
-            return $this->renderAjax('update', [
+            return $this->render('update', [
                 'model' => $model,
             ]);
         }

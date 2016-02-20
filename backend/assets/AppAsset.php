@@ -20,10 +20,12 @@ class AppAsset extends AssetBundle
     public $css = [
        // 'themes/dist/css/bootstrap-switch.css',
       'themes/assets/css/theme-default/bootstrap.css?1422792965',
-
+//        'material/css/material.min.css',
+//        'material/ripples.min.css',
 
         'themes/assets/css/theme-default/materialadmin.css?1425466319',
-//        'themes/assets/css/theme-2/materialadmin.css?1425466319',
+        //'themes/assets/css/theme-2/materialadmin.css?1425466319',
+
 
          'themes/assets/css/theme-default/font-awesome.min.css?1422529194',
          'themes/assets/css/theme-default/material-design-iconic-font.min.css?1421434286',

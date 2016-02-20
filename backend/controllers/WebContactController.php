@@ -47,6 +47,7 @@ class WebContactController extends Controller
         $searchModel = new WebContactSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

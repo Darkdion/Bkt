@@ -6,7 +6,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-
+use yii\helpers\ArrayHelper;
 /**
  * User model
  *
@@ -22,13 +22,23 @@ use yii\web\IdentityInterface;
  * @property string $password write-only password
  */
 class User extends ActiveRecord implements IdentityInterface
+
 {
+    public $password;
+    public $confirm_password;
+    public $roles;
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
     /**
      * @inheritdoc
      */
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['registration'] = ['username','email'];
+        return $scenarios;
+    }
     public static function tableName()
     {
         return '{{%user}}';
@@ -52,9 +62,56 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+
+            ['username', 'filter', 'filter' => 'trim'],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'มีชื่อผู้ใช้นี้แล้วในระบบ.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'มีอีเมล์นี้แล้วในระบบ.'],
+
+            [ ['password','confirm_password'] ,'required'],
+            [['password','confirm_password'] , 'string', 'min' => 6],
+            ['confirm_password','compare','compareAttribute'=>'password'],
         ];
     }
 
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('app', 'ID'),
+            'username' => Yii::t('app', 'ชื่อผู้ใช้งาน'),
+            'auth_key' => Yii::t('app', 'Auth Key'),
+            'password_hash' => Yii::t('app', 'Password Hash'),
+            'password_reset_token' => Yii::t('app', 'Password Reset Token'),
+            'email' => Yii::t('app', 'อีเมล์'),
+            'status' => Yii::t('app', 'สถานนะ'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
+            'password' => Yii::t('app', 'รหัสผ่าน'),
+            'confirm_password' => Yii::t('app', 'ยืนยันรหัสผ่าน'),
+        ];
+    }
+    public function UserFrom()
+    {
+        if ($this->validate()) {
+            $user = new User();
+            $user->username = $this->username;
+            $user->email = $this->email;
+            $user->setPassword($this->password);
+            $user->generateAuthKey();
+            if ($user->save()) {
+                return $user;
+            }
+        }
+
+        return null;
+    }
     /**
      * @inheritdoc
      */
@@ -151,7 +208,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
-
+    public function getSchool(){
+        return $this->hasMany(Student::className(), ['id' => 'user_id'])
+            ->via('school');
+    }
     /**
      * Generates password hash from password and sets it to the model
      *
@@ -185,4 +245,48 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    public function getItemStatus(){
+        return [
+            self::STATUS_ACTIVE => 'เปิดใช้งาน',
+            self::STATUS_DELETED => 'ปิดการใช้งาน'
+        ];
+    }
+    public function getStatusName()
+    {
+        $items = $this->getItemStatus();
+        return array_key_exists($this->status, $items) ? $items[$this->status] : '';
+    }
+
+    public function getAllRoles(){
+        $auth = $auth = Yii::$app->authManager;
+        return ArrayHelper::map($auth->getRoles(),'name','name');
+    }
+
+    public function getRoleByUser(){
+        $auth = Yii::$app->authManager;
+        $rolesUser = $auth->getRolesByUser($this->id);
+        $roleItems = $this->getAllRoles();
+        $roleSelect=[];
+
+        foreach ($roleItems as $key => $roleName) {
+            foreach ($rolesUser as $role) {
+                if($key==$role->name){
+                    $roleSelect[$key]=$roleName;
+                }
+            }
+        }
+        $this->roles = $roleSelect;
+    }
+
+    public function assignment(){
+        $auth = Yii::$app->authManager;
+        $roleUser = $auth->getRolesByUser($this->id);
+        $auth->revokeAll($this->id);
+        foreach ($this->roles as $key => $roleName) {
+            $auth->assign($auth->getRole($roleName),$this->id);
+        }
+    }
+
+
 }

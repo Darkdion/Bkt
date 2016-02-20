@@ -5,27 +5,16 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Course */
 
-$this->title = 'ปรับปรุงรหัสที่: ' . ' ' . $model->id;
+$this->title = 'ปรับปรุง รหัสที่ : ' . ' ' . $model->cod_id;
 $this->params['breadcrumbs'][] = ['label' => 'จัดการคอร์สเรียน', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'ปรับปรุง';
 ?>
 <div class="course-update">
 
-    <div class="card card-bordered style-warning">
-        <div class="card-head">
-            <div class="tools">
-                <div class="btn-group">
-                    <div class="btn-group">
-
-                    </div>
-                    <a class="btn btn-icon-toggle btn-refresh"><i class="md md-refresh"></i></a>
-
-                </div>
-            </div>
-
-        </div><!--end .card-head -->
-        <div class="card-body style-default-bright">
+    <div class="card">
+        <div class="card-head"><header> <h1><i class=" faa-shake animated fa fa-edit "> </i> <?= Html::encode($this->title) ?></h1></header></div>
+        <div class="card-body">
 
     <?= $this->render('_form', [
         'model' => $model,

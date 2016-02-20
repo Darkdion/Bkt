@@ -24,7 +24,10 @@
         "prawee/yii2-assets": "dev-master",
         "kartik-v/yii2-widgets": "*",
         "2amigos/yii2-ckeditor-widget": "~1.0",
-        "prawee/yii2-widgets": "dev-master"
+        "prawee/yii2-widgets": "dev-master",
+        "mdmsoft/yii2-autonumber": "~1.0",
+        "2amigos/yii2-date-picker-widget": "~1.0"
+
 
 
 

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use wbraganca\fancytree;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\WebContactSearch */
@@ -38,6 +39,7 @@ PwAsset::register($this);
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
+
             //'id',
             'name',
             'detail',
@@ -45,8 +47,8 @@ PwAsset::register($this);
             'email:email',
             // 'created_at',
             // 'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
+           // ['class'=>'prawee\grid\ActionColumn'],
+           ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

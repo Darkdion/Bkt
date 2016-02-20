@@ -18,8 +18,8 @@ class TeacherSearch extends Teacher
     public function rules()
     {
         return [
-            [['t_id', 'title', 'sex'], 'integer'],
-            [['fistname', 'lastname', 'identification', 'education_end', 'birthday', 'address', 'phone'], 'safe'],
+            [['id', 'title', 'sex', 'age', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'surname', 'identification', 'birthday', 'province', 'amphur', 'district', 'address', 'experience', 'phone'], 'safe'],
         ];
     }
 
@@ -56,17 +56,23 @@ class TeacherSearch extends Teacher
         }
 
         $query->andFilterWhere([
-            't_id' => $this->t_id,
+            'id' => $this->id,
             'title' => $this->title,
             'birthday' => $this->birthday,
             'sex' => $this->sex,
+            'age' => $this->age,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'fistname', $this->fistname])
-            ->andFilterWhere(['like', 'lastname', $this->lastname])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'surname', $this->surname])
             ->andFilterWhere(['like', 'identification', $this->identification])
-            ->andFilterWhere(['like', 'education_end', $this->education_end])
+            ->andFilterWhere(['like', 'province', $this->province])
+            ->andFilterWhere(['like', 'amphur', $this->amphur])
+            ->andFilterWhere(['like', 'district', $this->district])
             ->andFilterWhere(['like', 'address', $this->address])
+            ->andFilterWhere(['like', 'experience', $this->experience])
             ->andFilterWhere(['like', 'phone', $this->phone]);
 
         return $dataProvider;

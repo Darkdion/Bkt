@@ -33,7 +33,7 @@
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="<?=\yii\helpers\Url::to('?r=web-img/index')?>" ><span class="title">จัดการรูปภาพ</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('web-img/index')?>" ><span class="title">จัดการรูปภาพ</span></a></li>
 
                     <li class="gui-folder">
                         <a href="javascript:void(0);">
@@ -41,18 +41,30 @@
                         </a>
                         <!--start submenu -->
                         <ul>
-                            <li><a href="<?=\yii\helpers\Url::to('?r=newscategories/index')?>" ><span class="title">จัดการหมวดหมู่</span></a></li>
-                            <li><a href="<?=\yii\helpers\Url::to('?r=web-news/index')?>" ><span class="title">จัดการข่าวและประชาสัมพันธ์</span></a></li>
+                            <li><a href="<?=\yii\helpers\Url::toRoute('newscategories/index')?>" ><span class="title">จัดการหมวดหมู่</span></a></li>
+                            <li><a href="<?=\yii\helpers\Url::toRoute('web-news/index')?>" ><span class="title">จัดการข่าวและประชาสัมพันธ์</span></a></li>
 
                         </ul><!--end /submenu -->
                     </li><!--end /submenu-li -->
-                    <li><a href="<?=\yii\helpers\Url::to('?r=web-course/index')?>" ><span class="title">จัดการความรู้ทั่วไปและคอร์สเรียน</span></a></li>
-                    <li><a href="<?=\yii\helpers\Url::to('?r=web-contact/index')?>" ><span class="title">จัดการที่อยู่และติดต่อเกี่ยวกับเรา</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('web-course/index')?>" ><span class="title">จัดการความรู้ทั่วไปและคอร์สเรียน</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('web-contact/index')?>" ><span class="title">จัดการที่อยู่และติดต่อเกี่ยวกับเรา</span></a></li>
 
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
             <!-- END EMAIL -->
 
+            <li class="gui-folder">
+                <a>
+                    <div class="gui-icon"><i class="fa fa-cube"></i></div>
+                    <span class="title">จัดการข้อมูลประเภท</span>
+                </a>
+                <!--start submenu -->
+                <ul>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('school/index') ?>" ><span class="title">จัดการข้อมูลโรงเรียน</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('typecourse/index') ?>" ><span class="title">จัดการข้อมูลประเภทคอร์สเรียน</span></a></li>
+
+                </ul><!--end /submenu -->
+            </li><!--end /menu-li -->
             <!-- BEGIN DASHBOARD -->
             <li class="gui-folder">
                 <a  >
@@ -60,9 +72,9 @@
                     <span class="title">จัดการคอร์สเรียน</span>
                 </a>
                 <ul>
-                    <li><a href="<?=\yii\helpers\Url::to('?r=typecourse/index') ?>" ><span class="title">จัดการประเภทคอร์สเรียน</span></a></li>
-                    <li><a href="<?=\yii\helpers\Url::to('?r=course/index') ?>" ><span class="title">จัดการคอร์สเรียน</span></a></li>
-                    <li><a href="../../html/tables/responsive.html" ><span class="title">Responsive Table</span></a></li>
+
+                    <li><a href="<?=\yii\helpers\Url::toRoute('course/index') ?>" ><span class="title">จัดการคอร์สเรียน</span></a></li>
+
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
 
@@ -73,9 +85,9 @@
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="../../html/tables/static.html" ><span class="title">Static Tables</span></a></li>
-                    <li><a href="../../html/tables/dynamic.html" ><span class="title">Dynamic Tables</span></a></li>
-                    <li><a href="../../html/tables/responsive.html" ><span class="title">Responsive Table</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('student/index') ?>" ><span class="title">จัดการสมาชิก</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('teacher/index') ?>" ><span class="title">จัดการอาจารย์ผู้สอน</span></a></li>
+                    <li><a href="<?=\yii\helpers\Url::toRoute('manager/index')?>" ><span class="title">จัดการพนักงาน</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
             <!-- END TABLES -->

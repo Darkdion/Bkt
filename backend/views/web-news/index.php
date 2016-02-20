@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
           //  'id',
             'name',
           //  'detail',
-           // 'viewtotail',
+            'viewtotail',
 //            'status',
 
             [

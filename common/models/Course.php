@@ -28,6 +28,7 @@ class Course extends \yii\db\ActiveRecord
      * @inheritdoc
      */
     public  $foder='photos/course';
+
     public static function tableName()
     {
         return 'course';
@@ -36,9 +37,22 @@ class Course extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => 'mdm\autonumber\Behavior',
+                'attribute' => 'cod_id', // required
+                'group' => $this->cod_id, // optional
+                'value' => 'COD'.date('Ymd').'?' , // format auto number. '?' will be replaced with generated number
+                'digit' => 4 // optional, default to null.
+            ],
+        ];
+    }
     public function rules()
     {
         return [
+            [['cod_id'], 'autonumber', 'format'=>'COD'.date('Ymd').'?'],
             [['price', 'typecourse_id', 'teacher_id'], 'integer'],
             [['date_s', 'date_c'], 'safe'],
 
@@ -74,8 +88,10 @@ class Course extends \yii\db\ActiveRecord
      */
     public function getTeacher()
     {
-        return $this->hasOne(Teacher::className(), ['t_id' => 'teacher_id']);
+        return $this->hasOne(Teacher::className(), ['id' => 'teacher_id']);
     }
+
+
 
     /**
      * @return \yii\db\ActiveQuery
