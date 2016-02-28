@@ -4,7 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
-
+use yii\behaviors\TimestampBehavior;
 /**
  * This is the model class for table "teacher".
  *
@@ -33,6 +33,12 @@ class Teacher extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
 
     const SEX_MEN = 1;
     const SEX_WOMEN = 2;
@@ -69,8 +75,9 @@ class Teacher extends \yii\db\ActiveRecord
             'surname' => 'นามสกุล',
             'identification' => 'เลขบัตรประชาชน',
             'birthday' => 'วันเกิด',
+            'sexName' => 'เพศ',
             'sex' => 'เพศ',
-            'age' => 'Age',
+            'age' => 'อายุ',
             'province' => 'จังหวัด',
             'amphur' => 'อำเภอ',
             'district' => 'ตำบล',
@@ -79,6 +86,7 @@ class Teacher extends \yii\db\ActiveRecord
             'phone' => 'เบอร์โทร',
             'created_at' => 'วันที่สร้าง',
             'updated_at' => 'วันที่แก้ไข',
+            'fullName'=>'ชื่อ-นามสกุล',
         ];
     }
 
@@ -153,10 +161,7 @@ class Teacher extends \yii\db\ActiveRecord
         return self::itemsAlias('title');
     }
 
-    public function getItemSkill()
-    {
-        return self::itemsAlias('skill');
-    }
+
 
     public function getSexName(){
         return ArrayHelper::getValue($this->getItemSex(),$this->sex);
@@ -174,20 +179,7 @@ class Teacher extends \yii\db\ActiveRecord
         return ArrayHelper::getValue($this->getItemTitle(),$this->title);
     }
 
-    public function getSkillName(){
-        $skills = $this->getItemSkill();
-        $skillSelected = explode(',', $this->skill);
-        $skillSelectedName = [];
-        foreach ($skills as $key => $skillName) {
-            foreach ($skillSelected as $skillKey) {
-                if($key === $skillKey){
-                    $skillSelectedName[] = $skillName;
-                }
-            }
-        }
 
-        return implode(', ', $skillSelectedName);
-    }
 
     public function getFullName()
     {
@@ -206,5 +198,28 @@ class Teacher extends \yii\db\ActiveRecord
     public function getCourses()
     {
         return $this->hasMany(Course::className(), ['teacher_id' => 'id']);
+    }
+
+    ///////////////////เชื่อมกับ เบส อำเภอ ตำบล จังหวัด
+
+    public function getProvinces(){
+        return @$this->hasOne(Province::className(),['PROVINCE_ID'=>'province']);
+    }
+    public function getProvinceName(){
+        return @$this->provinces->PROVINCE_NAME;
+    }
+
+    public function getAmphurs(){
+        return @$this->hasOne(Amphur::className(),['AMPHUR_ID'=>'province']);
+    }
+    public function getAmphurName(){
+        return @$this->amphurs->AMPHUR_NAME;
+    }
+
+    public function getDistricts(){
+        return @$this->hasOne(District::className(),['DISTRICT_ID'=>'province']);
+    }
+    public function getDistrictName(){
+        return @$this->districts->DISTRICT_NAME;
     }
 }

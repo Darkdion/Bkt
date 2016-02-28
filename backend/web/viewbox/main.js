@@ -1,3 +1,0 @@
-$(function(){
-    $('.image-link').viewbox();
-});

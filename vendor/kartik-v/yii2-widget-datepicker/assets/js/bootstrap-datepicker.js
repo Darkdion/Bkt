@@ -23,7 +23,7 @@
 	}
 	function isUTCEquals(date1, date2) {
 		return (
-			date1.getUTCFullYear() === date2.getUTCFullYear() &&
+			date1.getUTCFullYear()+543 === date2.getUTCFullYear()+543 &&
 			date1.getUTCMonth() === date2.getUTCMonth() &&
 			date1.getUTCDate() === date2.getUTCDate()
 		);
@@ -294,7 +294,7 @@
 				o.orientation.y = _plc[0] || 'auto';
 			}
 			if (o.defaultViewDate) {
-				var year = o.defaultViewDate.year || new Date().getFullYear();
+				var year = o.defaultViewDate.year || new Date().getFullYear()+543;
 				var month = o.defaultViewDate.month || 0;
 				var day = o.defaultViewDate.day || 1;
 				o.defaultViewDate = UTCDate(year, month, day);
@@ -533,7 +533,7 @@
 			return local && new Date(local.getTime() - (local.getTimezoneOffset()*60000));
 		},
 		_zero_time: function(local){
-			return local && new Date(local.getFullYear(), local.getMonth(), local.getDate());
+			return local && new Date(local.getFullYear()+543, local.getMonth(), local.getDate());
 		},
 		_zero_utc_time: function(utc){
 			return utc && new Date(Date.UTC(utc.getUTCFullYear(), utc.getUTCMonth(), utc.getUTCDate()));
@@ -841,7 +841,7 @@
 
 		getClassNames: function(date){
 			var cls = [],
-				year = this.viewDate.getUTCFullYear(),
+				year = this.viewDate.getUTCFullYear()+534,
 				month = this.viewDate.getUTCMonth(),
 				today = new Date();
 			if (date.getUTCFullYear() < year || (date.getUTCFullYear() === year && date.getUTCMonth() < month)){
@@ -1744,7 +1744,7 @@
 				setters_order = ['yyyy', 'yy', 'M', 'MM', 'm', 'mm', 'd', 'dd'],
 				setters_map = {
 					yyyy: function(d,v){
-						return d.setUTCFullYear(v);
+						return d.setUTCFullYear(v+543);
 					},
 					yy: function(d,v){
 						return d.setUTCFullYear(2000+v);
@@ -1827,8 +1827,8 @@
 				m: date.getUTCMonth() + 1,
 				M: dates[language].monthsShort[date.getUTCMonth()],
 				MM: dates[language].months[date.getUTCMonth()],
-				yy: date.getUTCFullYear().toString().substring(2),
-				yyyy: date.getUTCFullYear()
+				yy: date.getUTCFullYear().toString().substring(2)+543,
+				yyyy: date.getUTCFullYear()+543
 			};
 			val.dd = (val.d < 10 ? '0' : '') + val.d;
 			val.mm = (val.m < 10 ? '0' : '') + val.m;

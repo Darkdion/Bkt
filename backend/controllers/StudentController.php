@@ -50,9 +50,11 @@ class StudentController extends Controller
         $searchModel = new StudentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
         ]);
     }
 
@@ -90,6 +92,22 @@ class StudentController extends Controller
                 $model->user_id =$user->id;
                 $model->save();
             }
+            Yii::$app->getSession()->setFlash('alert', [
+                'type' => Growl::TYPE_SUCCESS,
+                'duration' => 1700,
+                'icon' => 'fa fa-floppy-o fa-2x',
+                'title' => Yii::t('app', Html::encode('บันทึกข้อมูล'), ['class' => 'text-center']),
+                'message' => Yii::t('app',Html::encode('บันทึกข้อมูลข้อมูลสมาชิกเรียบร้อย !')),
+                'showSeparator' => true,
+                'delay' => 1500,
+                'pluginOptions' => [
+                    'showProgressbar' => true,
+                    'placement' => [
+                        'from' => 'top',
+                        'align' => 'right',
+                    ]
+                ]
+            ]);
 
             return $this->redirect(['index', 'id' => $model->id]);
         } else {
@@ -161,10 +179,27 @@ class StudentController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($id ,$user_id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)-> delete();
+        $this->findModelUser($user_id)->delete();
 
+        Yii::$app->getSession()->setFlash('alert', [
+            'type' => Growl::TYPE_WARNING,
+            'duration' => 1700,
+            'icon' => 'fa fa-trash fa-2x',
+            'title' => Yii::t('app', Html::encode('ลบข้อมูล')),
+            'message' => Yii::t('app',Html::encode('ลบข้อมูลเรียบร้อย !')),
+            'showSeparator' => true,
+            'delay' => 1500,
+            'pluginOptions' => [
+                'showProgressbar' => true,
+                'placement' => [
+                    'from' => 'top',
+                    'align' => 'right',
+                ]
+            ]
+        ]);
         return $this->redirect(['index']);
     }
 
@@ -192,6 +227,8 @@ class StudentController extends Controller
         }
     }
 
+
+//////เชื่อกับเบส อำเภอ จังหวัด ตำบล
     public function actionGetAmphur() {
         $out = [];
         if (isset($_POST['depdrop_parents'])) {

@@ -1,117 +1,105 @@
-<div id="menubar" class="menubar-inverse ">
-    <div class="menubar-fixed-panel">
-        <div>
-            <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        <div class="expanded">
-            <a href="<?= \yii\helpers\Url::to('site/index')?>">
-                <span class="text-lg text-bold text-primary "></span>
-            </a>
-        </div>
+<?php
+use yii\helpers\Url;
+use common\models\Student;
+?>
+
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+    <div class="menu_section">
+        <h3>เมนูและเครื่องมือ</h3>
+        <ul class="nav side-menu">
+            <li><a href="<?= Url::to(['site/index'])?>"><i class="fa fa-home"></i> หน้าหลัก </a>
+
+
+            </li>
+            <li><a><i class="fa fa-edit"></i> จัดการข้อมูลทั่วไป <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?= \yii\helpers\Url::to(['student/index'])?>">จัดการข้อมุลสมาชิก <span class="label label-success pull-right"><?=Student::find()->count()?></span></a>
+
+                    <li><a href="<?= \yii\helpers\Url::to(['teacher/index'])?>">จัดการข้อมูลอาจารย์ <span class="label label-success  pull-right"><?=\common\models\Teacher::find()->count()?></span></a>
+                    <li><a href="<?= \yii\helpers\Url::to(['school/index'])?>">จัดการข้อมูลโรงเรียน <span class="label label-danger pull-right"><?=\common\models\School::find()->count()?></span></a>
+                    </li>
+
+                </ul>
+            </li>
+            <li><a><i class="fa fa-book"></i> ลงทะเบียนเรียน <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?=Url::to(['register-course/index']) ?>">ลงคอร์สเรียน <span class="label label-success pull-right">0</span></a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li><a><i class="fa fa-desktop"></i> จัดการข้อมูลคอรส์เรียน <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?=Url::to(['typecourse/index']) ?>">จัดการประเภทคอร์สเรียน <span class="label label-success pull-right">0</span></a>
+                    </li>
+                    <li><a href="<?=Url::to(['course/index']) ?>">จัดการคอร์สเรียน <span class="label label-success pull-right">0</span></a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li><a><i class="fa fa-money"></i> จัดการข้อมูลการชำระ<span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">การชำระใบเสร็จรับเงิน </a>
+                    </li>
+                    <li><a href="#">การชำระทั้งหมด  <span class="label label-success pull-right">0</span></a>
+                    </li>
+
+                </ul>
+            </li>
+            <li><a><i class="fa fa-bar-chart-o"></i> ใบเสร็จรับเงิน <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">ป้อนใบเสร็จรับเงิน</a>
+                    </li>
+                    <li><a href="#">ยกเลิกใบเสร็จรับเงิน</a>
+                    </li>
+                    <li><a href="#">ค้นหาข้อมูลใบเสร็จรับเงิน</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li><a><i class="fa fa-paypal"></i> แสดงการแจ้งชำระ <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">การแจ้งชำระทั้งหมด</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li><a><i class="fa fa-print"></i> ออกรายงาน <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">ออกรายงานสมาชิกทั้งหมด</a>
+                    </li>
+                    <li><a href="#">ออกรายงานอาจารย์</a>
+                    </li>
+                    <li><a href="#">ออกรายงานใบเสร็จ</a>
+                    </li>
+                    <li><a href="#">ออกรายงานรายวัน</a>
+                    </li>
+                    <li><a href="#">ออกรายงานรายวัน เดือน ปี</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
     </div>
-    <div class="menubar-scroll-panel">
+    <div class="menu_section">
+        <h3>รายงานอื่นๆ</h3>
+        <ul class="nav side-menu">
+            <li><a><i class="fa fa-bug"></i> ใบเช็คชื่อ <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="e_commerce.html">E-commerce</a>
 
-        <!-- BEGIN MAIN MENU -->
-        <ul id="main-menu" class="gui-controls">
-
-            <!-- BEGIN DASHBOARD -->
-            <li>
-                <a href="<?= Yii::$app->homeUrl?>" class="active">
-                    <div class="gui-icon"><i class="md md-home"></i></div>
-                    <span class="title">หน้าหลัก</span>
-                </a>
-            </li><!--end /menu-li -->
-            <!-- END DASHBOARD -->
-
-            <!-- BEGIN EMAIL -->
-            <li class="gui-folder">
-                <a >
-                    <div class="gui-icon"><i class="md md-web"></i></div>
-                    <span class="title">จัดการเว็บไซต์</span>
-                </a>
-                <!--start submenu -->
-                <ul>
-                    <li><a href="<?=\yii\helpers\Url::toRoute('web-img/index')?>" ><span class="title">จัดการรูปภาพ</span></a></li>
-
-                    <li class="gui-folder">
-                        <a href="javascript:void(0);">
-                            <span class="title">จัดการข่าว</span>
-                        </a>
-                        <!--start submenu -->
-                        <ul>
-                            <li><a href="<?=\yii\helpers\Url::toRoute('newscategories/index')?>" ><span class="title">จัดการหมวดหมู่</span></a></li>
-                            <li><a href="<?=\yii\helpers\Url::toRoute('web-news/index')?>" ><span class="title">จัดการข่าวและประชาสัมพันธ์</span></a></li>
-
-                        </ul><!--end /submenu -->
-                    </li><!--end /submenu-li -->
-                    <li><a href="<?=\yii\helpers\Url::toRoute('web-course/index')?>" ><span class="title">จัดการความรู้ทั่วไปและคอร์สเรียน</span></a></li>
-                    <li><a href="<?=\yii\helpers\Url::toRoute('web-contact/index')?>" ><span class="title">จัดการที่อยู่และติดต่อเกี่ยวกับเรา</span></a></li>
-
-                </ul><!--end /submenu -->
-            </li><!--end /menu-li -->
-            <!-- END EMAIL -->
-
-            <li class="gui-folder">
-                <a>
-                    <div class="gui-icon"><i class="fa fa-cube"></i></div>
-                    <span class="title">จัดการข้อมูลประเภท</span>
-                </a>
-                <!--start submenu -->
-                <ul>
-                    <li><a href="<?=\yii\helpers\Url::toRoute('school/index') ?>" ><span class="title">จัดการข้อมูลโรงเรียน</span></a></li>
-                    <li><a href="<?=\yii\helpers\Url::toRoute('typecourse/index') ?>" ><span class="title">จัดการข้อมูลประเภทคอร์สเรียน</span></a></li>
-
-                </ul><!--end /submenu -->
-            </li><!--end /menu-li -->
-            <!-- BEGIN DASHBOARD -->
-            <li class="gui-folder">
-                <a  >
-                    <div class="gui-icon"><i class="md md-book"></i></div>
-                    <span class="title">จัดการคอร์สเรียน</span>
-                </a>
-                <ul>
-
-                    <li><a href="<?=\yii\helpers\Url::toRoute('course/index') ?>" ><span class="title">จัดการคอร์สเรียน</span></a></li>
-
-                </ul><!--end /submenu -->
-            </li><!--end /menu-li -->
-
-            <li class="gui-folder">
-                <a>
-                    <div class="gui-icon"><i class="fa fa-users"></i></div>
-                    <span class="title">จัดการข้อมูลทั่วไป</span>
-                </a>
-                <!--start submenu -->
-                <ul>
-                    <li><a href="<?=\yii\helpers\Url::toRoute('student/index') ?>" ><span class="title">จัดการสมาชิก</span></a></li>
-                    <li><a href="<?=\yii\helpers\Url::toRoute('teacher/index') ?>" ><span class="title">จัดการอาจารย์ผู้สอน</span></a></li>
-                    <li><a href="<?=\yii\helpers\Url::toRoute('manager/index')?>" ><span class="title">จัดการพนักงาน</span></a></li>
-                </ul><!--end /submenu -->
-            </li><!--end /menu-li -->
-            <!-- END TABLES -->
-            <li class="gui-folder">
-                <a>
-                    <div class="gui-icon"><i class="fa fa-print"></i></div>
-                    <span class="title">จัดการออกรายงาน</span>
-                </a>
-                <!--start submenu -->
-                <ul>
-                    <li><a href="../../html/tables/static.html" ><span class="title">Static Tables</span></a></li>
-                    <li><a href="../../html/tables/dynamic.html" ><span class="title">Dynamic Tables</span></a></li>
-                    <li><a href="../../html/tables/responsive.html" ><span class="title">Responsive Table</span></a></li>
-                </ul><!--end /submenu -->
+                </ul>
             </li>
 
+            <li><a><i class="fa fa-laptop"></i> ข้อมูลนักเรียน <span class="label label-success pull-right">0</span></a>
+            </li>
+            <li><a><i class="fa fa-shopping-cart color" ></i> ชำระคอร์เรียน <span class="label label-danger pull-right">0</span></a>
+            </li>
+        </ul>
+    </div>
 
-        </ul><!--end .main-menu -->
-        <!-- END MAIN MENU -->
-
-        <div class="menubar-foot-panel">
-            <small class="no-linebreak hidden-folded">
-                <span class="opacity-75">Copyright &copy; 2014</span> <strong>CodeCovers</strong>
-            </small>
-        </div>
-    </div><!--end .menubar-scroll-panel-->
-</div><!--end #menubar-->
+</div>

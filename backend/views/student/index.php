@@ -9,29 +9,25 @@ use yii\grid\GridView;
 
 $this->title = 'จัดการข้อมูลสมาชิก';
 $this->params['breadcrumbs'][] = $this->title;
+use prawee\assets\PwAsset;
+PwAsset::register($this);
 ?>
-<div class="student-index">
-    <div class="card  ">
-        <div class="card-head">
-            <div class="tools">
-                <div class="btn-group">
-                    <div class="btn-group">
+<div class="x_panel">
+    <div class="x_title">
+        <h2> <i class=" faa-pulse animated fa fa-users"> </i> <?= Html::encode($this->title) ?></h2>
+        <ul class="nav navbar-right panel_toolbox">
 
-                    </div>
-                    <a class="btn btn-icon-toggle btn-refresh"><i class="md md-refresh"></i></a>
-                    <a class="btn btn-icon-toggle btn-collapse"><i class="fa fa-angle-down"></i></a>
-                    <a class="btn btn-icon-toggle btn-close "><i class="md md-close"></i></a>
-                </div>
-            </div>
-            <header> <h1><i class=" faa-horizontal animated-hover fa fa-users fa-2x"> </i> <?= Html::encode($this->title) ?></h1></header>
-        </div><!--end .card-head -->
-        <div class="card-body style-default-bright">
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
             <div class="text-right">
                 <?= Html::a('<i class="faa-bounce animated-hover  fa fa-plus"></i> สร้างสมาชิก', ['create'], ['class' => 'btn btn-success btn-sm btn-raised']) ?>
             </div>
 
 
             <?= GridView::widget([
+
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -42,12 +38,14 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'title',
 //            'firstname',
 //            'lastname',
-            'identification',
+            //'identification',
              'education',
             // 'birthday',
             // 'sex',
-            // 'address',
+            'username',
+             'address',
              'schoolName',
+            'sexName',
             // 'province',
             // 'amphur',
             // 'district',
@@ -56,7 +54,12 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'template' => ' {view}{update}{delete}',
+                'contentOptions' => [
+                    'noWrap' => true
+
+            ],]
         ],
     ]); ?>
 

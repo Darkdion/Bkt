@@ -53,9 +53,9 @@ class Course extends \yii\db\ActiveRecord
     {
         return [
             [['cod_id'], 'autonumber', 'format'=>'COD'.date('Ymd').'?'],
-            [['price', 'typecourse_id', 'teacher_id'], 'integer'],
-            [['date_s', 'date_c'], 'safe'],
-
+           // [['price', 'typecourse_id', 'teacher_id'], 'integer'],
+            [['date_s', 'date_c','price', 'typecourse_id', 'teacher_id'], 'safe'],
+            // [['price'],'float'],
             [['typecourse_id', 'teacher_id'], 'required'],
             [['name','detail'], 'string'],
             [['photos'], 'file',

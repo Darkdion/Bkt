@@ -41,16 +41,17 @@ class Student extends \yii\db\ActiveRecord
 
     const SEX_MEN = 1;
     const SEX_WOMEN = 2;
-    public static function tableName()
-    {
-        return 'student';
-    }
     public function behaviors()
     {
         return [
             TimestampBehavior::className(),
         ];
     }
+    public static function tableName()
+    {
+        return 'student';
+    }
+
     /**
      * @inheritdoc
      */
@@ -61,7 +62,7 @@ class Student extends \yii\db\ActiveRecord
 
 
             ['identification','unique','targetClass' => '\common\models\Student', 'message' => 'เลขบัตรประชาชนซ้ำหรือมีผู้งานงานแล้ว'],
-            [['birthday','schoolName'], 'safe'],
+            [['birthday','schoolName','sex'], 'safe'],
             [['school_id','schoolName','province','amphur','district'], 'required'],
             [['firstname', 'lastname'], 'string', 'max' => 50],
             [['identification','education','title'],'required'],
@@ -97,12 +98,20 @@ class Student extends \yii\db\ActiveRecord
             'updated_at' => 'วันที่แก้ไข',
             'fullName'=>'ชื่อ-นามสกุล',
             'schoolName'=>'โรงเรียนที่สังกัด',
+            'username'=>'ชื่อผู้ใช้งาน',
+            'sexName'=>'เพศ',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'user_id']);
+    }
+    public function getUsername(){
+        return $this->user->username;
+    }
     public function getPayments()
     {
         return $this->hasMany(Payment::className(), ['student_id' => 'id']);

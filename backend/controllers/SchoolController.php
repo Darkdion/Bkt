@@ -134,7 +134,22 @@ class SchoolController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        Yii::$app->getSession()->setFlash('alert', [
+            'type' => Growl::TYPE_WARNING,
+            'duration' => 1700,
+            'icon' => 'fa fa-trash fa-2x',
+            'title' => Yii::t('app', Html::encode('ลบข้อมูล')),
+            'message' => Yii::t('app',Html::encode('ลบข้อมูลเรียบร้อย !')),
+            'showSeparator' => true,
+            'delay' => 1500,
+            'pluginOptions' => [
+                'showProgressbar' => true,
+                'placement' => [
+                    'from' => 'top',
+                    'align' => 'right',
+                ]
+            ]
+        ]);
         return $this->redirect(['index']);
     }
 

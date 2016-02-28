@@ -7,49 +7,48 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 Yii::$app->layout='layoutlogin';
-$this->title = 'Login';
+$this->title = 'สถาบันกวดวิชา';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
+<div class="">
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
 
-<section class="section-account">
-    <div class="img-backdrop" style="background-image: url('themes/assets/img/img16.jpg')"></div>
-    <div class="spacer"></div>
-    <div class="card contain-sm style-transparent">
-
-        <div class="card">
-            <div class="card-body">
-
-            <div class="row">
-                <div class= "col-sm-3"></div>
-                <div class="col-sm-6">
-                    <br/>
-                    <span class="text-lg text-bold text-primary"> <i class="fa  fa-spin md md-settings"></i> จัดการโรงเรียนกวดวิชาบ้านครูติ๊กติเตอร์</span>
-                    <br/><br/>
-                    <?php $form = ActiveForm::begin(['id' => 'login-form',
-                        'options'=>['form floating-label']
-
-                    ]); ?>
-                    <label for="loginform-username">ชื่อผู้ใช้งาน </label>
-                    <?= $form->field($model, 'username')->textInput()->label(false)?>
-                    <label for="loginform-username">รหัสผ่าน </label>
-                    <?= $form->field($model, 'password')->passwordInput()->label(false) ?>
-                    <div class="checkbox  ">
-
-                        <?= $form->field($model, 'rememberMe')->checkbox() ?>
+    <div id="wrapper">
+        <div id="login" class="animate form">
+            <section class="login_content">
+                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                    <h1>Login Form</h1>
+                    <div>
+                        <?= $form->field($model, 'username')->textInput(['autofocus' => true,'placeholder'=>'กรอก']) ?>
                     </div>
-
-
-                    <div class="form-group">
-                        <?= Html::submitButton('เข้าสู่ระบบ', ['class' => 'btn btn-block btn-raised btn-primary', 'name' => 'login-button']) ?>
+                    <div>
+                        <?= $form->field($model, 'password')->passwordInput() ?>
                     </div>
+                    <div>
+                        <?= Html::submitButton('เข้าสู่ระบบ', ['class' => 'btn btn-primary btn-block', 'name' => 'login-button']) ?>
+                        <a class="reset_pass" href="#">Lost your password?</a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="separator">
 
-                    <?php ActiveForm::end(); ?>
+                        <p class="change_link">New to site?
+                            <a href="#toregister" class="to_register"> Create Account </a>
+                        </p>
+                        <div class="clearfix"></div>
+                        <br />
+                        <div>
+                            <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
 
-                </div><!--end .col -->
+                            <p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                        </div>
+                    </div>
+                <?php ActiveForm::end(); ?>
+                <!-- form -->
+            </section>
+            <!-- content -->
+        </div>
 
-            </div>
-            </div><!--end .row -->
-        </div><!--end .card-body -->
-    </div><!--end .card -->
-</section>
+    </div>
+</div>

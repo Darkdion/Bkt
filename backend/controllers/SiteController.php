@@ -1,11 +1,13 @@
 <?php
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
+use yii\web\Session;
 
 /**
  * Site controller
@@ -65,7 +67,9 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+
+            if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
             return $this->render('login', [

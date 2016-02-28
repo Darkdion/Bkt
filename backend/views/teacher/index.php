@@ -7,17 +7,25 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\TeacherSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Teachers';
+$this->title = 'จัดการข้อมูลอาจารย์';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="teacher-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Teacher', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2> <i class=" faa-horizontal animated fa fa-user-secret fa-2x"> </i> <?= Html::encode($this->title) ?></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+            <div class="text-right">
+                <?= Html::a('<i class="faa-bounce animated fa fa-user-plus"></i> สร้างอาจารย์', ['create'], ['class' => 'btn btn-success btn-sm btn-raised']) ?>
+            </div>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,12 +33,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'title',
-            'name',
-            'surname',
+
+            'fullName',
+//            'id',
+//            'title',
+//            'name',
+//            'surname',
+        'sexName',
             'identification',
-             'birthday',
+             'birthday:date',
             // 'sex',
             // 'age',
             // 'province',
@@ -46,4 +57,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-</div>
+        </div></div>

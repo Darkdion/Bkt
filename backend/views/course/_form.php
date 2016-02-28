@@ -12,6 +12,8 @@ use common\models\Teacher;
 /* @var $this yii\web\View */
 /* @var $model common\models\Course */
 /* @var $form yii\widgets\ActiveForm */
+
+use kartik\money\MaskMoney;
 ?>
 
 <div class="course-form">
@@ -49,7 +51,16 @@ use common\models\Teacher;
     <div class="row">
 
         <div class="col-md-4">
-            <?= $form->field($model, 'price')->textInput() ?>
+            <?=
+            $form->field($model, 'price')->widget(MaskMoney::classname(), [
+                'pluginOptions' => [
+                    'prefix' => ' ',
+                    'suffix' => '฿',
+                    'allowNegative' => false
+                ]
+            ]);
+            ?>
+
         </div>
         <div class="col-md-4">
             <?= $form->field($model, 'date_s')->widget(DatePicker::classname(), [

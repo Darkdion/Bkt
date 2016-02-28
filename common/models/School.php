@@ -49,8 +49,8 @@ class School extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'id' => 'รหัสโรงเรียน',
+            'name' => 'ชื่อโรงเรียน',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

@@ -2,9 +2,11 @@
 
 namespace backend\controllers;
 
+use kartik\widgets\Growl;
 use Yii;
 use common\models\Course;
 use common\models\CourseSearch;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -70,6 +72,22 @@ class CourseController extends Controller
 
             $model->photos=$model->upload($model,'photos');
             $model->save();
+            Yii::$app->getSession()->setFlash('alert', [
+                'type' => Growl::TYPE_SUCCESS,
+                'duration' => 1700,
+                'icon' => 'fa fa-users fa-2x',
+                'title' => Yii::t('app', Html::encode('บันทึก'), ['class' => 'text-center']),
+                'message' => Yii::t('app',Html::encode('บันทึกข้อมูลคอร์สเรียนเรียบร้อย !')),
+                'showSeparator' => true,
+                'delay' => 1500,
+                'pluginOptions' => [
+                    'showProgressbar' => true,
+                    'placement' => [
+                        'from' => 'top',
+                        'align' => 'right',
+                    ]
+                ]
+            ]);
 
             return $this->redirect(['index', 'id' => $model->id]);
         } else {
@@ -93,9 +111,21 @@ class CourseController extends Controller
 
             $model->photos=$model->upload($model,'photos');
             $model->save();
-            Yii::$app->getSession()->setFlash('success',[
-                'body'=>'ปรับปรุงเรียบร้อยแล้ว',
-                'options'=>['class'=>'alert-success']
+            Yii::$app->getSession()->setFlash('alert', [
+                'type' => Growl::TYPE_INFO,
+                'duration' => 1700,
+                'icon' => 'fa fa-edit fa-2x',
+                'title' => Yii::t('app', Html::encode('ปรับปรุง'), ['class' => 'text-center']),
+                'message' => Yii::t('app',Html::encode('ปรับปรุงข้อมูลคอร์สเรียนเรียบร้อย !')),
+                'showSeparator' => true,
+                'delay' => 1500,
+                'pluginOptions' => [
+                    'showProgressbar' => true,
+                    'placement' => [
+                        'from' => 'top',
+                        'align' => 'right',
+                    ]
+                ]
             ]);
             return $this->redirect(['index', 'id' => $model->id]);
         } else {
