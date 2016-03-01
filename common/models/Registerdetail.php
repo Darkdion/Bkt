@@ -50,6 +50,9 @@ class Registerdetail extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Course::className(), ['id' => 'course_id']);
     }
+    public function getNameCourse(){
+        return $this->course->name;
+    }
 
     /**
      * @return \yii\db\ActiveQuery

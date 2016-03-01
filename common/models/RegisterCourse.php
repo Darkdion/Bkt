@@ -70,6 +70,10 @@ class RegisterCourse extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Student::className(), ['id' => 'student_id']);
     }
+    public function getFullName()
+    {
+        return $this->student->titleName.$this->student->firstname.' '.$this->student->lastname;
+    }
 
 
     /**

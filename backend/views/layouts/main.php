@@ -90,14 +90,14 @@ ThemesAsset::register($this);
                     <ul class="nav navbar-nav navbar-right">
 
                         <li class="">
-                            <a href="<?=Url::to(['site/logout']) ?>" data-method="post" data-confilm="" class=" user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <a href="<?=Url::to(['site/logout']) ?>" data-method="post" data-confilm="" class="  user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-power-off"></i> ออกจากระบบ
 
                             </a>
 
                         </li>
                         <li role="presentation" class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                            <a href="<?=Url::toRoute('payment/pay')?>" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                 <i class="btn btn-danger fa fa-shopping-cart"> ยังไม่ชำระ </i>  <span class="badge bg-orange"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
 
                             </a>
@@ -129,6 +129,7 @@ ThemesAsset::register($this);
                     <?= Breadcrumbs::widget([
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     ]) ?>
+
                     <?php foreach (Yii::$app->session->getAllFlashes() as $message):; ?>
                         <?php
 

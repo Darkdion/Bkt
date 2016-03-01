@@ -54,10 +54,10 @@ use yii\widgets\ActiveForm;
                 <tr>
                     <th width="40px" style="text-align: right">no</th>
                     <th width="100px">code</th>
-                    <th>name</th>
-                    <th width="100px" style="text-align: right">price</th>
+                    <th>ชื่อคอร์สเรียน</th>
+                    <th width="100px" style="text-align: right">ราคา</th>
 
-                    <th width="40px">&nbsp;</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -78,25 +78,13 @@ use yii\widgets\ActiveForm;
                             <?php echo number_format($c['price']); ?>
                         </td>
 
-                        <td style="text-align: center">
-                            <?php
-                            $product_id = null;
 
-                            if (!empty($product)) {
-                                $product_id = $product->id;
-                            }
-                            ?>
-                            <a href="index.php?r=register-course/cartremove&index=<?php echo ($n - 2); ?>&id=<?php echo $product_id; ?>"
-                               class="btn btn-danger btn-sm">
-                                <i class="glyphicon glyphicon-trash"></i>
-                            </a>
-                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="3"><strong>Total</strong></td>
+                    <td colspan="3"><strong>ยอดรวม</strong></td>
 
                     <td style="text-align: right">
                         <?php echo number_format($sumPrice); ?>
@@ -108,10 +96,10 @@ use yii\widgets\ActiveForm;
             <div style="text-align: center">
                 <a href="index.php?r=register-course/addtocart" class="btn btn-primary btn-lg">
                     <i class="glyphicon glyphicon-chevron-left"></i>
-                    Cart Management
+                 กลับหน้าจัดการคอร์สเรียน
                 </a>
                 <a href="javascript:void(0)" onclick="document.formCheckout.submit()" class="btn btn-success btn-lg">
-                    Checkout Now
+                    ยืนยันการลงทะเบียน
                     <i class="glyphicon glyphicon-chevron-right"></i>
                 </a>
             </div>

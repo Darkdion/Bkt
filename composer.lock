@@ -318,16 +318,16 @@
         },
         {
             "name": "bower-asset/jquery",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "6fc01e29bdad0964f62ef56d01297039cdcadbe5"
+                "reference": "788eaba2f83e7b7445c7a83a50c81c0704423874"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/6fc01e29bdad0964f62ef56d01297039cdcadbe5",
-                "reference": "6fc01e29bdad0964f62ef56d01297039cdcadbe5",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/788eaba2f83e7b7445c7a83a50c81c0704423874",
+                "reference": "788eaba2f83e7b7445c7a83a50c81c0704423874",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -560,22 +560,22 @@
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "cde72929649da55470e0a81a5e85921f80f28f29"
+                "reference": "32b0ccb2562b9c83f12222ddd1406986a45450d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/cde72929649da55470e0a81a5e85921f80f28f29",
-                "reference": "cde72929649da55470e0a81a5e85921f80f28f29",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/32b0ccb2562b9c83f12222ddd1406986a45450d1",
+                "reference": "32b0ccb2562b9c83f12222ddd1406986a45450d1",
                 "shasum": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2.x-dev"
+                    "dev-master": "4.3.x-dev"
                 }
             },
             "autoload": {
@@ -609,20 +609,20 @@
                 "progress",
                 "upload"
             ],
-            "time": "2016-01-25 16:55:20"
+            "time": "2016-02-28 02:23:49"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
-            "version": "v4.0.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
-                "reference": "c19be9f8bd6b29cee0110e048a2c04bb6f1c4761"
+                "reference": "d66083c14f9386ede23fccb76dea1a380db67ded"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/c19be9f8bd6b29cee0110e048a2c04bb6f1c4761",
-                "reference": "c19be9f8bd6b29cee0110e048a2c04bb6f1c4761",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/d66083c14f9386ede23fccb76dea1a380db67ded",
+                "reference": "d66083c14f9386ede23fccb76dea1a380db67ded",
                 "shasum": ""
             },
             "type": "library",
@@ -653,7 +653,7 @@
                 "star",
                 "svg"
             ],
-            "time": "2016-02-18 04:03:30"
+            "time": "2016-02-28 16:13:18"
         },
         {
             "name": "kartik-v/dependent-dropdown",
@@ -746,12 +746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e"
+                "reference": "574c0e310bda692253c1ba0eac9a94c699b299d5"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/574c0e310bda692253c1ba0eac9a94c699b299d5",
-                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e",
+                "reference": "574c0e310bda692253c1ba0eac9a94c699b299d5",
                 "shasum": ""
             },
             "require": {
@@ -787,7 +787,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-01-28 16:50:34"
+            "time": "2016-02-19 18:29:46"
         },
         {
             "name": "kartik-v/yii2-krajee-base",

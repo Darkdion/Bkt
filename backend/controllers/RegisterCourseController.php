@@ -110,7 +110,7 @@ class RegisterCourseController extends Controller
                 $session->set('coursecart', $cart);
             }else{
 
-                Yii::$app->session->setFlash('danger', 'มีรายวิชานี้อยู่');
+               Yii::$app->session->setFlash('danger', 'มีรายวิชานี้อยู่');
 
 
             }
@@ -158,37 +158,38 @@ class RegisterCourseController extends Controller
     {
         $session = new Session();
         $session->open();
+        if (!empty($session->get('coursecart'))) {
+            $cart = $session->get('coursecart');
+        }
 
-        $cart = $session->get('coursecart');
+
         $RegisterCourse = new RegisterCourse();
-
+        var_dump($cart);
         if (!empty($_POST)) {
             // save bill order
-
-
             $RegisterCourse->created_at = new Expression('NOW()');
             $RegisterCourse->status = '0';
             $RegisterCourse->student_id = $_POST['RegisterCourse']['student_id'];
 
             if ($RegisterCourse->save()) {
                 // loop read data from session to database
-                $billOrderDetail = new Registerdetail();
-                $billOrderDetail->register_course_id = $RegisterCourse->id;
-                foreach ($cart as $c) {
 
+                foreach ($cart as $c) {
+                    $billOrderDetail = new Registerdetail();
+                    $billOrderDetail->register_course_id = $RegisterCourse->id;
                     $billOrderDetail->course_id = $c['id'];
                     $billOrderDetail->price = $c['price'];
 
                     $billOrderDetail->save();
                 }
-
+//
                 // clear session
                 $session->set('coursecart', null);
 
                 return $this->redirect(['checkoutsuccess']);
             }
         }
-
+//
         return $this->render('//register-course/Checkout', [
             'n' => 1,
             'cart' => $cart,

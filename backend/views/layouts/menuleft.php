@@ -12,6 +12,30 @@ use common\models\Student;
 
 
             </li>
+            <li><a><i class="fa fa-money"></i> ชำระ <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+
+                    <li><a href="<?=Url::toRoute('payment/index')?>">ชำระคอร์สเรียน</a>
+                    </li>
+
+                    <li><a href="#">ยกเลิกใบเสร็จรับเงิน</a>
+                    </li>
+                    <li><a href="#">ค้นหาข้อมูลใบเสร็จรับเงิน</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">จัดการภาพสไลค์ </a> </li>
+                    <li><a href="#">จัดการประเภทข่าวแะหมวดหมู่</a></li>
+                    <li><a href="#">จัดการข้อมูลข่าว</a></li>
+                    <li><a href="#">จัดการข้อมูลติดต่อ</a></li>
+
+
+                </ul>
+            </li>
             <li><a><i class="fa fa-edit"></i> จัดการข้อมูลทั่วไป <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?= \yii\helpers\Url::to(['student/index'])?>">จัดการข้อมุลสมาชิก <span class="label label-success pull-right"><?=Student::find()->count()?></span></a>
@@ -40,26 +64,8 @@ use common\models\Student;
 
                 </ul>
             </li>
-            <li><a><i class="fa fa-money"></i> จัดการข้อมูลการชำระ<span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">การชำระใบเสร็จรับเงิน </a>
-                    </li>
-                    <li><a href="#">การชำระทั้งหมด  <span class="label label-success pull-right">0</span></a>
-                    </li>
 
-                </ul>
-            </li>
-            <li><a><i class="fa fa-bar-chart-o"></i> ใบเสร็จรับเงิน <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">ป้อนใบเสร็จรับเงิน</a>
-                    </li>
-                    <li><a href="#">ยกเลิกใบเสร็จรับเงิน</a>
-                    </li>
-                    <li><a href="#">ค้นหาข้อมูลใบเสร็จรับเงิน</a>
-                    </li>
 
-                </ul>
-            </li>
             <li><a><i class="fa fa-paypal"></i> แสดงการแจ้งชำระ <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="#">การแจ้งชำระทั้งหมด</a>

@@ -12,7 +12,7 @@ return [
 
 //        'urlManager' => [
 //            'class' => 'yii\web\UrlManager',
-//            // Disable index.php
+//            // Disable pay.php
 //            'showScriptName' => false,
 //            // Disable r= routes
 //            'enablePrettyUrl' => true,

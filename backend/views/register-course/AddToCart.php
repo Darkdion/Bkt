@@ -135,10 +135,11 @@ $session->open();
                 <i class="glyphicon glyphicon-chevron-left"></i>
                 เลือกวิชาเรียนเพิ่ม
             </a>
-            <a href="index.php?r=register-course/checkout" class="btn btn-success btn-lg">
-               ยืนยันการสั่งซื้อ55
+            <a href="index.php?r=register-course/checkout" id="myButton"class="btn btn-success btn-lg">
+               ขั้นตอนต่อไป
                 <i class="glyphicon glyphicon-chevron-right"></i>
             </a>
         </div>
     </div>
 </div>
+

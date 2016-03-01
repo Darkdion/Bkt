@@ -32,8 +32,8 @@ class ThemesAsset extends AssetBundle
     ];
     public $js = [
         //'gentelella/js/chartjs/chart.min.js',
-//        //'gentelella/js/progressbar/bootstrap-progressbar.min.js',
-//        'gentelella/js/nicescroll/jquery.nicescroll.min.js',
+        'gentelella/js/progressbar/bootstrap-progressbar.min.js',
+  'gentelella/js/nicescroll/jquery.nicescroll.min.js',
 //        'gentelella/js/icheck/icheck.min.js',
 //        //'gentelella/js/gauge/gauge.min.js',
 //       // 'gentelella/js/gauge/gauge_demo.js',
@@ -51,11 +51,11 @@ class ThemesAsset extends AssetBundle
 //        'gentelella/js/flot/date.js',
 //        'gentelella/js/flot/jquery.flot.spline.js',
 //        'gentelella/js/flot/jquery.flot.stack.js',
-//        'gentelella/js/flot/curvedLines.js',
+      //  'gentelella/js/flot/curvedLines.js',
 //        'gentelella/js/flot/jquery.flot.resize.js',
-//        'gentelella/js/notify/pnotify.core.js',
-//          'gentelella/่js/notify/pnotify.buttons.js',
-//            'gentelella/js/notify/pnotify.nonblock.js',
+        'gentelella/js/notify/pnotify.core.js',
+       /// 'gentelella/่js/notify/pnotify.buttons.js',
+            'gentelella/js/notify/pnotify.nonblock.js',
         'gentelella/js/custom.js',
 
     ];
