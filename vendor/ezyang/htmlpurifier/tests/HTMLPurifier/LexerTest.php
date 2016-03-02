@@ -444,9 +444,9 @@ class HTMLPurifier_LexerTest extends HTMLPurifier_Harness
     public function test_tokenizeHTML_entityInAttribute()
     {
         $this->assertTokenization(
-            '<a href="pay.php?title=foo&amp;id=bar">Link</a>',
+            '<a href="paytotall.php?title=foo&amp;id=bar">Link</a>',
             array(
-                new HTMLPurifier_Token_Start('a',array('href' => 'pay.php?title=foo&id=bar')),
+                new HTMLPurifier_Token_Start('a',array('href' => 'paytotall.php?title=foo&id=bar')),
                 new HTMLPurifier_Token_Text('Link'),
                 new HTMLPurifier_Token_End('a'),
             )

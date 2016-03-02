@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a7c47a7e09e0972b77df05c86867ca8b",
-    "content-hash": "193a55592c94a23e07f2bf485d6791df",
+    "hash": "e385465a78c5ac54e628d60e6be0883f",
+    "content-hash": "46ebf6685fd55aa25374d1bdbb2d6fdd",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -513,6 +513,46 @@
                 "markdown-extra"
             ],
             "time": "2015-03-06 05:28:07"
+        },
+        {
+            "name": "dixonsatit/yii2-thai-year-formatter",
+            "version": "0.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dixonsatit/yii2-thai-year-formatter.git",
+                "reference": "35667e16b4d544b3dcc65b987ef1ee6c1f38cf97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dixonsatit/yii2-thai-year-formatter/zipball/35667e16b4d544b3dcc65b987ef1ee6c1f38cf97",
+                "reference": "35667e16b4d544b3dcc65b987ef1ee6c1f38cf97",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dixonsatit\\thaiYearFormatter\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "satit seethaphon",
+                    "email": "dixonsatit@gmail.com"
+                }
+            ],
+            "description": "Convert Year to Thai Buddhist Era Year",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2015-07-02 02:38:03"
         },
         {
             "name": "ezyang/htmlpurifier",

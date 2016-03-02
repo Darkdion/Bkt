@@ -319,4 +319,13 @@ return array (
       '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
     ),
   ),
+  'dixonsatit/yii2-thai-year-formatter' => 
+  array (
+    'name' => 'dixonsatit/yii2-thai-year-formatter',
+    'version' => '0.9.6.0',
+    'alias' => 
+    array (
+      '@dixonsatit/thaiYearFormatter' => $vendorDir . '/dixonsatit/yii2-thai-year-formatter',
+    ),
+  ),
 );

@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%register_course}}".
@@ -23,6 +24,13 @@ class RegisterCourse extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
     public static function tableName()
     {
         return '{{%register_course}}';
@@ -35,7 +43,8 @@ class RegisterCourse extends \yii\db\ActiveRecord
     {
         return [
             [['student_id'], 'required'],
-            [['student_id', 'status', 'created_at', 'update_at'], 'safe'],
+            [['student_id', 'status', 'created_at', 'updated_at','paydate'], 'safe'],
+
 
         ];
     }
@@ -51,7 +60,8 @@ class RegisterCourse extends \yii\db\ActiveRecord
             'date_register' => 'วันที่ลงทะเบียน',
             'status' => 'สถานะ',
             'created_at' => 'วันที่สร้าง',
-            'update_at' => 'วันที่แก้ไข',
+            'updated_at' => 'วันที่แก้ไข',
+
         ];
     }
 

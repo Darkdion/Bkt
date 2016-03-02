@@ -2721,5 +2721,47 @@
             "widget",
             "yii2"
         ]
+    },
+    {
+        "name": "dixonsatit/yii2-thai-year-formatter",
+        "version": "0.9.6",
+        "version_normalized": "0.9.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dixonsatit/yii2-thai-year-formatter.git",
+            "reference": "35667e16b4d544b3dcc65b987ef1ee6c1f38cf97"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dixonsatit/yii2-thai-year-formatter/zipball/35667e16b4d544b3dcc65b987ef1ee6c1f38cf97",
+            "reference": "35667e16b4d544b3dcc65b987ef1ee6c1f38cf97",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "time": "2015-07-02 02:38:03",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "dixonsatit\\thaiYearFormatter\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "satit seethaphon",
+                "email": "dixonsatit@gmail.com"
+            }
+        ],
+        "description": "Convert Year to Thai Buddhist Era Year",
+        "keywords": [
+            "extension",
+            "yii2"
+        ]
     }
 ]

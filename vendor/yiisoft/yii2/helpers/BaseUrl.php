@@ -30,7 +30,7 @@ class BaseUrl
      * array format must be:
      *
      * ```php
-     * // generates: /pay.php?r=site/index&param1=value1&param2=value2
+     * // generates: /paytotall.php?r=site/index&param1=value1&param2=value2
      * ['site/index', 'param1' => 'value1', 'param2' => 'value2']
      * ```
      *
@@ -38,7 +38,7 @@ class BaseUrl
      * For example,
      *
      * ```php
-     * // generates: /pay.php?r=site/index&param1=value1#name
+     * // generates: /paytotall.php?r=site/index&param1=value1#name
      * ['site/index', 'param1' => 'value1', '#' => 'name']
      * ```
      *
@@ -58,19 +58,19 @@ class BaseUrl
      * Below are some examples of using this method:
      *
      * ```php
-     * // /pay.php?r=site/index
+     * // /paytotall.php?r=site/index
      * echo Url::toRoute('site/index');
      *
-     * // /pay.php?r=site/index&src=ref1#name
+     * // /paytotall.php?r=site/index&src=ref1#name
      * echo Url::toRoute(['site/index', 'src' => 'ref1', '#' => 'name']);
      *
-     * // http://www.example.com/pay.php?r=site/index
+     * // http://www.example.com/paytotall.php?r=site/index
      * echo Url::toRoute('site/index', true);
      *
-     * // https://www.example.com/pay.php?r=site/index
+     * // https://www.example.com/paytotall.php?r=site/index
      * echo Url::toRoute('site/index', 'https');
      *
-     * // /pay.php?r=post/index     assume the alias "@posts" is defined as "post/index"
+     * // /paytotall.php?r=post/index     assume the alias "@posts" is defined as "post/index"
      * echo Url::toRoute('@posts');
      * ```
      *
@@ -160,13 +160,13 @@ class BaseUrl
      * Below are some examples of using this method:
      *
      * ```php
-     * // /pay.php?r=site/index
+     * // /paytotall.php?r=site/index
      * echo Url::to(['site/index']);
      *
-     * // /pay.php?r=site/index&src=ref1#name
+     * // /paytotall.php?r=site/index&src=ref1#name
      * echo Url::to(['site/index', 'src' => 'ref1', '#' => 'name']);
      *
-     * // /pay.php?r=post/index     assume the alias "@posts" is defined as "/post/index"
+     * // /paytotall.php?r=post/index     assume the alias "@posts" is defined as "/post/index"
      * echo Url::to(['@posts']);
      *
      * // the currently requested URL
@@ -354,13 +354,13 @@ class BaseUrl
      * ```php
      * // assume $_GET = ['id' => 123, 'src' => 'google'], current route is "post/view"
      *
-     * // /pay.php?r=post/view&id=123&src=google
+     * // /paytotall.php?r=post/view&id=123&src=google
      * echo Url::current();
      *
-     * // /pay.php?r=post/view&id=123
+     * // /paytotall.php?r=post/view&id=123
      * echo Url::current(['src' => null]);
      *
-     * // /pay.php?r=post/view&id=100&src=google
+     * // /paytotall.php?r=post/view&id=100&src=google
      * echo Url::current(['id' => 100]);
      * ```
      *

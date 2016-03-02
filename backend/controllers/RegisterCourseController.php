@@ -167,7 +167,7 @@ class RegisterCourseController extends Controller
         var_dump($cart);
         if (!empty($_POST)) {
             // save bill order
-            $RegisterCourse->created_at = new Expression('NOW()');
+           // $RegisterCourse->created_at = new Expression('NOW()');
             $RegisterCourse->status = '0';
             $RegisterCourse->student_id = $_POST['RegisterCourse']['student_id'];
 

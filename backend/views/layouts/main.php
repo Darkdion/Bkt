@@ -97,7 +97,7 @@ ThemesAsset::register($this);
 
                         </li>
                         <li role="presentation" class="dropdown">
-                            <a href="<?=Url::toRoute('payment/pay')?>" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                            <a href="<?=Url::toRoute('payment/paytotall')?>" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                 <i class="btn btn-danger fa fa-shopping-cart"> ยังไม่ชำระ </i>  <span class="badge bg-orange"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
 
                             </a>

@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--        </div>-->
         <div class="text-center">
             <?php ActiveForm::begin([
-                'action' => 'pay.php?r=register-course/index',
+                'action' => 'paytotall.php?r=register-course/index',
                 'options' => [
                     'class' => 'form-inline',
                     'name' => 'formProduct'

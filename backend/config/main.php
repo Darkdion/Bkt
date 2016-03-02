@@ -19,7 +19,8 @@ return [
             'class' => '\kartik\grid\Module'
             ]
     ],
-    'language'=>'TH',
+    
+
     'components' => [
 
         'user' => [

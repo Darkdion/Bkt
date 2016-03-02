@@ -1,13 +1,27 @@
 <?php
+use kartik\mpdf\Pdf;
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'language'=>'th,TH',
+    'language'=>'th_TH', // เปิดใช้งานภาษาไทย
+     'timezone'=>'Asia/Bangkok',
     'components' => [
+        'pdf' => [
+            'class' => Pdf::classname(),
+            'format' => Pdf::FORMAT_A4,
+            'orientation' => Pdf::ORIENT_PORTRAIT,
+            'destination' => Pdf::DEST_BROWSER,
+            ],
+        'thaiFormatter'=>[
+            'class'=>'dixonsatit\thaiYearFormatter\ThaiYearFormatter',
+        ],
+
         'formatter' => [
-            'class' => 'yii\i18n\formatter',
-            'thousandSeparator' => ',',
-            'decimalSeparator' => '.',
-            'currencyCode' => '฿'
+          'dateFormat' => 'dd/MM/yyyy',
+          'decimalSeparator' => ',',
+          'thousandSeparator' => ' ',
+          'currencyCode' => 'EUR',
+
+
         ],
 
 //        'urlManager' => [

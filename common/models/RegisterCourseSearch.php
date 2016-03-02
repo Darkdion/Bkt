@@ -18,8 +18,8 @@ class RegisterCourseSearch extends RegisterCourse
     public function rules()
     {
         return [
-            [['id', 'student_id', 'status', 'created_at', 'update_at'], 'integer'],
-            [['date_register'], 'safe'],
+            [['id', 'student_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['paydate'], 'safe'],
         ];
     }
 
@@ -58,10 +58,10 @@ class RegisterCourseSearch extends RegisterCourse
         $query->andFilterWhere([
             'id' => $this->id,
             'student_id' => $this->student_id,
-            'date_register' => $this->date_register,
             'status' => $this->status,
+            'paydate' => $this->paydate,
             'created_at' => $this->created_at,
-            'update_at' => $this->update_at,
+            'updated_at' => $this->updated_at,
         ]);
 
         return $dataProvider;

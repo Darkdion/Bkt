@@ -45,6 +45,7 @@ return array(
     'dosamigos\\switchinput\\' => array($vendorDir . '/2amigos/yii2-switch-widget/src'),
     'dosamigos\\datepicker\\' => array($vendorDir . '/2amigos/yii2-date-picker-widget/src'),
     'dosamigos\\ckeditor\\' => array($vendorDir . '/2amigos/yii2-ckeditor-widget/src'),
+    'dixonsatit\\thaiYearFormatter\\' => array($vendorDir . '/dixonsatit/yii2-thai-year-formatter'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
 );
