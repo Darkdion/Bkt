@@ -83,19 +83,29 @@
     </table>
     <br>
     <table class="table" style="font-size:15pt;">
+        <?php
 
-        <tr>
-            <td style="padding-left:100px;  "></td>
-            <td style="padding-left:350px;font-weight:bold; ">ลงชื่อ _______________ ผู้รับเงิน</td>
-        </tr>
-        <tr>
-            <td style="padding-left: 100px;"></td>
-            <td style="padding-left:350px; font-weight:bold;  ">  &nbsp;&nbsp;
-                &nbsp;&nbsp; ( <?= Yii::$app->user->identity->username ?>)
-            </td>
 
-        </tr>
+        $per = \common\models\Personnel::find()->where(['user_id' => Yii::$app->user->id])->all();
 
+
+        ?>
+        <?php foreach ($per as $pers): ?>
+
+
+            <tr>
+                <td style="padding-left:100px;  "></td>
+                <td style="padding-left:350px;font-weight:bold; ">ลงชื่อ ..... <?= $pers->nameDot ?>......ผู้รับเงิน
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 100px;"></td>
+                <td style="padding-left:350px; font-weight:bold;  ">  &nbsp;&nbsp;
+                    &nbsp;&nbsp; ( <?= $pers->fullName ?>)
+                </td>
+
+            </tr>
+        <?php endforeach; ?>
     </table>
 
     <hr>

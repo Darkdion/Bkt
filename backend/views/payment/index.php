@@ -212,20 +212,16 @@
                         <div class="row no-print">
                             <div class="col-xs-12">
 
-                                <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i>
-                                    Print
-                                </button>
+
                                 <a href="index.php?r=payment/bill&id=<?php echo $model->id; ?>" class="btn btn-success btn-lg pull-right">
                                     <i class="glyphicon glyphicon-share-alt"></i>
                                     ชำระคอร์สเรียน
                                 </a>
 
-                                <button class="btn btn-info btn-lg pull-right" style="margin-right: 5px;"><i
-                                        class="fa fa-print"></i> พิมพ์ใบเสร็จ
-                                </button>
+
                                 <button class="btn btn-dark  btn-lg pull-right" onclick="document.formpayment.submit()"
                                         type="reset" href="5555" style="margin-right: 5px;"><i
-                                        class="fa fa-refresh fa-spin"> </i> Reset
+                                        class="fa fa-refresh fa-spin"> </i> ยกเลิก
                                 </button>
                                 <?php endforeach;?>
                             </div>

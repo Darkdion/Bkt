@@ -141,6 +141,8 @@ class Application extends \yii\base\Application
         return $this->get('user');
     }
 
+
+
     /**
      * @inheritdoc
      */

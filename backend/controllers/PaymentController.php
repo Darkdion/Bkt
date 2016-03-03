@@ -111,7 +111,7 @@ public function actionIndex()
         // setup kartik\mpdf\Pdf component
         $pdf = new Pdf([
             // set to use core fonts only
-            'mode' => Pdf::MODE_CORE,
+            'mode' =>  Pdf::MODE_UTF8,
             // A4 paper format
             'format' => Pdf::FORMAT_A4,
             // portrait orientation
@@ -120,6 +120,10 @@ public function actionIndex()
             'destination' => Pdf::DEST_BROWSER,
             // your html content input
             'content' => $content,
+
+            'marginTop' => 10,
+            'marginLeft' => 15,
+            'marginRight' => 15,
             // format content from your own css file if needed or use the
             // enhanced bootstrap css built by Krajee for mPDF formatting
             'cssFile' => '@vendor/kartik-v/yii2-mpdf/assets/kv-mpdf-bootstrap.min.css',

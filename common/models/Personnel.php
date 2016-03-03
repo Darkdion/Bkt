@@ -44,13 +44,7 @@ class Personnel extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
-            [
-                'class' => 'mdm\autonumber\Behavior',
-                'attribute' => 'per_id', // required
-                'group' => $this->per_id, // optional
-                'value' => ''.date('Ymd').'?' , // format auto number. '?' will be replaced with generated number
-                'digit' => 4 // optional, default to null.
-            ],
+
         ];
     }
     public static function tableName()
@@ -65,7 +59,7 @@ class Personnel extends \yii\db\ActiveRecord
     {
         return [
 
-            [['per_id'], 'autonumber', 'format'=>''.date('Ymd').'?'],
+
             [['birthday', 'sex', 'expire_date','title','marital','phone','salary'], 'safe'],
             [['firstname', 'lastname'], 'string', 'max' => 50],
             [['identification'], 'required'],
@@ -109,6 +103,9 @@ class Personnel extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getPayment(){
+        return $this->hasMany(Payments::className(), ['user_id' => 'created_by']);
+    }
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
@@ -213,6 +210,10 @@ class Personnel extends \yii\db\ActiveRecord
         return ArrayHelper::getValue($this->getItemTitle(),$this->title);
     }
 
+    public function getNameDot()
+    {
+        return $this->firstname;
+    }
     public function getFullName()
     {
         return $this->titleName.$this->firstname.' '.$this->lastname;

@@ -183,14 +183,14 @@ use yii\helpers\Url;
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">เงินเดือน</label>
         <div class="col-sm-8">
-            <?= $form->field($model, 'salary')->textInput() ?>
+            <?= $form->field($model, 'salary')->textInput()->label(false) ?>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">วันที่ลาออก</label>
         <div class="col-sm-8">
-            <?= $form->field($model, 'salary')->textInput() ?>
+            <?= $form->field($model, 'expire_date')->textInput()->label(false) ?>
         </div>
     </div>
 

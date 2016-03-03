@@ -17,12 +17,6 @@ use common\models\Student;
 
                     <li><a href="<?=Url::toRoute('payment/index')?>">ชำระคอร์สเรียน</a>
                     </li>
-
-                    <li><a href="#">ยกเลิกใบเสร็จรับเงิน</a>
-                    </li>
-                    <li><a href="#">ค้นหาข้อมูลใบเสร็จรับเงิน</a>
-                    </li>
-
                 </ul>
             </li>
 
@@ -38,8 +32,8 @@ use common\models\Student;
             </li>
             <li><a><i class="fa fa-edit"></i> จัดการข้อมูลทั่วไป <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?= \yii\helpers\Url::to(['student/index'])?>">จัดการข้อมุลสมาชิก <span class="label label-success pull-right"><?=Student::find()->count()?></span></a>
-
+                    <li><a href="<?= \yii\helpers\Url::to(['student/index'])?>">จัดการข้อมุลสมาชิก <span class="label label-warning pull-right"><?=Student::find()->count()?></span></a>
+                    <li><a href="<?= \yii\helpers\Url::to(['personnel/index'])?>">จัดการข้อมุลพนักงาน <span class="label label-info pull-right"><?=\common\models\Personnel::find()->count()?></span></a>
                     <li><a href="<?= \yii\helpers\Url::to(['teacher/index'])?>">จัดการข้อมูลอาจารย์ <span class="label label-success  pull-right"><?=\common\models\Teacher::find()->count()?></span></a>
                     <li><a href="<?= \yii\helpers\Url::to(['school/index'])?>">จัดการข้อมูลโรงเรียน <span class="label label-danger pull-right"><?=\common\models\School::find()->count()?></span></a>
                     </li>

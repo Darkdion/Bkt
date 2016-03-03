@@ -11,22 +11,16 @@ $this->params['breadcrumbs'][] = ['label' => 'จัดการพนักง�
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="personnel-view">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2> <i class=" faa-pulse animated fa fa-venus"> </i> <?= Html::encode($this->title) ?></h2>
+            <ul class="nav navbar-right panel_toolbox">
 
-    <div class="student-view">
-        <div class="card card-bordered style-image">
-            <div class="card-head">
-                <div class="tools">
-                    <div class="btn-group">
-                        <div class="btn-group">
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
 
-                        </div>
-                        <a class="btn btn-icon-toggle btn-refresh"><i class="md md-refresh"></i></a>
-
-                    </div>
-                </div>
-                <header> <h1><i class=" faa-pulse animated fa fa-users"> </i> <?= Html::encode($this->title) ?></h1></header>
-            </div><!--end .card-head -->
-            <div class="card-body style-default-bright">
                 <p>
 
                     <?= Html::a('<i class="faa-shake animated fa fa-plus"></i> สร้างสมาชิก', ['create'], ['class' => 'btn btn-success btn-sm btn-raised']) ?>

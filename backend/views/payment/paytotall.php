@@ -122,7 +122,31 @@ use common\models\RegisterCourse;
                 ],
             ]); ?>
           </div>
+            <div class="tab-pane" id="yellow">
+              <h4>  <i class="fa fa-credit-card"> </i> รายการทั้งหมด</h4>
+              <?= \kartik\grid\GridView::widget([
+                  'dataProvider' => $dataProvider,
+                //   'filterModel' => $searchModel,
+                  'columns' => [
+                      ['class' => 'yii\grid\SerialColumn'],
 
+                      'id',
+                      'fullName',
+                    //'status',
+                      [
+                          'label'=>'สถานะ',
+                          'format'=>'html',
+                          'value'=>function($model){
+                            return $model->status==0?' <span class="label label-danger">ยังไม่ชำระ</span>':'<span class="label label-success">ชำระแล้ว</span>';
+                          }
+                      ],
+                      'created_at:date',
+                      'updated_at:date',
+
+                      ['class' => 'yii\grid\ActionColumn'],
+                  ],
+              ]); ?>
+            </div>
         </div>
       </div>
 
@@ -148,17 +172,6 @@ use common\models\RegisterCourse;
   ?>
   <?php
 
-  echo \yii\bootstrap\Tabs::widget([
-    'items' => [
-      [
-        'label' => 'One',
-        'content' => 'Anim pariatur cliche...',
-        'active' => true,
-        'class'=>'hidden',
-      ],
-
-    ],
-  ]);
   ?>
 
 </div>
