@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Payments;
 use common\models\RegisterCourse;
 use common\models\RegisterCourseSearch;
 use common\models\Registerdetail;
@@ -90,7 +91,17 @@ public function actionIndex()
         $modeldetail =Registerdetail::findOne($id);
         $model->status='1';
         $model->paydate =new Expression('NOW()');
-        $model->save();
+        if($model->save()){
+            $pay= new Payments();
+            $pay->pay_date= new Expression('NOW()');
+            $pay->student_id=$model->student_id;
+            $pay->register_course_id =$model->id;
+           // $pay->personnel_per_id = '1';
+            $pay->status=$model->status;
+            $pay->save();
+
+
+        }
 
         $content = $this->renderPartial('_billSuccess',[
             'model'=>$model,

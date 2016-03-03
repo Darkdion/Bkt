@@ -83,6 +83,8 @@ use yii\helpers\VarDumper;
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">วันเกิด</label>
         <div class="col-sm-4">
+
+ 
             <?= dosamigos\datepicker\DatePicker::widget([
                 'model' => $model,
                 'attribute' => 'birthday',
@@ -242,4 +244,3 @@ use yii\helpers\VarDumper;
     </div>
     <?php ActiveForm::end(); ?>
         </div>
-
