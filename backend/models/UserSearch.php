@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace backend\models;
 
 use Yii;
 use yii\base\Model;
@@ -8,9 +8,9 @@ use yii\data\ActiveDataProvider;
 use common\models\User;
 
 /**
- * UserSeach represents the model behind the search form about `common\models\User`.
+ * UserSearch represents the model behind the search form about `common\models\User`.
  */
-class UserSeach extends User
+class UserSearch extends User
 {
     /**
      * @inheritdoc

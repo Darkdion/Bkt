@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use common\models\Student;
+
 ?>
 
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -8,21 +9,18 @@ use common\models\Student;
     <div class="menu_section">
         <h3>เมนูและเครื่องมือ</h3>
         <ul class="nav side-menu">
-            <li><a href="<?= Url::to(['site/index'])?>"><i class="fa fa-home"></i> หน้าหลัก </a>
+            <li><a href="<?= Url::to(['site/index']) ?>"><i class="fa fa-home"></i> หน้าหลัก </a>
 
 
             </li>
-            <li><a><i class="fa fa-money"></i> ชำระ <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
+            <li><a href="<?= Url::toRoute('payment/index') ?>"><i class="fa fa-money"></i> ชำระคอร์สเรียน <span
+                        class="label label-success pull-right"></span></a>
 
-                    <li><a href="<?=Url::toRoute('payment/index')?>">ชำระคอร์สเรียน</a>
-                    </li>
-                </ul>
             </li>
 
             <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">จัดการภาพสไลค์ </a> </li>
+                    <li><a href="#">จัดการภาพสไลค์ </a></li>
                     <li><a href="#">จัดการประเภทข่าวแะหมวดหมู่</a></li>
                     <li><a href="#">จัดการข้อมูลข่าว</a></li>
                     <li><a href="#">จัดการข้อมูลติดต่อ</a></li>
@@ -32,17 +30,22 @@ use common\models\Student;
             </li>
             <li><a><i class="fa fa-edit"></i> จัดการข้อมูลทั่วไป <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?= \yii\helpers\Url::to(['student/index'])?>">จัดการข้อมุลสมาชิก <span class="label label-warning pull-right"><?=Student::find()->count()?></span></a>
-                    <li><a href="<?= \yii\helpers\Url::to(['personnel/index'])?>">จัดการข้อมุลพนักงาน <span class="label label-info pull-right"><?=\common\models\Personnel::find()->count()?></span></a>
-                    <li><a href="<?= \yii\helpers\Url::to(['teacher/index'])?>">จัดการข้อมูลอาจารย์ <span class="label label-success  pull-right"><?=\common\models\Teacher::find()->count()?></span></a>
-                    <li><a href="<?= \yii\helpers\Url::to(['school/index'])?>">จัดการข้อมูลโรงเรียน <span class="label label-danger pull-right"><?=\common\models\School::find()->count()?></span></a>
+                    <li><a href="<?= \yii\helpers\Url::to(['student/index']) ?>">จัดการข้อมุลสมาชิก <span
+                                class="label label-warning pull-right"><?= Student::find()->count() ?></span></a>
+                    <li><a href="<?= \yii\helpers\Url::to(['personnel/index']) ?>">จัดการข้อมุลพนักงาน <span
+                                class="label label-info pull-right"><?= \common\models\Personnel::find()->count() ?></span></a>
+                    <li><a href="<?= \yii\helpers\Url::to(['teacher/index']) ?>">จัดการข้อมูลอาจารย์ <span
+                                class="label label-success  pull-right"><?= \common\models\Teacher::find()->count() ?></span></a>
+                    <li><a href="<?= \yii\helpers\Url::to(['school/index']) ?>">จัดการข้อมูลโรงเรียน <span
+                                class="label label-danger pull-right"><?= \common\models\School::find()->count() ?></span></a>
                     </li>
 
                 </ul>
             </li>
             <li><a><i class="fa fa-book"></i> ลงทะเบียนเรียน <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?=Url::to(['register-course/index']) ?>">ลงคอร์สเรียน <span class="label label-success pull-right">0</span></a>
+                    <li><a href="<?= Url::to(['register-course/index']) ?>">ลงคอร์สเรียน <span
+                                class="label label-success pull-right">0</span></a>
                     </li>
 
 
@@ -50,9 +53,11 @@ use common\models\Student;
             </li>
             <li><a><i class="fa fa-desktop"></i> จัดการข้อมูลคอรส์เรียน <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?=Url::to(['typecourse/index']) ?>">จัดการประเภทคอร์สเรียน <span class="label label-success pull-right">0</span></a>
+                    <li><a href="<?= Url::to(['typecourse/index']) ?>">จัดการประเภทคอร์สเรียน <span
+                                class="label label-success pull-right">0</span></a>
                     </li>
-                    <li><a href="<?=Url::to(['course/index']) ?>">จัดการคอร์สเรียน <span class="label label-success pull-right">0</span></a>
+                    <li><a href="<?= Url::to(['course/index']) ?>">จัดการคอร์สเรียน <span
+                                class="label label-success pull-right">0</span></a>
                     </li>
 
 
@@ -97,7 +102,8 @@ use common\models\Student;
 
             <li><a><i class="fa fa-laptop"></i> ข้อมูลนักเรียน <span class="label label-success pull-right">0</span></a>
             </li>
-            <li><a><i class="fa fa-shopping-cart color" ></i> ชำระคอร์เรียน <span class="label label-danger pull-right">0</span></a>
+            <li><a><i class="fa fa-shopping-cart color"></i> ชำระคอร์เรียน <span
+                        class="label label-danger pull-right">0</span></a>
             </li>
         </ul>
     </div>

@@ -38,20 +38,16 @@ ThemesAsset::register($this);
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
+                    <?php if(Yii::$app->user->can('Admin')):?>
                     <a href="<?= \yii\helpers\Url::to(['site/manager'])?>" class="site_title"><i class="fa fa-database"></i> <span>แอดมิน</span></a>
+                 <?php else:?>
+                        <a href="<?= \yii\helpers\Url::to(['site/manager'])?>" class="site_title"><i class="fa fa-magnet"></i> <span>พนักงาน</span></a>
+                    <?php endif;?>
                 </div>
                 <div class="clearfix"></div>
 
                 <!-- menu prile quick info -->
-                <div class="profile">
-                    <div class="profile_pic">
-                        <img src="<?=Url::base().'/img/manager.png'; ?>" alt="..." class="img-circle profile_img">
-                    </div>
-                    <div class="profile_info">
-                        <span><h4>ยินดีต้อนรับ</h4></span>
-                        <h2><?= Yii::$app->user->identity->username?></h2>
-                    </div>
-                </div>
+<!--
                 <!-- /menu prile quick info -->
 
                 <br />
@@ -90,26 +86,49 @@ ThemesAsset::register($this);
                     <ul class="nav navbar-nav navbar-right">
 
                         <li class="">
-                            <a href="<?=Url::to(['site/logout']) ?>" data-method="post" data-confilm="" class="  user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-power-off"></i> ออกจากระบบ
-
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                ผู้ใช้งาน <span class="label label-success">  <?php echo Yii::$app->user->identity->username?> </span>
+                                <span class=" fa fa-angle-down"></span>
                             </a>
+                            <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                <li><a href="javascript:;">  Profile</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span class="badge bg-red pull-right">50%</span>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">Help</a>
+                                </li>
+                                <li>
+                                    <a href="<?=Url::to(['site/logout']) ?>" data-method="post" data-confilm="" class="  user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-power-off"></i> ออกจากระบบ
 
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
+
+
+
                         <li role="presentation" class="dropdown">
-                            <a href="<?=Url::toRoute('payment/paytotall')?>" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                <i class="btn btn-danger fa fa-shopping-cart"> ยังไม่ชำระ </i>  <span class="badge bg-orange"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
-
+                            <a href="javascript:;" class="dropdown-toggle info-number " data-toggle="dropdown" aria-expanded="false">
+                                ข้อความ
+                                <i class="fa fa-envelope-o fa-2x"></i>
+                                <span class="badge bg-green">6</span>
                             </a>
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                                <li>
+                                    <a href="<?=Url::toRoute('payment/paytotall')?>" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="btn btn-danger fa fa-shopping-cart"> ยังไม่ชำระ </i>  <span class="badge bg-orange"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
 
+                                    </a>
+                                </li>
 
+                            </ul>
                         </li>
-<li>
-    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-        <i class="btn btn-success fa fa-envelope-o"> ชำระแล้ว </i>  <span class="badge bg-green"><?= \common\models\RegisterCourse::find()->where(['status'=>1])->count();?></span>
-
-    </a>
-</li>
 
                     </ul>
 
@@ -134,10 +153,10 @@ ThemesAsset::register($this);
                         <?php
 
                         echo Growl::widget([
-                            'type' => (!empty($message['type'])) ? $message['type'] : 'danger',
-                            'title' => (!empty($message['title'])) ? Html::encode($message['title']) : 'Title Not Set!',
+                            'type' => (!empty($message['type'])) ? $message['type'] : '',
+                            'title' => (!empty($message['title'])) ? Html::encode($message['title']) : '',
                             'icon' => (!empty($message['icon'])) ? $message['icon'] : 'fa fa-info',
-                            'body' => (!empty($message['message'])) ? Html::encode($message['message']) : 'Message Not Set!',
+                            'body' => (!empty($message['message'])) ? Html::encode($message['message']) : '',
                             'showSeparator' => true,
                             'delay' => 1, //This delay is how long before the message shows
                             'pluginOptions' => [

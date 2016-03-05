@@ -232,11 +232,6 @@ use yii\helpers\VarDumper;
 
 
 
-
-
-
-
-
     <div class="form-group text-center ">
         <?= Html::a('<i class="faa-pulse  wa animated fa fa-arrow-circle-left"></i> ยกเลิก', ['index'],
             ['class' => 'btn btn-danger btn-lg']) ?>
