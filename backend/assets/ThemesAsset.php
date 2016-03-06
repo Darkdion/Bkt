@@ -26,7 +26,7 @@ class ThemesAsset extends AssetBundle
         'gentelella/css/maps/jquery-jvectormap-2.0.1.css',
         'gentelella/css/icheck/flat/green.css',
         'gentelella/css/floatexamples.css',
-
+        'css/main.css',
 
 
     ];

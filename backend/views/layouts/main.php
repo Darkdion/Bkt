@@ -39,9 +39,9 @@ ThemesAsset::register($this);
 
                 <div class="navbar nav_title" style="border: 0;">
                     <?php if(Yii::$app->user->can('Admin')):?>
-                    <a href="<?= \yii\helpers\Url::to(['site/manager'])?>" class="site_title"><i class="fa fa-database"></i> <span>แอดมิน</span></a>
+                    <a href="<?= \yii\helpers\Url::to(['site/index'])?>" class="site_title"><i class="fa fa-database"></i> <span>แอดมิน</span></a>
                  <?php else:?>
-                        <a href="<?= \yii\helpers\Url::to(['site/manager'])?>" class="site_title"><i class="fa fa-magnet"></i> <span>พนักงาน</span></a>
+                        <a href="<?= \yii\helpers\Url::to(['site/index'])?>" class="site_title"><i class="fa fa-magnet"></i> <span>พนักงาน</span></a>
                     <?php endif;?>
                 </div>
                 <div class="clearfix"></div>
@@ -120,13 +120,32 @@ ThemesAsset::register($this);
                                 <span class="badge bg-green">6</span>
                             </a>
                             <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+
+
                                 <li>
-                                    <a href="<?=Url::toRoute('payment/paytotall')?>" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                        <i class="btn btn-danger fa fa-shopping-cart"> ยังไม่ชำระ </i>  <span class="badge bg-orange"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong><a href="<?=Url::toRoute('payment/paytotall')?>">
+                                                 ข้อความแจ้งชำระ
 
-                                    </a>
+                                            </strong>
+                                            <i class="fa fa-angle-right"></i>
+                                            <span class="badge bg-green"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
+                                        </a>
+                                    </div>
                                 </li>
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong><a href="<?=Url::toRoute('payment/paytotall')?>">
+                                                    ข้อความยังไม่ชำระ
 
+                                            </strong>
+                                            <i class="fa fa-angle-right"></i>
+                                            <span class="badge bg-orange"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
+                                        </a>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
 

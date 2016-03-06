@@ -42,7 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
                  return $model->statusName=='Active' ?'<span class="text-success">'.$model->statusName.'</span>' : $model->statusName ;
                }
              ],
+
              'created_at:dateTime',
+            //'userName',
             // 'updated_at',
 
             [

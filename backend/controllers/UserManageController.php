@@ -29,7 +29,7 @@ class UserManageController extends Controller
                'rules'=>[
                   [
                       'allow'=>true,
-                      'roles' => ['Manager']
+                      'roles' => ['Admin']
                   ]
                 ]
             ]

@@ -91,6 +91,9 @@ class PersonnelController extends Controller
             $user->setPassword($user->password);
             $user->generateAuthKey();
             if($user->save()){
+                $auth = Yii::$app->authManager;
+                $authorRole = $auth->getRole('Manager');
+                $auth->assign($authorRole, $user->getId());
                 $model->user_id =$user->id;
                 $model->save();
             }
@@ -143,6 +146,9 @@ class PersonnelController extends Controller
                 $user->setPassword($user->password);
             }
             if($user->save()){
+                $auth = Yii::$app->authManager;
+                $authorRole = $auth->getRole('Manager');
+                $auth->assign($authorRole, $user->getId());
                 $model->user_id =$user->id;
                 $model->save();
             }

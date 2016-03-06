@@ -9,37 +9,52 @@ use common\models\Student;
     <div class="menu_section">
         <h3>เมนูและเครื่องมือ</h3>
         <ul class="nav side-menu">
-            <li><a href="<?= Url::to(['site/index']) ?>"><i class="fa fa-home"></i> หน้าหลัก </a>
-
-
+            <li>
+                <a href="<?= Url::to(['site/index']) ?>"><i class="fa fa-home"></i> หน้าหลัก </a>
             </li>
             <li><a href="<?= Url::toRoute('payment/index') ?>"><i class="fa fa-money"></i> ชำระคอร์สเรียน <span
-                        class="label label-success pull-right"></span></a>
+                        class="fa fa-chevron-circle-right"></span></a>
 
             </li>
+           <?php if(Yii::$app->user->can('Admin')): ?>
+               <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
+                   <ul class="nav child_menu" style="display: none">
+                       <li><a href="#">จัดการภาพสไลค์ </a></li>
+                       <li><a href="#">จัดการประเภทข่าวแะหมวดหมู่</a></li>
+                       <li><a href="#">จัดการข้อมูลข่าว</a></li>
+                       <li><a href="#">จัดการข้อมูลติดต่อ</a></li>
 
-            <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">จัดการภาพสไลค์ </a></li>
-                    <li><a href="#">จัดการประเภทข่าวแะหมวดหมู่</a></li>
-                    <li><a href="#">จัดการข้อมูลข่าว</a></li>
-                    <li><a href="#">จัดการข้อมูลติดต่อ</a></li>
+
+                   </ul>
+               </li>
+            <?php else:?>
 
 
-                </ul>
-            </li>
+            <?php endif; ?>
+
             <li><a><i class="fa fa-edit"></i> จัดการข้อมูลทั่วไป <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?= \yii\helpers\Url::to(['student/index']) ?>">จัดการข้อมุลสมาชิก <span
-                                class="label label-warning pull-right"><?= Student::find()->count() ?></span></a>
-                    <li><a href="<?= \yii\helpers\Url::to(['personnel/index']) ?>">จัดการข้อมุลพนักงาน <span
-                                class="label label-info pull-right"><?= \common\models\Personnel::find()->count() ?></span></a>
-                    <li><a href="<?= \yii\helpers\Url::to(['teacher/index']) ?>">จัดการข้อมูลอาจารย์ <span
-                                class="label label-success  pull-right"><?= \common\models\Teacher::find()->count() ?></span></a>
-                    <li><a href="<?= \yii\helpers\Url::to(['school/index']) ?>">จัดการข้อมูลโรงเรียน <span
-                                class="label label-danger pull-right"><?= \common\models\School::find()->count() ?></span></a>
-                    </li>
+                    <?php if(Yii::$app->user->can('Admin')): ?>
+                        <li><a href="<?= \yii\helpers\Url::to(['student/index']) ?>">จัดการข้อมูลสมาชิก <span
+                                    class="label label-warning pull-right"><?= Student::find()->count() ?></span></a>
 
+                        <li><a href="<?= \yii\helpers\Url::to(['personnel/index']) ?>">จัดการข้อมุลพนักงาน <span
+                                    class="label label-info pull-right"><?= \common\models\Personnel::find()->count() ?></span></a>
+                        <li><a href="<?= \yii\helpers\Url::to(['teacher/index']) ?>">จัดการข้อมูลอาจารย์ <span
+                                    class="label label-success  pull-right"><?= \common\models\Teacher::find()->count() ?></span></a>
+                        <li><a href="<?= \yii\helpers\Url::to(['school/index']) ?>">จัดการข้อมูลโรงเรียน <span
+                                    class="label label-danger pull-right"><?= \common\models\School::find()->count() ?></span></a>
+                        </li>
+                        <li><a href="<?= \yii\helpers\Url::to(['manage-user/index']) ?>">จัดการข้อมูลผู้ใช้งาน <span
+                                    class="label label-danger pull-right"><?= \common\models\User::find()->count() ?></span></a>
+                        </li>
+                    <?php else: ?>
+
+                    <li><a href="<?= \yii\helpers\Url::to(['student/index']) ?>">จัดการข้อมูลสมาชิก <span
+                                class="label label-warning pull-right"><?= Student::find()->count() ?></span></a>
+
+
+                    <?php endif; ?>
                 </ul>
             </li>
             <li><a><i class="fa fa-book"></i> ลงทะเบียนเรียน <span class="fa fa-chevron-down"></span></a>
@@ -73,21 +88,13 @@ use common\models\Student;
 
                 </ul>
             </li>
-            <li><a><i class="fa fa-print"></i> ออกรายงาน <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">ออกรายงานสมาชิกทั้งหมด</a>
-                    </li>
-                    <li><a href="#">ออกรายงานอาจารย์</a>
-                    </li>
-                    <li><a href="#">ออกรายงานใบเสร็จ</a>
-                    </li>
-                    <li><a href="#">ออกรายงานรายวัน</a>
-                    </li>
-                    <li><a href="#">ออกรายงานรายวัน เดือน ปี</a>
-                    </li>
-
-                </ul>
+            <li>
+                <a href="<?= Url::to(['report/index']) ?>"><i class="fa fa-print"></i>
+                    ออกรายงาน
+                    <span class="fa fa-chevron-circle-right"></span>
+                </a>
             </li>
+
         </ul>
     </div>
     <div class="menu_section">

@@ -112,6 +112,8 @@ class Student extends \yii\db\ActiveRecord
     public function getUsername(){
         return $this->user->username;
     }
+
+
     public function getPayments()
     {
         return $this->hasMany(Payment::className(), ['student_id' => 'id']);

@@ -29,10 +29,9 @@ class User extends ActiveRecord implements IdentityInterface
 
     const ROLE_USER = 'User';
     const ROLE_MANAGER = 'Manager';
-    const ROLE_PROVINCIAL = 'Provincial';
-    const ROLE_COUNTRY = 'Country';
-    const ROLE_ADMINISTRATOR = 'Administrator';
-    const ROLE_REPORTS = 'Reports';
+
+    const ROLE_ADMINISTRATOR = 'Admin';
+
 
     const SCENARIO_USERMANAGE = 'default';
     const SCENARIO_REGISTER ='register';
@@ -250,6 +249,8 @@ class User extends ActiveRecord implements IdentityInterface
         $auth = $auth = Yii::$app->authManager;
         return ArrayHelper::map($auth->getRoles(),'name','name');
       }
+
+
 
       public function getRoleByUser(){
         $auth = Yii::$app->authManager;

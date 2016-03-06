@@ -83,6 +83,7 @@ class StudentController extends Controller
         $user->password=$user->password_hash;
         $user->confirm_password=$user->password_hash;
         $post=Yii::$app->request->post();
+//        $auth = Yii::$app->authManager;
       //  $auth =Yii::$app
 
         if ($model->load($post)&&$user->load($post) && Model::validateMultiple([$model,$user])) {
@@ -91,6 +92,10 @@ class StudentController extends Controller
             if($user->save()){
                 $model->user_id =$user->id;
                 $model->save();
+
+                $auth = Yii::$app->authManager;
+                $authorRole = $auth->getRole('User');
+                $auth->assign($authorRole, $user->getId());
             }
             Yii::$app->getSession()->setFlash('alert', [
                 'type' => Growl::TYPE_SUCCESS,
@@ -142,6 +147,10 @@ class StudentController extends Controller
                 $user->setPassword($user->password);
             }
             if($user->save()){
+                $auth = Yii::$app->authManager;
+                $authorRole = $auth->getRole('User');
+                $auth->assign($authorRole, $user->getId());
+
                 $model->user_id =$user->id;
                 $model->save();
             }

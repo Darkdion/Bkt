@@ -234,5 +234,3 @@
 </div>
 
 
-<?php
-$time = time();
