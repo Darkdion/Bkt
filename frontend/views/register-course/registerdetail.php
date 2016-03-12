@@ -79,7 +79,7 @@ function thai_date($time){
                        data-target="#myModal" data-title=' <h4><i class="fa fa-book"> </i> รายการคอร์สเรียน</h4>'>
 
                         <i class="fa fa-edit"></i> รายละเอียด</a>
- <a href="" class="btn btn-info btn-sm"><i class="fa fa-print"></i> พิมพ์ใบเสร็จ</a>
+ <a href="index.php?r=register-course/bill&id=<?= $model->id?>" class="btn btn-info btn-sm"><i class="fa fa-print"></i> พิมพ์ใบเสร็จ</a>
                   </div>
                 </td>
             </tr>
