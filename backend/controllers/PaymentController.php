@@ -19,18 +19,22 @@ class PaymentController extends \yii\web\Controller
 
     public function actionPaytotall()
     {
+
         $searchModel = new RegisterCourseSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $Unrequited= RegisterCourse::find()->where(['status'=>0])->all();
         $paid = RegisterCourse::find()->where(['status'=>1])->all();
 
-        return $this->render('paytotall',[
-            'num'=>1,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'Unrequited'=>$Unrequited,
-            'paid'=>$paid,
-        ]);
+
+            return $this->render('paytotall',[
+                'num'=>1,
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+                'Unrequited'=>$Unrequited,
+                'paid'=>$paid,
+            ]);
+
+
     }
 
 
@@ -134,7 +138,7 @@ public function actionIndex()
             // call mPDF methods on the fly
             'methods' => [
                 //'SetHeader'=>['Krajee Report Header'],
-                'SetFooter'=>['{PAGENO}'],
+                //'SetFooter'=>['{PAGENO}'],
             ]
         ]);
 

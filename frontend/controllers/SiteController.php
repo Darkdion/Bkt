@@ -26,15 +26,16 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'signup','contact'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
+
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout','contact','users'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -88,7 +89,12 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            if(Yii::$app->user->can('User'))
+            {
+                return $this->redirect(['/site/users']);
+            }
+
+            // return $this->goBack();
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -101,6 +107,13 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    public function actionUsers(){
+        if (!\Yii::$app->user->isGuest) {
+            return $this->render('users');
+        }
+        return $this->goHome();
+
+    }
     public function actionLogout()
     {
         Yii::$app->user->logout();

@@ -276,5 +276,13 @@ class User extends ActiveRecord implements IdentityInterface
             $auth->assign($auth->getRole($roleName),$this->id);
           }
       }
+//////////////////////////////////
+    public function getSchool(){
+        return $this->hasMany(Student::className(), ['id' => 'user_id'])
+            ->via('school');
+    }
+    public function getStudent(){
+        return $this->hasMany(Student::className(),['id'=>'user_id']);
+    }
 
 }

@@ -213,7 +213,7 @@
                             <div class="col-xs-12">
 
 
-                                <a href="index.php?r=payment/bill&id=<?php echo $model->id; ?>" class="btn btn-success btn-lg pull-right">
+                                <a target="_blank" href="index.php?r=payment/bill&id=<?php echo $model->id; ?>" class="btn btn-success btn-lg pull-right">
                                     <i class="glyphicon glyphicon-share-alt"></i>
                                     ชำระคอร์สเรียน
                                 </a>

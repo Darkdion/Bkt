@@ -32,6 +32,7 @@ class ThemesAsset extends AssetBundle
     ];
     public $js = [
         //'gentelella/js/chartjs/chart.min.js',
+        'gentelella/js/bootstrap.min.js',
         'gentelella/js/progressbar/bootstrap-progressbar.min.js',
   'gentelella/js/nicescroll/jquery.nicescroll.min.js',
 //        'gentelella/js/icheck/icheck.min.js',

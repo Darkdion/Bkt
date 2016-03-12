@@ -28,10 +28,10 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'บ้านครูติ๊กติวเตอร์',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-default navbar-fixed-top',
         ],
     ]);
     $menuItems = [
@@ -43,17 +43,29 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link']
-            )
-            . Html::endForm()
-            . '</li>';
+        $menuItems[] = [
+            'label' => 'คุณ ' . Yii::$app->user->identity->username .'',
+            'items'=>[
+                [
+                    'label' => '<i class="fa fa-object-group"></i></i> จัดการข้อมูล', 'url' => ['site/users'], 'visible'=>Yii::$app->user->can('User')
+                ],
+                [
+                    'label' => '<i class="fa fa-object-ungroup"></i> จัดการข้อมูลทั่วไป', 'url' => ['site/user'], 'visible'=>Yii::$app->user->can('Author')
+                ],
+                [
+                    'label' => '<i class="fa fa-object-group"></i></i> จัดการข้อมูลเจ้าหน้าที่', 'url' => ['site/manager'], 'visible'=>Yii::$app->user->can('Management')
+                ],
+//                    ['label' => '<span class="fa fa-user"></span> โปรไฟล์ข้อมูลส่วนตัว', 'url' => ['/profile/index']],
+//                    ['label' => '<i class="fa fa-wrench"></i> แก้ไขข้อมูลส่วนตัว', 'url' => ['/site/signup']],
+                ['label'=>'<i class="fa fa-sign-out"></i> ออกจากระบบ','url' => ['/site/logout'],
+                    'linkOptions' => ['data-method' => 'post']] ,
+            ],
+
+        ];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => $menuItems,
     ]);
     NavBar::end();

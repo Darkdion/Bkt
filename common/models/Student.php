@@ -60,7 +60,7 @@ class Student extends \yii\db\ActiveRecord
         return [
             //[['title', 'sex', 'school_id', 'created_at', 'updated_at'], 'integer'],
 
-
+              [['sex', 'user_id', 'school_id'], 'integer'],
             ['identification','unique','targetClass' => '\common\models\Student', 'message' => 'เลขบัตรประชาชนซ้ำหรือมีผู้งานงานแล้ว'],
             [['birthday','schoolName','sex'], 'safe'],
             [['school_id','schoolName','province','amphur','district'], 'required'],
@@ -106,9 +106,13 @@ class Student extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser(){
-        return $this->hasOne(User::className(),['id'=>'user_id']);
-    }
+    // public function getUser(){
+    //     return $this->hasOne(User::className(),['id'=>'user_id']);
+    // }
+    public  function getUser(){
+
+    return $this->hasOne(User::className(),['id'=>'user_id']);
+}
     public function getUsername(){
         return $this->user->username;
     }

@@ -48,13 +48,16 @@ class CourseRegisterController extends \yii\web\Controller
                     ':search' => $search
                 ]);
         }
+        if (!\Yii::$app->user->isGuest) {
+            return $this->render('index', [
 
-        return $this->render('index', [
+                'course' => $course->all(),
+                'pagination' => $pagination,
+                'sort' => $sort
+            ]);
+        }
 
-            'course' => $course->all(),
-            'pagination' => $pagination,
-            'sort' => $sort
-        ]);
+      return $this->goHome();
          }
 
 

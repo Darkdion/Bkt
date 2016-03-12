@@ -9,6 +9,7 @@ use common\models\Registerdetail;
 use Yii;
 use common\models\RegisterCourse;
 use common\models\RegisterCourseSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -28,6 +29,19 @@ class RegisterCourseController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'addtocart','checkout'],
+                'rules' => [
+
+
+                    [
+                        'actions' => ['index','addtocart','checkout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -160,11 +174,29 @@ class RegisterCourseController extends Controller
         $session->open();
         if (!empty($session->get('coursecart'))) {
             $cart = $session->get('coursecart');
+        }else{
+            Yii::$app->getSession()->setFlash('alert', [
+                'type' => Growl::TYPE_WARNING,
+                'duration' => 1800,
+                'icon' => 'fa fa-remove fa-2x',
+                'title' => Yii::t('app', Html::encode('เกิดข้อผิดพลาด !'), ['class' => 'text-center']),
+                'message' => Yii::t('app',Html::encode('กรุณาเลือกคอร์สเรียนก่อน')),
+                'showSeparator' => true,
+                'delay' => 1,
+                'pluginOptions' => [
+                    'showProgressbar' => true,
+                    'placement' => [
+                        'from' => 'top',
+                        'align' => 'right',
+                    ]
+                ]
+            ]);
+            return $this->redirect(['addtocart']);
         }
 
 
         $RegisterCourse = new RegisterCourse();
-        var_dump($cart);
+      //  var_dump($cart);
         if (!empty($_POST)) {
             // save bill order
            // $RegisterCourse->created_at = new Expression('NOW()');
