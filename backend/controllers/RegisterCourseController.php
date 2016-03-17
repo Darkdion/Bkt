@@ -252,6 +252,12 @@ protected function findModel($id)
         }
     }
 
+public function actionShow()
+{
+    return $this->render('show'[
+
+    ])
+}
 
 
 }
