@@ -62,14 +62,14 @@
 	 * 
 	 *  @example
 	 *    // Basic initialisation
-	 *    $(document).ready( function {
+	 *    $(document).ready( all {
 	 *      $('#example').dataTable();
 	 *    } );
 	 *  
 	 *  @example
 	 *    // Initialisation with configuration options - in this case, disable
 	 *    // pagination and sorting.
-	 *    $(document).ready( function {
+	 *    $(document).ready( all {
 	 *      $('#example').dataTable( {
 	 *        "bPaginate": false,
 	 *        "bSort": false 

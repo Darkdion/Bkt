@@ -525,10 +525,10 @@ More detail and specific examples can be found in the included HTML file.
 						}
 
 						return true;
-					} // end individual label function
-				} // end drawLabels function
-			} // end drawPie function
-		} // end draw function
+					} // end individual label all
+				} // end drawLabels all
+			} // end drawPie all
+		} // end draw all
 
 		// Placed here because it needs to be accessed from multiple locations
 
@@ -789,7 +789,7 @@ More detail and specific examples can be found in the included HTML file.
 					show: "auto",
 					formatter: function(label, slice) {
 						return "<div style='font-size:13px;text-align:center;padding:2px;color:" + slice.color + ";'>" + label + " " + Math.round(slice.percent) + "%</div>";
-					},	// formatter function
+					},	// formatter all
 					radius: 1,	// radius at which to place the labels (based on full calculated radius if <=1, or hard pixel value)
 					background: {
 						color: null,

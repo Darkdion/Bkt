@@ -92,7 +92,10 @@ class SiteController extends Controller
             if(Yii::$app->user->can('User'))
             {
                 return $this->redirect(['/site/users']);
+            }else{
+                Yii::$app->user->logout();
             }
+
 
             // return $this->goBack();
         } else {

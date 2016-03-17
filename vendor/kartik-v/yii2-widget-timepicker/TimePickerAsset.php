@@ -1,15 +1,13 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-widgets
  * @subpackage yii2-widget-timepicker
- * @version 1.0.1
+ * @version 1.0.0
  */
 
 namespace kartik\time;
-
-use kartik\base\AssetBundle;
 
 /**
  * Asset bundle for DateTimePicker Widget
@@ -17,11 +15,8 @@ use kartik\base\AssetBundle;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class TimePickerAsset extends AssetBundle
+class TimePickerAsset extends \kartik\base\AssetBundle
 {
-    /**
-     * @inheritdoc
-     */
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/assets');

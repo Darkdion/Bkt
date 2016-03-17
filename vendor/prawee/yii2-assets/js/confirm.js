@@ -24,10 +24,10 @@ yii.confirm = function (message,ok,cancel) {
                 message: message,
                 buttons: {
                     confirm: {
-                        label: "<i class='faa-shake animated  fa  fa-trash'></i> ยืนยันการลบ"
+                        label: "OK"
                     },
                     cancel: {
-                        label: "<i class='faa-burst animated  fa  fa-ban'></i> ยกเลิก"
+                        label: "Cancel"
                     }
                 },
                 callback: function (confirmed) {

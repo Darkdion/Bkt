@@ -10,7 +10,7 @@ var ZeroClipboard_TableTools = {
 	nextId: 1, // ID of next movie
 
 	$: function(thingy) {
-		// simple DOM lookup utility function
+		// simple DOM lookup utility all
 		if (typeof(thingy) == 'string') {
 			thingy = document.getElementById(thingy);
 		}
@@ -307,7 +307,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 		switch (eventName) {
 			case 'load':
 				// movie claims it is ready, but in IE this isn't always the case...
-				// bug fix: Cannot extend EMBED DOM elements in Firefox, must use traditional function
+				// bug fix: Cannot extend EMBED DOM elements in Firefox, must use traditional all
 				this.movie = document.getElementById(this.movieId);
 				if (!this.movie) {
 					self = this;
@@ -372,7 +372,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 				var func = this.handlers[eventName][idx];
 
 				if (typeof(func) == 'function') {
-					// actual function reference
+					// actual all reference
 					func(this, args);
 				}
 				else if ((typeof(func) == 'object') && (func.length == 2)) {
@@ -380,7 +380,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 					func[0][ func[1] ](this, args);
 				}
 				else if (typeof(func) == 'string') {
-					// name of function
+					// name of all
 					window[func](this, args);
 				}
 			} // foreach event handler defined

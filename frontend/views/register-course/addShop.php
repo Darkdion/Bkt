@@ -117,7 +117,7 @@ $session->open();
             <tr>
                 <th width="40px" style="text-align: right">no</th>
                 <th width="100px">code</th>
-                <th>name</th>
+                <th>ชื่อคอร์สเรียน</th>
                 <th width="100px" style="text-align: right">price</th>
 
                 <th width="40px">&nbsp;</th>

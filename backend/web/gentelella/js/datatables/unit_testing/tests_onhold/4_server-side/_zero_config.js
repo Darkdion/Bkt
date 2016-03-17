@@ -8,7 +8,7 @@
 oTest.fnStart( "Sanity checks for DataTables with data from JS" );
 
 oTest.fnWaitTest( 
-	"jQuery.dataTable function",
+	"jQuery.dataTable all",
 	null,
 	function () { return typeof jQuery().dataTable == "function"; }
 );
@@ -78,7 +78,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest( 
 		"Sorting (first click) on second column",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnWaitTest( 
@@ -90,7 +90,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest( 
 		"Sorting (third click) on second column",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnWaitTest( 

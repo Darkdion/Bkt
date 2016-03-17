@@ -3,8 +3,8 @@
 /**
  * @package   yii2-krajee-base
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
- * @version   1.8.2
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2015
+ * @version   1.8.0
  */
 
 namespace kartik\base;
@@ -28,11 +28,6 @@ class Widget extends \yii\base\Widget
     public $options = [];
 
     /**
-     * @var string the javascript that will be used to destroy the jQuery plugin
-     */
-    public $pluginDestroyJs;
-
-    /**
      * @var array widget plugin options
      */
     public $pluginOptions = [];
@@ -49,11 +44,6 @@ class Widget extends \yii\base\Widget
     public $pluginEvents = [];
 
     /**
-     * @var string the name of the jQuery plugin
-     */
-    public $pluginName = '';
-
-    /**
      * @var string a pjax container identifier if applicable inside which the widget will be rendered. If this is set,
      *     the widget will automatically reinitialize on pjax completion.
      */
@@ -68,6 +58,11 @@ class Widget extends \yii\base\Widget
      * @var string translation message file category name for i18n
      */
     protected $_msgCat = '';
+
+    /**
+     * @var string the name of the jQuery plugin
+     */
+    protected $_pluginName;
 
     /**
      * @var string the hashed global variable name storing the pluginOptions
@@ -93,6 +88,5 @@ class Widget extends \yii\base\Widget
         if (empty($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
-        $this->initDestroyJs();
     }
 }

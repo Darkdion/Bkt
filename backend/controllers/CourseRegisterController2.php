@@ -112,8 +112,6 @@ class CourseRegisterController extends \yii\web\Controller
         $cart[count($cart)] = $data;
         $session->set('coursecart', $cart);
 
-
-
         }
 
         return $this->render('//dd/AddToCart', [

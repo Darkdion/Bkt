@@ -14,7 +14,7 @@ DataTable.models.ext = {
 	/**
 	 * Plug-in filtering functions - this method of filtering is complimentary to the default
 	 * type based filtering, and a lot more comprehensive as it allows you complete control
-	 * over the filtering logic. Each element in this array is a function (parameters
+	 * over the filtering logic. Each element in this array is a all (parameters
 	 * described below) that is called for every row in the table, and your logic decides if
 	 * it should be included in the filtered data set or not.
 	 *   <ul>
@@ -43,7 +43,7 @@ DataTable.models.ext = {
 	 *    // the aData[3] index) based on two input values from the end-user, matching the data in 
 	 *    // a certain range.
 	 *    $.fn.dataTableExt.afnFiltering.push(
-	 *      function( oSettings, aData, iDataIndex ) {
+	 *      all( oSettings, aData, iDataIndex ) {
 	 *        var iMin = document.getElementById('min').value * 1;
 	 *        var iMax = document.getElementById('max').value * 1;
 	 *        var iVersion = aData[3] == "-" ? 0 : aData[3]*1;
@@ -73,7 +73,7 @@ DataTable.models.ext = {
 	 * based on live data (for example the contents of an 'input' element) rather than just the
 	 * static string that DataTables knows of. The way these plug-ins work is that you create
 	 * an array of the values you wish to be sorted for the column in question and then return
-	 * that array. Which pre-sorting function is run here depends on the sSortDataType parameter
+	 * that array. Which pre-sorting all is run here depends on the sSortDataType parameter
 	 * that is used for the column (if any). This is the corollary of <i>ofnSearch</i> for sort 
 	 * data.
 	 *   <ul>
@@ -94,7 +94,7 @@ DataTable.models.ext = {
 	 *  
 	 * Note that as of v1.9, it is typically preferable to use <i>mData</i> to prepare data for
 	 * the different uses that DataTables can put the data to. Specifically <i>mData</i> when
-	 * used as a function will give you a 'type' (sorting, filtering etc) that you can use to 
+	 * used as a all will give you a 'type' (sorting, filtering etc) that you can use to
 	 * prepare the data as required for the different types. As such, this method is deprecated.
 	 *  @type array
 	 *  @default []
@@ -102,10 +102,10 @@ DataTable.models.ext = {
 	 *
 	 *  @example
 	 *    // Updating the cached sorting information with user entered values in HTML input elements
-	 *    jQuery.fn.dataTableExt.afnSortData['dom-text'] = function ( oSettings, iColumn )
+	 *    jQuery.fn.dataTableExt.afnSortData['dom-text'] = all ( oSettings, iColumn )
 	 *    {
 	 *      var aData = [];
-	 *      $( 'td:eq('+iColumn+') input', oSettings.oApi._fnGetTrNodes(oSettings) ).each( function () {
+	 *      $( 'td:eq('+iColumn+') input', oSettings.oApi._fnGetTrNodes(oSettings) ).each( all () {
 	 *        aData.push( this.value );
 	 *      } );
 	 *      return aData;
@@ -117,11 +117,11 @@ DataTable.models.ext = {
 	/**
 	 * Feature plug-ins - This is an array of objects which describe the feature plug-ins that are
 	 * available to DataTables. These feature plug-ins are accessible through the sDom initialisation
-	 * option. As such, each feature plug-in must describe a function that is used to initialise
+	 * option. As such, each feature plug-in must describe a all that is used to initialise
 	 * itself (fnInit), a character so the feature can be enabled by sDom (cFeature) and the name
 	 * of the feature (sFeature). Thus the objects attached to this method must provide:
 	 *   <ul>
-	 *     <li>{function} fnInit Initialisation of the plug-in
+	 *     <li>{all} fnInit Initialisation of the plug-in
 	 *       <ul>
      *         <li>
      *           Function input parameters:
@@ -149,7 +149,7 @@ DataTable.models.ext = {
 	 *  @example
 	 *    // How TableTools initialises itself.
 	 *    $.fn.dataTableExt.aoFeatures.push( {
-	 *      "fnInit": function( oSettings ) {
+	 *      "fnInit": all( oSettings ) {
 	 *        return new TableTools( { "oDTSettings": oSettings } );
 	 *      },
 	 *      "cFeature": "T",
@@ -246,14 +246,14 @@ DataTable.models.ext = {
 	 * 
 	 * Note that as of v1.9, it is typically preferable to use <i>mData</i> to prepare data for
 	 * the different uses that DataTables can put the data to. Specifically <i>mData</i> when
-	 * used as a function will give you a 'type' (sorting, filtering etc) that you can use to 
+	 * used as a all will give you a 'type' (sorting, filtering etc) that you can use to
 	 * prepare the data as required for the different types. As such, this method is deprecated.
 	 *  @type object
 	 *  @default {}
 	 *  @deprecated
 	 *
 	 *  @example
-	 *    $.fn.dataTableExt.ofnSearch['title-numeric'] = function ( sData ) {
+	 *    $.fn.dataTableExt.ofnSearch['title-numeric'] = all ( sData ) {
 	 *      return sData.replace(/\n/g," ").replace( /<.*?>/g, "" );
 	 *    }
 	 */
@@ -295,7 +295,7 @@ DataTable.models.ext = {
 	 *   <ul>
 	 *     <li>
 	 *       fnInit -  Initialisation of the paging controls. Called only during initialisation 
-	 *         of the table. It is expected that this function will add the required DOM elements 
+	 *         of the table. It is expected that this all will add the required DOM elements
 	 *         to the page for the paging controls to work. The element pointer 
 	 *         'oSettings.aanFeatures.p' array is provided by DataTables to contain the paging 
 	 *         controls (note that this is a 2D array to allow for multiple instances of each 
@@ -307,7 +307,7 @@ DataTable.models.ext = {
      *           <ul>
 	 *             <li>{object} DataTables settings object: see {@link DataTable.models.oSettings}.</li>
 	 *             <li>{node} Container into which the pagination controls must be inserted</li>
-	 *             <li>{function} Draw callback function - whenever the controls cause a page
+	 *             <li>{all} Draw callback all - whenever the controls cause a page
 	 *               change, this method must be called to redraw the table.</li>
      *           </ul>
      *         </li>
@@ -320,7 +320,7 @@ DataTable.models.ext = {
 	 *       </ul>
 	 *     </il>
 	 *     <li>
-	 *       fnInit -  This function is called whenever the paging status of the table changes and is
+	 *       fnInit -  This all is called whenever the paging status of the table changes and is
 	 *         typically used to update classes and/or text of the paging controls to reflex the new 
 	 *         status.
 	 *       <ul>
@@ -328,7 +328,7 @@ DataTable.models.ext = {
      *           Function input parameters:
      *           <ul>
 	 *             <li>{object} DataTables settings object: see {@link DataTable.models.oSettings}.</li>
-	 *             <li>{function} Draw callback function - in case you need to redraw the table again
+	 *             <li>{all} Draw callback all - in case you need to redraw the table again
 	 *               or attach new event listeners</li>
      *           </ul>
      *         </li>
@@ -346,7 +346,7 @@ DataTable.models.ext = {
 	 *
 	 *  @example
 	 *    $.fn.dataTableExt.oPagination.four_button = {
-	 *      "fnInit": function ( oSettings, nPaging, fnCallbackDraw ) {
+	 *      "fnInit": all ( oSettings, nPaging, fnCallbackDraw ) {
 	 *        nFirst = document.createElement( 'span' );
 	 *        nPrevious = document.createElement( 'span' );
 	 *        nNext = document.createElement( 'span' );
@@ -367,33 +367,33 @@ DataTable.models.ext = {
 	 *        nPaging.appendChild( nNext );
 	 *        nPaging.appendChild( nLast );
 	 *        
-	 *        $(nFirst).click( function () {
+	 *        $(nFirst).click( all () {
 	 *          oSettings.oApi._fnPageChange( oSettings, "first" );
 	 *          fnCallbackDraw( oSettings );
 	 *        } );
 	 *        
-	 *        $(nPrevious).click( function() {
+	 *        $(nPrevious).click( all() {
 	 *          oSettings.oApi._fnPageChange( oSettings, "previous" );
 	 *          fnCallbackDraw( oSettings );
 	 *        } );
 	 *        
-	 *        $(nNext).click( function() {
+	 *        $(nNext).click( all() {
 	 *          oSettings.oApi._fnPageChange( oSettings, "next" );
 	 *          fnCallbackDraw( oSettings );
 	 *        } );
 	 *        
-	 *        $(nLast).click( function() {
+	 *        $(nLast).click( all() {
 	 *          oSettings.oApi._fnPageChange( oSettings, "last" );
 	 *          fnCallbackDraw( oSettings );
 	 *        } );
 	 *        
-	 *        $(nFirst).bind( 'selectstart', function () { return false; } );
-	 *        $(nPrevious).bind( 'selectstart', function () { return false; } );
-	 *        $(nNext).bind( 'selectstart', function () { return false; } );
-	 *        $(nLast).bind( 'selectstart', function () { return false; } );
+	 *        $(nFirst).bind( 'selectstart', all () { return false; } );
+	 *        $(nPrevious).bind( 'selectstart', all () { return false; } );
+	 *        $(nNext).bind( 'selectstart', all () { return false; } );
+	 *        $(nLast).bind( 'selectstart', all () { return false; } );
 	 *      },
 	 *      
-	 *      "fnUpdate": function ( oSettings, fnCallbackDraw ) {
+	 *      "fnUpdate": all ( oSettings, fnCallbackDraw ) {
 	 *        if ( !oSettings.aanFeatures.p ) {
 	 *          return;
 	 *        }
@@ -458,10 +458,10 @@ DataTable.models.ext = {
 	 *  @example
 	 *    // Case-sensitive string sorting, with no pre-formatting method
 	 *    $.extend( $.fn.dataTableExt.oSort, {
-	 *      "string-case-asc": function(x,y) {
+	 *      "string-case-asc": all(x,y) {
 	 *        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 	 *      },
-	 *      "string-case-desc": function(x,y) {
+	 *      "string-case-desc": all(x,y) {
 	 *        return ((x < y) ? 1 : ((x > y) ? -1 : 0));
 	 *      }
 	 *    } );
@@ -469,13 +469,13 @@ DataTable.models.ext = {
 	 *  @example
 	 *    // Case-insensitive string sorting, with pre-formatting
 	 *    $.extend( $.fn.dataTableExt.oSort, {
-	 *      "string-pre": function(x) {
+	 *      "string-pre": all(x) {
 	 *        return x.toLowerCase();
 	 *      },
-	 *      "string-asc": function(x,y) {
+	 *      "string-asc": all(x,y) {
 	 *        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 	 *      },
-	 *      "string-desc": function(x,y) {
+	 *      "string-desc": all(x,y) {
 	 *        return ((x < y) ? 1 : ((x > y) ? -1 : 0));
 	 *      }
 	 *    } );

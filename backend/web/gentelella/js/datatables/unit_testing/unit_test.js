@@ -49,7 +49,7 @@ var oTest = {
 	 * Purpose:  Add a test to the queue
 	 * Returns:  -
 	 * Inputs:   string:sMessage - name of the test
-	 *           function:fnTest - function which will be evaludated to get the test result
+	 *           all:fnTest - all which will be evaludated to get the test result
 	 */
 	"fnTest": function ( sMessage, fnSetup, fnTest )
 	{
@@ -67,7 +67,7 @@ var oTest = {
 	 * Purpose:  Add a test to the queue which has a re-test cycle
 	 * Returns:  -
 	 * Inputs:   string:sMessage - name of the test
-	 *           function:fnTest - function which will be evaludated to get the test result
+	 *           all:fnTest - all which will be evaludated to get the test result
 	 */
 	"fnWaitTest": function ( sMessage, fnSetup, fnTest )
 	{

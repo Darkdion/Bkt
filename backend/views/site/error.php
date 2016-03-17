@@ -28,7 +28,7 @@ $this->title = $name;
                     </div>
 
                     <div class="mid_center">
-                        <a href="" class="btn btn-default btn-lg">ติดต่อเจ้าของสถาบัน...</a>
+                        <a href="<?= \yii\helpers\Url::to(['site/index']) ?>" class="btn btn-default btn-lg">ติดต่อเจ้าของสถาบัน...</a>
                     </div>
                 </div>
             </div>

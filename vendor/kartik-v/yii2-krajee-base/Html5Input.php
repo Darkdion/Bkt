@@ -3,8 +3,8 @@
 /**
  * @package   yii2-krajee-base
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
- * @version   1.8.2
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2015
+ * @version   1.8.0
  */
 
 namespace kartik\base;
@@ -81,13 +81,11 @@ class Html5Input extends InputWidget
     public $addon = [];
 
     /**
-     * @var array the allowed input types
+     * @var array the special inputs which need captions
      */
-    private static $_allowedInputTypes = [
+    private static $_specialInputs = [
         'color',
-        'range',
-        'text',
-        'hidden'
+        'range'
     ];
 
     /**
@@ -104,7 +102,7 @@ class Html5Input extends InputWidget
     protected function initInput()
     {
         $this->initDisability($this->html5Options);
-        if (in_array($this->type, self::$_allowedInputTypes)) {
+        if (in_array($this->type, self::$_specialInputs)) {
             $this->html5Options['id'] = $this->options['id'] . '-source';
             $this->registerAssets();
             echo $this->renderInput();
@@ -140,7 +138,7 @@ class Html5Input extends InputWidget
         Html::addCssClass($this->options, 'form-control');
         $size = isset($this->size) ? ' input-group-' . $this->size : '';
         Html::addCssClass($this->containerOptions, 'input-group input-group-html5' . $size);
-        if (isset($this->width) && ((int)$this->width > 0)) {
+        if (isset($this->width) && ($this->width > 0)) {
             Html::addCssStyle($this->html5Container, 'width:' . $this->width);
         }
         Html::addCssClass($this->html5Container, 'input-group-addon addon-' . $this->type);
@@ -192,8 +190,7 @@ class Html5Input extends InputWidget
 
     /**
      * Gets the HTML5 input
-     *
-     * @return string
+     * return string
      */
     protected function getHtml5Input()
     {

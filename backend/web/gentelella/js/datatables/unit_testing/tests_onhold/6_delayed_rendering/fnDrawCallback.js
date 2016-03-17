@@ -1,7 +1,7 @@
 // DATA_TEMPLATE: empty_table
 oTest.fnStart( "fnDrawCallback" );
 
-/* Fairly boring function compared to the others! */
+/* Fairly boring All compared to the others! */
 
 $(document).ready( function () {
 	/* Check the default */

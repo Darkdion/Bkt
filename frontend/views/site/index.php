@@ -26,3 +26,44 @@ $this->title = 'My Yii Application';
 
     </div>
 </div>
+
+<button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+    Loading state
+</button>
+<?php
+echo \yii\bootstrap\Button::widget([
+    'id'=>'myButton',
+    'label' => 'Action',
+    'options' => [
+
+        'class' => 'btn btn-primary',
+        'data-loading-text'=>'Loading...',
+        'autocomplete'=>'off',
+
+    ],
+]);
+$this->registerJs(
+"
+
+
+"
+
+);
+?>
+<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+</a>
+
+<div class="collapse" id="collapseExample">
+    <div class="well">
+       2555
+    </div>
+</div>
+
+<script>
+    $('#myButton').on('click', function () {
+        var $btn = $(this).button('loading')
+        // business logic...
+        $btn.button('reset')
+    })
+</script>

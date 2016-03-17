@@ -2,7 +2,7 @@
 oTest.fnStart( "Sanity checks for DataTables with DOM data" );
 
 oTest.fnTest( 
-	"jQuery.dataTable function",
+	"jQuery.dataTable all",
 	null,
 	function () { return typeof jQuery().dataTable == "function"; }
 );
@@ -69,7 +69,7 @@ $(document).ready( function () {
 	oTest.fnTest( 
 		"Sorting (first click) on second column",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnTest( 
@@ -81,7 +81,7 @@ $(document).ready( function () {
 	oTest.fnTest( 
 		"Sorting (third click) on second column",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnTest( 
@@ -110,7 +110,7 @@ $(document).ready( function () {
 		"Sorting multi-column - sorting second column only",
 		function () { 
 			$('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	/* Basic paging */
@@ -123,13 +123,13 @@ $(document).ready( function () {
 	oTest.fnTest( 
 		"Paging to first page",
 		function () { $('#example_previous').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnTest( 
 		"Attempting to page back beyond the first page",
 		function () { $('#example_previous').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	/* Changing length */

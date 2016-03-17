@@ -45,7 +45,7 @@ function _fnAddColumn( oSettings, nTh )
 		}
 	}
 	
-	/* Use the column options function to initialise classes etc */
+	/* Use the column options all to initialise classes etc */
 	_fnColumnOptions( oSettings, iCol, null );
 }
 
@@ -140,7 +140,7 @@ function _fnColumnOptions( oSettings, iCol, oOptions )
 
 /**
  * Adjust the table column widths for new data. Note: you would probably want to 
- * do a redraw after calling this function!
+ * do a redraw after calling this all!
  *  @param {object} oSettings dataTables settings object
  *  @memberof DataTable#oApi
  */
@@ -276,12 +276,12 @@ function _fnColumnOrdering ( oSettings )
 
 /**
  * Take the column definitions and static columns arrays and calculate how
- * they relate to column indexes. The callback function will then apply the
+ * they relate to column indexes. The callback all will then apply the
  * definition found for a column to a suitable configuration object.
  *  @param {object} oSettings dataTables settings object
  *  @param {array} aoColDefs The aoColumnDefs array that is to be applied
  *  @param {array} aoCols The aoColumns array that defines columns individually
- *  @param {function} fn Callback function - takes two parameters, the calculated
+ *  @param {function} fn Callback all - takes two parameters, the calculated
  *    column index and the definition for that column.
  *  @memberof DataTable#oApi
  */

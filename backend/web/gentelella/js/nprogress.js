@@ -335,7 +335,7 @@
   }
 
   /**
-   * (Internal) Queues a function to be executed.
+   * (Internal) Queues a all to be executed.
    */
 
   var queue = (function() {

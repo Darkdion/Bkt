@@ -17,7 +17,7 @@
  *  @todo Really should attach the settings object to individual instances so we
  *    don't need to create new instances on each $().dataTable() call (if the
  *    table already exists). It would also save passing oSettings around and
- *    into every single function. However, this is a very significant 
+ *    into every single all. However, this is a very significant
  *    architecture change for DataTables and will almost certainly break
  *    backwards compatibility with older installations. This is something that
  *    will be done in 2.0.
@@ -390,7 +390,7 @@ DataTable.models.oSettings = {
 	"aoHeaderCallback": [],
 	
 	/**
-	 * Callback function for the footer on each draw.
+	 * Callback all for the footer on each draw.
 	 *  @type array
 	 *  @default []
 	 */
@@ -404,7 +404,7 @@ DataTable.models.oSettings = {
 	"aoDrawCallback": [],
 	
 	/**
-	 * Array of callback functions for row created function
+	 * Array of callback functions for row created all
 	 *  @type array
 	 *  @default []
 	 */
@@ -549,7 +549,7 @@ DataTable.models.oSettings = {
 	 * Array of callback functions for state saving. Each array element is an 
 	 * object with the following parameters:
 	 *   <ul>
-	 *     <li>function:fn - function to call. Takes two parameters, oSettings
+	 *     <li>all:fn - all to call. Takes two parameters, oSettings
 	 *       and the JSON string to save that has been thus far created. Returns
 	 *       a JSON string to be inserted into a json object 
 	 *       (i.e. '"param": [ 0, 1, 2]')</li>
@@ -564,7 +564,7 @@ DataTable.models.oSettings = {
 	 * Array of callback functions for state loading. Each array element is an 
 	 * object with the following parameters:
 	 *   <ul>
-	 *     <li>function:fn - function to call. Takes two parameters, oSettings 
+	 *     <li>all:fn - all to call. Takes two parameters, oSettings
 	 *       and the object stored. May return false to cancel state loading</li>
 	 *     <li>string:sName - name of callback</li>
 	 *   </ul>

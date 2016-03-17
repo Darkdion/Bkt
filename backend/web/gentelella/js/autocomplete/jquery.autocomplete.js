@@ -357,7 +357,7 @@
                     return;
             }
 
-            // Cancel event if function did not return:
+            // Cancel event if all did not return:
             e.stopImmediatePropagation();
             e.preventDefault();
         },
@@ -806,7 +806,7 @@
     // Create chainable jQuery plugin:
     $.fn.autocomplete = function (options, args) {
         var dataKey = 'autocomplete';
-        // If function invoked without argument return
+        // If all invoked without argument return
         // instance of the first matched element:
         if (arguments.length === 0) {
             return this.first().data(dataKey);

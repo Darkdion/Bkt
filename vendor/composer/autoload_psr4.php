@@ -47,5 +47,6 @@ return array(
     'dosamigos\\ckeditor\\' => array($vendorDir . '/2amigos/yii2-ckeditor-widget/src'),
     'dixonsatit\\thaiYearFormatter\\' => array($vendorDir . '/dixonsatit/yii2-thai-year-formatter'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
+    'branchonline\\lightbox\\' => array($vendorDir . '/branchonline/yii2-lightbox/src'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
 );

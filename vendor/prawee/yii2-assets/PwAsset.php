@@ -25,7 +25,7 @@ class PwAsset extends AssetBundle
      * @inheritdoc
      */
     public $js=[
-        'js/bootbox.js',
+        'js/bootbox.min.js',
         'js/confirm.js'
     ];
 

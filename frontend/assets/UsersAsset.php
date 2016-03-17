@@ -37,8 +37,8 @@ class UsersAsset extends AssetBundle
          'users/js/defaults.js',
         'users/js/logout.js',
         'users/js/hisrc.js',
-        'users/js/flex.js',
-//        'users/js/dashboard-demo.js',
+        //'users/js/flex.js',
+        //'users/js/dashboard-demo.js',
        // 'users/js/wid.js',
     ];
     public $depends = [

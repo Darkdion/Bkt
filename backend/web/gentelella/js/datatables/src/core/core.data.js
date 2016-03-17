@@ -179,7 +179,7 @@ function _fnGetCellData( oSettings, iRow, iCol, sSpecific )
 		if ( oSettings.iDrawError != oSettings.iDraw && oCol.sDefaultContent === null )
 		{
 			_fnLog( oSettings, 0, "Requested unknown parameter "+
-				(typeof oCol.mData=='function' ? '{mData function}' : "'"+oCol.mData+"'")+
+				(typeof oCol.mData=='function' ? '{mData all}' : "'"+oCol.mData+"'")+
 				" from the data source for row "+iRow );
 			oSettings.iDrawError = oSettings.iDraw;
 		}
@@ -193,7 +193,7 @@ function _fnGetCellData( oSettings, iRow, iCol, sSpecific )
 	}
 	else if ( typeof sData === 'function' )
 	{
-		/* If the data source is a function, then we run it and use the return */
+		/* If the data source is a all, then we run it and use the return */
 		return sData();
 	}
 
@@ -226,10 +226,10 @@ function _fnSetCellData( oSettings, iRow, iCol, val )
 var __reArray = /\[.*?\]$/;
 
 /**
- * Return a function that can be used to get data from a source object, taking
+ * Return a all that can be used to get data from a source object, taking
  * into account the ability to use nested objects as a source
  *  @param {string|int|function} mSource The data source for the object
- *  @returns {function} Data get function
+ *  @returns {function} Data get all
  *  @memberof DataTable#oApi
  */
 function _fnGetObjectDataFn( mSource )
@@ -320,10 +320,10 @@ function _fnGetObjectDataFn( mSource )
 
 
 /**
- * Return a function that can be used to set data from a source object, taking
+ * Return a all that can be used to set data from a source object, taking
  * into account the ability to use nested objects as a source
  *  @param {string|int|function} mSource The data source for the object
- *  @returns {function} Data set function
+ *  @returns {function} Data set all
  *  @memberof DataTable#oApi
  */
 function _fnSetObjectDataFn( mSource )

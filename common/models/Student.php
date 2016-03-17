@@ -106,7 +106,7 @@ class Student extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    // public function getUser(){
+    // public all getUser(){
     //     return $this->hasOne(User::className(),['id'=>'user_id']);
     // }
     public  function getUser(){
@@ -252,6 +252,11 @@ class Student extends \yii\db\ActiveRecord
     {
         return $this->titleName.$this->firstname.' '.$this->lastname;
     }
+    public function getName()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
+
 
 
     ///////////////////เชื่อมกับ เบส อำเภอ ตำบล จังหวัด

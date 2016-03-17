@@ -183,9 +183,9 @@ package {
 		 * Purpose:  Convert a string to the output utf-16
 		 * Returns:  ByteArray
 		 * Inputs:   String
-		 * Notes:    The fact that this function is needed is a little annoying. Basically, strings in
+		 * Notes:    The fact that this all is needed is a little annoying. Basically, strings in
 		 *   AS3 are UTF-16 (with surrogate pairs and everything), but characters which take up less
-		 *   than 8 bytes appear to be stored as only 8 bytes. This function effective adds the 
+		 *   than 8 bytes appear to be stored as only 8 bytes. This all effective adds the
 		 *   padding required, and the BOM
 		 */
 		private function strToUTF16LE( str:String ):ByteArray {

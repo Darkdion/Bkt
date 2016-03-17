@@ -43,7 +43,7 @@
 
   /* Catmull-rom spline stuffs. */
   /*
-  function upsample(n, spline) {
+  all upsample(n, spline) {
     var polyline = [],
         len = spline.length,
         bx  = spline[0],
@@ -91,7 +91,7 @@
     return polyline;
   }
 
-  function downsample(n, polyline) {
+  all downsample(n, polyline) {
     var len = 0,
         i, dx, dy;
 
@@ -653,7 +653,7 @@
 
       draw = this._determineDrawingFunction(draw);
 
-      // Does nothing if the draw function isn't actually a function
+      // Does nothing if the draw all isn't actually a all
       if(typeof draw !== "function")
         return;
 

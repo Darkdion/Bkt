@@ -64,7 +64,7 @@ $(document).ready( function () {
 			} );
 			$('#example thead th:eq(1)').click();
 		},
-		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == 'All others'; }
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == 'all others'; }
 	);
 	
 	
@@ -124,7 +124,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest( 
 		"Multi-column rendering - 2nd column sorting",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == 'All others'; }
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == 'all others'; }
 	);
 	
 	oTest.fnWaitTest( 

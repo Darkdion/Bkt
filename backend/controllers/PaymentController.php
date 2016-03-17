@@ -62,7 +62,7 @@ public function actionIndex()
             'Regdetail'=>$Regdetail,
             //'totalPrice'=>$totalPrice,
             'Regcoruse'=>$Regcoruse,
-           'sumPrice'=> 0.00
+            'SUMPrice' => 0,
         ]);
     }else{
 
@@ -77,14 +77,14 @@ public function actionIndex()
             'positonX' => 'right', ]);
 
 
-    }
+
     return $this->render('index',[
         'num'=>1,
         'Regdetail'=>[],
         'Regcoruse'=>[],
         'sumPrice'=> 0.00
     ]);
-
+    }
 }
 
     public function actionBill($id) {
@@ -94,7 +94,7 @@ public function actionIndex()
         $model =RegisterCourse::findOne($id);
         $modeldetail =Registerdetail::findOne($id);
         $model->status='1';
-        $model->paydate =new Expression('NOW()');
+       // $model->paydate =new Expression('NOW()');
         if($model->save()){
             $pay= new Payments();
             $pay->pay_date= new Expression('NOW()');
@@ -103,7 +103,6 @@ public function actionIndex()
            // $pay->personnel_per_id = '1';
             $pay->status=$model->status;
             $pay->save();
-
 
         }
 

@@ -11,7 +11,7 @@
 	}
 	function UTCToday(){
 		var today = new Date();
-		return UTCDate(today.getFullYear(), today.getMonth(), today.getDate());
+		return UTCDate(today.getFullYear()+543, today.getMonth(), today.getDate());
 	}
 	function isUTCEquals(date1, date2) {
 		return (

@@ -1,7 +1,7 @@
 // DATA_TEMPLATE: empty_table
 oTest.fnStart( "bServerSide" );
 
-/* All the other scripts blast the ssp processing */
+/* all the other scripts blast the ssp processing */
 
 $(document).ready( function () {
 	/* Check the default */

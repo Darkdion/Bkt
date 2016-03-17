@@ -38,7 +38,7 @@ $(document).ready( function () {
 				"aaSorting": [['1','asc']]
 			} );
 		},
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	

@@ -9,9 +9,28 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\UsersAsset;
 use common\widgets\Alert;
+use common\models\RegisterCourse;
+use common\models\Paynotify;
 
 UsersAsset::register($this);
 
+$student = \common\models\Student::find()
+    ->where(['user_id'=>Yii::$app->user->id])
+    ->all();
+foreach($student as $model):
+
+endforeach;
+
+$RegisterCourse=RegisterCourse::find()
+    ->where(['status'=>0 ,'student_id'=>$model->id])
+    ->count();
+
+$Paynotify = Paynotify::find()
+    ->where(['status'=>2,'student_id'=>$model->id])
+    ->count();
+
+
+$Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
 
 ?>
 <?php $this->beginPage() ?>
@@ -26,6 +45,7 @@ UsersAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+
 
 
 <div class="wrap">
@@ -74,29 +94,43 @@ UsersAsset::register($this);
                     <!-- begin ALERTS DROPDOWN -->
                     <li class="dropdown">
                         <a href="#" class="alerts-link dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell"></i>
-                            <span class="number">9</span><i class="fa fa-caret-down"></i>
+                            <i class="fa fa-envelope"></i> ข้อความแจ้งเตือน
+                            <span class="number"><?= $Sumcount ?></span><i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-scroll dropdown-alerts">
 
                             <!-- Alerts Dropdown Heading -->
                             <li class="dropdown-header">
-                                <i class="fa fa-bell"></i> 9 New Alerts
+                                <i class="fa fa-bell "></i> <?= $Sumcount ?>  ข้อความใหม่
                             </li>
 
                             <!-- Alerts Dropdown Body - This is contained within a SlimScroll fixed height box. You can change the height using the SlimScroll jQuery features. -->
                             <li id="alertScroll">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <a href="#">
+                                        <a href="<?=\yii\helpers\Url::to(['register-course/registerdetail'])?>">
                                             <div class="alert-icon green pull-left">
                                                 <i class="fa fa-money"></i>
                                             </div>
-                                            แจ้งยังไม่ชำระ
+                                            ยังไม่ชำระ
                                             <span class="small pull-right">
-                                                <strong>
-                                                    <em>3 minutes ago</em>
-                                                </strong>
+                                               <span class="label label-danger"><?= $RegisterCourse ?></span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?=\yii\helpers\Url::to(['register-course/registerdetail'])?>">
+                                            <div class="alert-icon red pull-left">
+                                                <i class="fa fa-ban"></i>
+                                            </div>
+                                            แจ้งชำระไม่ถูกต้อง
+                                            <span class="small pull-right">
+                                              <span class="label label-danger">
+                                                  <?php
+                                                  echo $Paynotify;
+                                                  ?>
+
+                                              </span>
                                             </span>
                                         </a>
                                     </li>
@@ -106,9 +140,7 @@ UsersAsset::register($this);
                             </li>
 
                             <!-- Alerts Dropdown Footer -->
-                            <li class="dropdown-footer">
-                                <a href="#">View All Alerts</a>
-                            </li>
+
 
                         </ul>
                         <!-- /.dropdown-menu -->
@@ -123,8 +155,11 @@ UsersAsset::register($this);
 
                     <!-- begin USER ACTIONS DROPDOWN -->
                     <li class="dropdown">
+                        <?php $pro = \common\models\Student::find()->where(['user_id' => Yii::$app->user->id])->all();?>
+                        <?php foreach($pro as $pros ): ?>
+                        <?php endforeach; ?>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user"></i> <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-user"> </i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
@@ -148,11 +183,7 @@ UsersAsset::register($this);
 
 
                             <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-gear"></i> Settings
-                                </a>
-                            </li>
+
                             <li>
                                 <a style="color: inherit" class="logout_open" href="#logout"
                                    data-toggle="tooltip" data-placement="top"
@@ -192,8 +223,7 @@ UsersAsset::register($this);
                             <span class="last-name"></span> <a style="color: inherit" class="logout_open" href="#logout"
                                                                data-toggle="tooltip" data-placement="top"
                                                                title="Logout"><i class="fa fa-sign-out"></i></a>
-                            <br>
-                            <a href="<?=\yii\helpers\Url::to(['profile/index'])?>" class="btn btn-warning btn-sm "><i class="  fa fa-star fa-spin "></i> โปรไฟล์</a>
+
                         </p>
 
                         <div class="clearfix"></div>
@@ -212,47 +242,34 @@ UsersAsset::register($this);
                     <!-- end DASHBOARD LINK -->
                     <!-- begin CHARTS DROPDOWN -->
                     <li class="panel">
-                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle"
+                        <a href="<?= \yii\helpers\Url::to(['register-course/index'])?>" data-parent="#side" data-toggle="collapse" class="accordion-toggle"
                            data-target="#charts">
-                            <i class="fa fa-book"></i> ลงทะเบียนเรียน <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-shopping-cart"></i> ลงทะเบียนเรียน
                         </a>
                         <ul class="collapse nav" id="charts">
 
                         </ul>
                     </li>
-                    <li>
-                        <a href="<?= \yii\helpers\Url::to(['site/users'])?>">
-                            <i class="fa fa-dashboard"></i> ประวัติการลงทะเบียน
-                        </a>
-                    </li>
+
                     <li>
                         <a href="<?= \yii\helpers\Url::to(['register-course/registerdetail'])?>">
-                            <i class="fa fa-dashboard"></i> รายการลงทะเบียน
+                            <i class="fa fa-book"></i> รายการลงทะเบียน
                         </a>
                     </li>
+                    <li>
+                        <a href="<?= \yii\helpers\Url::to(['history/index'])?>">
+                            <i class="fa fa-server"></i> ประวัติการลงทะเบียน
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= \yii\helpers\Url::to(['paynotify/index'])?>">
+                            <i class="fa fa-exclamation-circle"></i> ประวัติแจ้งชำระ
+                        </a>
+                    </li>
+
                     <!-- end CHARTS DROPDOWN -->
                     <!-- begin FORMS DROPDOWN -->
-                    <li class="panel">
-                        <a href="javascript:;" data-parent="#side" data-toggle="collapse" class="accordion-toggle"
-                           data-target="#forms">
-                            <i class="fa fa-shopping-cart"></i> แจ้งชำระ <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="collapse nav" id="forms">
-                            <li>
-                                <a href="basic-form-elements.html">
-                                    <i class="fa fa-angle-double-right"></i> Basic Elements
-                                </a>
-                            </li>
-                            <li>
-                                <a href="advanced-form-elements.html">
-                                    <i class="fa fa-angle-double-right"></i> Advanced Elements
-                                </a>
-                            </li>
 
-                        </ul>
-                    </li>
-                    <!-- end FORMS DROPDOWN -->
-                    <!-- begin CALENDAR LINK -->
 
 
                 </ul>
@@ -275,9 +292,25 @@ UsersAsset::register($this);
             <div class="row">
                 <div class="col-lg-2 col-sm-6">
                     <div class="circle-tile">
+                        <a href="<?= \yii\helpers\Url::to(['site/users'])?>">
+                            <div class="circle-tile-heading purple">
+                                <i class="fa fa-dashboard fa-fw fa-3x"></i>
+                            </div>
+                        </a>
+                        <div class="circle-tile-content purple">
+                            <div class="circle-tile-description text-faded">
+                                หน้าหลัก
+                            </div>
+
+                            <a href="#" class="circle-tile-footer"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="circle-tile">
                         <a href="<?= yii\helpers\Url::to(['profile/index'])?>">
                             <div class="circle-tile-heading dark-blue">
-                                <i class="fa fa-users fa-fw fa-3x"></i>
+                                <i class="fa fa-user-md fa-fw fa-3x"></i>
                             </div>
                         </a>
                         <div class="circle-tile-content dark-blue">
@@ -293,7 +326,7 @@ UsersAsset::register($this);
                     <div class="circle-tile">
                         <a href="<?= yii\helpers\Url::to(['register-course/index'])?>">
                             <div class="circle-tile-heading green">
-                                <i class="fa fa-money fa-fw fa-3x"></i>
+                                <i class="fa  fa-shopping-basket fa-fw fa-3x"></i>
                             </div>
                         </a>
                         <div class="circle-tile-content green">
@@ -309,7 +342,7 @@ UsersAsset::register($this);
                     <div class="circle-tile">
                         <a href="<?= yii\helpers\Url::to(['register-course/registerdetail'])?>">
                             <div class="circle-tile-heading orange">
-                                <i class="fa fa-bell fa-fw fa-3x"></i>
+                                <i class="fa fa-book fa-fw fa-3x"></i>
                             </div>
                         </a>
                         <div class="circle-tile-content orange">
@@ -343,36 +376,21 @@ UsersAsset::register($this);
                 <div class="col-lg-2 col-sm-6">
 
                     <div class="circle-tile">
-                        <a href="#">
+                        <a href="<?= \yii\helpers\Url::to(['paynotify/index'])?>">
                             <div class="circle-tile-heading red">
-                                <i class="fa fa-shopping-cart fa-fw fa-3x"></i>
+                                <i class="fa fa-exclamation-circle fa-fw fa-3x"></i>
                             </div>
                         </a>
                         <div class="circle-tile-content red">
                             <div class="circle-tile-description text-faded">
-                                Orders
+                                ประวัติแจ้งชำระ
                             </div>
 
                             <a href="#" class="circle-tile-footer"></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-6">
-                    <div class="circle-tile">
-                        <a href="#">
-                            <div class="circle-tile-heading purple">
-                                <i class="fa fa-comments fa-fw fa-3x"></i>
-                            </div>
-                        </a>
-                        <div class="circle-tile-content purple">
-                            <div class="circle-tile-description text-faded">
-                                Mentions
-                            </div>
 
-                            <a href="#" class="circle-tile-footer"></a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <?= $content ?>
 

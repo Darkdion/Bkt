@@ -2,7 +2,7 @@
 oTest.fnStart( "Sanity checks for DataTables with data from JS" );
 
 oTest.fnTest( 
-	"jQuery.dataTable function",
+	"jQuery.dataTable All",
 	null,
 	function () { return typeof jQuery().dataTable == "function"; }
 );

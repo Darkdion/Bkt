@@ -1,7 +1,7 @@
 /*!
  * Timepicker Component for Twitter Bootstrap
  * 
- * Improvements by: Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * Improvements by: Kartik Visweswaran, Krajee.com, 2014
  *
  * Copyright 2013 Joris de Wit
  *

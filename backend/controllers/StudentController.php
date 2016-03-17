@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\User;
+use yii\filters\AccessControl;
 use Yii;
 
 
@@ -38,7 +39,19 @@ class StudentController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'rules'=>[
+                    [
+                        'allow'=>true,
+                        'actions'=>['index','view','create','update'],
+                        'roles'=>['Manager']
+                    ],
+
+                ]
+            ]
         ];
+
     }
 
     /**
@@ -80,17 +93,17 @@ class StudentController extends Controller
         $model = new Student();
         $user = new User();
 
-        $user->password=$user->password_hash;
-        $user->confirm_password=$user->password_hash;
-        $post=Yii::$app->request->post();
+        $user->password = $user->password_hash;
+        $user->confirm_password = $user->password_hash;
+        $post = Yii::$app->request->post();
 //        $auth = Yii::$app->authManager;
-      //  $auth =Yii::$app
+        //  $auth =Yii::$app
 
-        if ($model->load($post)&&$user->load($post) && Model::validateMultiple([$model,$user])) {
+        if ($model->load($post) && $user->load($post) && Model::validateMultiple([$model, $user])) {
             $user->setPassword($user->password);
             $user->generateAuthKey();
-            if($user->save()){
-                $model->user_id =$user->id;
+            if ($user->save()) {
+                $model->user_id = $user->id;
                 $model->save();
 
                 $auth = Yii::$app->authManager;
@@ -102,7 +115,7 @@ class StudentController extends Controller
                 'duration' => 1700,
                 'icon' => 'fa fa-floppy-o fa-2x',
                 'title' => Yii::t('app', Html::encode('บันทึกข้อมูล'), ['class' => 'text-center']),
-                'message' => Yii::t('app',Html::encode('บันทึกข้อมูลข้อมูลสมาชิกเรียบร้อย !')),
+                'message' => Yii::t('app', Html::encode('บันทึกข้อมูลข้อมูลสมาชิกเรียบร้อย !')),
                 'showSeparator' => true,
                 'delay' => 1500,
                 'pluginOptions' => [
@@ -118,9 +131,9 @@ class StudentController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'user'=>$user,
-                'amphur'=> [],
-                'district' =>[],
+                'user' => $user,
+                'amphur' => [],
+                'district' => [],
             ]);
         }
     }
@@ -140,18 +153,18 @@ class StudentController extends Controller
         $user->confirm_password = $user->password_hash;
         $oldPass = $user->password_hash;
         $post = Yii::$app->request->post();
-        $amphur         = ArrayHelper::map($this->getAmphur($model->province),'id','name');
-        $district       = ArrayHelper::map($this->getDistrict($model->amphur),'id','name');
-        if ($model->load($post)&& $user->load($post)&& Model::validateMultiple([$model,$user]) ){
-            if($oldPass!==$user->password){
+        $amphur = ArrayHelper::map($this->getAmphur($model->province), 'id', 'name');
+        $district = ArrayHelper::map($this->getDistrict($model->amphur), 'id', 'name');
+        if ($model->load($post) && $user->load($post) && Model::validateMultiple([$model, $user])) {
+            if ($oldPass !== $user->password) {
                 $user->setPassword($user->password);
             }
-            if($user->save()){
+            if ($user->save()) {
                 $auth = Yii::$app->authManager;
                 $authorRole = $auth->getRole('User');
                 $auth->assign($authorRole, $user->getId());
 
-                $model->user_id =$user->id;
+                $model->user_id = $user->id;
                 $model->save();
             }
             Yii::$app->getSession()->setFlash('alert', [
@@ -159,7 +172,7 @@ class StudentController extends Controller
                 'duration' => 1700,
                 'icon' => 'fa fa-users fa-2x',
                 'title' => Yii::t('app', Html::encode('ปรับปรุง'), ['class' => 'text-center']),
-                'message' => Yii::t('app',Html::encode('ปรับปรุงข้อมูลสมาชิกเรียบร้อย !')),
+                'message' => Yii::t('app', Html::encode('ปรับปรุงข้อมูลสมาชิกเรียบร้อย !')),
                 'showSeparator' => true,
                 'delay' => 1500,
                 'pluginOptions' => [
@@ -174,10 +187,10 @@ class StudentController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'user'=>$user,
-                'amphur'=> $amphur,
+                'user' => $user,
+                'amphur' => $amphur,
 
-                'district' =>$district,
+                'district' => $district,
             ]);
         }
     }
@@ -188,9 +201,9 @@ class StudentController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id ,$user_id)
+    public function actionDelete($id, $user_id)
     {
-        $this->findModel($id)-> delete();
+        $this->findModel($id)->delete();
         $this->findModelUser($user_id)->delete();
 
         Yii::$app->getSession()->setFlash('alert', [
@@ -198,7 +211,7 @@ class StudentController extends Controller
             'duration' => 1700,
             'icon' => 'fa fa-trash fa-2x',
             'title' => Yii::t('app', Html::encode('ลบข้อมูล')),
-            'message' => Yii::t('app',Html::encode('ลบข้อมูลเรียบร้อย !')),
+            'message' => Yii::t('app', Html::encode('ลบข้อมูลเรียบร้อย !')),
             'showSeparator' => true,
             'delay' => 1500,
             'pluginOptions' => [
@@ -227,6 +240,7 @@ class StudentController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
     protected function findModelUser($id)
     {
         if (($user = User::findOne($id)) !== null) {
@@ -238,21 +252,23 @@ class StudentController extends Controller
 
 
 //////เชื่อกับเบส อำเภอ จังหวัด ตำบล
-    public function actionGetAmphur() {
+    public function actionGetAmphur()
+    {
         $out = [];
         if (isset($_POST['depdrop_parents'])) {
             $parents = $_POST['depdrop_parents'];
             if ($parents != null) {
                 $province_id = $parents[0];
                 $out = $this->getAmphur($province_id);
-                echo Json::encode(['output'=>$out, 'selected'=>'']);
+                echo Json::encode(['output' => $out, 'selected' => '']);
                 return;
             }
         }
-        echo Json::encode(['output'=>'', 'selected'=>'']);
+        echo Json::encode(['output' => '', 'selected' => '']);
     }
 
-    public function actionGetDistrict() {
+    public function actionGetDistrict()
+    {
         $out = [];
         if (isset($_POST['depdrop_parents'])) {
             $ids = $_POST['depdrop_parents'];
@@ -260,27 +276,30 @@ class StudentController extends Controller
             $amphur_id = empty($ids[1]) ? null : $ids[1];
             if ($province_id != null) {
                 $data = $this->getDistrict($amphur_id);
-                echo Json::encode(['output'=>$data, 'selected'=>'']);
+                echo Json::encode(['output' => $data, 'selected' => '']);
                 return;
             }
         }
-        echo Json::encode(['output'=>'', 'selected'=>'']);
+        echo Json::encode(['output' => '', 'selected' => '']);
     }
 
-    protected function getAmphur($id){
-        $datas = Amphur::find()->where(['PROVINCE_ID'=>$id])->all();
-        return $this->MapData($datas,'AMPHUR_ID','AMPHUR_NAME');
+    protected function getAmphur($id)
+    {
+        $datas = Amphur::find()->where(['PROVINCE_ID' => $id])->all();
+        return $this->MapData($datas, 'AMPHUR_ID', 'AMPHUR_NAME');
     }
 
-    protected function getDistrict($id){
-        $datas = District::find()->where(['AMPHUR_ID'=>$id])->all();
-        return $this->MapData($datas,'DISTRICT_ID','DISTRICT_NAME');
+    protected function getDistrict($id)
+    {
+        $datas = District::find()->where(['AMPHUR_ID' => $id])->all();
+        return $this->MapData($datas, 'DISTRICT_ID', 'DISTRICT_NAME');
     }
 
-    protected function MapData($datas,$fieldId,$fieldName){
+    protected function MapData($datas, $fieldId, $fieldName)
+    {
         $obj = [];
         foreach ($datas as $key => $value) {
-            array_push($obj, ['id'=>$value->{$fieldId},'name'=>$value->{$fieldName}]);
+            array_push($obj, ['id' => $value->{$fieldId}, 'name' => $value->{$fieldName}]);
         }
         return $obj;
     }

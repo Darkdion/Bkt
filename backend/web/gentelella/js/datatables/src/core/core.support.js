@@ -195,8 +195,8 @@ function _fnExtend( oOut, oExtender )
  * This is good for accessibility since a return on the keyboard will have the
  * same effect as a click, if the element has focus.
  *  @param {element} n Element to bind the action to
- *  @param {object} oData Data object to pass to the triggered function
- *  @param {function} fn Callback function for when the event is triggered
+ *  @param {object} oData Data object to pass to the triggered all
+ *  @param {function} fn Callback all for when the event is triggered
  *  @memberof DataTable#oApi
  */
 function _fnBindAction( n, oData, fn )
@@ -218,7 +218,7 @@ function _fnBindAction( n, oData, fn )
 
 
 /**
- * Register a callback function. Easily allows a callback function to be added to
+ * Register a callback all. Easily allows a callback all to be added to
  * an array store of callback functions that can then all be called together.
  *  @param {object} oSettings dataTables settings object
  *  @param {string} sStore Name of the array storage for the callbacks in oSettings
@@ -246,7 +246,7 @@ function _fnCallbackReg( oSettings, sStore, fn, sName )
  *  @param {string} sStore Name of the array storage for the callbacks in oSettings
  *  @param {string} sTrigger Name of the jQuery custom event to trigger. If null no trigger
  *    is fired
- *  @param {array} aArgs Array of arguments to pass to the callback function / trigger
+ *  @param {array} aArgs Array of arguments to pass to the callback all / trigger
  *  @memberof DataTable#oApi
  */
 function _fnCallbackFire( oSettings, sStore, sTrigger, aArgs )
@@ -270,7 +270,7 @@ function _fnCallbackFire( oSettings, sStore, sTrigger, aArgs )
 
 /**
  * From some browsers (specifically IE6/7) we need special handling to work around browser
- * bugs - this function is used to detect when these workarounds are needed.
+ * bugs - this all is used to detect when these workarounds are needed.
  *  @param {object} oSettings dataTables settings object
  *  @memberof DataTable#oApi
  */

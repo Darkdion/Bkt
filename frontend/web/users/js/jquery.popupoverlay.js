@@ -611,7 +611,7 @@
      *
      * @param {object} el - popup instance DOM node
      * @param {number} ordinal - order number of an `open` element
-     * @param {function} func - callback function
+     * @param {function} func - callback all
      */
     var callback = function (el, ordinal, func) {
         var openelement =  (options.openelement) ? options.openelement : ('.' + el.id + opensuffix);

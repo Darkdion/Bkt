@@ -36,9 +36,12 @@ function thai_date($time){
 
 
         </div>
-        <br>
+
         <div class="text-center">
             <strong style="font-size:20pt;  ">สถาบันกวดวิชาบ้านครูติ๊กติวเตอร์</strong>
+            <div style="font-size:14pt;  ">
+                ที่อยู่ 209 / 9 ต.ลุ่มสุ่ม อ.ไทรโยค จ.กาญจนบุรี 71150
+            </div>
         </div>
 
     </div>
@@ -63,7 +66,7 @@ function thai_date($time){
         <?php foreach (\common\models\RegisterCourse::find()->where(['id' => $model->id])->all() as $row): ?>
 
 
-            <?php foreach (\common\models\Registerdetail::find()->where(['register_course_id' => $modeldetail->id])->all() as $course): ?>
+            <?php foreach (\common\models\Registerdetail::find()->where(['register_course_id' => $row->id])->all() as $course): ?>
                 <?php $sumtotall += $course->price ?>
                 <tr>
                     <td width="10%"  style="font-size: 20px" align="center"><?= $no++; ?></td>
@@ -78,18 +81,7 @@ function thai_date($time){
 
 
         </tbody>
-<!--        <tfoot>-->
-<!--        <tr>-->
-<!--<!--            <td   style="font-size: 22px; font-weight:bold;">-->-->
-<!--<!--                รวมจำนวนเงิน (ตัวอักษร)-->-->
-<!--<!--               -->--><?php ////echo convert($sumtotall . '.00'); ?>
-<!--<!---->-->
-<!--<!--            </td>-->-->
-<!--            <td  style="font-size: 20px; font-weight:bold; "></td>-->
-<!--            <td  style="font-size: 22px; font-weight:bold;">--><?php //echo number_format($sumtotall) . '.00' ?><!-- </td>-->
-<!--        </tr>-->
-<!---->
-<!--        </tfoot>-->
+
     </table>
 
  <table width="100%"  style=" border: 1px solid black;
@@ -124,35 +116,35 @@ function thai_date($time){
      </tr>
 
  </table>
-    <br>
-    <table class="table" style="font-size:15pt;">
-        <?php
 
-
-        $per = \common\models\Personnel::find()->where(['user_id' => Yii::$app->user->id])->all();
-
-
-        ?>
-        <?php foreach ($per as $pers): ?>
-
-
-            <tr>
-                <td style="padding-left:100px;  "></td>
-                <td style="padding-left:350px;font-weight:bold; ">ลงชื่อ ..... <?= $pers->nameDot ?>......ผู้รับเงิน
-                </td>
-            </tr>
-            <tr>
-                <td style="padding-left: 100px;"></td>
-                <td style="padding-left:350px; font-weight:bold;  ">  &nbsp;&nbsp;
-                    &nbsp;&nbsp; ( <?= $pers->fullName ?>)
-                </td>
-
-            </tr>
-        <?php endforeach; ?>
-    </table>
-
-
+    <?php echo Yii::$app->user->id?>
     <br><br>
+    <table class="table" style="font-size:15pt;">
+        <tr>
+            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้เบิก</td>
+            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้อนุมัติ</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 110px;">(  )</td>
+            <td style="padding-left:110px;"> ( นางสุพัตรา วงษ์สุทโธ)</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 110px;">ตำแหน่ง  </td>
+            <td style="padding-left: 110px;">หัวหน้าเจ้าหน้าที่พัสดุ</td>
+        </tr>
+    </table>
+    <table class="table" style="font-size:15pt;">
+
+        <tr>
+            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้รับของ</td>
+            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้จ่าย</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 110px;">( _________________)</td>
+            <td style="padding-left:110px;"> ( _________________)</td>
+
+        </tr>
+    </table>
 
 
 </div>

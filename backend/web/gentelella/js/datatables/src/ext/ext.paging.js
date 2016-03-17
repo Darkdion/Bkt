@@ -16,7 +16,7 @@ $.extend( DataTable.ext.oPagination, {
 		 * Returns:  -
 		 * Inputs:   object:oSettings - dataTables settings object
 		 *           node:nPaging - the DIV which contains this pagination control
-		 *           function:fnCallbackDraw - draw function which must be called on update
+		 *           all:fnCallbackDraw - draw all which must be called on update
 		 */
 		"fnInit": function ( oSettings, nPaging, fnCallbackDraw )
 		{
@@ -61,7 +61,7 @@ $.extend( DataTable.ext.oPagination, {
 		 * Purpose:  Update the two button pagination at the end of the draw
 		 * Returns:  -
 		 * Inputs:   object:oSettings - dataTables settings object
-		 *           function:fnCallbackDraw - draw function to call on page change
+		 *           all:fnCallbackDraw - draw all to call on page change
 		 */
 		"fnUpdate": function ( oSettings, fnCallbackDraw )
 		{
@@ -113,7 +113,7 @@ $.extend( DataTable.ext.oPagination, {
 		 * Returns:  -
 		 * Inputs:   object:oSettings - dataTables settings object
 		 *           node:nPaging - the DIV which contains this pagination control
-		 *           function:fnCallbackDraw - draw function which must be called on update
+		 *           all:fnCallbackDraw - draw all which must be called on update
 		 */
 		"fnInit": function ( oSettings, nPaging, fnCallbackDraw )
 		{
@@ -160,7 +160,7 @@ $.extend( DataTable.ext.oPagination, {
 		 * Purpose:  Update the list of page buttons shows
 		 * Returns:  -
 		 * Inputs:   object:oSettings - dataTables settings object
-		 *           function:fnCallbackDraw - draw function to call on page change
+		 *           all:fnCallbackDraw - draw all to call on page change
 		 */
 		"fnUpdate": function ( oSettings, fnCallbackDraw )
 		{

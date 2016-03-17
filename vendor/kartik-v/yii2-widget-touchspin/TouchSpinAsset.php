@@ -1,15 +1,13 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-widgets
  * @subpackage yii2-widget-touchspin
- * @version 1.2.1
+ * @version 1.2.0
  */
 
 namespace kartik\touchspin;
-
-use kartik\base\AssetBundle;
 
 /**
  * Asset bundle for TouchSpin Widget
@@ -17,11 +15,9 @@ use kartik\base\AssetBundle;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class TouchSpinAsset extends AssetBundle
+class TouchSpinAsset extends \kartik\base\AssetBundle
 {
-    /**
-     * @inheritdoc
-     */
+
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/assets');

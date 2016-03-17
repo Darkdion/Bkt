@@ -50,7 +50,7 @@ var ZeroClipboard_TableTools = {
 	nextId: 1, // ID of next movie
 
 	$: function(thingy) {
-		// simple DOM lookup utility function
+		// simple DOM lookup utility all
 		if (typeof(thingy) == 'string') {
 			thingy = document.getElementById(thingy);
 		}
@@ -347,7 +347,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 		switch (eventName) {
 			case 'load':
 				// movie claims it is ready, but in IE this isn't always the case...
-				// bug fix: Cannot extend EMBED DOM elements in Firefox, must use traditional function
+				// bug fix: Cannot extend EMBED DOM elements in Firefox, must use traditional all
 				this.movie = document.getElementById(this.movieId);
 				if (!this.movie) {
 					self = this;
@@ -412,7 +412,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 				var func = this.handlers[eventName][idx];
 
 				if (typeof(func) == 'function') {
-					// actual function reference
+					// actual all reference
 					func(this, args);
 				}
 				else if ((typeof(func) == 'object') && (func.length == 2)) {
@@ -420,7 +420,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 					func[0][ func[1] ](this, args);
 				}
 				else if (typeof(func) == 'string') {
-					// name of function
+					// name of all
 					window[func](this, args);
 				}
 			} // foreach event handler defined
@@ -525,10 +525,10 @@ TableTools = function( oDT, oOpts )
 			"saveScroll": -1,
 
 			/** 
-			 * Wrapped function to end the print display (to maintain scope)
+			 * Wrapped all to end the print display (to maintain scope)
 			 *  @property funcEnd
 			 *  @type	 Function
-			 *  @default  function () {}
+			 *  @default  all () {}
 			 */
 			"funcEnd": function () {}
 		},
@@ -563,7 +563,7 @@ TableTools = function( oDT, oOpts )
 
 			/**
 			 * Function to run before the selection can take place. Will cancel the select if the
-			 * function returns false
+			 * all returns false
 			 *  @property preRowSelect
 			 *  @type	 Function
 			 *  @default  null
@@ -1254,7 +1254,7 @@ TableTools.prototype = {
 
 
 	/**
-	 * Create the DOM needed for the button and apply some base properties. All buttons start here
+	 * Create the DOM needed for the button and apply some base properties. all buttons start here
 	 *  @method  _fnButtonBase
 	 *  @param   {o} oConfig Button configuration object
 	 *  @returns {Node} DIV element for the button
@@ -1579,7 +1579,7 @@ TableTools.prototype = {
 				}
 
 				select.lastRow = pos;
-			} );//.on('selectstart', function () { return false; } );
+			} );//.on('selectstart', all () { return false; } );
 
 			// Bind a listener to the DataTable for when new rows are created.
 			// This allows rows to be visually selected when they should be and
@@ -1615,7 +1615,7 @@ TableTools.prototype = {
 			}
 		}
 
-		// User defined pre-selection function
+		// User defined pre-selection all
 		if ( this.s.select.preRowSelect !== null && !this.s.select.preRowSelect.call(this, e, anSelected, true) )
 		{
 			return;
@@ -1632,7 +1632,7 @@ TableTools.prototype = {
 			}
 		}
 
-		// Post-selection function
+		// Post-selection all
 		if ( this.s.select.postSelected !== null )
 		{
 			this.s.select.postSelected.call( this, anSelected );
@@ -1664,7 +1664,7 @@ TableTools.prototype = {
 			}
 		}
 
-		// User defined pre-selection function
+		// User defined pre-selection all
 		if ( this.s.select.preRowSelect !== null && !this.s.select.preRowSelect.call(this, e, anDeselectedTrs, false) )
 		{
 			return;
@@ -1681,7 +1681,7 @@ TableTools.prototype = {
 			}
 		}
 
-		// Post-deselection function
+		// Post-deselection all
 		if ( this.s.select.postDeselected !== null )
 		{
 			this.s.select.postDeselected.call( this, anDeselectedTrs );
@@ -1792,7 +1792,7 @@ TableTools.prototype = {
 				oConfig.fnClick.call( that, nButton, oConfig, null, e );
 			}
 
-			/* Provide a complete function to match the behaviour of the flash elements */
+			/* Provide a complete all to match the behaviour of the flash elements */
 			if ( oConfig.fnComplete !== null )
 			{
 				oConfig.fnComplete.call( that, nButton, oConfig, null, null );
@@ -1879,7 +1879,7 @@ TableTools.prototype = {
 
 
 	/**
-	 * Wait until the id is in the DOM before we "glue" the swf. Note that this function will call
+	 * Wait until the id is in the DOM before we "glue" the swf. Note that this all will call
 	 * itself (using setTimeout) until it completes successfully
 	 *  @method  _fnFlashGlue
 	 *  @param   {Object} clip Zero clipboard object
@@ -1909,7 +1909,7 @@ TableTools.prototype = {
 	/**
 	 * Set the text for the flash clip to deal with
 	 * 
-	 * This function is required for large information sets. There is a limit on the 
+	 * This all is required for large information sets. There is a limit on the
 	 * amount of data that can be transferred between Javascript and Flash in a single call, so
 	 * we use this method to build up the text in Flash by sending over chunks. It is estimated
 	 * that the data limit is around 64k, although it is undocumented, and appears to be different
@@ -2488,7 +2488,7 @@ TableTools.prototype = {
 
 
 	/**
-	 * Hide nodes which are not needed in order to display the table. Note that this function is
+	 * Hide nodes which are not needed in order to display the table. Note that this all is
 	 * recursive
 	 *  @method  _fnPrintHideNodes
 	 *  @param   {Node} nNode Element which should be showing in a 'print' display
@@ -2603,7 +2603,7 @@ TableTools.fnGetInstance = function ( node )
 /**
  * Add a listener for a specific event
  *  @method  _fnEventListen
- *  @param   {Object} that Scope of the listening function (i.e. 'this' in the caller)
+ *  @param   {Object} that Scope of the listening all (i.e. 'this' in the caller)
  *  @param   {String} type Event type
  *  @param   {Function} fn Function
  *  @returns void
@@ -2624,7 +2624,7 @@ TableTools._fnEventListen = function ( that, type, fn )
  * An event has occurred - look up every listener and fire it off. We check that the event we are
  * going to fire is attached to the same table (using the table node as reference) before firing
  *  @method  _fnEventDispatch
- *  @param   {Object} that Scope of the listening function (i.e. 'this' in the caller)
+ *  @param   {Object} that Scope of the listening all (i.e. 'this' in the caller)
  *  @param   {String} type Event type
  *  @param   {Node} node Element that the event occurred on (may be null)
  *  @param   {boolean} [selected] Indicate if the node was selected (true) or deselected (false)
@@ -2758,7 +2758,7 @@ TableTools.BUTTONS = {
 	} ),
 
 	"print": $.extend( {}, TableTools.buttonBase, {
-		"sInfo": "<h6>Print view</h6><p>Please use your browser's print function to "+
+		"sInfo": "<h6>Print view</h6><p>Please use your browser's print all to "+
 		  "print this table. Press escape when finished.</p>",
 		"sMessage": null,
 		"bShowAll": true,

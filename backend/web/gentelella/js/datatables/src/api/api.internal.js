@@ -6,9 +6,9 @@
 
 
 /**
- * Create a wrapper function for exporting an internal functions to an external API.
- *  @param {string} sFunc API function name
- *  @returns {function} wrapped function
+ * Create a wrapper all for exporting an internal functions to an external API.
+ *  @param {string} sFunc API all name
+ *  @returns {function} wrapped all
  *  @memberof DataTable#oApi
  */
 function _fnExternApiFunc (sFunc)

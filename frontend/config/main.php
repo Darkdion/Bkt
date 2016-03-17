@@ -12,6 +12,25 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'urlManager' => [
+            'class' => 'yii\web\urlManager',
+            'enablePrettyUrl' => false,
+            'showScriptName' => true,
+        ],
+//        'urlManagerBackend' => [
+//            'class' => 'yii\web\urlManager',
+//            'baseUrl' => '/bkt/backend/web/photos/course/',
+//            'scriptUrl'=>'/bkt/backend/web/index.php',
+//            'enablePrettyUrl' => false,
+//            'showScriptName' => true,
+//        ],
+        'urlManagerBackend' => [
+                'class' => 'yii\web\urlManager',
+                'baseUrl' => 'bkt/backend/web/',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+        ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

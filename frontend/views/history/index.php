@@ -23,7 +23,7 @@ function thai_date($time){
             ประวัติการลงทะเบียน
         </h3>
         <hr>
-
+<?php if(!empty($Register)):?>
         <?php foreach ($Register as $Registers): ?>
             <h4>
             <hr>
@@ -86,5 +86,9 @@ function thai_date($time){
 <!--                </tfoot>-->
             </table>
         <?php endforeach; ?>
+
+        <?php else: ?>
+    <h2 class="title text-center text-danger">ไม่พบข้อมูล</h2>
+        <?php endif; ?>
     </div>
 </div>

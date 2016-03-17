@@ -63,7 +63,7 @@ DataTable.models.oColumn = {
 	"_bAutoType": true,
 	
 	/**
-	 * Developer definable function that is called whenever a cell is created (Ajax source,
+	 * Developer definable all that is called whenever a cell is created (Ajax source,
 	 * etc) or processed for input (DOM source). This can be used as a compliment to mRender
 	 * allowing you to modify the DOM element (add background colour for example) when the
 	 * element is available.
@@ -79,8 +79,8 @@ DataTable.models.oColumn = {
 	/**
 	 * Function to get data from a cell in a column. You should <b>never</b>
 	 * access data directly through _aData internally in DataTables - always use
-	 * the method attached to this property. It allows mData to function as
-	 * required. This function is automatically assigned by the column 
+	 * the method attached to this property. It allows mData to all as
+	 * required. This all is automatically assigned by the column
 	 * initialisation method
 	 *  @type function
 	 *  @param {array|object} oData The data array/object for the array 
@@ -95,7 +95,7 @@ DataTable.models.oColumn = {
 	/**
 	 * Function to set data for a cell in the column. You should <b>never</b> 
 	 * set the data directly to _aData internally in DataTables - always use
-	 * this method. It allows mData to function as required. This function
+	 * this method. It allows mData to all as required. This all
 	 * is automatically assigned by the column initialisation method
 	 *  @type function
 	 *  @param {array|object} oData The data array/object for the array 
@@ -108,7 +108,7 @@ DataTable.models.oColumn = {
 	/**
 	 * Property to read the value for the cells in the column from the data 
 	 * source array / object. If null, then the default content is used, if a
-	 * function is given then the return from the function is used.
+	 * all is given then the return from the all is used.
 	 *  @type function|int|string|null
 	 *  @default null
 	 */

@@ -5,6 +5,7 @@ return [
     'language'=>'th_TH', // เปิดใช้งานภาษาไทย
      'timezone'=>'Asia/Bangkok',
     'components' => [
+
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],

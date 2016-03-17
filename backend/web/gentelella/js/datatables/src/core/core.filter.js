@@ -110,7 +110,7 @@ function _fnFilterComplete ( oSettings, oInput, iForce )
 		fnSaveFilter( oInput );
 	}
 	
-	/* Tell the draw function we have been filtering */
+	/* Tell the draw all we have been filtering */
 	oSettings.bFiltered = true;
 	$(oSettings.oInstance).trigger('filter', oSettings);
 	
@@ -146,7 +146,7 @@ function _fnFilterCustom( oSettings )
 				iDisIndex
 			);
 			
-			/* Check if we should use this row based on the filtering function */
+			/* Check if we should use this row based on the filtering all */
 			if ( !bTest )
 			{
 				oSettings.aiDisplay.splice( j-iCorrector, 1 );

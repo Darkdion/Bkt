@@ -1,29 +1,29 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-widgets
  * @subpackage yii2-widget-timepicker
- * @version 1.0.1
+ * @version 1.0.0
  */
 
 namespace kartik\time;
 
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use kartik\base\InputWidget;
 
 /**
- * The TimePicker widget  allows you to easily select a time for a text input using your mouse or keyboards arrow keys.
- * Thus widget is a wrapper enhancement over the TimePicker JQuery plugin by rendom forked from the plugin by jdewit.
- * Additional enhancements have been done to this input widget for compatibility with Bootstrap 3.
+ * The TimePicker widget  allows you to easily select a time for a text input using
+ * your mouse or keyboards arrow keys. Thus widget is a wrapper enhancement over the
+ * TimePicker JQuery plugin by rendom forked from the plugin by jdewit. Additional
+ * enhancements have been done to this input widget for compatibility with Bootstrap 3.
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  * @see https://github.com/rendom/bootstrap-3-timepicker
  * @see https://github.com/jdewit/bootstrap-timepicker
  */
-class TimePicker extends InputWidget
+class TimePicker extends \kartik\base\InputWidget
 {
     /**
      * @var string the size of the input - 'lg', 'md', 'sm', 'xs'
@@ -36,10 +36,12 @@ class TimePicker extends InputWidget
     public $addon = '<i class="glyphicon glyphicon-time"></i>';
 
     /**
-     * @var array HTML attributes for the addon container the following special options are identified
+     * @var array HTML attributes for the addon container
+     * the following special options are identified
      * - asButton: boolean if the addon is to be displayed as a button.
-     * - buttonOptions: array HTML attributes if the addon is to be displayed like a button. If [[asButton]] is true,
-     *     this will default to ['class' => 'btn btn-default']
+     * - buttonOptions: array HTML attributes if the addon is to be
+     *   displayed like a button. If [[asButton]] is true, this will
+     *   default to ['class' => 'btn btn-default']
      */
     public $addonOptions = [];
 
@@ -49,15 +51,13 @@ class TimePicker extends InputWidget
     public $containerOptions = [];
 
     /**
-     * @inheritdoc
+     * Initializes the widget
+     *
+     * @throw InvalidConfigException
      */
-    public $pluginName = 'timepicker';
-
-    /**
-     * @inheritdoc
-     */
-    public function run()
+    public function init()
     {
+        parent::init();
         $this->registerAssets();
         echo Html::tag('div', $this->renderInput(), $this->containerOptions);
     }
@@ -111,6 +111,6 @@ class TimePicker extends InputWidget
     {
         $view = $this->getView();
         TimePickerAsset::register($view);
-        $this->registerPlugin($this->pluginName);
+        $this->registerPlugin('timepicker');
     }
 }

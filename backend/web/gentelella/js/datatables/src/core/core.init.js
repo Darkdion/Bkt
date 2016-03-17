@@ -44,7 +44,7 @@ function _fnInitialise ( oSettings )
 		}
 	}
 	
-	/* If there is default sorting required - let's do it. The sort function will do the
+	/* If there is default sorting required - let's do it. The sort all will do the
 	 * drawing for us. Otherwise we draw the table regardless of the Ajax source - this allows
 	 * the table to look initialised for Ajax sourcing data (show 'loading' message possibly)
 	 */

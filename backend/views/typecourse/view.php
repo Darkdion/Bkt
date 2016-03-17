@@ -6,40 +6,39 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Typecourse */
 
-$this->title ='แสดงรายละเอียดรหัสที่ :'. $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'จัดการประเภทคอร์ส', 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Typecourses', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="panel">
+    <div class="panel-body">
 <div class="typecourse-view">
 
-    <div class="card card-bordered style-accent-dark ">
-        <div class="card-head">
-            <div class="tools">
-                <div class="btn-group">
-                    <div class="btn-group">
+    <h1><?= Html::encode($this->title) ?></h1>
 
-                    </div>
-                    <a class="btn btn-icon-toggle btn-refresh"><i class="md md-refresh"></i></a>
-
-                </div>
-            </div>
-            <header> <h1><i class=" faa-flash animated fa fa-eye fa-2x"> </i> <?= Html::encode($this->title) ?></h1></header>
-        </div><!--end .card-head -->
-        <div class="card-body style-default-bright">
+    <p>
+        <?= Html::a('แก้ไข', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('ลบข้อมูล', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'คุณต้องการลบใช่หรือไม่?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-           // 'id',
+            'id',
             'name',
-            'created_at',
-            'updated_at',
+            'created_at:datetime',
+            'updated_at:datetime',
         ],
     ]) ?>
-            <div class="text-center">
-                <button type="button" class="btn btn-default btn-raised" data-dismiss="modal"> <i class="faa-pulse  wa animated fa fa-ban"></i> ปิดหน้านี้</button>
 
+    <div class="text-left">
+        <?= Html::a('หลับหน้าหลัก', ['index', 'id' => $model->id], ['class' => 'btn btn-warning']) ?>
+    </div>
 
-            </div>
-
-        </div></div></div>
+</div></div></div>

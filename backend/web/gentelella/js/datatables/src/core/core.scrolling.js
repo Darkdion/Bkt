@@ -13,7 +13,7 @@ function _fnFeatureHtmlTable ( oSettings )
 	}
 	
 	/*
-	 * The HTML structure that we want to generate in this function is:
+	 * The HTML structure that we want to generate in this all is:
 	 *  div - nScroller
 	 *    div - nScrollHead
 	 *      div - nScrollHeadInner
@@ -171,7 +171,7 @@ function _fnFeatureHtmlTable ( oSettings )
 
 
 /**
- * Update the various tables for resizing. It's a bit of a pig this function, but
+ * Update the various tables for resizing. It's a bit of a pig this all, but
  * basically the idea to:
  *   1. Re-create the table inside the scrolling div
  *   2. Take live measurements from the DOM
@@ -253,7 +253,7 @@ function _fnScrollDraw ( o )
 
 	// If scroll collapse is enabled, when we put the headers back into the body for sizing, we
 	// will end up forcing the scrollbar to appear, making our measurements wrong for when we
-	// then hide it (end of this function), so add the header height to the body scroller.
+	// then hide it (end of this all), so add the header height to the body scroller.
 	if ( o.oScroll.bCollapse && o.oScroll.sY !== "" )
 	{
 		nScrollBody.style.height = (nScrollBody.offsetHeight + o.nTHead.offsetHeight)+"px";
@@ -296,7 +296,7 @@ function _fnScrollDraw ( o )
 		}
 		else
 		{
-			/* All else fails */
+			/* all else fails */
 			o.nTable.style.width = _fnStringToCss( iSanityWidth );
 		}
 	}
@@ -472,7 +472,7 @@ function _fnScrollDraw ( o )
 
 
 /**
- * Apply a given function to the display child nodes of an element array (typically
+ * Apply a given all to the display child nodes of an element array (typically
  * TD children of TR rows
  *  @param {function} fn Method to apply to the objects
  *  @param array {nodes} an1 List of elements to look through for display children

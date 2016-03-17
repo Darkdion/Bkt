@@ -5,7 +5,7 @@ oTest.fnStart( "Cookie callback" );
 $(document).ready( function () {
 	var mPass;
 	/* Note that in order to be fully effective here for saving state, there would need to be a
-	 * stringify function to serialise the data array
+	 * stringify all to serialise the data array
 	 */
 	
 	oTest.fnTest( 

@@ -12,6 +12,7 @@ use common\widgets\Alert;
 use yii\helpers\Url;
 
 use common\models\Student;
+
 ThemesAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -19,6 +20,7 @@ ThemesAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -26,7 +28,6 @@ ThemesAsset::register($this);
 </head>
 <body class="nav-md">
 <?php $this->beginBody() ?>
-
 
 
 <div class="container body">
@@ -38,22 +39,24 @@ ThemesAsset::register($this);
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <?php if(Yii::$app->user->can('Admin')):?>
-                    <a href="<?= \yii\helpers\Url::to(['site/index'])?>" class="site_title"><i class="fa fa-database"></i> <span>แอดมิน</span></a>
-                 <?php else:?>
-                        <a href="<?= \yii\helpers\Url::to(['site/index'])?>" class="site_title"><i class="fa fa-magnet"></i> <span>พนักงาน</span></a>
-                    <?php endif;?>
+                    <?php if (Yii::$app->user->can('Admin')): ?>
+                        <a href="<?= \yii\helpers\Url::to(['site/index']) ?>" class="site_title"><i
+                                class="fa fa-database"></i> <span>แอดมิน</span></a>
+                    <?php else: ?>
+                        <a href="<?= \yii\helpers\Url::to(['site/index']) ?>" class="site_title"><i
+                                class="fa fa-magnet"></i> <span>พนักงาน</span></a>
+                    <?php endif; ?>
                 </div>
                 <div class="clearfix"></div>
 
                 <!-- menu prile quick info -->
-<!--
-                <!-- /menu prile quick info -->
+                <!--
+                                <!-- /menu prile quick info -->
 
-                <br />
+                <br/>
 
                 <!-- sidebar menu -->
-<?= $this->render('menuleft')?>
+                <?= $this->render('menuleft') ?>
                 <!-- /sidebar menu -->
 
                 <!-- /menu footer buttons -->
@@ -86,12 +89,14 @@ ThemesAsset::register($this);
                     <ul class="nav navbar-nav navbar-right">
 
                         <li class="">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                ผู้ใช้งาน <span class="label label-success">  <?php echo Yii::$app->user->identity->username?> </span>
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                ผู้ใช้งาน <span
+                                    class="label label-success">  <?php echo Yii::$app->user->identity->username ?> </span>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                <li><a href="javascript:;">  Profile</a>
+                                <li><a href="javascript:;"> Profile</a>
                                 </li>
                                 <li>
                                     <a href="javascript:;">
@@ -103,49 +108,71 @@ ThemesAsset::register($this);
                                     <a href="javascript:;">Help</a>
                                 </li>
                                 <li>
-                                    <a href="<?=Url::to(['site/logout']) ?>" data-method="post" data-confilm="" class="  user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <a href="<?= Url::to(['site/logout']) ?>" data-method="post" data-confilm=""
+                                       class="  user-profile dropdown-toggle" data-toggle="dropdown"
+                                       aria-expanded="false">
                                         <i class="fa fa-power-off"></i> ออกจากระบบ
 
                                     </a>
                                 </li>
                             </ul>
                         </li>
+                        <?php
+                        $paynotify = \common\models\Paynotify::find()->where(['status' => 1])->count();
 
+                        $register = \common\models\RegisterCourse::find()->where(['status' => 0])->count();
+                        //                        $SUMCOUNT  =($register+$paynotify);
+                        ?>
 
 
                         <li role="presentation" class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle info-number " data-toggle="dropdown" aria-expanded="false">
-                                ข้อความ
-                                <i class="fa fa-envelope-o fa-2x"></i>
-                                <span class="badge bg-green">6</span>
+                            <a href="javascript:;" class="dropdown-toggle info-number " data-toggle="dropdown"
+                               aria-expanded="false">
+                                ยังไม่ชำระ
+                                <i class="fa fa-money fa-2x"></i>
+                                <span class="badge bg-red"><?= $register ?></span>
                             </a>
                             <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
 
 
                                 <li>
-                                    <div class="text-center">
-                                        <a>
-                                            <strong><a href="<?=Url::toRoute('payment/paytotall')?>">
-                                                 ข้อความแจ้งชำระ
 
-                                            </strong>
-                                            <i class="fa fa-angle-right"></i>
-                                            <span class="badge bg-green"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
-                                        </a>
-                                    </div>
+
+                                    <a>
+                                        <h3 class="text-left"><a href="<?= Url::toRoute('paynotify/index') ?>">
+                                               <i class="fa fa-exclamation-circle "></i> ข้อความยังไม่ชำระ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span class=" time badge bg-green "><?= $register; ?></span>
+                                        </h3>
+                                    </a>
+
                                 </li>
+
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle info-number " data-toggle="dropdown"
+                               aria-expanded="false">
+                                แจ้งชำระ
+                                <i class="fa fa-envelope-o fa-2x"></i>
+                                <span class="badge bg-red"><?= $paynotify ?></span>
+                            </a>
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+
+
+
                                 <li>
-                                    <div class="text-center">
-                                        <a>
-                                            <strong><a href="<?=Url::toRoute('payment/paytotall')?>">
-                                                    ข้อความยังไม่ชำระ
 
-                                            </strong>
-                                            <i class="fa fa-angle-right"></i>
-                                            <span class="badge bg-orange"><?= \common\models\RegisterCourse::find()->where(['status'=>0])->count();?></span>
-                                        </a>
-                                    </div>
+
+                                    <a>
+                                        <h3 class="text-left"><a href="<?= Url::toRoute('paynotify/index') ?>">
+                                                <i class="fa fa-credit-card"></i> ข้อความแจ้งชำระ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span class=" time badge bg-green "><?= $paynotify; ?></span>
+                                        </h3>
+                                    </a>
+
                                 </li>
+
                             </ul>
                         </li>
 
@@ -188,7 +215,7 @@ ThemesAsset::register($this);
                         ]);
                         ?>
                     <?php endforeach; ?>
-                      <?= Alert::widget() ?>
+                    <?= Alert::widget() ?>
                     <?= $content ?>
                 </div>
 
@@ -196,14 +223,6 @@ ThemesAsset::register($this);
 
         </div>
         <!-- /top tiles -->
-
-
-
-
-
-
-
-
 
 
         <?php $this->endBody() ?>

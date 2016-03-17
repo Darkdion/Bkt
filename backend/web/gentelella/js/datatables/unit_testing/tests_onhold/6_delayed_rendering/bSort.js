@@ -23,7 +23,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest(
 		"Click on second column",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnWaitTest( 

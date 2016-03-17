@@ -12,7 +12,7 @@ Yii::$app->layout='user\main';
         <div class="jumbotron text-center">
             <?php foreach($pro as $pros ): ?>
             <blockquote>
-                <h1>ยินดีต้อนรับ <?= $pros->fullName?> </h1>
+                <h1>ยินดีต้อนรับคุณ <?= $pros->Name?> </h1>
                 <p>ผู้ที่ลงทะเบียนเรียนแล้ว สามารถนำใบเสร็จ ไปรับหนังสือเรียนได้สถาบัน...</p>
                 <footer class="text-right">สถาบัณกวดวิชาบ้านครูติกติวเตอร์ </footer>
             </blockquote>

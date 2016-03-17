@@ -121,7 +121,7 @@ function copyFile($root, $source, $target, &$all, $params)
             echo "  overwrite $target\n";
         } else {
             echo "      exist $target\n";
-            echo "            ...overwrite? [Yes|No|All|Quit] ";
+            echo "            ...overwrite? [Yes|No|all|Quit] ";
 
 
             $answer = !empty($params['overwrite']) ? $params['overwrite'] : trim(fgets(STDIN));

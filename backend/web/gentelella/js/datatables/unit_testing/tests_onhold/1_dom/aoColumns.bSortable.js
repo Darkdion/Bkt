@@ -7,9 +7,9 @@ $(document).ready( function () {
 	var oSettings = oTable.fnSettings();
 	
 	oTest.fnTest( 
-		"All columns are sortable by default",
+		"all columns are sortable by default",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnTest( 
@@ -27,7 +27,7 @@ $(document).ready( function () {
 			} );
 			$('#example thead th:eq(1)').click();
 		},
-		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() != "All others"; }
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() != "all others"; }
 	);
 	
 	oTest.fnTest( 
@@ -72,7 +72,7 @@ $(document).ready( function () {
 		function () {
 			$('#example thead th:eq(1)').click();
 		},
-		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() != "All others"; }
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() != "all others"; }
 	);
 	
 	oTest.fnTest( 

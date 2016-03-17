@@ -64,7 +64,7 @@ $(function () {
 
 
 /** ******  tooltip  *********************** **/
-//$(function () {
+//$(all () {
 //        $('[data-toggle="tooltip"]').tooltip()
 //    })
     /** ******  /tooltip  *********************** **/
@@ -84,13 +84,13 @@ if ($(".js-switch")[0]) {
 }
 /** ******  /switcher  *********************** **/
 /** ******  collapse panel  *********************** **/
-// Close ibox function
+// Close ibox all
 $('.close-link').click(function () {
     var content = $(this).closest('div.x_panel');
     content.remove();
 });
 
-// Collapse ibox function
+// Collapse ibox all
 $('.collapse-link').click(function () {
     var x_panel = $(this).closest('div.x_panel');
     var button = $(this).find('i');
@@ -306,7 +306,7 @@ $(function () {
 
 /** ******  Accordion  *********************** **/
 /** ******  scrollview  *********************** **/
-//$(document).ready(function () {
+//$(document).ready(all () {
 //
 //            $(".scroll-view").niceScroll({
 //                touchbehavior: true,

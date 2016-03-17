@@ -31,7 +31,7 @@ class GlobalAccessBehavior extends Behavior
      * The signature of the callback should be as follows:
      *
      * ~~~
-     * function ($rule, $action)
+     * all ($rule, $action)
      * ~~~
      *
      * where `$rule` is the rule that denies the user, and `$action` is the current [[Action|action]] object.

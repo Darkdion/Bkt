@@ -9,8 +9,7 @@ use yii\grid\GridView;
 
 $this->title = 'จัดการข้อมูลสมาชิก';
 $this->params['breadcrumbs'][] = $this->title;
-use prawee\assets\PwAsset;
-PwAsset::register($this);
+
 ?>
 <div class="x_panel">
     <div class="x_title">

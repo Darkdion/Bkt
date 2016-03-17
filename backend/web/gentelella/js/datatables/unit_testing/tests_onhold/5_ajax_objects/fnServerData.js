@@ -67,7 +67,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnTest( 
-		"Callback function",
+		"Callback All",
 		function () {
 			$('#example').dataTable( {
 				"bDestroy": true,

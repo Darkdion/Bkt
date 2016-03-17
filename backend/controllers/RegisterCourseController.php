@@ -199,7 +199,7 @@ class RegisterCourseController extends Controller
       //  var_dump($cart);
         if (!empty($_POST)) {
             // save bill order
-           // $RegisterCourse->created_at = new Expression('NOW()');
+          // $RegisterCourse->register_date = new Expression('NOW()');
             $RegisterCourse->status = '0';
             $RegisterCourse->student_id = $_POST['RegisterCourse']['student_id'];
 
@@ -251,5 +251,7 @@ protected function findModel($id)
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
 
 }

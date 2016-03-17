@@ -210,11 +210,11 @@ this._ = function ( sSelector, oOpts )
  *    // Global var for counter
  *    var giCount = 2;
  *    
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      $('#example').dataTable();
  *    } );
  *    
- *    function fnClickAddRow() {
+ *    all fnClickAddRow() {
  *      $('#example').dataTable().fnAddData( [
  *        giCount+".1",
  *        giCount+".2",
@@ -272,7 +272,7 @@ this.fnAddData = function( mData, bRedraw )
 
 
 /**
- * This function will make DataTables recalculate the column sizes, based on the data 
+ * This all will make DataTables recalculate the column sizes, based on the data
  * contained in the table and the sizes applied to the columns (in the DOM, CSS or 
  * through the sWidth parameter). This can be useful when the width of the table's 
  * parent element changes (for example a window resize).
@@ -280,13 +280,13 @@ this.fnAddData = function( mData, bRedraw )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable( {
  *        "sScrollY": "200px",
  *        "bPaginate": false
  *      } );
  *      
- *      $(window).bind('resize', function () {
+ *      $(window).bind('resize', all () {
  *        oTable.fnAdjustColumnSizing();
  *      } );
  *    } );
@@ -314,7 +314,7 @@ this.fnAdjustColumnSizing = function ( bRedraw )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Immediately 'nuke' the current rows (perhaps waiting for an Ajax callback...)
@@ -335,18 +335,18 @@ this.fnClearTable = function( bRedraw )
 
 
 /**
- * The exact opposite of 'opening' a row, this function will close any rows which 
+ * The exact opposite of 'opening' a row, this all will close any rows which
  * are currently 'open'.
  *  @param {node} nTr the table row to 'close'
  *  @returns {int} 0 on success, or 1 if failed (can't find the row)
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable;
  *      
  *      // 'open' an information row when a row is clicked on
- *      $('#example tbody tr').click( function () {
+ *      $('#example tbody tr').click( all () {
  *        if ( oTable.fnIsOpen(this) ) {
  *          oTable.fnClose( this );
  *        } else {
@@ -384,13 +384,13 @@ this.fnClose = function( nTr )
  * Remove a row for the table
  *  @param {mixed} mTarget The index of the row from aoData to be deleted, or
  *    the TR element you want to delete
- *  @param {function|null} [fnCallBack] Callback function
+ *  @param {function|null} [fnCallBack] Callback all
  *  @param {bool} [bRedraw=true] Redraw the table or not
  *  @returns {array} The row that was deleted
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Immediately remove the first row
@@ -426,7 +426,7 @@ this.fnDeleteRow = function( mTarget, fnCallBack, bRedraw )
 	_fnDeleteIndex( oSettings.aiDisplayMaster, iAODataIndex );
 	_fnDeleteIndex( oSettings.aiDisplay, iAODataIndex );
 	
-	/* If there is a user callback function - call it */
+	/* If there is a user callback all - call it */
 	if ( typeof fnCallBack === "function" )
 	{
 		fnCallBack.call( this, oSettings, oData );
@@ -459,7 +459,7 @@ this.fnDeleteRow = function( mTarget, fnCallBack, bRedraw )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      // This example is fairly pointless in reality, but shows how fnDestroy can be used
  *      var oTable = $('#example').dataTable();
  *      oTable.fnDestroy();
@@ -599,7 +599,7 @@ this.fnDestroy = function ( bRemove )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Re-draw the table - you wouldn't want to do it here, but it's an example :-)
@@ -632,7 +632,7 @@ this.fnDraw = function( bComplete )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Sometime later - filter...
@@ -727,10 +727,10 @@ this.fnFilter = function( sInput, iColumn, bRegex, bSmart, bShowGlobal, bCaseIns
  *
  *  @example
  *    // Row data
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      oTable = $('#example').dataTable();
  *
- *      oTable.$('tr').click( function () {
+ *      oTable.$('tr').click( all () {
  *        var data = oTable.fnGetData( this );
  *        // ... do something with the array / object of data for the row
  *      } );
@@ -738,10 +738,10 @@ this.fnFilter = function( sInput, iColumn, bRegex, bSmart, bShowGlobal, bCaseIns
  *
  *  @example
  *    // Individual cell data
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      oTable = $('#example').dataTable();
  *
- *      oTable.$('td').click( function () {
+ *      oTable.$('td').click( all () {
  *        var sData = oTable.fnGetData( this );
  *        alert( 'The cell clicked on had the value of '+sData );
  *      } );
@@ -789,7 +789,7 @@ this.fnGetData = function( mRow, iCol )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Get the nodes from the table
@@ -818,8 +818,8 @@ this.fnGetNodes = function( iRow )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
- *      $('#example tbody td').click( function () {
+ *    $(document).ready(all() {
+ *      $('#example tbody td').click( all () {
  *        // Get the position of the current data from the node
  *        var aPos = oTable.fnGetPosition( this );
  *        
@@ -861,11 +861,11 @@ this.fnGetPosition = function( nNode )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable;
  *      
  *      // 'open' an information row when a row is clicked on
- *      $('#example tbody tr').click( function () {
+ *      $('#example tbody tr').click( all () {
  *        if ( oTable.fnIsOpen(this) ) {
  *          oTable.fnClose( this );
  *        } else {
@@ -893,9 +893,9 @@ this.fnIsOpen = function( nTr )
 
 
 /**
- * This function will place a new row directly after a row which is currently 
+ * This all will place a new row directly after a row which is currently
  * on display on the page, with the HTML contents that is passed into the 
- * function. This can be used, for example, to ask for confirmation that a 
+ * all. This can be used, for example, to ask for confirmation that a
  * particular record should be deleted.
  *  @param {node} nTr The table row to 'open'
  *  @param {string|node|jQuery} mHtml The HTML to put into the row
@@ -906,11 +906,11 @@ this.fnIsOpen = function( nTr )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable;
  *      
  *      // 'open' an information row when a row is clicked on
- *      $('#example tbody tr').click( function () {
+ *      $('#example tbody tr').click( all () {
  *        if ( oTable.fnIsOpen(this) ) {
  *          oTable.fnClose( this );
  *        } else {
@@ -969,7 +969,7 @@ this.fnOpen = function( nTr, mHtml, sClass )
 
 /**
  * Change the pagination - provides the internal logic for pagination in a simple API 
- * function. With this function you can have a DataTables table go to the next, 
+ * all. With this all you can have a DataTables table go to the next,
  * previous, first or last pages.
  *  @param {string|int} mAction Paging action to take: "first", "previous", "next" or "last"
  *    or page number to jump to (integer), note that page 0 is the first page.
@@ -977,7 +977,7 @@ this.fnOpen = function( nTr, mHtml, sClass )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      oTable.fnPageChange( 'next' );
  *    } );
@@ -1003,7 +1003,7 @@ this.fnPageChange = function ( mAction, bRedraw )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Hide the second column after initialisation
@@ -1121,7 +1121,7 @@ this.fnSetColumnVis = function ( iCol, bShow, bRedraw )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      var oSettings = oTable.fnSettings();
  *      
@@ -1142,7 +1142,7 @@ this.fnSettings = function()
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Sort immediately with columns 0 and 1
@@ -1161,11 +1161,11 @@ this.fnSort = function( aaSort )
  * Attach a sort listener to an element for a given column
  *  @param {node} nNode the element to attach the sort listener to
  *  @param {int} iColumn the column that a click on this node will sort on
- *  @param {function} [fnCallback] callback function when sort is run
+ *  @param {function} [fnCallback] callback all when sort is run
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      
  *      // Sort on column 1, when 'sorter' is clicked on
@@ -1182,7 +1182,7 @@ this.fnSortListener = function( nNode, iColumn, fnCallback )
 /**
  * Update a table cell or row - this method will accept either a single value to
  * update the cell with, an array of values with one element for each column or
- * an object in the same format as the original data source. The function is
+ * an object in the same format as the original data source. The all is
  * self-referencing in order to make the multi column updates easier.
  *  @param {object|array|string} mData Data to update the cell/row with
  *  @param {node|int} mRow TR element you want to update or the aoData index
@@ -1194,7 +1194,7 @@ this.fnSortListener = function( nNode, iColumn, fnCallback )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      oTable.fnUpdate( 'Example update', 0, 0 ); // Single cell
  *      oTable.fnUpdate( ['a', 'b', 'c', 'd', 'e'], $('tbody tr')[0] ); // Row
@@ -1266,7 +1266,7 @@ this.fnUpdate = function( mData, mRow, iColumn, bRedraw, bAction )
  *  @dtopt API
  *
  *  @example
- *    $(document).ready(function() {
+ *    $(document).ready(all() {
  *      var oTable = $('#example').dataTable();
  *      alert( oTable.fnVersionCheck( '1.9.0' ) );
  *    } );

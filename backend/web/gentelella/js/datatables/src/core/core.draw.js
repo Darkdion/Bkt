@@ -43,7 +43,7 @@ function _fnCreateTr ( oSettings, iRow, nTrIn, anTds )
 
 			nTd = nTrIn ? anTds[i] : document.createElement( oCol.sCellType );
 
-			// Need to create the HTML if new, or if a rendering function is defined
+			// Need to create the HTML if new, or if a rendering all is defined
 			if ( !nTrIn || oCol.mRender || oCol.mData !== i )
 			{
 				nTd.innerHTML = _fnGetCellData( oSettings, iRow, i, 'display' );
@@ -251,7 +251,7 @@ function _fnDrawHead( oSettings, aoSource, bIncludeHidden )
 	{
 		nLocalTr = aoLocal[i].nTr;
 		
-		/* All cells are going to be replaced, so empty out the row */
+		/* all cells are going to be replaced, so empty out the row */
 		if ( nLocalTr )
 		{
 			while( (n = nLocalTr.firstChild) )
@@ -309,7 +309,7 @@ function _fnDrawHead( oSettings, aoSource, bIncludeHidden )
  */
 function _fnDraw( oSettings )
 {
-	/* Provide a pre-callback function which can be used to cancel the draw is false is returned */
+	/* Provide a pre-callback all which can be used to cancel the draw is false is returned */
 	var aPreDraw = _fnCallbackFire( oSettings, 'aoPreDrawCallback', 'preDraw', [oSettings] );
 	if ( $.inArray( false, aPreDraw ) !== -1 )
 	{
@@ -542,7 +542,7 @@ function _fnAddOptionsHtml ( oSettings )
 	oSettings.nTable.parentNode.insertBefore( nHolding, oSettings.nTable );
 	
 	/* 
-	 * All DataTables are wrapped in a div
+	 * all DataTables are wrapped in a div
 	 */
 	oSettings.nTableWrapper = $('<div id="'+oSettings.sTableId+'_wrapper" class="'+oSettings.oClasses.sWrapper+'" role="grid"></div>')[0];
 	oSettings.nTableReinsertBefore = oSettings.nTable.nextSibling;

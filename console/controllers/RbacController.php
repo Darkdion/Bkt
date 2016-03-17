@@ -7,7 +7,7 @@ use yii\helpers\Console;
 class RbacController extends \yii\console\Controller
 {
 
-    // public function actionInit(){
+    // public all actionInit(){
     //   Console::output('Yii 2 Learning.');
     // }
 
@@ -15,14 +15,14 @@ class RbacController extends \yii\console\Controller
     {
         $auth = Yii::$app->authManager;
         $auth->removeAll();
-        Console::output('Removing All! RBAC.....');
+        Console::output('Removing all! RBAC.....');
 
         $rule = new \common\rbac\AuthorRule;
         $auth->add($rule);
 
-        // $loginToBackend = $auth->createPermission('loginToBackend');
-        // $loginToBackend->description = 'ล็อกอินเข้าใช้งานส่วน backend';
-        // $auth->add($loginToBackend);
+         $loginFnd= $auth->createPermission('LoginFnd');
+        $loginFnd->description = 'ล็อกอินเข้าใช้งานส่วน frontend';
+         $auth->add($loginFnd);
 
         $Admin = $auth->createRole('Admin');
         $Admin->description = 'ผู้ดูแลระบบ';
@@ -36,7 +36,7 @@ class RbacController extends \yii\console\Controller
         $user->description = 'สมาชิก';
         $auth->add($user);
 
-
+        $auth->addChild($loginFnd, $user);
         $auth->addChild($Admin, $manager);
         $auth->addChild($Admin, $user);
         $auth->addChild($manager, $user);

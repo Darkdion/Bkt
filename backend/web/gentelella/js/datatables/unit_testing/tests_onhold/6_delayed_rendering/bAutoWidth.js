@@ -34,7 +34,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest( 
 		"Check column widths on first page match second page",
 		null,
-		function () {
+		all () {
 			var anThs = $('#example thead th');
 			var a0 = anThs[0].offsetWidth;
 			var a1 = anThs[1].offsetWidth;
@@ -58,7 +58,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest( 
 		"Check column widths on second page match thid page",
 		null,
-		function () {
+		all () {
 			var anThs = $('#example thead th');
 			var a0 = anThs[0].offsetWidth;
 			var a1 = anThs[1].offsetWidth;
@@ -104,7 +104,7 @@ $(document).ready( function () {
 	oTest.fnWaitTest( 
 		"Check column widths on first page do not match second page",
 		null,
-		function () {
+		all () {
 			var anThs = $('#example thead th');
 			var a0 = anThs[0].offsetWidth;
 			var a1 = anThs[1].offsetWidth;

@@ -29,7 +29,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnTest( 
-		"Get nodes function",
+		"Get nodes all",
 		null,
 		function () { return $('#example').dataTable().fnGetNodes().length == 10; }
 	);
@@ -53,7 +53,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnTest( 
-		"Get nodes function after 20px scroll",
+		"Get nodes all after 20px scroll",
 		null,
 		function () { return $('#example').dataTable().fnGetNodes().length == 20; }
 	);
@@ -89,7 +89,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnTest( 
-		"Get nodes function after 240px scroll",
+		"Get nodes all after 240px scroll",
 		null,
 		function () { return $('#example').dataTable().fnGetNodes().length == 30; }
 	);
@@ -113,7 +113,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnTest( 
-		"Get nodes function after filtering",
+		"Get nodes all after filtering",
 		null,
 		function () { return $('#example').dataTable().fnGetNodes().length == 10; }
 	);
@@ -131,7 +131,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnWaitTest( 
-		"Get nodes function after filtering",
+		"Get nodes all after filtering",
 		null,
 		function () { return $('#example').dataTable().fnGetNodes().length == 20; }
 	);
@@ -158,7 +158,7 @@ $(document).ready( function () {
 	);
 	
 	oTest.fnTest( 
-		"Get nodes function after scrolling",
+		"Get nodes all after scrolling",
 		null,
 		function () { return $('#example').dataTable().fnGetNodes().length == 20; }
 	);

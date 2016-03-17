@@ -19,10 +19,5 @@
         "psr-4": {
             "kartik\\select2\\": ""
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
     }
 }

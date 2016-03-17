@@ -43,7 +43,7 @@ class RegisterCourse extends \yii\db\ActiveRecord
     {
         return [
             [['student_id'], 'required'],
-            [['student_id', 'status', 'created_at', 'updated_at','paydate'], 'safe'],
+            [['student_id', 'status', 'created_at', 'updated_at'], 'safe'],
 
 
         ];
@@ -89,7 +89,7 @@ class RegisterCourse extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRegisterdetails()
+    public function getRegisterdetail()
     {
         return $this->hasMany(Registerdetail::className(), ['register_course_id' => 'id']);
     }

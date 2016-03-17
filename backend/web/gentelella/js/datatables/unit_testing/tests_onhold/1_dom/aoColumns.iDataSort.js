@@ -74,7 +74,7 @@ $(document).ready( function () {
 	oTest.fnTest( 
 		"5th col sorting uses 2nd col",
 		function () { $('#example thead th:eq(4)').click(); },
-		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == 'All others'; }
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == 'all others'; }
 	);
 	
 	oTest.fnTest( 

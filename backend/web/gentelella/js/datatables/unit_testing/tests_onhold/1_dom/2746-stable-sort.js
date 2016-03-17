@@ -91,7 +91,7 @@ $(document).ready( function () {
 			var ret =
 				$('#example tbody tr:eq(0) td:eq(0)').html() == 'Other browsers' &&
 				$('#example tbody tr:eq(1) td:eq(0)').html() == 'Trident' &&
-				$('#example tbody tr:eq(0) td:eq(1)').html() == 'All others' &&
+				$('#example tbody tr:eq(0) td:eq(1)').html() == 'all others' &&
 				$('#example tbody tr:eq(1) td:eq(1)').html() == 'AOL browser (AOL desktop)' &&
 				$('#example tbody tr:eq(2) td:eq(1)').html() == 'Camino 1.0';
 			return ret;
@@ -123,7 +123,7 @@ $(document).ready( function () {
 			var ret =
 				$('#example tbody tr:eq(0) td:eq(0)').html() == 'Other browsers' &&
 				$('#example tbody tr:eq(1) td:eq(0)').html() == 'Trident' &&
-				$('#example tbody tr:eq(0) td:eq(1)').html() == 'All others' &&
+				$('#example tbody tr:eq(0) td:eq(1)').html() == 'all others' &&
 				$('#example tbody tr:eq(1) td:eq(1)').html() == 'AOL browser (AOL desktop)' &&
 				$('#example tbody tr:eq(2) td:eq(1)').html() == 'Camino 1.0';
 			return ret;
@@ -139,7 +139,7 @@ $(document).ready( function () {
 			var ret =
 				$('#example tbody tr:eq(0) td:eq(0)').html() == 'Other browsers' &&
 				$('#example tbody tr:eq(1) td:eq(0)').html() == 'Misc' &&
-				$('#example tbody tr:eq(0) td:eq(1)').html() == 'All others' &&
+				$('#example tbody tr:eq(0) td:eq(1)').html() == 'all others' &&
 				$('#example tbody tr:eq(1) td:eq(1)').html() == 'Dillo 0.8' &&
 				$('#example tbody tr:eq(2) td:eq(1)').html() == 'NetFront 3.1';
 			return ret;
@@ -171,7 +171,7 @@ $(document).ready( function () {
 			var ret =
 				$('#example tbody tr:eq(0) td:eq(0)').html() == 'Other browsers' &&
 				$('#example tbody tr:eq(1) td:eq(0)').html() == 'Misc' &&
-				$('#example tbody tr:eq(0) td:eq(1)').html() == 'All others' &&
+				$('#example tbody tr:eq(0) td:eq(1)').html() == 'all others' &&
 				$('#example tbody tr:eq(1) td:eq(1)').html() == 'Dillo 0.8' &&
 				$('#example tbody tr:eq(2) td:eq(1)').html() == 'NetFront 3.1';
 			return ret;

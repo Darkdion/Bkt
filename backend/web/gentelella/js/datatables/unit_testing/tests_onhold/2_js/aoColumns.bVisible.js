@@ -9,7 +9,7 @@ $(document).ready( function () {
 	var oSettings = oTable.fnSettings();
 	
 	oTest.fnTest( 
-		"All columns are visible by default",
+		"all columns are visible by default",
 		null,
 		function () { return $('#example tbody tr:eq(0) td').length == 5; }
 	);

@@ -25,7 +25,7 @@ $(document).ready( function () {
 	);
 
 	oTest.fnWaitTest(
-		"Three arguments for the function",
+		"Three arguments for the all",
 		function () { 
 			oSession.fnRestore();
 			tmp = true;

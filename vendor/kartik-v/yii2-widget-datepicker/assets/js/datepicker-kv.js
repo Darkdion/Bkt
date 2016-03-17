@@ -2,7 +2,7 @@
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2015
  * @package yii2-widgets
  * @subpackage yii2-widget-datepicker
- * @version 1.3.7
+ * @version 1.3.4
  *
  * Extension to bootstrap datepicker to use noconflict approach
  * so that the plugin does not conflict with other jquery plugins
@@ -38,9 +38,6 @@ var initDPRemove = function () {
             $addon.on('click.kvdatepicker', function (e) {
                 $el.kvDatepicker('hide');
             });
-        });
-        $el.find('.input-group-addon.kv-date-calendar').on('click.kvdatepicker', function() {
-            $id.focus();
         });
     };
 })(window.jQuery);

@@ -21,6 +21,15 @@ return array (
       '@yii/bootstrap' => $vendorDir . '/yiisoft/yii2-bootstrap',
     ),
   ),
+  '2amigos/yii2-date-picker-widget' => 
+  array (
+    'name' => '2amigos/yii2-date-picker-widget',
+    'version' => '1.0.5.0',
+    'alias' => 
+    array (
+      '@dosamigos/datepicker' => $vendorDir . '/2amigos/yii2-date-picker-widget/src',
+    ),
+  ),
   '2amigos/yii2-switch-widget' => 
   array (
     'name' => '2amigos/yii2-switch-widget',
@@ -30,6 +39,15 @@ return array (
       '@dosamigos/switchinput' => $vendorDir . '/2amigos/yii2-switch-widget/src',
     ),
   ),
+  'dixonsatit/yii2-thai-year-formatter' => 
+  array (
+    'name' => 'dixonsatit/yii2-thai-year-formatter',
+    'version' => '0.9.6.0',
+    'alias' => 
+    array (
+      '@dixonsatit/thaiYearFormatter' => $vendorDir . '/dixonsatit/yii2-thai-year-formatter',
+    ),
+  ),
   'kartik-v/yii2-krajee-base' => 
   array (
     'name' => 'kartik-v/yii2-krajee-base',
@@ -37,6 +55,24 @@ return array (
     'alias' => 
     array (
       '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base',
+    ),
+  ),
+  'kartik-v/yii2-grid' => 
+  array (
+    'name' => 'kartik-v/yii2-grid',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
+    ),
+  ),
+  'kartik-v/yii2-money' => 
+  array (
+    'name' => 'kartik-v/yii2-money',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/money' => $vendorDir . '/kartik-v/yii2-money',
     ),
   ),
   'kartik-v/yii2-mpdf' => 
@@ -100,6 +136,24 @@ return array (
     'alias' => 
     array (
       '@kartik/sidenav' => $vendorDir . '/kartik-v/yii2-widget-sidenav',
+    ),
+  ),
+  'kartik-v/yii2-widget-select2' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-select2',
+    'version' => '2.0.8.0',
+    'alias' => 
+    array (
+      '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2',
+    ),
+  ),
+  'kartik-v/yii2-widget-rating' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-rating',
+    'version' => '1.0.2.0',
+    'alias' => 
+    array (
+      '@kartik/rating' => $vendorDir . '/kartik-v/yii2-widget-rating',
     ),
   ),
   'kartik-v/yii2-widget-rangeinput' => 
@@ -201,6 +255,16 @@ return array (
       '@kartik/widgets' => $vendorDir . '/kartik-v/yii2-widgets',
     ),
   ),
+  'mdmsoft/yii2-autonumber' => 
+  array (
+    'name' => 'mdmsoft/yii2-autonumber',
+    'version' => '1.4.0.0',
+    'alias' => 
+    array (
+      '@mdm/autonumber' => $vendorDir . '/mdmsoft/yii2-autonumber',
+    ),
+    'bootstrap' => 'mdm\\autonumber\\Bootstrap',
+  ),
   'prawee/yii2-assets' => 
   array (
     'name' => 'prawee/yii2-assets',
@@ -264,68 +328,13 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii',
     ),
   ),
-  'mdmsoft/yii2-autonumber' => 
+  'branchonline/yii2-lightbox' => 
   array (
-    'name' => 'mdmsoft/yii2-autonumber',
-    'version' => '1.4.0.0',
+    'name' => 'branchonline/yii2-lightbox',
+    'version' => '1.1.1.0',
     'alias' => 
     array (
-      '@mdm/autonumber' => $vendorDir . '/mdmsoft/yii2-autonumber',
-    ),
-    'bootstrap' => 'mdm\\autonumber\\Bootstrap',
-  ),
-  '2amigos/yii2-date-picker-widget' => 
-  array (
-    'name' => '2amigos/yii2-date-picker-widget',
-    'version' => '1.0.5.0',
-    'alias' => 
-    array (
-      '@dosamigos/datepicker' => $vendorDir . '/2amigos/yii2-date-picker-widget/src',
-    ),
-  ),
-  'kartik-v/yii2-widget-select2' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-select2',
-    'version' => '2.0.8.0',
-    'alias' => 
-    array (
-      '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2',
-    ),
-  ),
-  'kartik-v/yii2-widget-rating' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-rating',
-    'version' => '1.0.2.0',
-    'alias' => 
-    array (
-      '@kartik/rating' => $vendorDir . '/kartik-v/yii2-widget-rating',
-    ),
-  ),
-  'kartik-v/yii2-money' => 
-  array (
-    'name' => 'kartik-v/yii2-money',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@kartik/money' => $vendorDir . '/kartik-v/yii2-money',
-    ),
-  ),
-  'kartik-v/yii2-grid' => 
-  array (
-    'name' => 'kartik-v/yii2-grid',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
-    ),
-  ),
-  'dixonsatit/yii2-thai-year-formatter' => 
-  array (
-    'name' => 'dixonsatit/yii2-thai-year-formatter',
-    'version' => '0.9.6.0',
-    'alias' => 
-    array (
-      '@dixonsatit/thaiYearFormatter' => $vendorDir . '/dixonsatit/yii2-thai-year-formatter',
+      '@branchonline/lightbox' => $vendorDir . '/branchonline/yii2-lightbox/src',
     ),
   ),
 );

@@ -10,9 +10,9 @@ $(document).ready( function () {
 	var oSettings = oTable.fnSettings();
 	
 	oTest.fnWaitTest( 
-		"All columns are sortable by default",
+		"all columns are sortable by default",
 		function () { $('#example thead th:eq(1)').click(); },
-		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == "All others"; }
+		function () { return $('#example tbody tr:eq(0) td:eq(1)').html() == "all others"; }
 	);
 	
 	oTest.fnWaitTest( 

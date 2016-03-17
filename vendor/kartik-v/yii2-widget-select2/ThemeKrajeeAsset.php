@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2015
  * @package yii2-widgets
  * @subpackage yii2-widget-select2
- * @version 2.0.8
+ * @version 2.0.4
  */
 
 namespace kartik\select2;
 
-use kartik\base\AssetBundle;
+use Yii;
 
 /**
  * Krajee Select2 theme
@@ -17,7 +17,7 @@ use kartik\base\AssetBundle;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class ThemeKrajeeAsset extends AssetBundle
+class ThemeKrajeeAsset extends \kartik\base\AssetBundle
 {
     /**
      * @inheritdoc

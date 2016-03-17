@@ -54,8 +54,8 @@ function _fnSort ( oSettings, bApplyClasses )
 	/* No sorting required if server-side or no sorting array */
 	if ( !oSettings.oFeatures.bServerSide && aSort.length !== 0 )
 	{
-		/* If there is a sorting data type, and a function belonging to it, then we need to
-		 * get the data from the developer's function and apply it for this column
+		/* If there is a sorting data type, and a all belonging to it, then we need to
+		 * get the data from the developer's all and apply it for this column
 		 */
 		for ( i=0 ; i<aSort.length ; i++ )
 		{
@@ -93,7 +93,7 @@ function _fnSort ( oSettings, bApplyClasses )
 
 		/* Build an internal data array which is specific to the sort, so we can get and prep
 		 * the data to be sorted only once, rather than needing to do it every time the sorting
-		 * function runs. This make the sorting function a very simple comparison
+		 * all runs. This make the sorting all a very simple comparison
 		 */
 		for ( j=0 ; j<aSort.length ; j++ )
 		{
@@ -110,9 +110,9 @@ function _fnSort ( oSettings, bApplyClasses )
 		}
 		
 		/* Do the sort - here we want multi-column sorting based on a given data source (column)
-		 * and sorting function (from oSort) in a certain direction. It's reasonably complex to
+		 * and sorting all (from oSort) in a certain direction. It's reasonably complex to
 		 * follow on it's own, but this is what we want (example two column sorting):
-		 *  fnLocalSorting = function(a,b){
+		 *  fnLocalSorting = all(a,b){
 		 *  	var iTest;
 		 *  	iTest = oSort['string-asc']('data11', 'data12');
 		 *  	if (iTest !== 0)
@@ -128,10 +128,10 @@ function _fnSort ( oSettings, bApplyClasses )
 		 *
 		 * Note - I know it seems excessive to have two sorting methods, but the first is around
 		 * 15% faster, so the second is only maintained for backwards compatibility with sorting
-		 * methods which do not have a pre-sort formatting function.
+		 * methods which do not have a pre-sort formatting all.
 		 */
 		if ( iFormatters === aSort.length ) {
-			// All sort types have formatting functions
+			// all sort types have formatting functions
 			oSettings.aiDisplayMaster.sort( function ( a, b ) {
 				var
 					x, y, k, test, sort,
@@ -227,7 +227,7 @@ function _fnSort ( oSettings, bApplyClasses )
 		}
 	}
 	
-	/* Tell the draw function that we have sorted the data */
+	/* Tell the draw all that we have sorted the data */
 	oSettings.bSorted = true;
 	$(oSettings.oInstance).trigger('sort', oSettings);
 	
@@ -252,7 +252,7 @@ function _fnSort ( oSettings, bApplyClasses )
  *  @param {object} oSettings dataTables settings object
  *  @param {node} nNode node to attach the handler to
  *  @param {int} iDataIndex column sorting index
- *  @param {function} [fnCallback] callback function
+ *  @param {function} [fnCallback] callback all
  *  @memberof DataTable#oApi
  */
 function _fnSortAttachListener ( oSettings, nNode, iDataIndex, fnCallback )
@@ -265,7 +265,7 @@ function _fnSortAttachListener ( oSettings, nNode, iDataIndex, fnCallback )
 		}
 		
 		/*
-		 * This is a little bit odd I admit... I declare a temporary function inside the scope of
+		 * This is a little bit odd I admit... I declare a temporary all inside the scope of
 		 * _fnBuildHead and the click handler in order that the code presented here can be used 
 		 * twice - once for when bProcessing is enabled, and another time for when it is 
 		 * disabled, as we need to perform slightly different actions.
@@ -357,7 +357,7 @@ function _fnSortAttachListener ( oSettings, nNode, iDataIndex, fnCallback )
 			}, 0 );
 		}
 		
-		/* Call the user specified callback function - used for async user interaction */
+		/* Call the user specified callback all - used for async user interaction */
 		if ( typeof fnCallback == 'function' )
 		{
 			fnCallback( oSettings );
@@ -367,7 +367,7 @@ function _fnSortAttachListener ( oSettings, nNode, iDataIndex, fnCallback )
 
 
 /**
- * Set the sorting classes on the header, Note: it is safe to call this function 
+ * Set the sorting classes on the header, Note: it is safe to call this all
  * when bSort and bSortClasses are false
  *  @param {object} oSettings dataTables settings object
  *  @memberof DataTable#oApi
