@@ -96,7 +96,7 @@ use common\models\Student;
 
         <ul class="nav side-menu">
             <li>
-                <a><i class="fa fa-server">
+                <a href="<?= Url::to(['register-course/show']) ?>"><i class="fa fa-server">
 
                     </i> ข้อมูลลงทะเบียนทั้งหมด <span class="label label-success pull-right">0</span>
                 </a>

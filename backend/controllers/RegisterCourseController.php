@@ -254,10 +254,72 @@ protected function findModel($id)
 
 public function actionShow()
 {
-    return $this->render('show'[
+    $RegisterCourse = RegisterCourse::find()->where(['status' => 0]);
+    $countQuery = clone $RegisterCourse;
+    $pages = new Pagination([
+        'totalCount' => $countQuery->count(),
+        'pageSize' =>10
+    ]);
+    $models = $RegisterCourse->offset($pages->offset)
+        ->limit($pages->limit)
+        ->all();
 
-    ])
+
+
+
+    return $this->render('show',[
+        'models' => $models,
+        'pages' => $pages,
+
+    ]);
 }
+    public function actionSuccess()
+    {
+        $RegisterCourse = RegisterCourse::find()->where(['status' => 1]);
+        $countQuery = clone $RegisterCourse;
+        $pages = new Pagination([
+            'totalCount' => $countQuery->count(),
+            'pageSize' =>10
+        ]);
+        $models = $RegisterCourse->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+
+
+
+        return $this->render('success',[
+            'models' => $models,
+            'pages' => $pages,
+
+        ]);
+    }
+
+    public function actionDetail($id)
+    {
+        //return$id;
+        $Detail =Registerdetail::findAll(['register_course_id'=>$id]);
+     return $this->render('detail',[
+         'Detail'=>$Detail
+     ]);
+    }
+    public function actionCancel($id)
+    {
+        $cancel =RegisterCourse::findOne($id);
+
+        $register = Registerdetail::find()->where(['register_course_id' => $cancel->id])->all();
+        //$profile = Registerdetail::findOne(['register_course_id'=>$user->id]);
+        foreach ($register as $pro) {
+
+            $pro->delete();
+        }
+        $cancel->delete();
+
+
+
+        return $this->redirect(['//register-course/show']);
+        //return $this->redirect(['index']);
+    }
 
 
 }

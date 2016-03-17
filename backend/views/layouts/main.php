@@ -139,7 +139,7 @@ ThemesAsset::register($this);
 
 
                                     <a>
-                                        <h3 class="text-left"><a href="<?= Url::toRoute('paynotify/index') ?>">
+                                        <h3 class="text-left"><a href="<?= Url::toRoute('register-course/show') ?>">
                                                <i class="fa fa-exclamation-circle "></i> ข้อความยังไม่ชำระ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class=" time badge bg-green "><?= $register; ?></span>
                                         </h3>

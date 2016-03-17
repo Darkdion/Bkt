@@ -154,7 +154,7 @@ function thai_date($time)
 
                         <!-- Table row -->
                         <div class="row">
-                            <div class="col-xs-12 table">
+                            <div class="col-xs-12 table" style="font-size: 12pt">
                                 <div class="table-responsive">
                                     <?php if (!empty($Regdetail & $Regcoruse)): ?>
                                     <div class="clearfix"></div>
@@ -184,8 +184,8 @@ function thai_date($time)
 
 
 
-                                                      <h1> สถานะ<?= $model->status==0?' <span class="label label-danger">ยังไม่ชำระ</span>':
-                                                              '<i class="label label-success"></i> <span class="label label-success">ชำระแล้ว</span>';?></h1>
+                                                      <h2> สถานะ<?= $model->status==0?' <span class="label label-danger">ยังไม่ชำระ</span>':
+                                                              '<i class="label label-success"></i> <span class="label label-success">ชำระแล้ว</span>';?></h2>
 
                                                 </div>
                                             </div>
@@ -194,9 +194,9 @@ function thai_date($time)
 
                                     <?php endforeach; ?>
                                     <div>&nbsp;</div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading"><h4><i class="fa fa-amazon"></i> รายการคอร์สเรียน
-                                            </h4></div>
+                                    <div class="panel ">
+                                      <h3><i class="glyphicon glyphicon-list-alt"></i> รายการคอร์สเรียน
+                                            </h3>
                                         <div class="panel-body">
 
 
@@ -204,7 +204,7 @@ function thai_date($time)
                                                 class="table table-striped responsive-utilities jambo_table bulk_action">
                                                 <thead>
                                                 <tr>
-                                                    <th>no</th>
+                                                    <th>ลำดับ</th>
                                                     <th class="text-left">ชื่อคอร์สเรียน</th>
                                                     <th class="text-left">ราคา</th>
 
@@ -225,7 +225,7 @@ function thai_date($time)
                                                         <td><?= $num++ ?></td>
                                                         <td><?= $modeldetail->nameCourse ?></td>
 
-                                                        <td><?= $modeldetail->price ?> </td>
+                                                        <td><?=number_format($modeldetail->price , 2, '.', ',') ?> </td>
 
 
                                                     </tr>
@@ -236,8 +236,8 @@ function thai_date($time)
                                             </table>
                                             <table width="100%" class="table">
                                                 <tr>
-                                                    <td class="text-center" width="60%" rowspan="3" style="font-size: 18pt" colspan="3">
-                                                        <b><?= num2string($SUMVAT) ?></b></td>
+                                                    <td class="text-center" width="60%" rowspan="3" colspan="3">
+                                                       <h3> <b><?= num2string($SUMVAT) ?></b></h3></td>
 
                                                     <td width="20%" class="text-center">ราคารวม</td>
                                                     <td width="20%" class="text-right"><?= number_format($SUMPrice, 2, '.', ',') ?></td>
