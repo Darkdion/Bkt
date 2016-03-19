@@ -24,14 +24,17 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-<div class="wrap">
+<div class="container">
+    <img src="../web/logo/logo2.png" alt="">
+</div>
+<div class="wrap" style="">
     <?php
     NavBar::begin([
-        'brandLabel' => 'บ้านครูติ๊กติวเตอร์',
+        //'brandImg'=>
+//        'brandLabel' => Html::img(\yii\helpers\Url::base().'/logo/logo.png',['style'=>'width:130px;;margin-top: -30px']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-default navbar-fixed-top',
+            'class' => 'navbar-default ',
         ],
     ]);
     $menuItems = [

@@ -17,25 +17,7 @@ use kartik\mpdf\Pdf;
 class PaymentController extends \yii\web\Controller
 {
 
-    public function actionPaytotall()
-    {
 
-        $searchModel = new RegisterCourseSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $Unrequited= RegisterCourse::find()->where(['status'=>0])->all();
-        $paid = RegisterCourse::find()->where(['status'=>1])->all();
-
-
-            return $this->render('paytotall',[
-                'num'=>1,
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-                'Unrequited'=>$Unrequited,
-                'paid'=>$paid,
-            ]);
-
-
-    }
 
 
 public function actionIndex()
@@ -93,18 +75,19 @@ public function actionIndex()
        // $model = RegisterCourse::find()->where(['id'=>$id])->one();
         $model =RegisterCourse::findOne($id);
         $modeldetail =Registerdetail::findOne($id);
-        $model->status='1';
+        $model->status=1;
+        $model->save();
        // $model->paydate =new Expression('NOW()');
-        if($model->save()){
-            $pay= new Payments();
-            $pay->pay_date= new Expression('NOW()');
-            $pay->student_id=$model->student_id;
-            $pay->register_course_id =$model->id;
-           // $pay->personnel_per_id = '1';
-            $pay->status=$model->status;
-            $pay->save();
-
-        }
+//        if($model->save()){
+//            $pay= new Payments();
+//            $pay->pay_date= new Expression('NOW()');
+//            $pay->student_id=$model->student_id;
+//            $pay->register_course_id =$model->id;
+//           // $pay->personnel_per_id = '1';
+//            $pay->status=$model->status;
+//            $pay->save();
+//
+//        }
 
         $content = $this->renderPartial('_billSuccess',[
             'model'=>$model,

@@ -116,7 +116,7 @@ $countItemsInCart = 0;
                             </div>
 
                             <div class="panel-footer">
-                                <a href="#">
+                                <a href="index.php?r=register-course/view&id=<?php echo $courses->id; ?>">
                                 <span class="pull-left btn btn-green">ดูรายละเอียด</span>
                                 </a>
                                 <a href="index.php?r=register-course/addshop&id=<?php echo $courses->id; ?>"> <span class="pull-right btn btn-warning">

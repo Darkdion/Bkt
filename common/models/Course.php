@@ -91,7 +91,10 @@ class Course extends \yii\db\ActiveRecord
         return $this->hasOne(Teacher::className(), ['id' => 'teacher_id']);
     }
 
-
+    public function getFullName()
+    {
+        return $this->teacher->name.' '.$this->teacher->surname;
+    }
 
     /**
      * @return \yii\db\ActiveQuery

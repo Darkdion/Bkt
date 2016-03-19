@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
 /**
@@ -29,6 +30,8 @@ class RegisterCourse extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
+            BlameableBehavior::className(),
+
         ];
     }
     public static function tableName()
@@ -43,7 +46,7 @@ class RegisterCourse extends \yii\db\ActiveRecord
     {
         return [
             [['student_id'], 'required'],
-            [['student_id', 'status', 'created_at', 'updated_at'], 'safe'],
+            [['student_id', 'status', 'created_at', 'created_by','updated_at','updated_by'], 'safe'],
 
 
         ];

@@ -17,56 +17,27 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="course-view">
 
 
-    <div class="x_panel">
-        <div class="x_title">
-            <h2><i class="fa fa-bell"></i> วิชาเรียน : <?= $model->name ?>  </h2>
+    <div class="panel">
+        <div class="panel-body">
+            <h1 class="text-center"><i class="fa fa-book"></i> วิชาเรียน : <?= $model->name ?>  </h1>
 
             <div class="clearfix"></div>
-        </div>
+
         <div class="x_content">
+            <h3><i class="fa fa-users"></i> อาจารย์ผู้สอน : <?= $model->fullName ?>  </h3>
+            <h3><i class="fa fa-money"></i> ราคา : <?= number_format($model->price) ?> บาท </h3>
+            <h3><i class="fa fa-share"></i> รายละเอียด : <?= $model->detail ?>  </h3>
+            <a href="<?= Yii::getAlias('@back/photos/course/') . $model->photos ?>" data-title="<?= $model->name ?> " data-lightbox="Vacation">
+                <img src="<?= Yii::getAlias('@back/photos/course/') . $model->photos ?>" width="1200px" class="img-thumbnail">
+            </a>
 
-            <table class="table table-hover table-responsive">
+            <?php
+            echo Lightbox::widget([
+                'files' => [ [      ],
+                ]
+            ]);
+            ?>
 
-                <tbody>
-                <tr>
-                    <th></th>
-                    <td>
-                        <a href="<?= Yii::getAlias('@back/photos/course/') . $model->photos ?>" data-title="<?= $model->name ?> " data-lightbox="Vacation">
-                            <img src="<?= Yii::getAlias('@back/photos/course/') . $model->photos ?>" width="150px" class="img-thumbnail">
-                        </a>
-
-                        <?php
-                        echo Lightbox::widget([
-                            'files' => [ [      ],
-                            ]
-                        ]);
-                        ?>
-
-
-
-                    </td>
-                </tr>
-                <tr>
-                    <th class="text-left">รายละเอียด :</th>
-                    <td><?= $model->detail ?> </td>
-                </tr>
-
-                <tr>
-                    <th class="text-left">อาจารย์ผู้สอน:</th>
-                    <td><span class="label label-success"> <?= $model->teacher_id ?>  </span></td>
-                </tr>
-                <tr>
-                    <th class="text-left">ราคา:</th>
-                    <td><?= number_format($model->price) ?> ฿.</td>
-                </tr>
-
-
-                <tr>
-                    <th class="text-left">วันที่เริ่ม-วันที่สิ้นสุด:</th>
-                    <td><?= $model->date_s . ' - ' . $model->date_c ?></td>
-                </tr>
-                </tbody>
-            </table>
 
 
             <div class="text-center">
@@ -76,5 +47,5 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
 
-
+        </div>
 

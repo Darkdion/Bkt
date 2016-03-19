@@ -57,7 +57,7 @@
 			 </table>
          </div>
 		<div class="text-center">
-			<?php echo  \yii\helpers\Html::a('กลับหลัก',['show'],['class'=>'btn-info btn btn-lg']);?>
+			<?php echo  \yii\helpers\Html::a('<i class="glyphicon glyphicon-share"> </i>	กลับหน้าหลัก',['show'],['class'=>'btn-info btn ']);?>
 		</div>
     </div>
 </div>

@@ -2,14 +2,14 @@
 
 /* @var $this yii\web\View */
 
-
+use yii\helpers\Html;
 
 $this->title = 'จัดระบบแอดมิน';
 //$this->registerCssFile('/themes/assets/js/libs/bootstrap/bootstrap.min.js');
 
 
 ?>
-<meta http-equiv="refresh" content="10"/>
+<!--<meta http-equiv="refresh" content="10"/>-->
 <div class="panel" style="margin-top: 50px">
     <div class="panel-body">
         <div class="text-center">
@@ -21,5 +21,12 @@ $this->title = 'จัดระบบแอดมิน';
 
         </div>
 
+
+
     </div>
+
+
 </div>
+
+
+

@@ -139,10 +139,10 @@ ThemesAsset::register($this);
 
 
                                     <a>
-                                        <h3 class="text-left"><a href="<?= Url::toRoute('register-course/show') ?>">
+                                        <h4 class="text-left"><a href="<?= Url::toRoute('register-course/show') ?>">
                                                <i class="fa fa-exclamation-circle "></i> ข้อความยังไม่ชำระ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class=" time badge bg-green "><?= $register; ?></span>
-                                        </h3>
+                                        </h4>
                                     </a>
 
                                 </li>
@@ -165,10 +165,10 @@ ThemesAsset::register($this);
 
 
                                     <a>
-                                        <h3 class="text-left"><a href="<?= Url::toRoute('paynotify/index') ?>">
+                                        <h4 class="text-left"><a href="<?= Url::toRoute('paynotify/index') ?>">
                                                 <i class="fa fa-credit-card"></i> ข้อความแจ้งชำระ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span class=" time badge bg-green "><?= $paynotify; ?></span>
-                                        </h3>
+                                        </h4>
                                     </a>
 
                                 </li>

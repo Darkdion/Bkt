@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Paynotify;
 use common\models\RegisterCourse;
+use yii\db\Expression;
 
 class PaynotifyController extends \yii\web\Controller
 {
@@ -47,6 +48,7 @@ class PaynotifyController extends \yii\web\Controller
 
             }
             $model->status=1;
+            $model->pay_date=new Expression('NOW()');
             $model->save();
         }
 

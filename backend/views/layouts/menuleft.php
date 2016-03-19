@@ -9,52 +9,40 @@ use common\models\Student;
     <div class="menu_section">
         <h3>เมนูและเครื่องมือ</h3>
         <ul class="nav side-menu">
+
+
             <li>
-                <a href="<?= Url::to(['site/index']) ?>"><i class="fa fa-home"></i> หน้าหลัก </a>
-            </li>
-            <li>
-                <a href="<?= \yii\helpers\Url::to(['student/index']) ?>"><i class="fa fa-user-plus "></i>
-                    เพิ่มข้อมูลนักเรียน
-                    <span class="fa fa-chevron-circle-right"></span>
-                </a>
-            </li>
-            <li><a href="<?= Url::toRoute('payment/index') ?>"><i class="fa fa-money"></i> ชำระคอร์สเรียน
+                <a href="<?= Url::toRoute('payment/index') ?>"><i class="fa fa-money"></i> ชำระคอร์สเรียน
                     <span class="fa fa-chevron-circle-right"></span></a>
 
             </li>
+
+
+            <li><a><i class="fa fa-share-alt-square"></i> การชำระและแจ้งชำระ <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li>
+                        <a href="<?= Url::to(['register-course/show']) ?>"><i class="fa fa-server">
+
+                            </i> ข้อมูลลงทะเบียนทั้งหมด
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Url::to(['paynotify/index']) ?>">
+                            <i class="fa fa-exclamation-circle"></i>
+                            แสดงการแจ้งชำระ
+                        </a>
+
+                    </li>
+                </ul>
+
+
             <li>
                 <a href="<?= Url::to(['register-course/index']) ?>">
                     <i class="fa fa-book"></i> ลงทะเบียนเรียน <span class="fa fa-chevron-circle-right"></span></a>
 
             </li>
             <?php if (Yii::$app->user->can('Admin')): ?>
-                <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu" style="display: none">
-                        <li><a href="<?= Url::to(['web-img/index']) ?>">จัดการภาพสไลค์ </a></li>
-                        <li><a href="<?= Url::to(['web-news/index']) ?>">จัดการประเภทข่าวแะหมวดหมู่</a></li>
-                        <li><a href="<?= Url::to(['newscategories/index']) ?>">จัดการประเภทข้อมูลข่าว</a></li>
-                        <li><a href="<?= Url::to(['web-contact/index']) ?>">จัดการข้อมูลติดต่อ</a></li>
 
-
-                    </ul>
-                </li>
-                <li><a><i class="fa fa-desktop"></i> จัดการข้อมูลคอรส์เรียน <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu" style="display: none">
-                        <li><a href="<?= Url::to(['typecourse/index']) ?>">จัดการประเภทคอร์สเรียน <span
-                                    class="label label-success pull-right">0</span></a>
-                        </li>
-                        <li><a href="<?= Url::to(['course/index']) ?>">จัดการคอร์สเรียน <span
-                                    class="label label-success pull-right">0</span></a>
-                        </li>
-
-
-                    </ul>
-                </li>
-            <?php else: ?>
-
-
-            <?php endif; ?>
-            <?php if (Yii::$app->user->can('Admin')): ?>
                 <li><a><i class="fa fa-edit"></i> จัดการข้อมูลทั่วไป <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: none">
 
@@ -76,46 +64,56 @@ use common\models\Student;
                         <li><a href="<?= \yii\helpers\Url::to(['student/index']) ?>">จัดการข้อมูลสมาชิก <span
                                     class="label label-warning pull-right"><?= Student::find()->count() ?></span></a>
 
+                        <li>
+                            <a href="<?= Url::to(['report/index']) ?>"><i class="fa fa-print"></i>
+                                ออกรายงาน
+                                <span class="fa fa-chevron-circle-right"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a href="<?= Url::to(['web-img/index']) ?>">จัดการภาพสไลค์ </a></li>
+                        <li><a href="<?= Url::to(['web-news/index']) ?>">จัดการประเภทข่าวแะหมวดหมู่</a></li>
+                        <li><a href="<?= Url::to(['newscategories/index']) ?>">จัดการประเภทข้อมูลข่าว</a></li>
+                        <li>
+
+                            <a href="<?= Url::to(['webcontact/index','id'=>1]) ?>">จัดการข้อมูลติดต่อ</a>
+                        </li>
+
 
                     </ul>
                 </li>
+                <li><a><i class="fa fa-desktop"></i> จัดการข้อมูลคอรส์เรียน <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a href="<?= Url::to(['typecourse/index']) ?>">จัดการประเภทคอร์สเรียน <span
+                                    class="label label-success pull-right">0</span></a>
+                        </li>
+                        <li><a href="<?= Url::to(['course/index']) ?>">จัดการคอร์สเรียน <span
+                                    class="label label-success pull-right">0</span></a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+            <?php else: ?>
                 <li>
-                    <a href="<?= Url::to(['report/index']) ?>"><i class="fa fa-print"></i>
-                        ออกรายงาน
+                    <a href="<?= \yii\helpers\Url::to(['student/index']) ?>"><i class="fa fa-user-plus "></i>
+                        เพิ่มข้อมูลนักเรียน
                         <span class="fa fa-chevron-circle-right"></span>
                     </a>
                 </li>
-            <?php else: ?>
+
 
             <?php endif; ?>
 
 
+
         </ul>
     </div>
-    <div class="menu_section">
 
-        <ul class="nav side-menu">
-            <li>
-                <a href="<?= Url::to(['register-course/show']) ?>"><i class="fa fa-server">
-
-                    </i> ข้อมูลลงทะเบียนทั้งหมด <span class="label label-success pull-right">0</span>
-                </a>
-            </li>
-            <li>
-                <a href="<?= Url::to(['paynotify/index']) ?>">
-                    <i class="fa fa-exclamation-circle"></i>
-                    แสดงการแจ้งชำระ
-                </a>
-
-            </li>
-
-
-            <li><a><i class="fa fa-laptop"></i> ข้อมูลนักเรียน <span class="label label-success pull-right">0</span></a>
-            </li>
-            <li><a><i class="fa fa-shopping-cart color"></i> ชำระคอร์เรียน <span
-                        class="label label-danger pull-right">0</span></a>
-            </li>
-        </ul>
-    </div>
 
 </div>

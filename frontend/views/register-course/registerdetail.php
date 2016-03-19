@@ -64,7 +64,7 @@ function thai_date($time)
         <div class="text-center">
         <?php if (\common\models\Paynotify::find()->where(['register_course_id' => $model->id, 'status' => 1])->all()): ?>
             <a href="" class="btn btn-blue btn-sm" ><i
-                    class="fa fa-spinner faa-spin animated"></i> รอยืนยัน</a>
+                    class="fa fa-spinner faa-spin animated"></i> รอตรวจสอบ</a>
 
        <?php elseif(\common\models\Paynotify::find()->where(['register_course_id' => $model->id, 'status' => 2])->all()) :?>
             <a href="index.php?r=paynotify/update&id=<?= $model->id; ?>"

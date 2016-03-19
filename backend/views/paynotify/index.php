@@ -11,8 +11,8 @@ $status = [
 
 <br>
 <br>
-<div class="row">
-    <div class="col-sm-3">
+
+
         <div class="panel">
             <div class="panel-body">
 
@@ -22,21 +22,21 @@ $status = [
                     'encodeLabels' => false,
                     'items' => [
                         [
-                            'label' => '<i class="fa  fa-line-chart"> </i> แสดงการแจ้งชำระ',
+                            'label' => '<h5><i class="fa  fa-line-chart"> </i> แสดงการแจ้งชำระ </h5>',
                             'url' => ['paynotify/index'],
                         ],
                         [
-                            'label' => '<i class="fa  fa-area-chart "> </i> หลักฐานแจ้งชำระถูกต้อง',
+                            'label' => '<h5><i class="fa  fa-area-chart "> </i> หลักฐานแจ้งชำระถูกต้อง</h5>',
                             'url' => ['paynotify/history'],
                         ],
                         [
-                            'label' => '<i class=" fa fa-pie-chart"> </i> หลักฐานแจ้งชำระไม่ถูกต้อง',
+                            'label' => '<h5><i class=" fa fa-pie-chart"> </i> หลักฐานแจ้งชำระไม่ถูกต้อง</h5>',
                             'url' => ['paynotify/false'],
                         ],
 
 
                     ],
-                    'options' => ['class' =>' nav nav-tabs tabs-left nav-pills'], // set this to nav-tab to get tab-styled navigation
+                    'options' => ['class' =>' nav nav-tabs   nav-justified nav-pills'], // set this to nav-tab to get tab-styled navigation
                 ]);
                 ?>
 
@@ -44,8 +44,6 @@ $status = [
         </div>
 
 
-    </div>
-    <div class="col-sm-9">
 
 
 <div class="panel  panel-primary">

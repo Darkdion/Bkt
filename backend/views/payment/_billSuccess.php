@@ -117,33 +117,34 @@ function thai_date($time){
 
  </table>
 
-    <?php echo Yii::$app->user->id?>
+    <?php  $id= Yii::$app->user->id?>
     <br><br>
-    <table class="table" style="font-size:15pt;">
-        <tr>
-            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้เบิก</td>
-            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้อนุมัติ</td>
-        </tr>
-        <tr>
-            <td style="padding-left: 110px;">(  )</td>
-            <td style="padding-left:110px;"> ( นางสุพัตรา วงษ์สุทโธ)</td>
-        </tr>
-        <tr>
-            <td style="padding-left: 110px;">ตำแหน่ง  </td>
-            <td style="padding-left: 110px;">หัวหน้าเจ้าหน้าที่พัสดุ</td>
-        </tr>
-    </table>
-    <table class="table" style="font-size:15pt;">
 
+    <table class="table" style="font-size:15pt;">
+        <?php foreach(\common\models\Personnel::findAll(['user_id'=>$id]) as $models) :?>
         <tr>
-            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้รับของ</td>
-            <td style="padding-left:100px;">ลงชื่อ _______________ ผู้จ่าย</td>
+            <td style="padding-left:100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td style="padding-left:100px;"><b>ลงชื่อ</b>
+                &nbsp;&nbsp;&nbsp;
+                <?=$models->fullName?>
+                &nbsp;&nbsp;&nbsp;
+               <b> ผู้รับเงิน</b>
+
+            </td>
         </tr>
         <tr>
-            <td style="padding-left: 110px;">( _________________)</td>
-            <td style="padding-left:110px;"> ( _________________)</td>
+            <td style="padding-left: 105px;"></td>
+            <td style="padding-left:110px;"> (
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <?=$models->fullName?>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                )</td>
 
         </tr>
+                <?php endforeach;?>
     </table>
 
 

@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
     <div class="x_panel">
         <div class="x_title">
 
-            <h2>  <i class="faa-shake animated fa fa-gavel "></i> ยืนยันการสั่งซื้อ </h2>
+            <h2>  <i class="faa-shake animated fa fa-gavel "></i> ยืนยันการลงทะเบียน</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>

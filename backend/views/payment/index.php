@@ -1,4 +1,5 @@
 <?php
+$this->title = 'ชำระเงิน';
 function num2string($amount)
 {
     $ans = '';
@@ -66,265 +67,198 @@ function num2string_2digit($amount)
 
     return $ans;
 }
+
 function thai_date($time)
 {
     global $thai_day_arr, $thai_month_arr;
     // $thai_date_return=" ".$thai_day_arr=array("อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์")[date("w",$time)];
     $thai_date_return = "" . date("j", $time);
     $thai_date_return .= " " . $thai_month_arr = array(
-            " ","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."
+            " ", "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."
         )[date("n", $time)];
     $thai_date_return .= "" . (date("Y", $time) + 543);
     //$thai_date_return .= " เวลา" . date("H:i", $time) . " น.";
     return $thai_date_return;
 }
+
 ?>
+<div>&nbsp;</div>
+<div class="panel ">
 
-<div class="">
+    <div class="panel-body">
 
-    <div class="clearfix"></div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2><i class="fa fa-credit-card"> </i> ชำระคอร์สเรียน</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                    <section class="content invoice">
-                        <!-- title row -->
-                        <div class="row">
-                            <div class="col-xs-12 invoice-header">
-                                <h3>
+        <h2 class=""> วันที่ <?= thai_date(time()) ?></h2>
+        <br>
 
 
-                                    <small class="pull-right"> วันที่ <?= thai_date(time()) ?></small>
-                                </h3>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- info row -->
-
-                        <div class="row">
-
-                            <div class="text-left">
+        <?php \yii\widgets\ActiveForm::begin([
+            'action' => 'index.php?r=payment/index',
+            'options' => [
+                //'class' => 'form-inline',
+                'name' => 'formpayment'
+            ]
+        ]); ?>
 
 
-                                <?php \yii\widgets\ActiveForm::begin([
-                                    'action' => 'index.php?r=payment/index',
-                                    'options' => [
-                                        'class' => 'form-inline',
-                                        'name' => 'formpayment'
-                                    ]
-                                ]); ?>
-                                <div class="input-group">
+            <div class="input-group text-center">
+                <input type="text" name="search" class="form-control"
+                       placeholder="กรอกรหัสใบเสร็จ..."/>
+                <span class="input-group-btn">
 
-                                    <input type="text" name="search" class="form-control"
-                                           placeholder="กรอกรหัสใบเสร็จ..."/>
-                                </div>
+            <a class="btn btn-primary" onclick="document.formpayment.submit()">
+                <i class="glyphicon glyphicon-search"></i> ค้นหา
+            </a>
+      </span>
+            </div>
 
-                                <a class="btn btn-primary" onclick="document.formpayment.submit()">
-                                    <i class="glyphicon glyphicon-search"></i> ค้นหา
-                                </a>
-
-                                <?php \yii\widgets\ActiveForm::end(); ?>
-                            </div>
-
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-
-                        <!-- Table row -->
-                        <div class="row">
-                            <div class="col-xs-12 table" style="font-size: 12pt">
-                                <div class="table-responsive">
-                                    <?php if (!empty($Regdetail & $Regcoruse)): ?>
-                                    <div class="clearfix"></div>
-                                    <?php foreach ($Regcoruse as $model): ?>
-
-                                        <div>&nbsp;</div>
-                                        <form class=" ">
-                                            <div class="row container">
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label for="exampleInputName2"><span class="fa fa-file"> </span>
-                                                            เลขที่ใบเสร็จ: </label>
-                                                    <input type="text" class="form-control" placeholder="Jane Doe"
-                                                           disabled value="<?= $model->id ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label for="exampleInputName2"><span class="fa fa-users"> </span>
-                                                            ชื่อผู้ชำระ </label>
-                                                    <input type="text" class="form-control" placeholder="Jane Doe"
-                                                           disabled value="<?= $model->fullName ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group text-right">
+        <?php \yii\widgets\ActiveForm::end(); ?>
 
 
+        <!-- Table row -->
+        <div class="row">
+            <div class="container " style="font-size: 12pt">
+                <div class="table-responsive">
+                    <?php if (!empty($Regdetail & $Regcoruse)): ?>
+                        <div class="clearfix"></div>
+                        <?php foreach ($Regcoruse as $model): ?>
 
-                                                      <h2> สถานะ<?= $model->status==0?' <span class="label label-danger">ยังไม่ชำระ</span>':
-                                                              '<i class="label label-success"></i> <span class="label label-success">ชำระแล้ว</span>';?></h2>
+                            <div>&nbsp;</div>
 
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </form>
-
-                                    <?php endforeach; ?>
-                                    <div>&nbsp;</div>
-                                    <div class="panel ">
-                                      <h3><i class="glyphicon glyphicon-list-alt"></i> รายการคอร์สเรียน
-                                            </h3>
-                                        <div class="panel-body">
-
-
-                                            <table
-                                                class="table table-striped responsive-utilities jambo_table bulk_action">
-                                                <thead>
-                                                <tr>
-                                                    <th>ลำดับ</th>
-                                                    <th class="text-left">ชื่อคอร์สเรียน</th>
-                                                    <th class="text-left">ราคา</th>
-
-
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                <?php foreach ($Regdetail as $modeldetail): ?>
-
-                                                    <?php $SUMPrice += $modeldetail->price;
-                                                    ///คำนวน VAT
-                                                    $VAT = ($SUMPrice * 0.07);
-                                                    $SUMVAT = ($SUMPrice + $VAT)
-                                                    ?>
-
-                                                    <tr>
-                                                        <td><?= $num++ ?></td>
-                                                        <td><?= $modeldetail->nameCourse ?></td>
-
-                                                        <td><?=number_format($modeldetail->price , 2, '.', ',') ?> </td>
-
-
-                                                    </tr>
-                                                <?php endforeach; ?>
-                                                </tbody>
-
-
-                                            </table>
-                                            <table width="100%" class="table">
-                                                <tr>
-                                                    <td class="text-center" width="60%" rowspan="3" colspan="3">
-                                                       <h3> <b><?= num2string($SUMVAT) ?></b></h3></td>
-
-                                                    <td width="20%" class="text-center">ราคารวม</td>
-                                                    <td width="20%" class="text-right"><?= number_format($SUMPrice, 2, '.', ',') ?></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td width="20%" class="text-center">VAT 7%</td>
-                                                    <td width="20%" class="text-right"><?= number_format($VAT, 2, '.', ',') ?></td>
-
-                                                </tr>
-                                                <tr>
-
-                                                    <td width="20%" class="text-center"><b>ยอดสุทธิ </b></td>
-                                                    <td width="20%" class="text-right"><b><?= number_format($SUMVAT, 2, '.', ',') ?></b></td>
-
-                                                </tr>
-                                            </table>
-                                            <?php else: ?>
-
-
-                                                <h3 class="title text-center">ไม่พบข้อมูล</h3>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        <?php foreach($Regcoruse as $model): ?>
-                        <div class="row">
-                            <!-- accepted payments column -->
-                            <div class="col-sm-6">
-
-                            </div>
-
-
-                            <!-- /.col -->
-                            <div class="col-sm-6 ">
-                                <form class="form-horizontal">
+                            <div class=" container">
+                                <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-3 control-label"><p class="lead">
-                                                ยอดรวม</p></label>
-                                        <div class="col-sm-5">
-                                            <div class="alert alert-success" style="font-size: 22px; text-align: right">
-                                                <?= number_format($SUMVAT, 2, '.', ',') ?>
-
-                                            </div>
-                                        </div>
+                                        <label for="exampleInputName2"><span class="fa fa-file"> </span>
+                                            เลขที่ใบเสร็จ: </label>
+                                        <input type="text" class="form-control" placeholder="Jane Doe"
+                                               disabled value="<?= $model->id ?>">
                                     </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputName2"><span
+                                                class="fa fa-users"> </span>
+                                            ชื่อผู้ชำระ </label>
+                                        <input type="text" class="form-control" placeholder="Jane Doe"
+                                               disabled value="<?= $model->fullName ?>">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group ">
 
-                                </form>
 
-                                <div class="table-responsive">
-                                    <div class="col-sm-5">
+                                        <br>
+                                        <h2>
+                                            สถานะ<?= $model->status == 0 ? ' <span class="label label-danger">ยังไม่ชำระ</span>' :
+                                                '<i class="label label-success"></i> <span class="label label-success">ชำระแล้ว</span>'; ?></h2>
 
                                     </div>
-
                                 </div>
                             </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-
-                        <!-- this row will not appear when printing -->
-                        <div class="row no-print">
-                            <div class="col-xs-12">
 
 
-                                <a target="_blank" href="index.php?r=payment/bill&id=<?php echo $model->id; ?>" class="btn btn-success btn-lg pull-right">
-                                    <i class="glyphicon glyphicon-share-alt"></i>
-                                    ชำระคอร์สเรียน
-                                </a>
+                        <?php endforeach; ?>
 
 
-                                <button class="btn btn-dark  btn-lg pull-right" onclick="document.formpayment.submit()"
-                                        type="reset" href="5555" style="margin-right: 5px;"><i
-                                        class="fa fa-refresh fa-spin"> </i> ยกเลิก
-                                </button>
-                                <?php endforeach;?>
-                            </div>
-                        </div>
-                    </section>
+                        <table class="table table-striped responsive-utilities jambo_table bulk_action table-responsive">
+                            <thead>
+                            <tr>
+                                <th>ลำดับ</th>
+                                <th class="text-left">ชื่อคอร์สเรียน</th>
+                                <th class="text-left">ราคา</th>
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <?php foreach ($Regdetail as $modeldetail): ?>
+
+                                <?php $SUMPrice += $modeldetail->price;
+                                ///คำนวน VAT
+                                $VAT = ($SUMPrice * 0.07);
+                                $SUMVAT = ($SUMPrice + $VAT)
+                                ?>
+
+                                <tr>
+                                    <td><?= $num++ ?></td>
+                                    <td><?= $modeldetail->nameCourse ?></td>
+
+                                    <td><?= number_format($modeldetail->price, 2, '.', ',') ?> </td>
+
+
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+
+
+                        </table>
+                        <table width="100%" class="table table-responsive">
+                            <tr>
+                                <td class="text-center" width="60%" rowspan="3" colspan="3">
+                                    <br>
+                                    <h4><b><?= num2string($SUMVAT) ?></b></h4></td>
+
+                                <td width="20%" class="text-center">ราคารวม</td>
+                                <td width="20%"
+                                    class="text-right"><?= number_format($SUMPrice, 2, '.', ',') ?></td>
+
+                            </tr>
+                            <tr>
+                                <td width="20%" class="text-center">VAT 7%</td>
+                                <td width="20%"
+                                    class="text-right"><?= number_format($VAT, 2, '.', ',') ?></td>
+
+                            </tr>
+                            <tr>
+
+                                <td width="20%" class="text-center"><b>ยอดสุทธิ </b></td>
+                                <td width="20%" class="text-right">
+                                    <b><?= number_format($SUMVAT, 2, '.', ',') ?></b></td>
+
+                            </tr>
+                        </table>
+                    <?php else: ?>
+
+
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
+
+<!-- /.row -->
+<?php foreach ($Regcoruse as $model): ?>
+<div class="pull-right">
+
+
+        <div class="alert alert-success" style="font-size: 22px;  right :35px ;width: 200px">
+
+            <?= number_format($SUMVAT, 2, '.', ',') ?>
+
+
+    </div>
+
+
+
+
+<!-- this row will not appear when printing -->
+<br>
+        <button class="btn btn-dark  btn-lg " onclick="document.formpayment.submit()"
+                type="reset" style="margin-right: 5px;"><i
+                class="fa fa-refresh fa-spin"> </i> ยกเลิก
+        </button>
+
+        <a target="_blank" href="index.php?r=payment/bill&id=<?php echo $model->id; ?>"
+           class="btn btn-success btn-lg ">
+            <i class="glyphicon glyphicon-share-alt"></i>
+            ชำระคอร์สเรียน
+        </a>
+</div>
+
+
+        <?php endforeach; ?>
     </div>
 </div>
+
+
 
 

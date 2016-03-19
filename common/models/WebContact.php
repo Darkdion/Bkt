@@ -3,30 +3,25 @@
 namespace common\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
+
 /**
  * This is the model class for table "web_contact".
  *
  * @property integer $id
  * @property string $name
- * @property string $datail
+ * @property string $detail
  * @property string $phone
  * @property string $email
- * @property integer $created_at
- * @property integer $updated_at
+ * @property string $fax
+ * @property string $website
+ * @property string $facebook
+ * @property string $line_id
  */
 class WebContact extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
-
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::className(),
-        ];
-    }
     public static function tableName()
     {
         return 'web_contact';
@@ -38,11 +33,12 @@ class WebContact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at'], 'integer'],
-            [['name'], 'string', 'max' => 50],
-            [['detail'], 'string', 'max' => 255],
-            [['email','email'],'required','message'=>'กรุณากรอกอีเมล์'],
-            ['phone', 'required','message'=>'กรุณากรอกเบอร์โทรศัพท์..'],
+            [['website'], 'string'],
+
+            [['name', 'email'], 'string', 'max' => 50],
+            [['detail', 'facebook', 'line_id'], 'string', 'max' => 255],
+            [['phone'], 'string', 'max' => 10],
+            [['fax'], 'string', 'max' => 20]
         ];
     }
 
@@ -57,8 +53,10 @@ class WebContact extends \yii\db\ActiveRecord
             'detail' => 'รายละเอียด',
             'phone' => 'โทรศัทพ์',
             'email' => 'อีเมล์',
-            'created_at' => 'วันที่สร้าง',
-            'updated_at' => 'วันที่แก้ไข',
+            'fax' => 'Fax',
+            'website' => 'เว็บไซต์',
+            'facebook' => 'Facebook',
+            'line_id' => 'Line ID',
         ];
     }
 }
