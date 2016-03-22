@@ -1,0 +1,62 @@
+
+.wrapHead h2 { font-size:28px; color:#233842; margin-top:30px; margin-bottom:20px; }
+#fee h4 { font-size:17px; margin-top:20px;}
+.txtForm01 { font-size:17px; }
+
+table { width:100%; margin:30px 0;border-collapse: collapse;border-spacing: 0; }
+th {
+	font-size:28px; font-weight:normal;
+	font-family:'mebold';
+	color:#233842;
+	padding:10px 0;
+	border-bottom:1px solid #bfc3c4;
+}
+th.h-mobile { display:none}
+th span { font-size:20px; font-family:'meregular';}
+td { width:35%; padding:12px 20px; vertical-align:top; border-bottom:1px solid #eee}
+td.price { font-family:'meregular'; font-size:26px; font-style:italic; color:#233842; text-align:center; line-height:0.75;}
+td.condition { text-align:center; vertical-align:middle;}
+td.condition p { margin-bottom:10px;}
+ul.ico-rec-bullet { padding-left:10px;}
+.footnote { margin-bottom:30px;}
+.mobile-condition { display:none; height:0; border-bottom:0}
+.mobile-condition p { line-height:1.5}
+
+/* STYLE 02 TABLET  */
+@media screen and ( max-width:980px ){
+	
+}
+
+/* STYLE 03 TABLET  */
+@media screen and ( max-width:740px ) {
+	th { font-size:24px;}
+	th span { display:block; text-align:center;}
+	td.price { font-size:22px;}
+}
+
+/* STYLE 04 MOBILE  */
+@media screen and ( max-width:600px ) {
+	
+	th { line-height:1.2}
+	th.h-mobile { display:table-cell;}
+	th:nth-child(3) { display:none;}
+	td:first-child { padding-left:0}
+	td:nth-child(3) { display:none;}
+	td.price { font-size:18px;}
+	.mobile-condition { display:block; height:auto;}
+	
+	td.mobile-condition { width:100%;}
+	
+}
+
+/* STYLE 05 MOBILE  */
+@media screen and ( max-width:480px ) {
+	td.mobile-condition { width:100%;}
+}
+
+
+/* STYLE 06 MOBILE  */
+@media screen and ( max-width:360px ) {
+	td.mobile-condition { width:100%;}
+
+}

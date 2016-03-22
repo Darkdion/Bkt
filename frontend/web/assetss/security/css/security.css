@@ -1,0 +1,46 @@
+.tabBox select { width:100%; display:none; }
+#navAnchor li { width:25%}
+
+#security h2 { color: #233842;}
+#security h3 { margin-top:20px; margin-bottom:5px;}
+#security p { margin-bottom:12px; line-height:1.7}
+ol.list-num { margin-left:42px; }
+ul.ico-rec-bullet { margin-top:10px; margin-left:24px; }
+ul.ico-rec-bullet li { margin-bottom:8px;}
+
+.privacy-blockquote { color:#4d6979; margin:30px 0;
+	padding:30px 80px;
+	background:#fafafa;
+	border: 1px solid #ebebeb;
+	font-style: italic;
+	line-height:1.5em;
+}
+.privacy-blockquote span.closequote-left { float:left; width:13px; height:13px; display:inline-block; margin-right:8px; background:url(../../common/img/closequote-left.gif) center center no-repeat;}
+.privacy-blockquote span.closequote-right { width:13px; height:13px; display:inline-block; margin-left:8px; background:url(../../common/img/closequote-right.gif) center center no-repeat;}
+
+/*================== :: MEDIA QUERY :: ====================*/
+
+/* STYLE 02 TABLET */
+@media screen and ( max-width:980px ) {
+	
+}
+
+/* STYLE 03 TABLET  */
+@media screen and ( max-width:740px ) {
+
+}
+
+/* STYLE 04 MOBILE  */
+@media screen and ( max-width:600px ) {
+
+}
+
+/* STYLE 05 MOBILE  */
+@media screen and ( max-width:480px ) {
+	.tabBox select { display:block; }
+	.tabBox ul { display:none; }
+}
+
+
+/* STYLE 06 MOBILE  */
+@media screen and ( max-width:320px ) {}

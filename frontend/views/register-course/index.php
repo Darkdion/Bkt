@@ -109,7 +109,7 @@ $countItemsInCart = 0;
                                     </div>
                                     <div class="col-xs-9 text-right">
 
-                                        <div class="text-center ">  <?php echo $courses->name; ?></div><br>
+                                        <div class="text-center " style="font-size: 12pt">  <?php echo $courses->name; ?></div><br>
                                        <div class=""><strong>เพียงราคา</strong> <span class="badge bg-green"><?php echo number_format($courses->price); ?> ฿</span></div>
                                     </div>
                                 </div>

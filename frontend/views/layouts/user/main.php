@@ -62,9 +62,9 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                     <i class="fa fa-bars"></i> เมนู
                 </button>
                 <div class="navbar-brand">
-                    <!--                    <a href="index.html">-->
-                    <!--                        <img src="img/flex-admin-logo.png" class="img-responsive" alt="">-->
-                    <!--                    </a>-->
+                                        <a href="index.php?r=site/index" class="btn btn-green text-center">
+                                          ไปเว็บไซต์
+                                        </a>
                 </div>
             </div>
             <!-- end BRAND HEADING -->
@@ -213,16 +213,17 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                     <!-- begin SIDE NAV USER PANEL -->
                     <li class="side-user hidden-xs">
                         <!--                        <img class="img-circle" src="img/profile-pic.jpg" alt="">-->
-                        <p class="welcome">
+                        <h4 class="welcome">
 
-                            <i class="fa fa-key">ผู้ใช้งาน</i>
-                        </p>
+                            <i class="fa fa-key"> ผู้ใช้งาน <?php echo Yii::$app->user->identity->username ?> </i>
+                        </h4>
                         <p class="name tooltip-sidebar-logout">
 
-                            <?php echo Yii::$app->user->identity->username ?>
-                            <span class="last-name"></span> <a style="color: inherit" class="logout_open" href="#logout"
+
+                            <a href="index.php?r=profile/index" class="btn btn-success" ><i class="fa fa-user"> </i></a>
+                             <a style="color: inherit" class="logout_open btn btn-danger" href="#logout"
                                                                data-toggle="tooltip" data-placement="top"
-                                                               title="Logout"><i class="fa fa-sign-out"></i></a>
+                                                               title="Logout"><i class="glyphicon glyphicon-off"></i></a>
 
                         </p>
 

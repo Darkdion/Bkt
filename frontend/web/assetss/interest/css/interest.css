@@ -1,0 +1,56 @@
+
+table { width:100%; margin:20px 0;border-collapse: collapse;border-spacing: 0; }
+th {
+	font-size:28px; font-weight:normal;
+	font-family:'mebold';
+	color:#233842;
+	padding:10px 0;
+	border-bottom:1px solid #bfc3c4;
+}
+th span { font-size:20px; font-family:'meregular'; }
+th.h-mobile { display:none}
+td { width:35%; padding-top:10px; vertical-align:top; border-bottom:1px solid #eee}
+td:last-child { text-align:center; vertical-align:middle;}
+td.price { font-family:'meregular'; font-style:italic; font-size:26px; color:#233842; text-align:center; line-height:0.75}
+table.tb-style-interest td {background:#fafafa;}
+.viewAll a { font-family:'meregular'; color:#233842;}
+ul.ico-rec-bullet { padding-left:10px;}
+ul.ico-rec-bullet li { margin-bottom:16px;}
+.footnote { margin:30px 0;}
+.footnote h4 { color:#233842; font-size:15px;}
+.date-mobile { display:none; height:0; border-bottom:0}
+.viewAll a { text-decoration:underline; }
+
+/* STYLE 02 TABLET  */
+@media screen and ( max-width:980px ){
+	
+}
+
+/* STYLE 03 TABLET  */
+@media screen and ( max-width:740px ) {
+	th { font-size:24px;}
+	th span { display:block; text-align:center;}
+}
+
+/* STYLE 04 MOBILE  */
+@media screen and ( max-width:600px ) {
+	table { margin-bottom:0}
+	th { line-height:1.2}
+	th.h-mobile { display:table-cell; overflow:hidden;}
+	th:nth-child(3) { display:none;}
+	td:nth-child(3) { display:none;}
+	td:last-child { text-align:left}
+	.date-mobile { height:auto; display:block; padding:15px 0 30px 14px; text-align:left}
+}
+
+/* STYLE 05 MOBILE  */
+@media screen and ( max-width:480px ) {
+
+}
+
+
+/* STYLE 06 MOBILE  */
+@media screen and ( max-width:360px ) {
+
+
+}

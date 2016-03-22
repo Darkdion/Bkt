@@ -1,0 +1,115 @@
+/* ######## :: Calculator :: ######## */
+.hMain { border:none; }
+#navAnchor li { width:50%; }
+
+.line-top { border-top:solid 1px #D1D9DD; }
+
+
+.application { background:#FAFAFA; }
+#btn-compare { min-width:150px; margin-top:20px; float:right; text-align:center; }
+
+.swap .a { display:block; }
+.swap .b { display:none; }
+.swap.toggle .a{ display:none; }
+.swap.toggle .b{ display:block; }
+
+#cal-compare { display:none; }
+
+.form-style01 { padding-right:30px; }
+.form-style01 .form-list { padding:20px 0; width:100%; float:left; }
+.form-style01 .form-list:nth-child(1) { padding-top:0; }
+.form-style01 input, .form-style01 select { text-align:right; }
+.form-invis { width:0; height:0; visibility:hidden; }
+.obj { display:table; padding-bottom:60px; }
+.obj .obj-list { display:table-cell; width:50%; vertical-align:top; padding:40px 0; }
+
+.cal-result-interest dl{
+	color:#233842;
+	font-size:15px;
+	line-height:65px;
+	padding:0 20px;
+	background-color:#EAEBED;
+}
+.cal-result-interest dt{ 
+	height:0;
+	font-family:'mebold';
+}
+.cal-result-interest dt.txt-highlight{ font-size:1.4em; }
+.cal-result-interest dd{
+	width:100%;
+	text-align:right;
+	border-bottom:1px solid #FFF;
+	font-size:1.67em;
+	font-family:'Helvetica';
+}
+.cal-result-interest dd:last-child { border:none; }
+.cal-result-interest dd.txt-highlight{ font-size:2.2em; }
+
+.tab-content header.wrapHead { margin-top:20px; margin-bottom:30px; }
+/* FORM */
+
+.data-frequency select { text-align:left; }
+.form-style01 .form-list { min-height:40px; }
+
+#cal-form02 {
+	max-height:0;
+	overflow:hidden;
+	-webkit-transition:all 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	   -moz-transition:all 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	     -o-transition:all 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	        transition:all 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+#cal-form02.show {max-height:1000px;}
+
+.footnote { padding:0px 10px;}
+.tabBox select { width:100%; display:none; }
+
+/*================== :: MEDIA QUERY :: ====================*/
+
+/* STYLE 01 DESKTOP */
+@media screen and ( min-width:981px ){
+
+}
+
+/* STYLE 02 TABLET  */
+@media screen and ( max-width:980px ){
+
+.form-style01 input { width:100%; }
+.form-style01 select { width:100%; }
+
+}
+
+/* STYLE 03 TABLET  */
+@media screen and ( max-width:740px ) and ( min-width : 601px ){
+	
+.cal-result-interest dt { height:auto; line-height:40px;	padding-top:20px; }
+.cal-result-interest dt:first-child { padding-top:0; }
+.cal-result-interest dd { line-height:58px; }
+
+}
+
+/* STYLE 04 MOBILE  */
+@media screen and ( max-width:600px ) {
+
+.form-style01 { padding-right:0; }
+.obj .obj-list { display:block; width:100%; padding-bottom:0; }
+.form-style01 .form-list { width:48%; margin-right:4%; }
+.form-style01 .form-list:nth-child(2n) { margin-right:0; }
+.form-style01 .form-list:nth-child(1) { padding-top:20px;}
+
+}
+
+/* STYLE 05 MOBILE  */
+@media screen and ( max-width:480px ) {
+
+.form-style01 {padding-right: 8px;}
+.form-style01 .form-list { width:100%; margin:0; }
+.tabBox select { display:block; }
+.tabBox ul { display:none; }
+}
+
+
+/* STYLE 06 MOBILE  */
+@media screen and ( max-width:360px ) {
+
+}

@@ -1,0 +1,31 @@
+/* ###  BUTTON & LINK ### */
+.color-lightSeaGreen .btn,.color-lightSeaGreen button { background-color:#CAD400; }
+
+/* ###  TEXT STYLES  ### */
+.color-lightSeaGreen .txtColr { color:#CAD400 !important; }
+.color-lightSeaGreen .topHead { border-bottom-color:#CAD400; }
+.color-lightSeaGreen .txtpink { color:#CAD400 !important; }
+.color-lightSeaGreen .tabDetailMe li.active { background-color:#CAD400; }
+
+/* ###  BACKGROUND  ### */
+.color-lightSeaGreen .setBgColor { background-color:#CAD400 !important; }
+.color-lightSeaGreen .setBorderColor { border-color:#CAD400 !important; }
+
+/* ###  ASSETS  ### */
+.color-lightSeaGreen .pagination li.active,.color-lightSeaGreen .navTab li.active { background-color:#CAD400; }
+
+.color-lightSeaGreen ul.subNavMenu { background-color:#CAD400; }
+.color-lightSeaGreen input[type="search"]:focus { border-color:#CAD400; }
+
+/* ### ICON ### */
+.color-lightSeaGreen ul.ico-rec-bullet li{ margin-left:18px; list-style-image:url(images/ico-rec-bullet.png); }
+.color-lightSeaGreen p.ico-rec-bullet { display:list-item; list-style-image:url(images/ico-rec-bullet.png); }
+.color-lightSeaGreen p.ico-rec-bullet-insert:before { content:url(images/ico-rec-bullet.png)"\00a0\00a0"; }
+
+.color-lightSeaGreen .sprite { background-image:url(images/ico-widget-sprite.png) !important; }
+.color-lightSeaGreen .sprite.ico-tell { background-position:0 0; }
+.color-lightSeaGreen .sprite.ico-mapPoint { background-position:0 -28px; }
+.color-lightSeaGreen .sprite.ico-print { background-position:0 -56px; }
+
+/* FAQ CONTENT */
+.color-lightSeaGreen .faq-detail .faq-content a { color:#CAD400; text-decoration:underline; }

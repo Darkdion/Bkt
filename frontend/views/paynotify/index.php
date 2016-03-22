@@ -1,8 +1,8 @@
 <?php
 use branchonline\lightbox\Lightbox;
 
-$status=[
-    '0' => '<label class="label label-primary">ยังไม่แจ้งชำระ</label>',
+$status = [
+    '0' => '<h4><label class="label label-success">ตรวจแล้ว</label></h4>',
     '1' => '<label class="label label-success">แจ้งชำระแล้ว</label>',
     '2' => '<label class="label label-warning">แจ้งชำระไม่ถูกต้อง</label>',
 ];

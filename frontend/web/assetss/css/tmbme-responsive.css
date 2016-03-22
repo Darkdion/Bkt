@@ -1,0 +1,209 @@
+/* ------------------- MEDIA QUERIES ------------------- */
+/* STYLE 01 DESKTOP - desktop, iPad landscape */
+#modeScreen:after {
+	display:none;
+	content:"Desktop 01";
+	position:fixed; z-index:1234;
+	bottom:5px; right:15px;
+	color:#F23670;
+	font-weight:bold;
+	background-color:rgba(0,0,0,0.18);
+	padding:5px 10px;
+	border-radius:2px;
+}
+
+
+/* STYLE 02 TABLET - iPad portait, Andriod tab */
+
+@media screen and ( max-width:980px ) {
+	#modeScreen:after { content:"Tablet 02"; }
+
+	.wrapper, .wrapHead, .headTopic h1, .wrapContact ,.wrapFormContact{ width:740px; }
+
+	/* navMain */
+	#navMainMenu { margin-left:20px; }
+	#navMainMenu li { padding:18px 6px;}
+	#navMainMenu li a { font-size:18px; }
+    .btn.topBtnLogin, .btn.topBtnOpenAccount { padding:6px 12px 3px 12px; }
+    .ico-ibLogin, .ico-ibAccount { display:none; }
+
+	/* info */
+	#information .info-title { width:500px; }
+	#information .info-detail { width:420px; }
+	.sidebar { width:280px; }
+	#information.video-wrapper .info-detail{ width:720px; }
+	.video-player, .yt-player { width:720px; }
+	/*.video-player video { max-width:720px; }*/
+	.video-wrapper .sidebar { width:100%; margin-top:30px; }
+	.video-wrapper .related-info { margin-bottom:12px; }
+	.close-video { top:151px; }
+	.player-style01 { width:740px; height:416px; }
+	
+	/* Footer */
+	.infoBar .title { padding-left:0; padding-right:15px; margin-right:15px;}
+	.infoBar a.btn-chat { font-size:16px; padding:5px 10px; margin-left:5px;}
+	.infoBar .widget { width:140px;}
+	.shortcutbar { width:240px;}
+	.footer-group { width:240px;}
+	
+	/* Enews*/
+	.enews input { width:200px;}
+	
+
+	/* Social */
+	.social-footer { margin-top:-15px; }
+	a.social-icon {
+		width:36px; height:36px;
+		margin-top:30px;
+		border-radius:18px;
+	}
+
+	/* SEARCH */
+	.box-search { width:350px; }
+	.box-filter { min-width:350px; }
+}
+
+/* STYLE 03 TABLET - Andriod tab */
+
+@media screen and ( max-width:740px ) {
+	#modeScreen:after { content:"Tablet 03"; }
+
+	.wrapper, .wrapHead, .headTopic h1, .wrapContact ,.wrapFormContact{ width:600px; }
+	.headTopic { padding-top:30px;}
+	
+	/* navMain */
+	#navMainMenu { margin-left:0; padding-left:10px}
+	#navMainMenu li { padding:20px 4px;}
+	#navMainMenu li a{ color:#415A68; font-size:14px;}
+    .btn.topBtnLogin, .btn.topBtnOpenAccount { font-size:14px; }
+    .btn.topBtnLogin { margin-right:4px; }
+
+	/* info */
+	#information .info-detail { width:100%; }
+	.sidebar { width:100%; margin-top:30px; }
+	.related-info { margin-bottom:12px; }
+
+	#information.video-wrapper .info-detail{ width:580px; }
+	.video-player, .yt-player { width:580px; }
+	.video-player video { max-width:580px; }
+	.close-video { top:29px; background-position:-11px -53px; }
+	.player-style01 { width:600px; height:338px; }
+	
+	/* Footer */
+	.infoBar .title { padding-top:40px; padding-bottom:40px; padding-right:22px; margin-right:22px;}
+	.infoBar .callcenter { font-size:18px;}
+	.infoBar a.btn-chat { padding:5px 22px;} 
+	.infoBar .btn-right { float:left;}
+	.infoBar .widget { width:190px; height:250px;}
+	#footer h3 { font-size:22px;}
+	.footer-group { width:280px; height:auto; padding-bottom:20px;}
+	.shortcutbar { width:192px; font-size:20px;}
+	.enews { width:300px;}
+	.enews input { width:260px;}
+	.copyright { width:100%; border-right:0; margin-top:20px;}
+	.social-footer { margin-top:37px;}
+	.social-footer a { margin-left:5px;}
+
+	.social-footer { margin-top:9px; }
+	a.social-icon {
+		width:44px; height:44px;
+		margin:8px 0 0 8px;
+		border-radius:22px;
+	}
+
+	/* SEARCH */
+	.box-search { width:100%; margin-bottom:15px; float:none; }
+	.box-filter { min-width:0; float:none; }
+}
+
+/* STYLE 04 MOBILE - iPhone5 landscape, Andriod tab, Andriod mobile */
+
+@media screen and ( max-width:600px ) {
+
+	#mainLogo img { width:73px; }
+	#modeScreen:after { content:"Mobile 04"; }
+
+	.wrapper, .wrapHead, .wrapFooter, .wrapContact,.wrapFormContact { width:100%; padding:0 8px; }
+	.headTopic h1 { width:100%; }
+
+	#high-notification .desc, #high-notification .submit { margin-right:0; float:none; }
+	
+	.btn.topBtnLogin, .btn.topBtnOpenAccount  { margin-top:8px; margin-right:10px; }
+	.hidden-anchor { top:0; }
+	
+	/* Header */
+	#header { height:70px; }
+	#navMainMenu { display:none; }
+	#navMenuMobile { display:block; }
+	.topBtnLogin { margin:8px 10px 0 0; }
+    .btn.topBtnLogin { margin-right:10px; }
+	
+	/* Info */
+	#information .info-title { width:100%; }
+	a.back-info { display:none; }
+
+	#information.video-wrapper .info-detail{ width:100%; }
+	.video-player, .yt-player { width:100%; }
+	.video-player video { max-width:100%; }
+	.close-video { right:10px; }
+
+	/* Footer */
+	.infoBar { padding:25px 0;}
+	.infoBar .title { float:none; border:0; text-align:center; padding:0; margin-right:0}
+	.infoBar .callcenter { font-size:16px; float:none; text-align:center;} 
+	.infoBar .callcenter span { font-size:20px;}
+	.infoBar .btn-right { float:none; text-align:center;}
+	#footer h3 { font-size:24px; margin-top:20px;}
+	#navFooter li { line-height:26px;}
+	#navFooter li a { font-size:16px;}
+	#navFooter .widget { width:100%; height:auto}
+	#navFooter .widget nav { height:0; overflow:hidden; }
+	#navFooter .widget h3 { cursor:pointer; }
+	#navFooter .widget ul { opacity:0; }
+	#navFooter .widget.open ul {
+		-webkit-transition: opacity 420ms linear;
+		-moz-transition: opacity 420ms linear;
+		-o-transition: opacity 420ms linear;
+		transition: opacity 420ms linear;
+	}
+	.footer-group { float:none; margin:0 auto; border-right:0;}
+	.shortcutbar { width:100%; margin:0 auto; float:none; font-size:28px;}
+	.enews { width:100%; text-align:center; }
+	.enews input { width:290px; box-sizing:border-box; -moz-box-sizing:border-box; } 
+
+	.footer-group { padding:15px 0 10px 0; }
+
+	.social-footer {display:block; width:100%; box-sizing:border-box; -moz-box-sizing:border-box; padding:20px; }
+	.social-footer a:first-child { margin:0 1px; }
+	a.social-icon { margin:0 1px; float:none; }
+}
+
+/* STYLE 05 MOBILE - iPhone4 landscape, Andriod mobile */
+
+@media screen and ( max-width:480px ) {
+	#modeScreen:after { content:"Mobile 05"; }
+
+	.headTopic h1 { width:100%; }
+	.enews input { width:100%; max-width:290px; }
+
+	#high-notification .desc, #high-notification .submit { text-align:center; }
+	#high-notification .submit { display:block; }
+
+	/* SEARCH */
+	.box-filter { display:none; }
+	.form-filter { display:block; }
+}
+
+/* STYLE 06 MOBILE - iPhone portait */
+
+@media screen and ( max-width:360px ) {
+	#modeScreen:after { content:"Mobile 06";
+}
+
+/* STYLE 07 FIXED - minimal screen size supported */
+
+@media screen and ( max-width:300px ) {
+	#modeScreen:after { content:"Fix 07"; }
+
+	html,body { width:285px; }
+}

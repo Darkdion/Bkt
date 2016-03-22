@@ -1,6 +1,9 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Teacher;
+use common\models\WebImg;
+use common\models\WebNews;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -73,7 +76,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+         $webimg= WebImg::find()->where(['status'=>1])->all();
+        //var_dump($webimg);
+        $new = WebNews::find()->where(['status'=>1])->all();
+        $teacher= Teacher::find()->all();
+        //var_dump($teacher);
+        return $this->render('index',[
+            'webimg'=>$webimg,
+            'new'=>$new,
+            'teacher'=>$teacher,
+        ]);
     }
 
     /**

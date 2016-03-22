@@ -75,7 +75,7 @@ use common\models\Student;
                 <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: none">
                         <li><a href="<?= Url::to(['web-img/index']) ?>">จัดการภาพสไลค์ </a></li>
-                        <li><a href="<?= Url::to(['web-news/index']) ?>">จัดการประเภทข่าวแะหมวดหมู่</a></li>
+                        <li><a href="<?= Url::to(['web-news/index']) ?>">จัดการข้อมูลข่าว</a></li>
                         <li><a href="<?= Url::to(['newscategories/index']) ?>">จัดการประเภทข้อมูลข่าว</a></li>
                         <li>
 

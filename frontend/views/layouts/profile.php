@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 
  ?>
-<?php $this->beginContent('@frontend/views/layouts/user/main.php'); ?>
+<?php $this->beginContent('@frontend/views/layouts/user/main2.php'); ?>
 <div class="panel panel-body">
 <?php
 echo Nav::widget([

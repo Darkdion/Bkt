@@ -1,0 +1,31 @@
+/* ###  BUTTON & LINK ### */
+.color-tomato .btn,.color-tomato button { background-color:#E42313; }
+
+/* ###  TEXT STYLES  ### */
+.color-tomato .txtColr { color:#E42313 !important; }
+.color-tomato .topHead { border-bottom-color:#E42313; }
+.color-tomato .txtpink { color:#E42313 !important; }
+.color-tomato .tabDetailMe li.active { background-color:#E42313; }
+
+/* ###  BACKGROUND  ### */
+.color-tomato .setBgColor { background-color:#E42313 !important; }
+.color-tomato .setBorderColor { border-color:#E42313 !important; }
+
+/* ###  ASSETS  ### */
+.color-tomato .pagination li.active,.color-tomato .navTab li.active { background-color:#E42313; }
+
+.color-tomato ul.subNavMenu { background-color:#E42313; }
+.color-tomato input[type="search"]:focus { border-color:#E42313; }
+
+/* ### ICON ### */
+.color-tomato ul.ico-rec-bullet li{ margin-left:18px; list-style-image:url(images/ico-rec-bullet.png); }
+.color-tomato p.ico-rec-bullet { display:list-item; list-style-image:url(images/ico-rec-bullet.png); }
+.color-tomato p.ico-rec-bullet-insert:before { content:url(images/ico-rec-bullet.png)"\00a0\00a0"; }
+
+.color-tomato .sprite { background-image:url(images/ico-widget-sprite.png) !important; }
+.color-tomato .sprite.ico-tell { background-position:0 0; }
+.color-tomato .sprite.ico-mapPoint { background-position:0 -28px; }
+.color-tomato .sprite.ico-print { background-position:0 -56px; }
+
+/* FAQ CONTENT */
+.color-tomato .faq-detail .faq-content a { color:#E42313; text-decoration:underline; }

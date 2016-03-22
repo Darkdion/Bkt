@@ -13,7 +13,9 @@ use dosamigos\ckeditor\CKEditor;
 
 <div class="web-news-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype' => 'multipart/form-data']
+    ]); ?>
     <div class="row">
         <div class="col-sm-6 col-md-6">
             <div class="form-group">
@@ -34,10 +36,25 @@ use dosamigos\ckeditor\CKEditor;
         </div>
 
     </div>
+    <div class="form-group">
+        <?= $model->getPhotosViewer(); ?>
+        <?=$form->field($model, 'photos')->widget(\kartik\file\FileInput::classname(), [
+            'options' => ['accept' => 'image/*'],
+            'pluginOptions' => [
+                'showCaption' => false,
+                'showRemove' => false,
+                'showUpload' => false,
+                'browseClass' => 'btn btn-primary btn-block',
+                'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
+                'browseLabel' =>  'เลือกรูปภาพ'
+            ],
+        ]);?>
+
+    </div>
 
     <?= $form->field($model, 'detail')->widget(CKEditor::className(), [
-        'options' => ['rows' => 5],
-        'preset' => 'Full'
+        'options' => ['rows' => 3],
+        'preset' => 'basic'
 
         //'preset' => 'Standard'
 

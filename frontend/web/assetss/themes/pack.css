@@ -1,0 +1,25 @@
+@import url("deeppink/styles.css");
+@import url("vividOrange/styles.css");
+@import url("lightSeaGreen/styles.css");
+@import url("darkOrchid/styles.css");
+@import url("lightCoral/styles.css");
+@import url("aqua/styles.css");
+@import url("tomato/styles.css");
+
+.deepPink		{ background-color:#F23670; } /* Violet Red */
+.yellow			{ background-color:#FFD22E; } /* Sunglow */
+.lightSeaGreen	{ background-color:#CAD400; } /* Rio Grande */
+.darkOrchid		{ background-color:#AF3E9A; } /* Mulberry */
+.lightCoral		{ background-color:#E26B67; } /* Sunglo */
+.aqua			{ background-color:#39C0D3; } /* Scooter */
+.tomato			{ background-color:#E42312; } /* Crimson */
+.vividOrange    { background-color:#E9500E; } /* VividOrange */
+
+/* ###  BUTTON  ### */
+.theme-pack button{
+	color:white; border:none;
+	cursor:pointer;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+}

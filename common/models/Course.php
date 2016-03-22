@@ -78,6 +78,7 @@ class Course extends \yii\db\ActiveRecord
             'date_s' => 'วันที่เริ่ม',
             'date_c' => 'วันที่สิ้นสุด',
             'photos' => 'รูปภาพ',
+            'cod_id'=>'รหัสคอร์ส',
             'typecourse_id' => 'ประเภทคอร์สเรียน',
             'teacher_id' => 'อาจารย์ผู้สอน',
         ];

@@ -1,0 +1,49 @@
+/* ========================== FONT ========================= */
+@font-face {
+    font-family: 'meregular';
+    src: url('../common/font/meregular-webfont.eot');
+    src: url('../common/font/meregular-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('../common/font/meregular-webfont.woff') format('woff'),
+         url('../common/font/meregular-webfont.ttf') format('truetype'),
+         url('../common/font/meregular-webfont.svg#meregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'melight';
+    src: url('../common/font/melight-webfont.eot');
+    src: url('../common/font/melight-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('../common/font/melight-webfont.woff') format('woff'),
+         url('../common/font/melight-webfont.ttf') format('truetype'),
+         url('../common/font/melight-webfont.svg#melight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'mebold';
+    src: url('../common/font/mebold-webfont.eot');
+    src: url('../common/font/mebold-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('../common/font/mebold-webfont.woff') format('woff'),
+         url('../common/font/mebold-webfont.ttf') format('truetype'),
+         url('../common/font/mebold-webfont.svg#mebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: 'meregular';
+		src: url('../common/font/meregular-webfont.svg') format('svg');
+	}
+	@font-face {
+		font-family: 'melight';
+		src: url('../common/font/melight-webfont.svg') format('svg');
+	}
+	@font-face {
+		font-family: 'mebold';
+		src: url('../common/font/mebold-webfont.svg') format('svg');
+	}
+}

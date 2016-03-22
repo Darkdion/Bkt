@@ -10,7 +10,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
-AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,78 +20,236 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+
     <?php $this->head() ?>
+
+
+
+    <link rel="stylesheet" type="text/css" href="3D/css/jquery-responsiveGallery.css">
+
+
+
+
+    <link href="assetss/css/reset.css" rel="stylesheet" />
+    <link href="assetss/common/js/plugin/mediaelement/mediaelementplayer.css" rel="stylesheet" />
+    <link href="users/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="assetss/css/tmbme.css" rel="stylesheet" />
+    <link href="assetss/css/main.css" rel="stylesheet" />
+    <link href="assetss/themes/pack.css" rel="stylesheet" />
+    <link href="assetss/css/tmbme-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assetss/css/print.css" rel="stylesheet" type="text/css"  media="print" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <meta name="theme-color" content="#DF006E">
 </head>
-<body>
+  
+<body class="theme-pack color-deepPink">
 <?php $this->beginBody() ?>
-<div class="container">
-    <img src="../web/logo/logo2.png" alt="">
-</div>
-<div class="wrap" style="">
-    <?php
-    NavBar::begin([
-        //'brandImg'=>
-//        'brandLabel' => Html::img(\yii\helpers\Url::base().'/logo/logo.png',['style'=>'width:130px;;margin-top: -30px']),
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-default ',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = [
-            'label' => 'คุณ ' . Yii::$app->user->identity->username .'',
-            'items'=>[
-                [
-                    'label' => '<i class="fa fa-object-group"></i></i> จัดการข้อมูล', 'url' => ['site/users'], 'visible'=>Yii::$app->user->can('User')
-                ],
-                [
-                    'label' => '<i class="fa fa-object-ungroup"></i> จัดการข้อมูลทั่วไป', 'url' => ['site/user'], 'visible'=>Yii::$app->user->can('Author')
-                ],
-                [
-                    'label' => '<i class="fa fa-object-group"></i></i> จัดการข้อมูลเจ้าหน้าที่', 'url' => ['site/manager'], 'visible'=>Yii::$app->user->can('Management')
-                ],
-//                    ['label' => '<span class="fa fa-user"></span> โปรไฟล์ข้อมูลส่วนตัว', 'url' => ['/profile/index']],
-//                    ['label' => '<i class="fa fa-wrench"></i> แก้ไขข้อมูลส่วนตัว', 'url' => ['/site/signup']],
-                ['label'=>'<i class="fa fa-sign-out"></i> ออกจากระบบ','url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']] ,
-            ],
 
-        ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'encodeLabels' => false,
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+<div id="modeScreen"></div>
+<!-- ############  HEADER  ########### -->
+<header id="header" class="setBorderColor">
+    <div id="high-notification">
+        <div class="wrapper">
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+            <span class="submit"> <a class="btn close-note" href="#">ปิดการแจ้งเตือน</a> </span>
+            <div class="clearAll"></div>
+        </div>
+    </div>
+    <div class="wrapHead">
+        <figure id="mainLogo"><a href="<?=\yii\helpers\Url::to(['site/index'])?>" class="logo"><img src="../web/logo/logo.png" alt="ME Corporate Logo"/></a></figure>
+        <!-- Main Menu -->
+        <nav id="navMainMenu">
+            <ul>
+                <li><a href="<?=\yii\helpers\Url::to(['site/index'])?>">หน้าหลัก</a></li>
+                <li><a href="product/index.html">คอร์สเรียน</a></li>
+                <li><a href="account/index.html">วิธีลงทะเบียนคอร์ส</a></li>
+                <li><a href="contact/index.html">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+        <nav id="navMenuMobile" class="navMenuMobile">
+            <button class="miniBTN">MENU</button>
+            <ul class="subNavMenu">
+                <li><a href="<?=\yii\helpers\Url::to(['site/index'])?>">หน้าหลัก</a></li>
+                <li><a href="product/index.html">คอร์สเรียน</a></li>
+                <li><a href="account/index.html">วิธีลงทะเบียนคอรส</a></li>
+                <li><a href="contact/index.html">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+        <a class="btn  topBtnOpenAccount" href="" target="_blank" > <span class="ico-ibAccount"></span>สมัครสมาชิก </a>
+        <a class="btn topBtnLogin" href="<?=\yii\helpers\Url::to(['site/login'])?>" target="_blank" onclick="ga('send', 'event', 'existingsignin', 'click', 'toppage', {'page': $(window.location)[0].pathname});"> <span class="ico-ibLogin"></span>เข้าสู่ระบบ </a>
+        <div class="clearAll"></div>
+    </div>
+</header>
+
+<!-- ############  CONTENT  ########### -->
+<section id="main">
+    <?= $content ?>
+</section>
+
+<!-- ############  FOOTER  ########### -->
+<div id="barFooter" class="infoBar">
+    <div class="wrapper">
+        <p class="title">มีเรื่องไหนที่คุณอยากรู้?<br />
+            เราพร้อมช่วยคุณ 24&nbsp;ชั่วโมง </p>
+        <p class="callcenter"><span class="ico sprite ico-tell"></span><a href="tel:025020000" class="link-call">ME CALL CENTER : <span>02-502-0000</span></a></p>
+        <p class="btn-right"><a href="https://tmbwebchat.tmbbank.com/Genesys/MEChat/Login.jsp" target="_blank" class="btn-chat">WEB CHAT</a> <a href="faq/index.html" class="btn-chat">คำถามที่พบบ่อย</a></p>
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+
+<footer id="footer">
+    <!-- -->
+
+    <div class="bound-backTop" style="display:none"><a id="moveTop" href="javascript:moveTop();">BACK TO TOP</a></div>
+    <!-- Footer Bottom -->
+    <div id="footer-bottom">
+        <div class="wrapper wrapFooter">
+            <div class="shortcutbar"> <a href="https://tmbwebchat.tmbbank.com/Genesys/MEChat/Login.jsp" target="_blank">
+                    <h4>Fcebook</h4>
+                    <p><span class="fa fa-facebook"></span>ME WEB CHAT</p>
+                </a> </div>
+            <div class="shortcutbar">
+                <h4><a class="link-call" href="tel:025020000">โทรสอบถาม...</a></h4>
+                <p><span class="ico-tel"></span><a class="link-call" href="tel:025020000">02-502-0000</a></p>
+            </div>
+            <div class="shortcutbar"> <a href="contact/index.html">
+                    <h4>ที่ตั้งสาขา</h4>
+                    <p><span class="ico-place"></span>ME PLACE</p>
+                </a> </div>
+            <div class="enews footer-group">
+                <h3>ที่อยู่</h3>
+
+            </div>
+
+            <!-- social-footer -->
+            <div class="social-footer center footer-group">
+
+            </div>
+            <div class="copyright footer-group">
+                <p><img id="logo-footer" src="../web/logo/logo.png" alt="ME Logo"></p>
+                <small>สงวนลิขสิทธิ์ พ.ศ.2559 สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</small> </div>
+        </div>
     </div>
 </footer>
+<script>
+    var _root = "site/index.php";
+    var site_url = "index.php";
+</script>
+<div class="print-footer-copy"> (c) สงวนลิขสิทธิ์ พ.ศ.2559 สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</div>
+<script>
+    var _root = "site/index.php";
+    var site_url = "index.php";
+</script>
+<div class="print-footer-copy"> (c) สงวนลิขสิทธิ์ พ.ศ.2559 สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</div>
 
-<?php $this->endBody() ?>
+<!-- Google Code for Remarketing Tag -->
+
+
+<noscript>
+
+</noscript>
+<!-- JS Script -->
+
+<script src="assetss/common/js/jquery/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="assetss/common/js/jquery/jquery.swipe.min.js"></script>
+<script src="assetss/common/js/jquery/jquery.easing.1.3.js"></script>
+
+
+<script src="assetss/common/js/plugin/mediaelement/mediaelement-and-player.min.js"></script>
+<script src="assetss/common/js/global/global.js"></script>
+
+<script src="assetss/common/js/asset/player.js" rel="player"></script>
+<script type="text/javascript" src="3D/lib/modernizr.custom.js"></script>
+
+<script type="text/javascript" src="3D/src/jquery.responsiveGallery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.responsiveGallery-wrapper').responsiveGallery({
+            animatDuration: 400, //动画时长 单位 ms
+            $btn_prev: $('.responsiveGallery-btn_prev'),
+            $btn_next: $('.responsiveGallery-btn_next')
+        });
+    });
+
+</script>
+<script>
+    $(function(){
+        var _root = document.documentElement;
+        if(_root.clientWidth>600)_offsetNavTop = $("#navAnchor").height();
+        $(window).resize(function(){
+            if(_root.clientWidth>600){
+                _offsetNavTop = $("#navAnchor").height();
+            }else{
+                _offsetNavTop = 10;
+            }
+        });
+    });
+    $(function(){
+        // Nav menu
+        (function(window){
+            'use strict';
+
+            var _nav = $("#navAnchor li"),
+                _obj = $("#navAnchor"), _bound = $("#navAnchor-bound"),
+                _list = ["#topic-whatMe","#topic-differenceMe","#topic-whyMe","#topic-moreMe","#barFooter"],
+                _tp = -1,
+                _max = _list.length,
+                _maxH = 0;
+            for(var i = 0;i<_max;i++){
+                _list[i] = $(_list[i]);
+            }
+            function viewPage(a){
+                var b = a+_offsetNavTop;
+
+                for (var i = _max-1; i>=0; i--){
+                    if(_list[i].offset().top<b)return i;
+                }
+                return -1;
+            }
+            function moveScroll(){
+                _maxH = _list[_max-1].offset().top-_offsetNavTop;
+                var _top = $(window).scrollTop(),
+                    _index = viewPage(_top),
+                    _navIndex = (_index==-1)?0:_index,
+                    _minTop = _bound.offset().top-$("header#header").height()+2;
+
+                if((_top>_minTop)&&(_top<_maxH)){
+                    _obj.css({
+                        'position':'fixed',
+                        // 'top':0,
+                        'top':$("header#header").height()+2,
+                        'height':'auto'
+                    });
+                }else{
+                    _obj.css({ 'position':'absolute', 'top':'auto' });
+                    //_obj.css({'height':0});
+                }
+                if(_tp == _index)return false;
+
+                _obj.find('.active').removeClass('active');
+                $(_nav[_navIndex]).addClass('active');
+                $("#main").find(".focus").removeClass("focus");
+                $(_list[_index]).addClass("focus");
+                _tp = _index;
+            }
+            moveScroll();
+            $(window).scroll(moveScroll);
+
+        })(window);
+        //
+        $("#navAnchor").find("li").click(function(e){
+            moveToID($(this).find("a").attr('href'));
+            e.preventDefault();
+        });
+        //
+    });
+</script>
+
 </body>
+
+
 </html>
-<?php $this->endPage() ?>

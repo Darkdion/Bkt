@@ -1,0 +1,94 @@
+
+#main .hMain { margin-bottom:30px}
+
+.promotion-entry {
+	position:relative;
+	display:inline-block;
+	width:310px; height:320px;
+	border:1px solid #EBEBEB;
+	overflow:hidden;
+	background:#FAFAFA;
+	float:left;
+	margin:0 15px 15px 0;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	transition:background 0.3s;
+}
+.promotion-entry figcaption{
+	color:#415A68;
+	padding:15px;
+}
+
+.fx-saturate{
+	background:#004275;
+}
+.fx-saturate img{
+	width:100%;
+	-webkit-filter:saturate(0%);
+	filter:saturate(0%);
+	opacity:0.7;
+}
+.touch .fx-saturate img{
+	-webkit-filter:saturate(100%);
+	filter:saturate(100%);
+	opacity:1.0;
+}
+.promotion-entry:hover {
+	background:#293B47;
+}
+.promotion-entry:hover figcaption{
+	color:#FFF;
+	transition:background 0.3s;
+}
+.promotion-entry:hover img{
+	-webkit-filter:saturate(100%);
+	filter:saturate(100%);
+	opacity:1.0;
+	transition:opacity 0.5s, filter 0.5;
+}
+
+.entry-title { font-size:18px; }
+.entry-summary { margin-top:10px; font-size:13px;}
+.published { font-size:12px; color:#999; /*position:absolute; bottom:5px; right:15px;*/}
+
+
+
+/*================== :: MEDIA QUERY :: ====================*/
+
+/* STYLE 01 DESKTOP */
+@media screen and ( min-width:981px ){
+
+	.promotion-entry:nth-child(3n){ margin-right:0; }
+
+}
+
+/* STYLE 02 TABLET  */
+@media screen and ( max-width:980px ){
+	
+	.promotion-entry{ width:350px; margin-right:20px; }
+	.promotion-entry:nth-child(2n){ margin-right:0; }
+
+}
+
+/* STYLE 03 TABLET  */
+@media screen and ( max-width:740px ) {
+	.promotion-entry{ width:49%; margin-right:2%; }
+}
+
+/* STYLE 04 MOBILE  */
+@media screen and ( max-width:600px ) {
+
+}
+
+/* STYLE 05 MOBILE  */
+@media screen and ( max-width:480px ) {
+
+}
+
+
+/* STYLE 06 MOBILE  */
+@media screen and ( max-width:360px ) {
+
+	.promotion-entry{ width:100%; margin-right:0; }
+
+}

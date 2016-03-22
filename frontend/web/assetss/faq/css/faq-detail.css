@@ -1,0 +1,144 @@
+#main .wrapper { padding-top:30px; min-height:650px; padding-bottom:80px; overflow:auto; }
+a.back-info { float:none; }
+
+.faq-title { color:#233842; }
+.faq-title h2 { font-size:29px;}
+.published { font-family: 'meregular'; font-size:15px; color:#ee3b70}
+
+.faq-detail { width:645px; float:left; font-size:14px; color:#415a68; }
+.faq-detail figure { margin-bottom:20px}
+.faq-detail h3 { color:#233842}
+.faq-detail h4 { font-size:18px; color:#233842}  
+.faq-detail p {line-height: 1.7em; }
+.faq-content { display:block; padding:20px 16px; margin-bottom:35px; box-sizing:border-box; -moz-box-sizing:border-box; background-color:#FAFAFA; }
+
+.viewAll { font-family:'meregular'; font-size:15px; }
+.viewAll a:after {
+	margin-left:4px;
+	content:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAZAAA/+4AJkFkb2JlAGTAAAAAAQMAFQQDBgoNAAABrQAAAfUAAAIvAAACX//bAIQAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQICAgICAgICAgICAwMDAwMDAwMDAwEBAQEBAQECAQECAgIBAgIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD/8IAEQgACgAFAwERAAIRAQMRAf/EAI4AAQEAAAAAAAAAAAAAAAAAAAQJAQEBAAAAAAAAAAAAAAAAAAAAARAAAQUAAAAAAAAAAAAAAAAAEAECAxRGEQABAgQFBQAAAAAAAAAAAAABAgMAEhMEESIUNAVExBW1xRIBAAAAAAAAAAAAAAAAAAAAEBMAAQQDAQEAAAAAAAAAAAAAAQAQ8BEhQYHB4f/aAAwDAQACEQMRAAABs8ET/9oACAEBAAEFAkZBfzX/2gAIAQIAAQUCH//aAAgBAwABBQIf/9oACAECAgY/Aj//2gAIAQMCBj8CP//aAAgBAQEGPwJXE6pZ4sXTbslQpCL8h258JWOZ5l0DUUwcWwiQ5FpTHQ7/AOv7buI//9oACAEBAwE/IcpAFA8ysDleZCq7/9oACAECAwE/IW//2gAIAQMDAT8hb//aAAwDAQACEQMRAAAQA//aAAgBAQMBPxAgaiYNRKSJh1ZWtf/aAAgBAgMBPxBa5OeL/9oACAEDAwE/EFqT4v/Z);
+}
+
+#form_useful { margin-bottom:25px; }
+
+.sidebar { width:280px; margin-top:-5px; float:right}
+.faq-other {}
+.faq-other h3 { color:#233842; }
+ul.ico-rec-bullet li { margin-bottom:10px; line-height:1.4em;}
+ul.ico-rec-bullet li a { color:#4d6979}
+
+.faq-entry { height:60px; margin-bottom:10px; border: 1px solid #ebebeb;}
+.entry-title { color:#415a68; font-size:14px; padding:10px 0; line-height:1.2em}
+.entry-title a {color:#415a68;}
+.faq-share { padding:30px 0}
+.faq-share h4 { font-size:18px;}
+
+a.back-news { float:right; color:#415a68; padding-left:15px; line-height:3em; background:url(../common/img/arrw-back.html) left center no-repeat;}
+a.viewAll { font-size:13px; float:right; color:#415a68; margin-bottom:30px; margin-top:20px;}
+ul.ico-rec-bullet { margin:10px 0}
+
+/* ACCORDION */
+.acc-box {}
+.acc-box .acc-list { padding:10px 0 10px 0; border-top:#D1D9DD 1px solid; }
+.acc-box .acc-list:first-child { border-top:none; }
+.acc-box .acc-list a { color:#233842; }
+.acc-box .acc-list ul {
+	overflow:hidden;
+	width:100%; max-height:0;
+	margin:0;
+	-webkit-transition:max-height 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	   -moz-transition:max-height 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	        transition:max-height 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.acc-box .acc-list.active ul { 
+	height:auto; max-height:400px;
+	-webkit-transition:max-height 600ms 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	   -moz-transition:max-height 600ms 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	        transition:max-height 600ms 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+/* FEEDBACK FORM */
+.feedback-field {
+	display:block;
+	position:relative;
+	width:100%;
+	padding:30px;
+	margin-top:8px;
+	background:#FAFAFA;
+	border:1px solid #EBEBEB;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+.feedback-field .bg-tooltip {
+	position:absolute;
+	width:24px; height:14px;
+	top:-10px;
+	z-index:0;
+	background:url(../../common/img/bg-tooltip.png) 0 0 no-repeat;
+}
+.feedback-field textarea {
+	width:100%;
+	margin:10px 0;
+	padding:10px;
+	color:#415A68;
+	border:1px solid #EBEBEB;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	resize:none;
+}
+#form_useful .btn-form input[type="submit"], #form_useful .btn-form input[type="button"]{
+	width:auto;
+	padding:10px 30px;
+	color:#FFF;
+	font:normal 16px/1em 'meregular';
+	border:none;
+	float:none;
+	text-decoration:none;
+	border-radius:2px;
+}
+
+/*================== :: MEDIA QUERY :: ====================*/
+
+/* STYLE 01 DESKTOP */
+@media screen and ( min-width:981px ){
+
+}
+
+/* STYLE 02 TABLET  */
+@media screen and ( max-width:980px ){
+	.faq-detail { width:410px;}
+}
+
+/* STYLE 03 TABLET  */
+@media screen and ( max-width:740px ) {
+	.sidebar { width:100%}
+	.faq-entry { width:100%}
+	.faq-detail { width:100%;}
+	.faq-share { padding-top:0}
+
+	.sidebar { margin-top:60px; border-top:#D1D9DD 1px solid; }
+	.acc-box .acc-list { border-top:none; }
+	.acc-box .acc-list:first-child { padding-top:40px; }
+	.acc-box .acc-list a { cursor:pointer; }
+	.acc-box .acc-list ul,.acc-box .acc-list.active ul {
+		height:auto; max-height:400px;
+		-webkit-transition:none;
+		   -moz-transition:none;
+				transition:none;
+	}
+}
+/* STYLE 04 MOBILE  */
+@media screen and ( max-width:600px ) {
+
+	
+}
+
+/* STYLE 05 MOBILE  */
+@media screen and ( max-width:480px ) {
+
+}
+
+
+/* STYLE 06 MOBILE  */
+@media screen and ( max-width:360px ) {
+
+}

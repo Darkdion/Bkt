@@ -73,7 +73,7 @@ class RegisterCourseController extends \yii\web\Controller
             $search = '%' . $_POST['search'] . '%';
 
             $course = $course
-                ->where('name LIKE(:search) OR price LIKE(:search) OR cod_id LIKE(:search)', [
+                ->where('name LIKE(:search) OR price LIKE(:search) OR 	typecourse_id LIKE(:search) OR cod_id LIKE(:search)', [
                     ':search' => $search
                 ]);
         }

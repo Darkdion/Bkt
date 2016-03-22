@@ -1,0 +1,173 @@
+/* ######## :: Account :: ######## */
+.btnBottom { margin-top:20px; }
+h4 { font-size:20px; }
+
+#navAnchor li { width: 50%;}
+.navTab { margin-bottom:30px;}
+.tabBox select { width:100%; display:none; }
+
+/* ARTICLE */
+.headTopic { text-align:center; }
+.hBox { display:none; font-size:18px; padding:14px 0 14px 0; color:#FFF; text-align:center; width:100%; z-index:4; position:absolute; }
+.focus .hBox { position:fixed; top:0; z-index:3; }
+
+/* PAGES CONTENT */
+#open-account-tmb .headTopic { padding:15px 0 10px 0; text-align:left; }
+#open-account-tmb .open-account-tmb { padding-top:0; }
+h3.wrapHead { font-size:26px; }
+
+/* Topic open-new-account */
+
+#open-new-account h4 { text-align:center; font-size:24px;}
+.apply-step { display:block; width:100%; overflow:hidden; background:#FAFAFA; position:relative; }
+
+#openAccount h4 { font-size:24px; font-family:'melight'; margin:50px 0 30px 0}
+#stepAccount { display:table; }
+#stepAccount .post-step { display:table-cell; width:33.33%; padding:20px 30px; text-align:center; }
+#stepAccount .post-step h3 { line-height:1.2; margin-bottom:10px}
+#stepAccount .post-step ul { text-align:left; }
+#stepAccount .post-step li { margin-bottom:10px }
+#stepAccount .footnote { margin:15px 0 0 18px;}
+.ico-place { width:27px; height:28px; display:inline-block; vertical-align: middle; margin-right:10px;}
+.img-pre-topic { display:block; width:100%; height:180px; position:relative; margin-bottom:20px; }
+.img-pre-topic img { display:block; position:absolute; max-height:100%; top:0; left:0; right:0; bottom:0; margin:auto; }
+
+#bypass .wrapper { min-height:0; }
+.align-center { text-align:center; }
+
+/* SLIDE */
+.slideContainer { display:block; position:relative; }
+.slide-pagination { overflow:auto; }
+.slide-pagination li { 
+	display:inline-block;
+	float:left;
+	width:160px;
+	padding-left:20px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	cursor:pointer;
+}
+.slide-pagination li:first-child { padding:0; }
+.slide-pagination h3 {
+	border-bottom:#405A69 3px solid;
+	padding-bottom:8px;
+	-webkit-transition: border-color 0.25s;
+	-moz-transition: border-color 0.25s;
+	-o-transition: border-color 0.25s;
+	transition: border-color 0.25s;
+}
+.slide-pagination .active~li h3 { border-color:#B7C6CD; }
+
+.slide-pane { display:block; position:relative; width:100%; height:450px; margin-top:40px; overflow:hidden; }
+.slide-mc { display:block; width:200%; }
+.slide-scene { display:none; width:960px; height:100%; position:relative; float:left; z-index:1;  }
+.slide-scene.show { display:block; z-index:2; }
+.slide-scene img { max-width:100%; margin:0; }
+.slide-scene h1 { display:none; font:normal 20px/29px 'meregular'; color:#FFF; padding:10px; margin-bottom:16px; text-align:center; }
+.slide-scene figcaption { width:270px; float:right; padding:0 25px 0 25px; }
+.slide-scene h2 { font-size:20px; line-height:25px; margin:10px 0 10px 0; }
+.slide-next, .slide-prev {
+	display:block;
+	position:absolute; 
+	width:50px; height:160px;
+	top:50%; margin-top:-80px;
+	z-index:3; 
+	cursor:pointer;
+	background:url(../../common/img/bg30.png);
+}
+.slide-next { 
+	right:-160px;
+	-webkit-transition: right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+	-moz-transition: right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+	-o-transition: right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+	transition: right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.slide-prev {
+	left:-160px;
+	-webkit-transition: left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+	-moz-transition: left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+	-o-transition: left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+	transition: left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.sprite-arrw-prev, .sprite-arrw-next {
+	position:relative;
+	margin:0 auto;
+	top:50%; margin-top:-8px;
+}
+.apply-step:hover .slide-next { right:0; }
+.apply-step:hover .slide-prev { left:0; }
+
+#open-account-tmb.tem-bodyContent { padding:0 0;}
+.open-account-tmb { background:#fafafa; padding-top:40px; padding-bottom:100px; min-height:205px;}
+.open-account-tmb.bg-gray { background:#eaebed;}
+.open-account-tmb #openAccount { min-height:inherit;}
+.open-account-tmb #stepAccount { margin-top:80px;}
+.open-account-tmb #stepAccount .post-step h3 { color:#535353;}
+.open-account-tmb #stepAccount .post-step p { color:#535353;}
+.open-account-tmb #stepAccount .post-step .note { font-size:13px; color:#707070;}
+.open-account-tmb #stepAccount .arrow { width:auto;} 
+/*================== :: MEDIA QUERY :: ====================*/
+
+/* STYLE 01 DESKTOP */
+@media screen and ( min-width:981px ){
+	
+}
+
+/* STYLE 02 TABLET  */
+@media screen and ( max-width:980px ){
+	
+	#openAccount .post-step { padding:20px; }
+	
+	#stepSavings .savings-step { margin:10px 30px;}
+	
+	.slide-pagination li { width:120px; padding-left:15px; }
+	.slide-scene { width:720px; }
+	.slide-scene img { width:400px; }
+}
+
+/* STYLE 03 TABLET  */
+@media screen and ( max-width:740px ) {
+	
+	#stepSavings .savings-step {}
+	
+	.slide-pagination li { width:96px; padding-left:10px; }
+	.slide-pane { height:600px; }
+	.slide-scene { width:580px; }
+	.slide-scene figcaption { width:100%; float:none; padding:0; margin-bottom:30px; }
+	.slide-scene img { width:100%; }
+}
+
+/* STYLE 04 MOBILE  */
+@media screen and ( max-width:600px ) {
+
+	#openAccount { display:block; width:90%; margin:0 auto; }
+	#openAccount .post-step { display:block; width:100%; box-sizing:border-box; -moz-box-sizing:border-box; padding:20px 45px; }	
+
+	.hBox { display:block; }
+	.headTopic { margin-top:57px; }
+	#open-account-tmb .headTopic { margin-top:0; }
+
+	.slide-pagination { display:none; }
+	.slide-pane { height:auto; margin-top:0; }
+	.slide-mc { width:100%; }
+	.slide-scene { display:block; width:100%; height:auto; padding:20px 0 80px 0; }
+	.slide-scene h1 { display:block; }
+	.slide-scene h2 { text-align:center; }
+	.slide-next, .slide-prev { display:none; }
+
+	.align-btn { text-align:center; }
+}
+
+/* STYLE 05 MOBILE  */
+@media screen and ( max-width:480px ) {
+	#openAccount .post-step { padding:10px 0; }
+	.tabBox select { display:block; }
+	.tabBox ul { display:none; }
+}
+
+
+/* STYLE 06 MOBILE  */
+@media screen and ( max-width:360px ) {
+
+
+}
