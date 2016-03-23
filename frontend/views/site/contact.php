@@ -1,45 +1,49 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
 
-$this->title = 'Contact';
+$this->title = 'ติดต่อเรา';
 $this->params['breadcrumbs'][] = $this->title;
+$model = \common\models\WebContact::find()->all();
+
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
+<link href="assetss/common/js/plugin/fancybox/jquery.fancybox8cbb.css?v=2.1.5" rel="stylesheet" media="screen"/>
+<link href="assetss/contact/css/contact.css" rel="stylesheet">
+<header class="hMain">
+    <h2 class="wrapHead">ติดต่อเรา&nbsp;<span class="txtColr">บ้านครูติ๊กติวเตอร์</span></h2>
+</header>
+<article id="contact" class="tem-bodyContent">
+    <header class="wrapHead">
+        <?php foreach ($model as $models): ?>
 
-    <p>
-        If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-    </p>
+        <h2>ช่องทางในการติดต่อ <span class="txtColr"><?php echo $models->name ?></span></h2>
+    </header>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+    <div id="head-office‎" class="wrapContact wrapper">
+        <address>
+            <div class="detail-adr">
+                <p class="branch-name" style="font-size: 20pt; font-family: 'meregular';"><i
+                        class="fa fa-clock-o txtColr"></i> เวลาทำการ..</p>
+                <span style="font-size: 18pt; font-family: 'meregular';">
+                <b>เรียนวัน</b> จันทร์.- พฤหัสบดี. <br>
 
-                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+               <b> เวลา</b> 17.00-18.30 น.
+                </span>
 
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'subject') ?>
-
-                <?= $form->field($model, 'body')->textArea(['rows' => 6]) ?>
-
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                ]) ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
+                <p class="branch-name" style="font-size: 20pt; font-family: 'meregular';"><i
+                        class="fa fa-home txtColr"></i> ที่อยู่..</p>
+                <span style="font-size: 18pt; font-family: 'meregular';"> <?php echo $models->detail ?></span>
+                <br>
+                <br>
+                <p class="branch-name" style="font-size: 20pt; font-family: 'meregular';"><i
+                        class="fa fa-credit-card txtColr"></i> เลขที่บัญชี..</p>
+                <span style="font-size: 18pt; font-family: 'meregular';">ธนาคาร &nbsp;&nbsp;: กรุงไทย </span> <br>
+                <span style="font-size: 18pt; font-family: 'meregular';">ชื่อบัญชี    &nbsp;: Wanwimon Ruamkool </span> <br>
+                <span style="font-size: 18pt; font-family: 'meregular';">เลขบัญชี   &nbsp;:946-2-03545-1</span>
+            </div>
+        </address>
+        <?php endforeach; ?>
     </div>
-
-</div>
+</article>

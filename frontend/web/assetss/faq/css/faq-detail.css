@@ -1,4 +1,4 @@
-#main .wrapper { padding-top:30px; min-height:650px; padding-bottom:80px; overflow:auto; }
+#main .wrapper { padding-top:30px;  padding-bottom:80px; overflow:auto; }
 a.back-info { float:none; }
 
 .faq-title { color:#233842; }
@@ -10,7 +10,7 @@ a.back-info { float:none; }
 .faq-detail h3 { color:#233842}
 .faq-detail h4 { font-size:18px; color:#233842}  
 .faq-detail p {line-height: 1.7em; }
-.faq-content { display:block; padding:20px 16px; margin-bottom:35px; box-sizing:border-box; -moz-box-sizing:border-box; background-color:#FAFAFA; }
+/*.faq-content { display:block; padding:20px 16px; margin-bottom:35px; box-sizing:border-box; -moz-box-sizing:border-box; background-color:#FAFAFA; }*/
 
 .viewAll { font-family:'meregular'; font-size:15px; }
 .viewAll a:after {

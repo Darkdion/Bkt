@@ -9,8 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
-
-
+AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -29,17 +28,19 @@ use common\widgets\Alert;
 
 
 
-
     <link href="assetss/css/reset.css" rel="stylesheet" />
     <link href="assetss/common/js/plugin/mediaelement/mediaelementplayer.css" rel="stylesheet" />
     <link href="users/css/font-awesome.min.css" rel="stylesheet" />
 
     <link href="assetss/css/tmbme.css" rel="stylesheet" />
+
     <link href="assetss/css/main.css" rel="stylesheet" />
     <link href="assetss/themes/pack.css" rel="stylesheet" />
     <link href="assetss/css/tmbme-responsive.css" rel="stylesheet" type="text/css" />
-    <link href="assetss/css/print.css" rel="stylesheet" type="text/css"  media="print" />
+
+
     <link href="css/bootstrap.css" rel="stylesheet" />
+
     <meta name="theme-color" content="#DF006E">
 </head>
   
@@ -62,22 +63,34 @@ use common\widgets\Alert;
         <nav id="navMainMenu">
             <ul>
                 <li><a href="<?=\yii\helpers\Url::to(['site/index'])?>">หน้าหลัก</a></li>
-                <li><a href="product/index.html">คอร์สเรียน</a></li>
+                <li><a href="<?=\yii\helpers\Url::to(['site/couse'])?>">คอร์สเรียน</a></li>
                 <li><a href="account/index.html">วิธีลงทะเบียนคอร์ส</a></li>
-                <li><a href="contact/index.html">ติดต่อเรา</a></li>
+                <li><a href="<?= \yii\helpers\Url::to(['site/contact'])?>">ติดต่อเรา</a></li>
+
             </ul>
         </nav>
         <nav id="navMenuMobile" class="navMenuMobile">
             <button class="miniBTN">MENU</button>
             <ul class="subNavMenu">
                 <li><a href="<?=\yii\helpers\Url::to(['site/index'])?>">หน้าหลัก</a></li>
-                <li><a href="product/index.html">คอร์สเรียน</a></li>
+                <li><a href="<?=\yii\helpers\Url::to(['site/couse'])?>">คอร์สเรียน</a></li>
                 <li><a href="account/index.html">วิธีลงทะเบียนคอรส</a></li>
-                <li><a href="contact/index.html">ติดต่อเรา</a></li>
+                <li><a href="<?= \yii\helpers\Url::to(['site/contact'])?>">ติดต่อเรา</a></li>
+
             </ul>
         </nav>
-        <a class="btn  topBtnOpenAccount" href="" target="_blank" > <span class="ico-ibAccount"></span>สมัครสมาชิก </a>
-        <a class="btn topBtnLogin" href="<?=\yii\helpers\Url::to(['site/login'])?>" target="_blank" onclick="ga('send', 'event', 'existingsignin', 'click', 'toppage', {'page': $(window.location)[0].pathname});"> <span class="ico-ibLogin"></span>เข้าสู่ระบบ </a>
+        <?php if(Yii::$app->user->isGuest):?>
+
+            <a class="btn  topBtnOpenAccount" href="<?= \yii\helpers\Url::to(['site/signup'])?>"  > <span class="ico-ibAccount"></span>สมัครสมาชิก </a>
+            <a class="btn topBtnLogin" href="<?=\yii\helpers\Url::to(['site/login'])?>" > <span class="ico-ibLogin"></span>เข้าสู่ระบบ </a>
+        <?php else: ?>
+
+            <a class="btn  topBtnOpenAccount"   href="<?=\yii\helpers\Url::to(['/site/logout']) ?>" data-method="post" > <span class="fa fa-sign-out"></span> ออกจากระบบ </a>
+            <a class="btn topBtnLogin " href="<?=\yii\helpers\Url::to(['site/users'])?>" > <span class="fa fa-shopping-cart"></span> ลงทะเบียน </a>
+
+
+        <?php endif; ?>
+
         <div class="clearAll"></div>
     </div>
 </header>
@@ -86,17 +99,46 @@ use common\widgets\Alert;
 <section id="main">
     <?= $content ?>
 </section>
+<?php
+
+function TelFormat($mobile){
+    $minus_sign = "-" ;   // กำหนดเครื่องหมาย
+    $part1 = substr ( $mobile , 0 , -7 ) ;  // เริ่มจากซ้ายตัวที่ 1 ( 0 ) ตัดทิ้งขวาทิ้ง 7 ตัวอักษร ได้ 085
+    $part2 = substr( $mobile , 3 , -3 ) ;  // เริ่มจากซ้าย ตัวที่ 4 (9) ตัดทิ้งขวาทิ้ง 3 ตัวอักษร ได้ 9490
+    $part3 = substr( $mobile , 7 ) ; // เริ่มจากซ้าย ตัวที่ 8 (8) ไม่ตัดขวาทิ้ง ได้ 862
+    $a=$part1. $minus_sign . $part2 . $minus_sign . $part3 ;
+    return $a;
+}
+
+//echo TelFormat("0895742145"); //การเรียกใช้งาน
+?>
+
+
+
+
 
 <!-- ############  FOOTER  ########### -->
 <div id="barFooter" class="infoBar">
+    <?php $model= \common\models\WebContact::find()->all();?>
     <div class="wrapper">
-        <p class="title">มีเรื่องไหนที่คุณอยากรู้?<br />
-            เราพร้อมช่วยคุณ 24&nbsp;ชั่วโมง </p>
-        <p class="callcenter"><span class="ico sprite ico-tell"></span><a href="tel:025020000" class="link-call">ME CALL CENTER : <span>02-502-0000</span></a></p>
-        <p class="btn-right"><a href="https://tmbwebchat.tmbbank.com/Genesys/MEChat/Login.jsp" target="_blank" class="btn-chat">WEB CHAT</a> <a href="faq/index.html" class="btn-chat">คำถามที่พบบ่อย</a></p>
+        <p class="title">
+            <b>เวลาทำการ</b><br>
+           เรียนวัน จันทร์.- พฤหัสบดี. <br>
+           เวลา 17.00-18.30 น.
+        </p>
+        <?php foreach($model as $models ): ?>
+<?php $phone=$models->phone?>
+        <p class="callcenter"><span class="ico sprite ico-tell"></span>
+            <a href="tel:<?= $models->phone ?>" class="link-call">โทรสอบถามได้ที่เบอร์ :
+                <span><?= TelFormat($models->phone) ?></span>
+            </a>
+        </p>
+        <p class="btn-right">
+
+            <a  target="_blank" href="<?= $models->facebook ?>" class="btn-chat">สอบได้ที่นี้</a></p>
     </div>
 </div>
-
+<?php endforeach; ?>
 
 
 <footer id="footer">
@@ -106,20 +148,20 @@ use common\widgets\Alert;
     <!-- Footer Bottom -->
     <div id="footer-bottom">
         <div class="wrapper wrapFooter">
-            <div class="shortcutbar"> <a href="https://tmbwebchat.tmbbank.com/Genesys/MEChat/Login.jsp" target="_blank">
+            <div class="shortcutbar"> <a href="<?= $models->facebook ?>" target="_blank">
                     <h4>Fcebook</h4>
-                    <p><span class="fa fa-facebook"></span>ME WEB CHAT</p>
+                    <p><span class="fa fa-facebook"></span></p>
                 </a> </div>
             <div class="shortcutbar">
-                <h4><a class="link-call" href="tel:025020000">โทรสอบถาม...</a></h4>
-                <p><span class="ico-tel"></span><a class="link-call" href="tel:025020000">02-502-0000</a></p>
+                <h4><a class="link-call" href="tel:<?= $models->phone ?>">โทรสอบถาม...</a></h4>
+                <p><span class="ico-tel"></span><a class="link-call" href="tel:<?= $models->phone ?>"><?= TelFormat($models->phone) ?></a></p>
             </div>
-            <div class="shortcutbar"> <a href="contact/index.html">
-                    <h4>ที่ตั้งสาขา</h4>
-                    <p><span class="ico-place"></span>ME PLACE</p>
+            <div class="shortcutbar"> <a href="<?= \yii\helpers\Url::to(['site/contact'])?>">
+                    <h4>ติดต่อเรา</h4>
+                    <p><span class="fa fa-location-arrow"></span>ติดต่อเรา</p>
                 </a> </div>
             <div class="enews footer-group">
-                <h3>ที่อยู่</h3>
+
 
             </div>
 
@@ -129,7 +171,7 @@ use common\widgets\Alert;
             </div>
             <div class="copyright footer-group">
                 <p><img id="logo-footer" src="../web/logo/logo.png" alt="ME Logo"></p>
-                <small>สงวนลิขสิทธิ์ พ.ศ.2559 สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</small> </div>
+                <small>สงวนลิขสิทธิ์ พ.ศ.<?php echo date('Y')+543;?> สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</small> </div>
         </div>
     </div>
 </footer>
@@ -137,12 +179,12 @@ use common\widgets\Alert;
     var _root = "site/index.php";
     var site_url = "index.php";
 </script>
-<div class="print-footer-copy"> (c) สงวนลิขสิทธิ์ พ.ศ.2559 สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</div>
+<div class="print-footer-copy"> (c) สงวนลิขสิทธิ์ พ.ศ.<?php echo date('Y')+543;?>  สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</div>
 <script>
     var _root = "site/index.php";
     var site_url = "index.php";
 </script>
-<div class="print-footer-copy"> (c) สงวนลิขสิทธิ์ พ.ศ.2559 สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</div>
+<div class="print-footer-copy"> (c) สงวนลิขสิทธิ์ พ.ศ.<?php echo date('Y')+543;?>  สถาบัญกวดวิชาบ้านครูติ๊กคิวเตอร์</div>
 
 <!-- Google Code for Remarketing Tag -->
 

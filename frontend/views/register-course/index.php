@@ -22,7 +22,9 @@ $countItemsInCart = 0;
 
     <div style="position: absolute;z-index: 1500;right: 0px;top: 80px;position: fixed;">
         <a href="index.php?r=register-course/addshop" class="btn btn-lg btn-default">
-            <i class="glyphicon glyphicon-book"></i>
+
+            <?=\yii\bootstrap\Html::img(\yii\helpers\Url::base().'/img/cart2.png',['width'=>50])?>
+
             รายการคอร์สเรียน
                     <span class="badge">
 
@@ -34,7 +36,7 @@ $countItemsInCart = 0;
 <?php else:?>
     <div style="position: absolute;z-index: 1500;right: 0px;top: 80px;position: fixed;">
         <a href="index.php?r=register-course/addshop" class="btn btn-lg btn-default">
-            <i class="fa fa-bookmark-o"></i>
+            <?=\yii\bootstrap\Html::img(\yii\helpers\Url::base().'/img/cart.png',['width'=>50])?>
             ไม่มีรายการคอร์สเรียน
                     <span class="badge">
 

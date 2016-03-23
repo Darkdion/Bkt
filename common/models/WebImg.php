@@ -65,6 +65,7 @@ class WebImg extends \yii\db\ActiveRecord
             'updated_at' => 'วันที่แก้ไข',
         ];
     }
+
     public function upload($model,$attribute)
     {
         $photos  = UploadedFile::getInstance($model, $attribute);

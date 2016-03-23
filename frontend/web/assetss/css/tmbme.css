@@ -65,6 +65,18 @@ a.btn{
 	border-radius:2px;
 	white-space:nowrap;
 }
+a.btnss{
+	font-family:'melight';
+	color:#FFF;
+	display:inline-block;
+	padding:12px 18px;
+	font-size:20px; line-height:22px;
+	background-color: #33ee69;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	white-space:nowrap;
+}
 a.btn-normal{
 	font-family:'melight';
 	color:#FFF;
@@ -236,7 +248,9 @@ ol.list-num li { overflow:visible; font-size:12px; padding-left:2px; list-style-
 }
 #header .wrapHead { padding:10px 10px 8px 10px; }
 #mainLogo { float:left; height:100%; }
-#mainLogo img { max-height:100%; width:91px; }
+#mainLogo img { max-height:100%;
+	margin-top: 10px;
+	width:91px; }
 
 /* navMain */
 #navMainMenu { float:left; margin-left:30px; padding-left:0px; }
@@ -253,6 +267,7 @@ ol.list-num li { overflow:visible; font-size:12px; padding-left:2px; list-style-
 	float:right;
 }
 .btn.topBtnLogin { margin-right:10px; }
+.btnss.topBtnLogin { margin-right:10px; }
 .ico-ibLogin, .ico-ibAccount {
 	display:inline-block;
 	width:18px; height:18px;

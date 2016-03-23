@@ -25,11 +25,12 @@ use yii\helpers\VarDumper;
 
 <div class="student-form">
 
-
     <?php $form = ActiveForm::begin([
 
 
     ])   ?>
+
+
 
     <div class="form-group row">
         <div class="col-sm-2"></div>
@@ -43,17 +44,20 @@ use yii\helpers\VarDumper;
     </div>
     <div class="form-group row">
         <div class="col-sm-2"></div>
-        <label for="inputEmail3" class="col-sm-2 form-control-label">ชื่อ-นามสกุล</label>
-        <div class="col-sm-4">
-            <?= $form->field($model, 'firstname')->label(false)->textInput([ 'placeholder' => 'กรอกชื่อ',]) ?>
-
-        </div>
-        <div class="col-sm-4">
-            <?= $form->field($model, 'lastname')->label(false)->textInput([ 'placeholder' => 'กรอกนามสกุล',]) ?>
+        <label for="inputEmail3" class="col-sm-2 form-control-label">ชื่อจริง</label>
+        <div class="col-sm-8">
+            <?= $form->field($model, 'firstname')->label(false)->textInput(['maxlength' => 50]) ?>
 
         </div>
     </div>
+    <div class="form-group row">
+        <div class="col-sm-2"></div>
+        <label for="inputEmail3" class="col-sm-2 form-control-label">นามสกุล</label>
+        <div class="col-sm-8">
+            <?= $form->field($model, 'lastname')->label(false)->textInput(['maxlength' => 50]) ?>
 
+        </div>
+    </div>
     <div class="form-group row">
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">เพศ</label>
@@ -82,47 +86,44 @@ use yii\helpers\VarDumper;
     <div class="form-group row">
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">วันเกิด</label>
-        <div class="col-sm-4">
-
- 
-            <?= dosamigos\datepicker\DatePicker::widget([
-                'model' => $model,
-                'attribute' => 'birthday',
-                'language' => 'th',
-                'template' => '{addon}{input}',
-                'clientOptions' => [
-                    'autoclose' => true,
-                    'format' => 'yyyy/m/d'
-                ]
-            ]);?>
-
-
-
+        <div class="col-sm-8">
+            <div class="col-sm-6 col-md-6">
+                <?= $form->field($model, 'birthday')->label(false)->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => ' วันเกิด'],
+                    'language' => 'th',
+                    'pluginOptions' => [
+                        'autoclose'=>true,
+                        'format' => 'yyyy/m/d',
+                        'todayHighlight' => true,
+                    ]
+                ]);?>
+            </div>
 
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">ระดับการศึกษา</label>
-        <div class="col-sm-4">
-
+        <div class="col-sm-8">
+            <div class="col-sm-6 ">
                 <?=$form->field($model,'education')->label(false)->dropDownList($model->getItemEducation()
                     ,[
                         'prompt'=>'เลือกระดับการศึกษา'
                     ]) ?>
-        </div>
+            </div>
 
+        </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">สถานศึกษา</label>
-        <div class="col-sm-4">
-
+        <div class="col-sm-8">
+            <div class="col-sm-6 ">
                 <?= $form->field($model,'school_id')->label(false)->dropDownList( ArrayHelper::map(\common\models\School::find()->all(),'id','name'),
                     ['prompt'=>'เลือกโรงเรียน'] )?>
             </div>
 
-
+        </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-2"></div>
@@ -217,16 +218,18 @@ use yii\helpers\VarDumper;
     <div class="form-group row">
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">รหัสผ่าน</label>
-        <div class="col-sm-4">
-
+        <div class="col-sm-8">
+            <div class="col-sm-6">
                 <?= $form->field($user, 'password')->label(false)->hiddenInput()->passwordInput(['placeholder' => 'กรอกรหัสผ่าน']) ?>
 
-        </div>
-            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-6">
                 <?= $form->field($user, 'confirm_password')->label(false)->hiddenInput()->passwordInput(['placeholder' => 'กรอกรหัสผ่านยืนยัน']) ?>
             </div>
-
+        </div>
     </div>
+
+
 
 
 
@@ -234,8 +237,9 @@ use yii\helpers\VarDumper;
 
     <div class="form-group text-center ">
         <?= Html::a('<i class="faa-pulse  wa animated fa fa-arrow-circle-left"></i> ยกเลิก', ['index'],
-            ['class' => 'btn btn-danger btn-lg']) ?>
-        <?= Html::submitButton($model->isNewRecord ? '<i class="faa-wrench animated fa fa-save"> </i> บันทีก' : '<i class="faa-wrench animated fa fa-pencil-square-o"> </i>ปรับปรุง', ['class' => $model->isNewRecord ? 'btn  btn-success btn-lg' : 'btn  btn-primary btn-lg']) ?>
+            ['class' => 'btn btn-danger btn-raised']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '<i class="faa-wrench animated fa fa-save"> </i> บันทีก' : '<i class="faa-wrench animated fa fa-pencil-square-o"> </i>ปรับปรุง', ['class' => $model->isNewRecord ? 'btn  btn-success' : 'btn  btn-primary btn-raised']) ?>
     </div>
     <?php ActiveForm::end(); ?>
-        </div>
+
+</div>

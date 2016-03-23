@@ -5,6 +5,9 @@ namespace common\models;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\Html;
+use yii\web\UploadedFile;
+
 /**
  * This is the model class for table "teacher".
  *
@@ -42,6 +45,7 @@ class Teacher extends \yii\db\ActiveRecord
 
     const SEX_MEN = 1;
     const SEX_WOMEN = 2;
+    public  $foder='photos/teacher';
     public static function tableName()
     {
         return 'teacher';
@@ -59,7 +63,11 @@ class Teacher extends \yii\db\ActiveRecord
             [['identification'], 'string', 'max' => 13],
             [['province', 'amphur', 'district'], 'string', 'max' => 6],
             [['address', 'experience'], 'string', 'max' => 100],
-            [['phone'], 'string', 'max' => 10]
+            [['phone'], 'string', 'max' => 10],
+            [['photos'], 'file',
+                'skipOnEmpty' => true,
+                'extensions' => 'png,jpg'
+            ]
         ];
     }
 
@@ -221,5 +229,40 @@ class Teacher extends \yii\db\ActiveRecord
     }
     public function getDistrictName(){
         return @$this->districts->DISTRICT_NAME;
+    }
+
+//////////////////////อัพรูป
+    public function upload($model,$attribute)
+    {
+        $photos  = UploadedFile::getInstance($model, $attribute);
+        $path = $this->getUploadPath();
+        if ($this->validate() && $photos !== null) {
+
+            $fileName = md5($photos->baseName.time()) . '.' . $photos->extension;
+            //$fileName = $photo->baseName . '.' . $photo->extension;
+            if($photos->saveAs($path.$fileName)){
+                return $fileName;
+            }
+        }
+        return $model->isNewRecord ? false : $model->getOldAttribute($attribute);
+    }
+
+    public function getUploadPath(){
+        return Yii::getAlias('@webroot').'/'.$this->foder.'/';
+    }
+
+    public function getUploadUrl(){
+        return Yii::getAlias('@web').'/'.$this->foder.'/';
+    }
+    public function getPhotosViewer(){
+        $photos = $this->photos ? @explode(',',$this->photos) : [];
+        $img = '';
+        foreach ($photos as  $photo) {
+            $img.= ' '.Html::img($this->getUploadUrl().$photo,['class'=>'img-thumbnail','style'=>'max-width:500px;']);
+        }
+        return $img;
+    }
+    public function getPhotoViewer(){
+        return empty($this->photos) ? Yii::getAlias('@web').'/img/none.png' : $this->getUploadUrl().$this->photos;
     }
 }

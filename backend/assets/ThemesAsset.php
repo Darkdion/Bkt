@@ -33,14 +33,14 @@ class ThemesAsset extends AssetBundle
     public $js = [
         //'gentelella/js/chartjs/chart.min.js',
         'gentelella/js/bootstrap.min.js',
-        //'gentelella/js/progressbar/bootstrap-progressbar.min.js',
-  //'gentelella/js/nicescroll/jquery.nicescroll.min.js',
+//        'gentelella/js/progressbar/bootstrap-progressbar.min.js',
+//  'gentelella/js/nicescroll/jquery.nicescroll.min.js',
 //        'gentelella/js/icheck/icheck.min.js',
-//        //'gentelella/js/gauge/gauge.min.js',
-//       // 'gentelella/js/gauge/gauge_demo.js',
+        //'gentelella/js/gauge/gauge.min.js',
+       // 'gentelella/js/gauge/gauge_demo.js',
 //        'gentelella/js/moment.min2.js',
-      //  'gentelella/js/datepicker/daterangepicker.js',
-//       // 'gentelella/js/sparkline/jquery.sparkline.min.js',
+//        'gentelella/js/datepicker/daterangepicker.js',
+       // 'gentelella/js/sparkline/jquery.sparkline.min.js',
 //
 //
         //'gentelella/js/skycons/skycons.js',

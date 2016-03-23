@@ -49,4 +49,11 @@ class Amphur extends \yii\db\ActiveRecord
             'PROVINCE_ID' => 'Province  ID',
         ];
     }
+    public function getProa(){//relation อำเภอไปจังหวัด
+        return $this->hasOne(Provinces::className(), ['PROVINCE_ID'=>'PROVINCE_ID']);
+    }
+    public function getDista(){//relation อำเภอไปตำบล
+        return $this->hasMany(Districts::className(), ['AMPHUR_ID'=>'AMPHUR_ID']);
+    }
+
 }

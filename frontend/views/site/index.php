@@ -27,27 +27,35 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-        <?php $i=0; foreach( $webimg as $img){ ?>
+        <?php $i = 0;
+        foreach ($webimg as $img) { ?>
 
-        <div class="item <?php if($i == 0){echo "active" ;} ?>">
-            <img src="<?= Yii::getAlias('@back/photos/photoslider/') . $img->photos ?>" alt="">
-            <div class="carousel-caption">
-       <h3> <?php echo $img->name?> </h3>
+            <div class="item <?php if ($i == 0) {
+                echo "active";
+            } ?>">
+                <img src="<?= Yii::getAlias('@back/photos/photoslider/') . $img->photos ?>" alt="">
+                <div class="carousel-caption">
+                    <h3> <?php echo $img->name ?> </h3>
+                </div>
             </div>
-        </div>
 
-        <?php $i++; }?>
+            <?php $i++;
+        } ?>
 
         <ol class="carousel-indicators">
-            <?php $a=0; foreach( $webimg as $img){ ?>
-            <li data-target="#carousel-example-generic" data-slide-to="<?=$a?>" class="<?php if($i == 0){echo "active" ;} ?>"></li>
-                <?php $a++; }?>
+            <?php $a = 0;
+            foreach ($webimg as $img) { ?>
+                <li data-target="#carousel-example-generic" data-slide-to="<?= $a ?>" class="<?php if ($i == 0) {
+                    echo "active";
+                } ?>"></li>
+                <?php $a++;
+            } ?>
         </ol>
 
-<!--        <div class="item">-->
-<!--            <img src="../web/img/3.jpg " alt="">-->
-<!--            <div class="carousel-caption">-->
-<!--        </div>-->
+        <!--        <div class="item">-->
+        <!--            <img src="../web/img/3.jpg " alt="">-->
+        <!--            <div class="carousel-caption">-->
+        <!--        </div>-->
 
     </div>
 
@@ -75,7 +83,7 @@
     <ul class="wrapHead">
         <li class="active">เป้าหมายของเรา</li>
         <li>ข่าวสาร</li>
-        <li>>อาจารย์ผู้สอน </li>
+        <li>>อาจารย์ผู้สอน</li>
         <li> คอร์สเรียน</li>
     </ul>
 </div>
@@ -91,18 +99,18 @@
         <div class="content">
             <h3>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เป็นโรงเรียนกวดวิชาชั้นนำของประเทศที่ได้รับการยอมรับจากนักเรียนและผู้ปกครองในด้านคุณภาพการเรียนการสอนและการบริการที่มีมาตราฐานพร้อมทั้งส่งเสริมด้านคุณธรรมจริยธรรม
-                นักเรียนส่วนใหญ่สามารถนำความรู้ที่ได้ไปพัฒนาการเรียนของตนเอง ทำให้ผลสัมฤทธิ์ทางการเรียนสูงขึ้นได้ตามต้องการ</h3>
+                นักเรียนส่วนใหญ่สามารถนำความรู้ที่ได้ไปพัฒนาการเรียนของตนเอง
+                ทำให้ผลสัมฤทธิ์ทางการเรียนสูงขึ้นได้ตามต้องการ</h3>
 
         </div>
 
 
-
-    <div id="showReel" class="video-container" >
-        <div class="wrapper">
-          <h4>สวัสดี</h4>
+        <div id="showReel" class="video-container">
+            <div class="wrapper">
+                <h4>สวัสดี</h4>
+            </div>
+            <div class="transparentMC"></div>
         </div>
-        <div class="transparentMC"></div>
-    </div>
 </article>
 <article id="topic-differenceMe" class="topic grayTone">
     <nav class="hBox setBgColor redraw">
@@ -113,45 +121,51 @@
     </header>
     <div class="wrapper">
 
-<br>
+        <br>
         <style>
-            p{
+            p {
                 color: #fff;
             }
+
             #custom_carousel .item {
 
-                color:#000;
+                color: #000;
 
-                padding:20px 0;
+                padding: 20px 0;
             }
-            #custom_carousel .controls{
+
+            #custom_carousel .controls {
                 overflow-x: auto;
                 overflow-y: hidden;
-                padding:0;
-                margin:0;
+                padding: 0;
+                margin: 0;
                 white-space: nowrap;
                 text-align: center;
                 position: relative;
-                background:#ddd
+                background: #ddd
             }
+
             #custom_carousel .controls li {
                 display: table-cell;
                 width: 1%;
-                max-width:90px
+                max-width: 90px
             }
+
             #custom_carousel .controls li.active {
-                background-color:#eee;
-                border-top:3px solid orange;
+                background-color: #eee;
+                border-top: 3px solid orange;
             }
+
             #custom_carousel .controls a small {
-                overflow:hidden;
-                display:block;
-                font-size:10px;
-                margin-top:5px;
-                font-weight:bold
+                overflow: hidden;
+                display: block;
+                font-size: 10px;
+                margin-top: 5px;
+                font-weight: bold
 
             }
-            .btns{
+
+            .btns {
                 display: inline-block;
                 padding: 6px 12px;
                 margin-bottom: 0;
@@ -172,51 +186,68 @@
                 border: 1px solid transparent;
                 border-radius: 4px;
             }
+
             .btns1 {
                 color: #fff;
                 background-color: #5cb85c;
                 border-color: #4cae4c;
             }
         </style>
-                <div class="container-fluid">
-                    <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <?php $num=0; foreach($new as $news){?>
-                            <div class="item  <?php if($num == 0){echo "active" ;} ?>">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-3" style="margin-top: 40px ;"><img  style="width: 200px;height: 150px;" src="<?= Yii::getAlias('@back/photos/news/') . $news->photos ?>" class="img-responsive"></div>
-                                        <div class="col-md-9">
-                                            <h2><?php echo $news->name?></h2>
-                                            <p><?php echo substr($news->detail,0,150).'...';?></p>
+        <div class="container-fluid">
+            <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <?php $num = 0;
+                    foreach ($new as $news) { ?>
+                        <div class="item  <?php if ($num == 0) {
+                            echo "active";
+                        } ?>">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3" style="margin-top: 40px ;"><img
+                                            style="width: 200px;height: 150px;"
+                                            src="<?= Yii::getAlias('@back/photos/news/') . $news->photos ?>"
+                                            class="img-responsive"></div>
+                                    <div class="col-md-9">
+                                        <h2><?php echo $news->name ?></h2>
+                                        <p><?php echo substr($news->detail, 0, 150) . '...'; ?></p>
 
-                                            <div class="text-right"><a href="" class="btns btns1 btn-sm">อ่านเพิ่มเติม</a></div>
-                                        </div>
+                                        <div class="text-right"><a
+                                                href="index.php?r=site/viewnews&id=<?php echo $news->id ?>"
+                                                class="btns btns1 btn-sm">อ่านเพิ่มเติม</a></div>
                                     </div>
                                 </div>
-
                             </div>
-                                <?php $num++; }?>
-                            <!-- End Item -->
+
                         </div>
-                        <!-- End Carousel Inner -->
-                        <div class="table-responsive">
+                        <?php $num++;
+                    } ?>
+                    <!-- End Item -->
+                </div>
+                <!-- End Carousel Inner -->
+                <div class="table-responsive">
 
 
-                        <div class="controls">
-                            <ul class="nav">
-                                <?php $n=0; foreach( $new as $row){ ?>
-                                <li data-target="#custom_carousel" data-slide-to="<?=$n ?>" class="<?php if($n == 0){echo "active" ;} ?>"><a href="#" ><img style="width: 50px;height: 50px;" src="<?= Yii::getAlias('@back/photos/news/') . $row->photos ?>"><small><?php echo $row->name?></small></a></li>
+                    <div class="controls">
+                        <ul class="nav">
+                            <?php $n = 0;
+                            foreach ($new as $row) { ?>
+                                <li data-target="#custom_carousel" data-slide-to="<?= $n ?>" class="<?php if ($n == 0) {
+                                    echo "active";
+                                } ?>"><a href="#"><img style="width: 50px;height: 50px;"
+                                                       src="<?= Yii::getAlias('@back/photos/news/') . $row->photos ?>">
+                                        <small><?php echo $row->name ?></small>
+                                    </a></li>
 
-                                    <?php $n++; }?>
-                            </ul>
-                        </div>
+                                <?php $n++;
+                            } ?>
+                        </ul>
                     </div>
-                    </div>
-                    <!-- End Carousel -->
+                </div>
+            </div>
+            <!-- End Carousel -->
         </div>
-        </div>
+    </div>
 
 </article>
 <article id="topic-whyMe" class="topic">
@@ -230,33 +261,61 @@
     <div class="wrapper">
 
 
-
-
-
-
         <div id="jquery-script-menu">
             <div class="jquery-script-center">
 
 
-        </div>
-        <h2 style="margin-top:40px;  text-align:center;">รู้จักอาจารย์ของเรา</h2>
+            </div>
+            <h2 style="margin-top:40px;  text-align:center;">รู้จักอาจารย์ของเรา</h2>
             <br>
-        <div class="w-gallery">
-            <section id="responsiveGallery-container" class="responsiveGallery-container">
-                <a class="responsiveGallery-btn responsiveGallery-btn_prev" href="javascript:void(0);"></a>
-                <a class="responsiveGallery-btn responsiveGallery-btn_next" href="javascript:void(0);"></a>
-                <ul class="responsiveGallery-wrapper">
-                    <?php $t=0; foreach($teacher as $teachers){?>
-                    <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link"><img src="3D/assets/pics/2.jpg"  alt="" class="responsivGallery-pic"></a>
-                        <div class="w-responsivGallery-info">
-                            <p class="responsivGallery-name"><br></p>
-                            <p class="responsivGallery-position"><?php echo $teachers->fullName?></p>
-                        </div>
-                    </li>
-                        <?php $t++; }?>
-                </ul>
-            </section>
+            <div class="w-gallery">
+                <section id="responsiveGallery-container" class="responsiveGallery-container">
+                    <a class="responsiveGallery-btn responsiveGallery-btn_prev" href="javascript:void(0);"></a>
+                    <a class="responsiveGallery-btn responsiveGallery-btn_next" href="javascript:void(0);"></a>
+                    <ul class="responsiveGallery-wrapper">
+                        <?php $t = 0;
+                        foreach ($teacher as $teachers) { ?>
+                            <li class="responsiveGallery-item"><a href="#" class="responsivGallery-link"><img
+                                        src="<?= Yii::getAlias('@back/photos/teacher/') . $teachers->photos ?>" alt="" class="responsivGallery-pic"></a>
+                                <div class="w-responsivGallery-info">
+
+                                    <p style="color: #0b3e6f; font-size: 16pt; margin-top: -10px;"><?php echo $teachers->fullName ?></p>
+                                </div>
+                            </li>
+                            <?php $t++;
+                        } ?>
+                    </ul>
+                </section>
+            </div>
+            <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-36251023-1']);
+                _gaq.push(['_setDomainName', 'jqueryscript.net']);
+                _gaq.push(['_trackPageview']);
+
+                (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+                })();
+
+            </script>
+
         </div>
+        <script type="text/javascript">
+            $(function () {
+                $('.responsiveGallery-wrapper').responsiveGallery({
+                    animatDuration: 400, //动画时长 单位 ms
+                    $btn_prev: $('.responsiveGallery-btn_prev'),
+                    $btn_next: $('.responsiveGallery-btn_next')
+                });
+            });
+
+        </script>
         <script type="text/javascript">
 
             var _gaq = _gaq || [];
@@ -264,39 +323,16 @@
             _gaq.push(['_setDomainName', 'jqueryscript.net']);
             _gaq.push(['_trackPageview']);
 
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
             })();
 
         </script>
-
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $('.responsiveGallery-wrapper').responsiveGallery({
-                animatDuration: 400, //动画时长 单位 ms
-                $btn_prev: $('.responsiveGallery-btn_prev'),
-                $btn_next: $('.responsiveGallery-btn_next')
-            });
-        });
-
-    </script>
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-36251023-1']);
-        _gaq.push(['_setDomainName', 'jqueryscript.net']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-
-    </script>
 </article>
 <article id="topic-moreMe" class="topic grayTone">
     <nav class="hBox setBgColor redraw">
@@ -306,13 +342,27 @@
         <h1><span class="txtColr">คอร์สเรียน</span>&nbsp;เรียนแบบกันเอง</h1>
     </header>
     <div class="wrapper">
+        <br>
         <div class="content">
-            <h3>คุณทำเอง ME จึงให้ได้มากกว่า</h3>
-            <p><span class="txtColr">ME</span> ให้คุณทำธุรกรรมด้วยตนเองได้ทุกที่ทุกเวลา</p>
-            <p><span class="txtColr">ME</span> จึงไม่มีสาขาและพนักงานมากมายเหมือนธนาคารทั่วไป และสามารถคืนประโยชน์จากการลดต้นทุนกลับไปให้คุณได้มากกว่าธนาคารอื่นๆ ในรูปแบบดอกเบี้ยสูงจากผลิตภัณฑ์เงินฝาก ME</p>
-            <div class="group-link"> <a class="btn btn-Interest" href="calculator/index.html">
-                    <div class="iconSprite"></div>
-                    คำนวณดอกเบี้ย</a> <a class="btn" href="product/index.html">รู้จักผลิตภัณฑ์ของ&nbsp;ME</a> </div>
+
+        <div width="5%" align="center">
+        <h2>! เริ่มเรียนกับเรา </h2>
+
         </div>
-    </div>
-    <img class="pic01" src="assetss/common/img/hand.png" alt=""> </article>
+
+            <div class="" width="10%" align="center">
+                <i class="glyphicon glyphicon-circle-arrow-down fa-3x" style="color: #fff; "></i>
+            </div>
+            <div class="group-link" width="10%" align="center">
+                <a class="btn btn-Interest"
+                   href="<?php echo \yii\helpers\Url::to(['site/couse']) ?>">
+                    <div class="fa fa-book">
+                    </div>
+                    คอร์สเรียนของเรา
+                </a>
+
+            </div>
+        </div>
+        <br>
+        <img class="pic01" src="assetss/common/img/hand.png" alt="">
+</article>

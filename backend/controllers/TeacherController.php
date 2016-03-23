@@ -73,7 +73,9 @@ class TeacherController extends Controller
     {
         $model = new Teacher();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->photos = $model->upload($model,'photos');
+            $model->save();
             Yii::$app->getSession()->setFlash('alert', [
                 'type' => Growl::TYPE_SUCCESS,
                 'duration' => 1700,
@@ -112,7 +114,9 @@ class TeacherController extends Controller
         $amphur         = ArrayHelper::map($this->getAmphur($model->province),'id','name');
         $district       = ArrayHelper::map($this->getDistrict($model->amphur),'id','name');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            $model->photos=$model->upload($model,'photos');
+            $model->save();
             Yii::$app->getSession()->setFlash('alert', [
                 'type' => Growl::TYPE_INFO,
                 'duration' => 1700,

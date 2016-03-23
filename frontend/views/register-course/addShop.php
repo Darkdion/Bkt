@@ -37,7 +37,9 @@ $session->open();
 
     <div style="position: absolute;z-index: 1500;right: 0px;top: 80px;position: fixed;">
         <a href="index.php?r=register-course/addshop" class="btn btn-lg btn-default">
-            <i class="glyphicon glyphicon-book"></i>
+
+            <?=\yii\bootstrap\Html::img(\yii\helpers\Url::base().'/img/cart2.png',['width'=>50])?>
+
             รายการคอร์สเรียน
                     <span class="badge">
 
@@ -49,11 +51,11 @@ $session->open();
 <?php else:?>
     <div style="position: absolute;z-index: 1500;right: 0px;top: 80px;position: fixed;">
         <a href="index.php?r=register-course/addshop" class="btn btn-lg btn-default">
-            <i class="fa fa-bookmark-o"></i>
+            <?=\yii\bootstrap\Html::img(\yii\helpers\Url::base().'/img/cart.png',['width'=>50])?>
             ไม่มีรายการคอร์สเรียน
                     <span class="badge">
 
-                         0
+                      0
                     </span>
         </a>
     </div>
@@ -74,7 +76,7 @@ $session->open();
                 <tr>
                     <th width="100px">code</th>
                     <th>ชื่อคอร์สเรียน</th>
-                    <th width="100px" style="text-align: right">price</th>
+                    <th width="100px" style="text-align: right">ราคา</th>
 
                     <th width="40px">&nbsp;</th>
                 </tr>
@@ -118,7 +120,7 @@ $session->open();
                 <th width="40px" style="text-align: right">no</th>
                 <th width="100px">code</th>
                 <th>ชื่อคอร์สเรียน</th>
-                <th width="100px" style="text-align: right">price</th>
+                <th width="100px" style="text-align: right">ราคา</th>
 
                 <th width="40px">&nbsp;</th>
             </tr>
@@ -186,9 +188,10 @@ $session->open();
 </div>
 <?php else:?>
     <h2 class="text-center">ไม่พบข้อมูลวิชาเรียน</h2>
+    <div class="text-center">
     <a href="index.php?r=register-course/index" class="btn btn-danger  ">
         <i class="glyphicon glyphicon-chevron-left"></i>
         กลับหน้าเลือกวิชาเรียน
     </a>
-
+    </div>
 <?php endif; ?>

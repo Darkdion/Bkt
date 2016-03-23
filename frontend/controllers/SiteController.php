@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Course;
 use common\models\Teacher;
 use common\models\WebImg;
 use common\models\WebNews;
@@ -29,7 +30,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup','contact'],
+                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -38,18 +39,19 @@ class SiteController extends Controller
                     ],
 
                     [
-                        'actions' => ['logout','contact','users'],
+                        'actions' => ['logout','users'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'logout' => ['post'],
+//                    'roles' => ['User'],
+//                ],
+//            ],
         ];
     }
 
@@ -87,6 +89,14 @@ class SiteController extends Controller
             'teacher'=>$teacher,
         ]);
     }
+public function actionViewnews($id)
+{
+    $news=WebNews::findOne($id);
+    //var_dump($news);
+    return $this->render('viewnews',[
+       'news'=> $news
+    ]);
+}
 
     /**
      * Logs in a user.
@@ -95,12 +105,16 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+//   $user= $_POST['user'];
+// $pass=md5($_POST['password']);
+
+
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        if ($model->load(yii::$app->request->post()) && $model->login()) {
             if(Yii::$app->user->can('User'))
             {
                 return $this->redirect(['/site/users']);
@@ -109,7 +123,7 @@ class SiteController extends Controller
             }
 
 
-            // return $this->goBack();
+//             return $this->goBack();
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -122,6 +136,16 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+
+
+    public function actionView($id)
+    {
+        $model =Course::findOne([$id]);
+        return $this->render('view', [
+            'model' =>$model,
+        ]);
+    }
+
     public function actionUsers(){
         if (!\Yii::$app->user->isGuest) {
             return $this->render('users');
@@ -141,7 +165,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionContact()
+    public function actionContact2()
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -164,9 +188,13 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionAbout()
+    public function actionContact()
     {
-        return $this->render('about');
+        return $this->render('contact');
+    }
+    public function actionCouse()
+    {
+        return $this->render('couse');
     }
 
     /**

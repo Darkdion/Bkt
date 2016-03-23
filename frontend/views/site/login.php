@@ -7,33 +7,59 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
+$this->title = 'เข้าสู่ระบบ';
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
-<div class="text-center">
-    <h1><?= Html::encode($this->title) ?></h1>
+<link href="semari/semantic.css" rel="stylesheet"/>
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
 
-    <p>Please fill out the following fields to login:</p>
 
-    <div class="row container ">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+</style>
+<br>
+<div class="container" >
+    <div class="panel">
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <div class="panel-body ">
+    <div class="row">
+        <div class="col-md-4"></div>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+        <div class="col-md-4">
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+            <br>
 
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                </div>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
 
-            <?php ActiveForm::end(); ?>
+                    <br>
+
+
+                    <?php $form = ActiveForm::begin(['id' => 'login-form',
+
+                        'class' => 'form-signin'
+                    ]); ?>
+
+                    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
+                    <?= $form->field($model, 'password')->passwordInput() ?>
+
+                    <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                    <div class="form-group text-center">
+                    <div class=" ui animated  buttons">
+
+                        <?= Html::submitButton(' <i class="fa fa-sign-in"></i> เข้าสู่ระบบ', ['class' => 'ui primary button', 'name' => 'login-button']) ?>
+                        <div class="or"></div>
+                        <button class="ui positive button">สมัครสมาชิก</button>
+                    </div>
+                    </div>
+                    <?php ActiveForm::end(); ?>
+
+        </div>
+        <div class="col-md-4"></div>
+    </div>
         </div>
     </div>
 </div>

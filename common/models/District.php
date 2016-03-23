@@ -51,4 +51,11 @@ class District extends \yii\db\ActiveRecord
             'GEO_ID' => 'Geo  ID',
         ];
     }
+    public function getAmpd(){//relation ตำบลไปอำเภอ
+        return $this->hasOne(Amphures::className(), ['AMPHUR_ID'=>'AMPHUR_ID']);
+    }
+    public function getProd(){//relation ตำบลไปจังหวัด
+        return $this->hasOne(Provinces::className(), ['PROVINCE_ID'=>'PROVINCE_ID']);
+    }
+
 }
