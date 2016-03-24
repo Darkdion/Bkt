@@ -12,6 +12,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\base\InvalidParamException;
+use yii\helpers\Html;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -49,7 +50,7 @@ class SiteController extends Controller
 //                'class' => VerbFilter::className(),
 //                'actions' => [
 //                    'logout' => ['post'],
-//                    'roles' => ['User'],
+//
 //                ],
 //            ],
         ];
@@ -88,6 +89,12 @@ class SiteController extends Controller
             'new'=>$new,
             'teacher'=>$teacher,
         ]);
+    }
+    public function actionHod()
+    {
+
+        return $this->render('hod'
+        );
     }
 public function actionViewnews($id)
 {
@@ -248,6 +255,23 @@ public function actionViewnews($id)
      * @return mixed
      * @throws BadRequestHttpException
      */
+
+    public function actionConfirm($id, $token)
+    {
+        $user = \common\models\User::find()->where([
+            'id'=>$id,
+            'auth_key'=>$token,
+            'status'=>0,
+        ])->one();
+
+        if(!empty($user)){
+            $user->status=10;
+            $user->save();
+            echo  '0';
+        }
+
+
+    }
     public function actionResetPassword($token)
     {
         try {

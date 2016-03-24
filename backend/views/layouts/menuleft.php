@@ -49,6 +49,7 @@ use common\models\Student;
                         <li><a href="<?= \yii\helpers\Url::to(['student/index']) ?>">จัดการข้อมูลสมาชิก <span
                                     class="label label-warning pull-right"><?= Student::find()->count() ?></span></a>
 
+                        <li>
                         <li><a href="<?= \yii\helpers\Url::to(['personnel/index']) ?>">จัดการข้อมุลพนักงาน <span
                                     class="label label-info pull-right"><?= \common\models\Personnel::find()->count() ?></span></a>
                         <li><a href="<?= \yii\helpers\Url::to(['teacher/index']) ?>">จัดการข้อมูลอาจารย์ <span
@@ -61,10 +62,7 @@ use common\models\Student;
                         </li>
 
 
-                        <li><a href="<?= \yii\helpers\Url::to(['student/index']) ?>">จัดการข้อมูลสมาชิก <span
-                                    class="label label-warning pull-right"><?= Student::find()->count() ?></span></a>
 
-                        <li>
                             <a href="<?= Url::to(['report/index']) ?>"><i class="fa fa-print"></i>
                                 ออกรายงาน
                                 <span class="fa fa-chevron-circle-right"></span>

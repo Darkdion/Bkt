@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <style>
     body {
         background-color: #f5f5f5;
+        font-family:Menlo, Monaco, Consolas, "Courier New", monospace
     }
 
 
@@ -52,7 +53,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <?= Html::submitButton(' <i class="fa fa-sign-in"></i> เข้าสู่ระบบ', ['class' => 'ui primary button', 'name' => 'login-button']) ?>
                         <div class="or"></div>
-                        <button class="ui positive button">สมัครสมาชิก</button>
+                        <a href="<?= \yii\helpers\Url::to(['signup/index'])?>" class="ui positive button"><i class="fa fa-user-plus"></i> สมัครสมาชิก </a>
+
                     </div>
                     </div>
                     <?php ActiveForm::end(); ?>

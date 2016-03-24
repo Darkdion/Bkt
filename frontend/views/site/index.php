@@ -356,9 +356,8 @@
             <div class="group-link" width="10%" align="center">
                 <a class="btn btn-Interest"
                    href="<?php echo \yii\helpers\Url::to(['site/couse']) ?>">
-                    <div class="fa fa-book">
-                    </div>
-                    คอร์สเรียนของเรา
+                    <i class="fa fa-thumbs-o-up"></i>
+                    &nbsp; &nbsp;<b>กดเลย</b> &nbsp; &nbsp; &nbsp;
                 </a>
 
             </div>

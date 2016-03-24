@@ -50,7 +50,6 @@ $id = '';
                 <i class="glyphicon glyphicon-retweet"> </i> ประมวลผล
             </a>
 
-
       </span>
         </div>
 
@@ -58,6 +57,7 @@ $id = '';
         <?php ActiveForm::end(); ?>
 
         <!-- data -->
+<?php if( !empty($Registerdetail)): ?>
 
         <table width="100%" style="margin-top: 20px" class="table table-bordered table-striped">
             <thead>
@@ -70,7 +70,7 @@ $id = '';
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($Registerdetail as $model): ?>
+            <?php $i=0; foreach ($Registerdetail as $model): ?>
                 <?php $sumtotall += $model->price ?>
 
                 <?php
@@ -86,8 +86,13 @@ $id = '';
 
 
                 ?>
+<!--                เก็บค่า id -->
+                <?php $idprint[$i]= $model->id ?>
                 <tr>
                     <td style="text-align: center"><?php echo $n++; ?></td>
+
+
+
                     <td><?php echo $d; ?></td>
                     <td><?php echo $model->register_course_id; ?></td>
 
@@ -100,11 +105,26 @@ $id = '';
                     </td>
 
                 </tr>
-            <?php endforeach; ?>
+
+            <?php   $i+=1; endforeach; ?>
+
 
             </tbody>
 
         </table>
+<?php else:?>
+<br>
+    <br>
+    <br>
+<?php endif; ?>
+
+<?php if(!empty($idprint)): ?>
+    <a  target="_blank" href="<?= \yii\helpers\Url::to(['report/todayreport','id'=>$idprint])?>" class="btn btn-success"> <i class="fa fa-print"></i> พิมพ์</a>
+        <?php else: ?>
+
+
+        <?php endif; ?>
+
         <div class=" pull-right count" style="font-size: 30pt"> รวมยอด
             <?php if (!empty($SUMVAT)) : ?>
                 <?php echo number_format($SUMVAT, 2, '.', ','); ?>

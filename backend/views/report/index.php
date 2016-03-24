@@ -10,6 +10,23 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row top_tiles">
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
+            <div class="icon">
+            </div>
+            <div class="count" style="font-size: ">ช่วงที่กำหนด</div>
+            <h4 class="text-center">ข้อมูลช่วงที่กำหนด</h4>
+            <a target="_blank" href="<?= \yii\helpers\Url::toRoute(['report/today2']) ?>">
+                <div class="panel-footer">
+
+                    <a  href="<?= \yii\helpers\Url::toRoute(['report/today2']) ?>">
+                        <p class="text-center">ไปข้อมูลช่วงที่กำหนด้</p>
+
+                    </a>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="tile-stats">
             <div class="icon"><i class="fa fa-money"></i>
             </div>
             <div class="count">รายได้</div>
@@ -24,7 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </a>
         </div>
-    </div>   <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-users"></i>
             </div>

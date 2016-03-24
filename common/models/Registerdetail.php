@@ -54,6 +54,7 @@ class Registerdetail extends \yii\db\ActiveRecord
         return $this->course->name;
     }
 
+
     /**
      * @return \yii\db\ActiveQuery
      */

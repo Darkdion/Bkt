@@ -75,8 +75,10 @@ function thai_date($time){
 				?>
 				<tr>
 					<td><?= $no++; ?></td>
-					<td><?php echo $d; ?></td>
-					<td><?= $models->register_course_id; ?></td>
+					<td class="text-center"><?php  $source =$models->registerCourse->pay_date;
+						$date = new DateTime($source);
+						echo $date->format('d/m/Y'); // 31.07.2012 ?></td>
+					<td class="text-center"><?= $models->register_course_id; ?></td>
 					<td><?= $models->course->name;?></td>
 
 
@@ -87,6 +89,7 @@ function thai_date($time){
 
 
 		<br>
+
 		<?php if(!empty($SUMVAT)):?>
 			<div style="font-size: 30pt; padding-left: 200px; "> รวมเป็นเงินทั้งสิ้น  <?php echo number_format($SUMVAT, 2, '.', ','); ?> บาท </div>
 		<?php else:?>
