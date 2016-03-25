@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-footer">
 
                     <a  href="<?= \yii\helpers\Url::toRoute(['report/today2']) ?>">
-                        <p class="text-center">ไปข้อมูลช่วงที่กำหนด้</p>
+                        <p class="text-center">ไปข้อมูลช่วงที่กำหนด</p>
 
                     </a>
                 </div>

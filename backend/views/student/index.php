@@ -54,11 +54,13 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn',
-                'template' => ' {view}{update}{delete}',
-                'contentOptions' => [
-                    'noWrap' => true
-
-            ],]
+                'template' => ' {view}',
+                'buttons'=>[
+                    'view' => function($url,$model,$key){
+                        return Html::a('<i class="btn btn-sm btn-info fa fa-edit">ดูข้อมูล</i>',$url)  ;
+                    }
+                ]
+            ],
         ],
     ]); ?>
 

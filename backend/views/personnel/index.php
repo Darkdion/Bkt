@@ -70,16 +70,16 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'user_id',
 
             ['class' => 'yii\grid\ActionColumn',
-              'template' => ' {view}',
+                'template' => ' {view}',
                 'buttons'=>[
                     'view' => function($url,$model,$key){
-                        return Html::a('<i class="btn btn-sm btn-warning fa fa-edit"></i>',$url)  ;
+                        return Html::a('<i class="btn btn-sm btn-info fa fa-edit">ดูข้อมูล</i>',$url)  ;
                     }
                 ]
             ],
         ],
     ]); ?>
                 </div>
-                ชื่อ<?=$user ->username ?>
+
 
 </div>

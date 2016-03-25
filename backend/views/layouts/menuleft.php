@@ -18,7 +18,8 @@ use common\models\Student;
             </li>
 
 
-            <li><a><i class="fa fa-share-alt-square"></i> การชำระและแจ้งชำระ <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-share-alt-square"></i> การชำระและแจ้งชำระ <span
+                        class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li>
                         <a href="<?= Url::to(['register-course/show']) ?>"><i class="fa fa-server">
@@ -62,13 +63,14 @@ use common\models\Student;
                         </li>
 
 
-
-                            <a href="<?= Url::to(['report/index']) ?>"><i class="fa fa-print"></i>
-                                ออกรายงาน
-                                <span class="fa fa-chevron-circle-right"></span>
-                            </a>
-                        </li>
                     </ul>
+                </li>
+                <li>
+
+                    <a href="<?= Url::to(['report/index']) ?>"><i class="fa fa-print"></i>
+                        ออกรายงาน
+                        <span class="fa fa-chevron-circle-right"></span>
+                    </a>
                 </li>
                 <li><a><i class="fa fa-edge"></i> จัดการเว็บไซต์<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: none">
@@ -77,7 +79,7 @@ use common\models\Student;
                         <li><a href="<?= Url::to(['newscategories/index']) ?>">จัดการประเภทข้อมูลข่าว</a></li>
                         <li>
 
-                            <a href="<?= Url::to(['webcontact/index','id'=>1]) ?>">จัดการข้อมูลติดต่อ</a>
+                            <a href="<?= Url::to(['webcontact/index', 'id' => 1]) ?>">จัดการข้อมูลติดต่อ</a>
                         </li>
 
 
@@ -107,7 +109,6 @@ use common\models\Student;
 
 
             <?php endif; ?>
-
 
 
         </ul>

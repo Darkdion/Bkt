@@ -8,23 +8,37 @@ $session->open();
 
 ?>
 
+<?php if(!empty($session->get('coursecart'))):?>
 
-<div style="position: absolute;z-index: 1500;right: 0px;top: 80px;position: fixed;">
-    <a href="index.php?r=register-course/addtocart" class="btn btn-lg btn-default">
-        <i class="glyphicon glyphicon-book"></i>
-        รายการคอร์สเรียน
+    <?php  $countItemsInCart = count($session->get('coursecart'));?>
+
+    <div style="position: absolute;z-index: 1500;right: 0px;top: 80px;position: fixed;">
+        <a href="index.php?r=register-course/addtocart" class="btn btn-lg btn-default">
+
+            <?=\yii\bootstrap\Html::img(\yii\helpers\Url::base().'/img/cart2.png',['width'=>50])?>
+
+            รายการคอร์สเรียน
                     <span class="badge">
-                      <?php
-                      $countItemsInCart = 0;
 
-                      if (!empty($session->get('coursecart'))) {
-                          $countItemsInCart = count($session->get('coursecart'));
-                      }
-                      ?>
                       <?php echo $countItemsInCart; ?>
                     </span>
-    </a>
-</div>
+        </a>
+    </div>
+
+<?php else:?>
+    <div style="position: absolute;z-index: 1500;right: 0px;top: 80px;position: fixed;">
+        <a href="index.php?r=register-course/addtocart" class="btn btn-lg btn-default">
+            <?=\yii\bootstrap\Html::img(\yii\helpers\Url::base().'/img/cart.png',['width'=>50])?>
+            ไม่มีรายการคอร์สเรียน
+                    <span class="badge">
+
+                      0
+                    </span>
+        </a>
+    </div>
+<?php endif; ?>
+
+
 <div class="clearfix"></div>
 <br>
 <br>
@@ -41,7 +55,7 @@ $session->open();
                 <tr>
                     <th width="100px">code</th>
                     <th>ชื่อคอร์สเรียน</th>
-                    <th width="100px" style="text-align: right">price</th>
+                    <th width="100px" style="text-align: right">ราคา</th>
 
                     <th width="40px">&nbsp;</th>
                 </tr>
@@ -54,7 +68,7 @@ $session->open();
                         <?php echo number_format($product->price); ?>
                     </td>
                     <td class=hidden>
-                       <label  name="qty" value="1" style="text-align: right" ></label>
+                        <label name="qty" value="1" style="text-align: right"></label>
                     </td>
                     <td>
                         <a href="javascript:void(0)"
@@ -68,75 +82,82 @@ $session->open();
                 </tbody>
             </table>
             <?php ActiveForm::end(); ?>
-        <?php endif; ?>
-
-        <h4>
-            <i class="glyphicon glyphicon-shopping-cart"></i>
-            รายการคอร์สเรียน
-        </h4>
-        <table class="table table-striped table-bordered">
-            <thead>
-            <tr>
-                <th width="40px" style="text-align: right">no</th>
-                <th width="100px">code</th>
-                <th>name</th>
-                <th width="100px" style="text-align: right">price</th>
-
-                <th width="40px">&nbsp;</th>
-            </tr>
-            </thead>
-            <tbody>
 
 
-            <?php foreach ($cart as $c): ?>
-
-
-
-                <?php
-                $sumPrice += ( $c['price']);
-                ?>
+            <h4>
+                <i class="glyphicon glyphicon-shopping-cart"></i>
+                รายการคอร์สเรียน
+            </h4>
+            <table class="table table-striped table-bordered">
+                <thead>
                 <tr>
-                    <td style="text-align: right"><?php echo $n++; ?></td>
-                    <td><?php echo $c['code']; ?></td>
-                    <td><?php echo $c['name']; ?></td>
+                    <th width="40px" style="text-align: right">no</th>
+                    <th width="100px">code</th>
+                    <th>ชื่อคอร์สเรียน</th>
+                    <th width="100px" style="text-align: right">ราคา</th>
+
+                    <th width="40px">&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <?php foreach ($cart as $c): ?>
+
+
+                    <?php
+                    $sumPrice += ($c['price']);
+                    ?>
+                    <tr>
+                        <td style="text-align: right"><?php echo $n++; ?></td>
+                        <td><?php echo $c['code']; ?></td>
+                        <td><?php echo $c['name']; ?></td>
+                        <td style="text-align: right">
+                            <?php echo number_format($c['price']); ?>
+                        </td>
+
+                        <td style="text-align: center">
+                            <?php
+                            $product_id = null;
+
+                            if (!empty($product)) {
+                                $product_id = $product->id;
+                            }
+                            ?>
+                            <a href="index.php?r=register-course/cartremove&index=<?php echo($n - 2); ?>&id=<?php echo $product_id; ?>"
+                               class="btn btn-danger btn-sm">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3"><strong>ยอดรวม</strong></td>
+
                     <td style="text-align: right">
-                        <?php echo number_format($c['price']); ?>
-                    </td>
-
-                    <td style="text-align: center">
-                        <?php
-                        $product_id = null;
-
-                        if (!empty($product)) {
-                            $product_id = $product->id;
-                        }
-                        ?>
-                        <a href="index.php?r=register-course/cartremove&index=<?php echo ($n - 2); ?>&id=<?php echo $product_id; ?>"
-                           class="btn btn-danger btn-sm">
-                            <i class="glyphicon glyphicon-trash"></i>
-                        </a>
+                        <?php echo number_format($sumPrice); ?>
                     </td>
                 </tr>
-            <?php endforeach; ?>
-            </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="3"><strong>Total</strong></td>
+                </tfoot>
+            </table>
+        <?php else: ?>
+            <br>
+            <br>
+            <br>
 
-                <td style="text-align: right">
-                    <?php echo number_format($sumPrice); ?>
-                </td>
-            </tr>
-            </tfoot>
-        </table>
+            <h4 class="text-center">ไม่พบข้อมูล</h4>
+        <?php endif; ?>
+
 
         <div style="text-align: center">
             <a href="index.php?r=register-course/index" class="btn btn-danger btn-lg  ">
                 <i class="glyphicon glyphicon-chevron-left"></i>
                 เลือกวิชาเรียนเพิ่ม
             </a>
-            <a href="index.php?r=register-course/checkout" id="myButton"class="btn btn-success btn-lg">
-               ขั้นตอนต่อไป
+            <a href="index.php?r=register-course/checkout" id="myButton" class="btn btn-success btn-lg">
+                ขั้นตอนต่อไป
                 <i class="glyphicon glyphicon-chevron-right"></i>
             </a>
         </div>

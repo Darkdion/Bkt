@@ -27,6 +27,7 @@ use yii\helpers\Url;
                 <?= Html::a('<i class="faa-shake animated fa fa-plus"></i> สร้างสมาชิก', ['create'], ['class' => 'btn btn-success btn-sm btn-raised']) ?>
 
                 <?= Html::a('<i class="faa-horizontal animated fa fa-edit"></i> ปรับปรุง', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm btn-raised']) ?>
+               <?php if(!empty(Yii::$app->user->can('Admin'))):?>
                 <?= Html::a('<i class="faa-pulse animated fa fa-trash"></i> ลบข้อมูล', ['delete', 'id' => $model->id,'user_id'=>$model->user_id], [
                     'class' => 'btn btn-danger btn-sm btn-raised',
                     'data' => [
@@ -34,6 +35,7 @@ use yii\helpers\Url;
                         'method' => 'post',
                     ],
                 ]) ?>
+                <?php endif;?>
             </p>
 
     <?= DetailView::widget([

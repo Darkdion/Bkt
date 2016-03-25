@@ -4,18 +4,16 @@
 
 use yii\helpers\Html;
 
-$this->title = 'จัดระบบแอดมิน';
-//$this->registerCssFile('/themes/assets/js/libs/bootstrap/bootstrap.min.js');
-
+$this->title = 'สถาบัณกวดวิชาบ้านครูติวเตอร์';
 
 ?>
-<!--<meta http-equiv="refresh" content="10"/>-->
+
 <div class="panel" style="margin-top: 50px">
     <div class="panel-body">
         <div class="text-center">
             <blockquote>
-                <i class="fa fa-home fa-5x"></i>
-                <h1>สถาบัญกวดวิชาบ้านครูติวเตอร์</h1>
+                <?=Html::img(\yii\helpers\Url::base().'/img/logo.png',['style'=>'width:300px;','class'=>'img-rounded'])?>
+                <h1>สถาบัณกวดวิชาบ้านครูติวเตอร์</h1>
                 <footer>ส่วนผู้ใช้งาน </footer>
             </blockquote>
 

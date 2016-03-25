@@ -93,7 +93,18 @@ class User extends ActiveRecord implements IdentityInterface
 
         ];
     }
+    public function attributeLabels()
+    {
+        return [
+            'confirm_password' => 'ยืนยันรหัสผ่าน',
+            'username' => 'ชื่อผู้ใช้งาน',
+            'password' => 'รหัสผ่าน',
+            'status' => 'สถานะ',
+            'email'=>'อีเมล์',
+            'created_at'=>'วันที่สร้าง',
 
+        ];
+    }
     public function scenarios()
     {
         return [
