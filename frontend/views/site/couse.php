@@ -1,4 +1,6 @@
+
 <?php
+$this->title='คอร์สเรียน';
 use common\models\Typecourse;
 use common\models\Course;
 use yii\helpers\Url;

@@ -1,26 +1,7 @@
-<!-- <div id="colorPicker">
-    <div class="wrapHead">
-      <div class="miniColor">
-        <div class="pickBox setBgColor"></div>
-      </div>
-    </div>
-    <div class="barColor">
-      <div class="wrapHead">
-        <div class="codeColor"> <span class="h">Color <span class="txtColr">ME</span></span>
-          <ul class="shadePanel">
-            <li data-color="deepPink" class="deepPink">DeepPink</li>
-            <li data-color="vividOrange" class="vividOrange">VividOrange</li>
-            <li data-color="lightSeaGreen" class="lightSeaGreen">LightSeaGreen</li>
-            <li data-color="darkOrchid" class="darkOrchid">DarkOrchid</li>
-            <li data-color="lightCoral" class="lightCoral">LightCoral</li>
-            <li data-color="aqua" class="aqua">Aqua</li>
-            <li data-color="tomato" class="tomato">Tomato</li>
-          </ul>
-        </div>
-        <div class="btnPNG"> <a href="javascript:closePicker();void(0);"><img alt="close color picker" src="assets/common/img/closeX.png"></a> </div>
-      </div>
-    </div>
-  </div> -->
+<?php
+$this->title='บ้านครูติ๊กติวเตอร์'
+?>
+
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
 

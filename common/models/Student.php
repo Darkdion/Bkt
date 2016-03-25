@@ -62,14 +62,14 @@ class Student extends \yii\db\ActiveRecord
 
               [['sex', 'user_id', 'school_id'], 'integer'],
             ['identification','unique','targetClass' => '\common\models\Student', 'message' => 'เลขบัตรประชาชนซ้ำหรือมีผู้งานงานแล้ว'],
-            [['birthday','schoolName','sex'], 'safe'],
+            [['birthday','schoolName','sex' ,'phone'], 'safe'],
             [['school_id','schoolName','province','amphur','district'], 'required'],
             [['firstname', 'lastname'], 'string', 'max' => 50],
             [['identification','education','title'],'required'],
             [['address'], 'string', 'max' => 100],
             [['province', 'amphur', 'district'], 'string', 'max' => 6],
             [['zip_code'], 'string', 'max' => 5],
-            [['phone'], 'string', 'max' => 10]
+
         ];
     }
 

@@ -56,22 +56,19 @@ Yii::$app->layout='signup';
 
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-sm-2"></div>
-        <label for="inputEmail3" class="col-sm-2 form-control-label">ชื่อจริง</label>
-        <div class="col-sm-8">
-            <?= $form->field($model, 'firstname')->label(false)->textInput(['maxlength' => 50]) ?>
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <label for="inputEmail3" class="col-sm-2 form-control-label">ชื่อ-นามสกุล</label>
+                <div class="col-sm-4">
+                    <?= $form->field($model, 'firstname')->label(false)->textInput(['placeholder' => 'กรอกชื่อ',]) ?>
 
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-2"></div>
-        <label for="inputEmail3" class="col-sm-2 form-control-label">นามสกุล</label>
-        <div class="col-sm-8">
-            <?= $form->field($model, 'lastname')->label(false)->textInput(['maxlength' => 50]) ?>
+                </div>
+                <div class="col-sm-4">
+                    <?= $form->field($model, 'lastname')->label(false)->textInput(['placeholder' => 'กรอกนามสกุล',]) ?>
 
-        </div>
-    </div>
+                </div>
+            </div>
+
     <div class="form-group row">
         <div class="col-sm-2"></div>
         <label for="inputEmail3" class="col-sm-2 form-control-label">เพศ</label>

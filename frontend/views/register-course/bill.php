@@ -3,7 +3,7 @@ use common\models\Registerdetail;
 
 $details = Registerdetail::find()->where(['register_course_id' => $models->id])->all();
 //var_dump($Registerdetail);
-use common\models\Allfuction;
+
 ?>
 
 <?php
@@ -122,10 +122,9 @@ function num2string_2digit($amount)
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <strong>ระดับการศึกษา </strong>&nbsp;&nbsp; <?= $models->student->education ?>
-
 
     <table class=" " width="100%">
         <thead>

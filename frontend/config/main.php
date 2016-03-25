@@ -29,6 +29,9 @@ return [
             'class' => 'yii\web\urlManager',
             'enablePrettyUrl' => false,
             'showScriptName' => true,
+            'rules' => [
+
+            ]
         ],
 //        'urlManagerBackend' => [
 //            'class' => 'yii\web\urlManager',
@@ -38,10 +41,10 @@ return [
 //            'showScriptName' => true,
 //        ],
         'urlManagerBackend' => [
-                'class' => 'yii\web\urlManager',
-                'baseUrl' => 'bkt/backend/web/',
-                'enablePrettyUrl' => true,
-                'showScriptName' => false,
+            'class' => 'yii\web\urlManager',
+            'baseUrl' => 'bkt/backend/web/',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
         ],
 
         'user' => [
@@ -60,14 +63,8 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+
+
     ],
     'params' => $params,
 ];

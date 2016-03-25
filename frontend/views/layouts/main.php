@@ -74,7 +74,7 @@ AppAsset::register($this);
             <ul class="subNavMenu">
                 <li><a href="<?=\yii\helpers\Url::to(['site/index'])?>">หน้าหลัก</a></li>
                 <li><a href="<?=\yii\helpers\Url::to(['site/couse'])?>">คอร์สเรียน</a></li>
-                <li><a href="account/index.html">วิธีลงทะเบียนคอรส</a></li>
+                <li><a href="<?=\yii\helpers\Url::to(['site/hod'])?>">วิธีลงทะเบียนคอร์ส</a></li>
                 <li><a href="<?= \yii\helpers\Url::to(['site/contact'])?>">ติดต่อเรา</a></li>
 
             </ul>
@@ -143,7 +143,7 @@ function TelFormat($mobile){
     <div class="wrapper">
         <p class="title">
             <b>เวลาทำการ</b><br>
-           เรียนวัน จันทร์.- พฤหัสบดี. <br>
+           วัน จันทร์.- พฤหัสบดี. <br>
            เวลา 17.00-18.30 น.
         </p>
         <?php foreach($model as $models ): ?>
