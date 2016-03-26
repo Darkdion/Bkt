@@ -124,6 +124,7 @@ public function actionViewnews($id)
         if ($model->load(yii::$app->request->post()) && $model->login()) {
             if(Yii::$app->user->can('User'))
             {
+                Yii::$app->session->setFlash('error', 'There was an error sending email.');
                 return $this->redirect(['/site/users']);
             }else{
                 Yii::$app->user->logout();

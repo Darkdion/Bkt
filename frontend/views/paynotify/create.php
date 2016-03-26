@@ -12,7 +12,7 @@ use kartik\widgets\FileInput;
 
 <div class="panel">
     <div class="panel-heading text-center">
-        <h3><i class="fa fa-bullhorn"> </i> แจ้งชำระเงิน</h3>
+        <h2><i class="fa fa-credit-card fa-2x"> </i> แจ้งชำระเงิน</h2>
     </div>
     <div class="panel-body">
 
@@ -29,7 +29,7 @@ use kartik\widgets\FileInput;
             ]); ?>
             <div class="row">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">เลขที่ใบเสร็จ</label>
+                    <label class="col-sm-4 control-label">เลขที่ใบเสร็จ</label>
                     <div class="col-sm-4">
                         <input type="text" disabled class="form-control" value="<?= $register->id ?>">
                     </div>
@@ -76,7 +76,14 @@ use kartik\widgets\FileInput;
                         ]); ?>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">หลักฐานการชำระ</label>
+                    <div class="col-sm-8">
+                        <?= $form->field($model, 'verifyCode')->widget(\yii\captcha\Captcha::className(), [
+                            'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                        ]) ?>
+                    </div>
+                </div>
 
             <div class="form-group text-center">
                 <div class="col-sm-2"></div>

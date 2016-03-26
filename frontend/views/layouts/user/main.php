@@ -13,25 +13,29 @@ use common\models\RegisterCourse;
 use common\models\Paynotify;
 
 UsersAsset::register($this);
+if (!empty(Yii::$app->user->can('Admin'))) {
 
-$student = \common\models\Student::find()
-    ->where(['user_id'=>Yii::$app->user->id])
-    ->all();
-foreach($student as $model):
-
-endforeach;
-
-$RegisterCourse=RegisterCourse::find()
-    ->where(['status'=>0 ,'student_id'=>$model->id])
-    ->count();
-
-$Paynotify = Paynotify::find()
-    ->where(['status'=>2,'student_id'=>$model->id])
-    ->count();
+} else {
 
 
-$Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
+    $student = \common\models\Student::find()
+        ->where(['user_id' => Yii::$app->user->id])
+        ->all();
+    foreach ($student as $model):
 
+    endforeach;
+
+    $RegisterCourse = RegisterCourse::find()
+        ->where(['status' => 0, 'student_id' => $model->id])
+        ->count();
+
+    $Paynotify = Paynotify::find()
+        ->where(['status' => 2, 'student_id' => $model->id])
+        ->count();
+
+
+    $Sumcount = $RegisterCourse + $Paynotify; //นับข้อความ
+}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -45,7 +49,6 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
 </head>
 <body>
 <?php $this->beginBody() ?>
-
 
 
 <div class="wrap">
@@ -62,9 +65,9 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                     <i class="fa fa-bars"></i> เมนู
                 </button>
                 <div class="navbar-brand">
-                                        <a href="index.php?r=site/index" class="btn btn-green text-center">
-                                          ไปเว็บไซต์
-                                        </a>
+                    <a href="index.php?r=site/index" class="btn btn-green text-center">
+                        ไปเว็บไซต์
+                    </a>
                 </div>
             </div>
             <!-- end BRAND HEADING -->
@@ -92,38 +95,43 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                     <!-- end MESSAGES DROPDOWN -->
 
                     <!-- begin ALERTS DROPDOWN -->
-                    <li class="dropdown">
-                        <a href="#" class="alerts-link dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope"></i> ข้อความแจ้งเตือน
-                            <span class="number"><?= $Sumcount ?></span><i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-scroll dropdown-alerts">
+                    <?php if (!empty(Yii::$app->user->can('Admin'))): ?>
 
-                            <!-- Alerts Dropdown Heading -->
-                            <li class="dropdown-header">
-                                <i class="fa fa-bell "></i> <?= $Sumcount ?>  ข้อความใหม่
-                            </li>
+                    <?php else: ?>
 
-                            <!-- Alerts Dropdown Body - This is contained within a SlimScroll fixed height box. You can change the height using the SlimScroll jQuery features. -->
-                            <li id="alertScroll">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="<?=\yii\helpers\Url::to(['register-course/registerdetail'])?>">
-                                            <div class="alert-icon green pull-left">
-                                                <i class="fa fa-money"></i>
-                                            </div>
-                                            ยังไม่ชำระ
+
+                        <li class="dropdown">
+                            <a href="#" class="alerts-link dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i> ข้อความแจ้งเตือน
+                                <span class="number"><?= $Sumcount ?></span><i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-scroll dropdown-alerts">
+
+                                <!-- Alerts Dropdown Heading -->
+                                <li class="dropdown-header">
+                                    <i class="fa fa-bell "></i> <?= $Sumcount ?> ข้อความใหม่
+                                </li>
+
+                                <!-- Alerts Dropdown Body - This is contained within a SlimScroll fixed height box. You can change the height using the SlimScroll jQuery features. -->
+                                <li id="alertScroll">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="<?= \yii\helpers\Url::to(['register-course/registerdetail']) ?>">
+                                                <div class="alert-icon green pull-left">
+                                                    <i class="fa fa-money"></i>
+                                                </div>
+                                                ยังไม่ชำระ
                                             <span class="small pull-right">
                                                <span class="label label-danger"><?= $RegisterCourse ?></span>
                                             </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?=\yii\helpers\Url::to(['register-course/registerdetail'])?>">
-                                            <div class="alert-icon red pull-left">
-                                                <i class="fa fa-ban"></i>
-                                            </div>
-                                            แจ้งชำระไม่ถูกต้อง
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= \yii\helpers\Url::to(['register-course/registerdetail']) ?>">
+                                                <div class="alert-icon red pull-left">
+                                                    <i class="fa fa-ban"></i>
+                                                </div>
+                                                แจ้งชำระไม่ถูกต้อง
                                             <span class="small pull-right">
                                               <span class="label label-danger">
                                                   <?php
@@ -132,70 +140,68 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
 
                                               </span>
                                             </span>
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
 
 
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
 
-                            <!-- Alerts Dropdown Footer -->
-
-
-                        </ul>
-                        <!-- /.dropdown-menu -->
-                    </li>
-                    <!-- /.dropdown -->
-                    <!-- end ALERTS DROPDOWN -->
-
-                    <!-- begin TASKS DROPDOWN -->
-
-                    <!-- /.dropdown -->
-                    <!-- end TASKS DROPDOWN -->
-
-                    <!-- begin USER ACTIONS DROPDOWN -->
-                    <li class="dropdown">
-                        <?php $pro = \common\models\Student::find()->where(['user_id' => Yii::$app->user->id])->all();?>
-                        <?php foreach($pro as $pros ): ?>
-                        <?php endforeach; ?>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user"> </i> <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li>
-                                <a href="<?= \yii\helpers\Url::to(['profile/index'])?>">
-                                    <i class="fa fa-user"></i> โปรไฟล์
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?=\yii\helpers\Url::to(['profile/student'])?>">
-                                    <i class="fa fa-cogs"></i> แก้ไขข้อมูลส่วนตัว
-
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?=\yii\helpers\Url::to(['profile/update'])?>">
-                                    <i class="fa fa-envelope"></i>แก้ไขข้อมูลผู้ใช้งาน
-
-                                </a>
-                            </li>
+                                <!-- Alerts Dropdown Footer -->
 
 
+                            </ul>
+                            <!-- /.dropdown-menu -->
+                        </li>
 
-                            <li class="divider"></li>
+                        <!-- /.dropdown -->
+                        <!-- end ALERTS DROPDOWN -->
 
-                            <li>
-                                <a style="color: inherit" class="logout_open" href="#logout"
-                                   data-toggle="tooltip" data-placement="top"
-                                   title="Logout"><i class="fa fa-sign-out"></i> ออกจากระบบ</a>
+                        <!-- begin TASKS DROPDOWN -->
 
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-menu -->
-                    </li>
-                    <!-- /.dropdown -->
-                    <!-- end USER ACTIONS DROPDOWN -->
+                        <!-- /.dropdown -->
+                        <!-- end TASKS DROPDOWN -->
 
+                        <!-- begin USER ACTIONS DROPDOWN -->
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"> </i> <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="<?= \yii\helpers\Url::to(['profile/index']) ?>">
+                                        <i class="fa fa-user"></i> โปรไฟล์
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?= \yii\helpers\Url::to(['profile/student']) ?>">
+                                        <i class="fa fa-cogs"></i> แก้ไขข้อมูลส่วนตัว
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?= \yii\helpers\Url::to(['profile/update']) ?>">
+                                        <i class="fa fa-envelope"></i>แก้ไขข้อมูลผู้ใช้งาน
+
+                                    </a>
+                                </li>
+
+
+                                <li class="divider"></li>
+
+                                <li>
+                                    <a style="color: inherit" class="logout_open" href="#logout"
+                                       data-toggle="tooltip" data-placement="top"
+                                       title="Logout"><i class="fa fa-sign-out"></i> ออกจากระบบ</a>
+
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-menu -->
+                        </li>
+                        <!-- /.dropdown -->
+                        <!-- end USER ACTIONS DROPDOWN -->
+                    <?php endif; ?>
                 </ul>
                 <!-- /.nav -->
                 <!-- end MESSAGES/ALERTS/TASKS/USER ACTIONS DROPDOWNS -->
@@ -215,15 +221,17 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                         <!--                        <img class="img-circle" src="img/profile-pic.jpg" alt="">-->
                         <h4 class="welcome">
 
-                            <i class="fa fa-key"> ผู้ใช้งาน <?php echo Yii::$app->user->identity->username ?> </i>
+                            ผู้ใช้งาน <?php echo Yii::$app->user->identity->username ?> </i>
                         </h4>
                         <p class="name tooltip-sidebar-logout">
+                            <?php if (!empty(Yii::$app->user->can('Admin'))): ?>
+                            <?php else: ?>
 
-
-                            <a href="index.php?r=profile/index" class="btn btn-success" ><i class="fa fa-user"> </i></a>
-                             <a style="color: inherit" class="logout_open btn btn-danger" href="#logout"
-                                                               data-toggle="tooltip" data-placement="top"
-                                                               title="Logout"><i class="glyphicon glyphicon-off"></i></a>
+                                <a href="index.php?r=profile/index" class="btn btn-success"><i class="fa fa-user"> </i></a>
+                            <?php endif; ?>
+                            <a style="color: inherit" class="logout_open btn btn-danger" href="#logout"
+                               data-toggle="tooltip" data-placement="top"
+                               title="Logout"><i class="glyphicon glyphicon-off"></i></a>
 
                         </p>
 
@@ -235,7 +243,7 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                     <!-- end SIDE NAV SEARCH -->
                     <!-- begin DASHBOARD LINK -->
                     <li>
-                        <a href="<?= \yii\helpers\Url::to(['site/users'])?>">
+                        <a href="<?= \yii\helpers\Url::to(['site/users']) ?>">
                             <i class="fa fa-dashboard"></i> หน้าหลัก
                         </a>
                     </li>
@@ -243,7 +251,8 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                     <!-- end DASHBOARD LINK -->
                     <!-- begin CHARTS DROPDOWN -->
                     <li class="panel">
-                        <a href="<?= \yii\helpers\Url::to(['register-course/index'])?>" data-parent="#side" data-toggle="collapse" class="accordion-toggle"
+                        <a href="<?= \yii\helpers\Url::to(['register-course/index']) ?>" data-parent="#side"
+                           data-toggle="collapse" class="accordion-toggle"
                            data-target="#charts">
                             <i class="fa fa-shopping-cart"></i> ลงทะเบียนเรียน
                         </a>
@@ -253,24 +262,23 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                     </li>
 
                     <li>
-                        <a href="<?= \yii\helpers\Url::to(['register-course/registerdetail'])?>">
+                        <a href="<?= \yii\helpers\Url::to(['register-course/registerdetail']) ?>">
                             <i class="fa fa-book"></i> รายการลงทะเบียน
                         </a>
                     </li>
                     <li>
-                        <a href="<?= \yii\helpers\Url::to(['history/index'])?>">
+                        <a href="<?= \yii\helpers\Url::to(['history/index']) ?>">
                             <i class="fa fa-server"></i> ประวัติการลงทะเบียน
                         </a>
                     </li>
                     <li>
-                        <a href="<?= \yii\helpers\Url::to(['paynotify/index'])?>">
+                        <a href="<?= \yii\helpers\Url::to(['paynotify/index']) ?>">
                             <i class="fa fa-exclamation-circle"></i> ประวัติแจ้งชำระ
                         </a>
                     </li>
 
                     <!-- end CHARTS DROPDOWN -->
                     <!-- begin FORMS DROPDOWN -->
-
 
 
                 </ul>
@@ -293,7 +301,7 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
             <div class="row">
                 <div class="col-lg-2 col-sm-6">
                     <div class="circle-tile">
-                        <a href="<?= \yii\helpers\Url::to(['site/users'])?>">
+                        <a href="<?= \yii\helpers\Url::to(['site/users']) ?>">
                             <div class="circle-tile-heading purple">
                                 <i class="fa fa-dashboard fa-fw fa-3x"></i>
                             </div>
@@ -307,25 +315,29 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-6">
-                    <div class="circle-tile">
-                        <a href="<?= yii\helpers\Url::to(['profile/index'])?>">
-                            <div class="circle-tile-heading dark-blue">
-                                <i class="fa fa-user-md fa-fw fa-3x"></i>
-                            </div>
-                        </a>
-                        <div class="circle-tile-content dark-blue">
-                            <div class="circle-tile-description text-faded">
-                                <strong>โปรไฟล์</strong>
-                            </div>
+                <?php if (!empty(Yii::$app->user->can('Admin'))): ?>
+                <?php else: ?>
 
-                            <a href="#" class="circle-tile-footer"></a>
+                    <div class="col-lg-2 col-sm-6">
+                        <div class="circle-tile">
+                            <a href="<?= yii\helpers\Url::to(['profile/index']) ?>">
+                                <div class="circle-tile-heading dark-blue">
+                                    <i class="fa fa-user-md fa-fw fa-3x"></i>
+                                </div>
+                            </a>
+                            <div class="circle-tile-content dark-blue">
+                                <div class="circle-tile-description text-faded">
+                                    <strong>โปรไฟล์</strong>
+                                </div>
+
+                                <a href="#" class="circle-tile-footer"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
                 <div class="col-lg-2 col-sm-6">
                     <div class="circle-tile">
-                        <a href="<?= yii\helpers\Url::to(['register-course/index'])?>">
+                        <a href="<?= yii\helpers\Url::to(['register-course/index']) ?>">
                             <div class="circle-tile-heading green">
                                 <i class="fa  fa-shopping-basket fa-fw fa-3x"></i>
                             </div>
@@ -341,7 +353,7 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                 </div>
                 <div class="col-lg-2 col-sm-6">
                     <div class="circle-tile">
-                        <a href="<?= yii\helpers\Url::to(['register-course/registerdetail'])?>">
+                        <a href="<?= yii\helpers\Url::to(['register-course/registerdetail']) ?>">
                             <div class="circle-tile-heading orange">
                                 <i class="fa fa-book fa-fw fa-3x"></i>
                             </div>
@@ -357,7 +369,7 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                 </div>
                 <div class="col-lg-2 col-sm-6">
                     <div class="circle-tile">
-                        <a href="<?= \yii\helpers\Url::to(['history/index'])?>">
+                        <a href="<?= \yii\helpers\Url::to(['history/index']) ?>">
                             <div class="circle-tile-heading blue">
 
                                 <i class="fa fa-tasks fa-fw fa-3x">
@@ -367,7 +379,7 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                         </a>
                         <div class="circle-tile-content blue">
                             <div class="circle-tile-description text-faded">
-                              <strong>ประวัติการลงทะเบียน</strong>
+                                <strong>ประวัติการลงทะเบียน</strong>
                             </div>
 
                             <a href="#" class="circle-tile-footer"></a>
@@ -377,7 +389,7 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
                 <div class="col-lg-2 col-sm-6">
 
                     <div class="circle-tile">
-                        <a href="<?= \yii\helpers\Url::to(['paynotify/index'])?>">
+                        <a href="<?= \yii\helpers\Url::to(['paynotify/index']) ?>">
                             <div class="circle-tile-heading red">
                                 <i class="fa fa-exclamation-circle fa-fw fa-3x"></i>
                             </div>
@@ -412,13 +424,26 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
         <div class="logout-message">
             <br>
             <h3>
-                <i class="fa fa-sign-out text-green"></i> คุณต้องการออกจากระบบใช่หรือไม่ ?
+                <i class="fa fa-sign-out text-green"></i>
+                <?php $user=Yii::$app->user->identity->id;
+                ?>
+                คุณต้องการออกจากระบบใช่หรือไม่ ?
+                <?php if(!empty(Yii::$app->user->can('Admin'))):?>
+                <?php else:?>
+                    <?php $STU =\common\models\Student::find()->where(['user_id'=>$user])->all();?>
+               <?php foreach($STU as $student) :   ///loopหาชื่อ
+
+
+                    ?>
+                        คุณ &nbsp; <?= $student->fullName; ?>&nbsp;ต้องการออกจากระบบใช่หรือไม่ ?
+                    <?php endforeach;?>
+                <?php endif;?>
             </h3>
 
             <ul class="list-inline">
                 <li>
-                    <a href="<?=\yii\helpers\Url::to(['/site/logout']) ?>" data-method="post" class="btn btn-green">
-                        <strong>ออกจากระบบ</strong>
+                    <a href="<?= \yii\helpers\Url::to(['/site/logout']) ?>" data-method="post" class="btn btn-green">
+                        <strong>ยืนยัน</strong>
                     </a>
                 </li>
                 <li>
@@ -427,8 +452,6 @@ $Sumcount = $RegisterCourse+$Paynotify; //นับข้อความ
             </ul>
         </div>
     </div>
-
-
 
 
 </div>

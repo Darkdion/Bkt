@@ -33,18 +33,18 @@
                 <tr>
                     <td ></td>
                     <td  class="text-right">ราคารวม</td>
-                    <td  class="text-right"><?= number_format($sumtotall, 2, '.', '') ?></td>
+                    <td  class="text-right"><?= number_format($sumtotall, 2, '.', ',') ?></td>
                 </tr>
                 <tr>
                     <td width="50%"></td>
                     <td width="25%" class="text-right">VAT 7 %</td>
-                    <td width="25%" class="text-right"><?= number_format($VAT, 2, '.', '') ?> </td>
+                    <td width="25%" class="text-right"><?= number_format($VAT, 2, '.', ',') ?> </td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="text-right">ราคาสุทธิ</td>
+                    <td class="text-right">ยอดรวมสุทธิ</td>
                     <td class="text-right"><b>
-                            <?= number_format($SUMVAT, 2, '.', '') ?>
+                            <?= number_format($SUMVAT, 2, '.', ',') ?>
                         </b></td>
                 </tr>
 

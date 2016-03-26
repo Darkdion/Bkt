@@ -6,7 +6,7 @@ use common\models\Paynotify;
 use common\models\RegisterCourse;
 use common\models\Registerdetail;
 use common\models\Student;
-
+use Yii;
 class PaynotifyController extends \yii\web\Controller
 {
     public $layout = 'user\main';
@@ -55,6 +55,7 @@ class PaynotifyController extends \yii\web\Controller
             $model->register_course_id = $register->id; // เก็บเลขที่ใบเสร็จ
 
             $model->save();
+            Yii::$app->getSession()->setFlash('success','แจ้งชำระสำเร็จ');
 
             return $this->redirect(['register-course/registerdetail']);
         } else {

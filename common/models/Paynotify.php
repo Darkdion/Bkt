@@ -27,6 +27,7 @@ class Paynotify extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public $verifyCode;
     public  $foder='paynotify';
 
     public  $foder2='/web/paynotify';
@@ -51,6 +52,8 @@ class Paynotify extends \yii\db\ActiveRecord
         return [
 
             [['student_id', 'status','register_course_id', 'created_at', 'updated_at','price_pay','date_pay'], 'safe'],
+            [['price_pay'], 'required'],
+            [['date_pay'], 'required'],
 
          //ตัวแปรเก็บภาพ
             [['photos'], 'file',
