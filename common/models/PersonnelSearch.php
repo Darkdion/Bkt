@@ -19,7 +19,7 @@ class PersonnelSearch extends Personnel
     {
         return [
             [['per_id', 'title', 'sex', 'marital', 'salary', 'created_at', 'updated_at', 'user_id'], 'integer'],
-            [['firstname', 'lastname', 'identification', 'birthday', 'address', 'province', 'amphur', 'district', 'zip_code', 'expire_date', 'phone'], 'safe'],
+            [['firstname', 'lastname', 'identification', 'birthday', 'address', 'province', 'amphur', 'district', 'status', 'expire_date', 'phone'], 'safe'],
         ];
     }
 
@@ -75,7 +75,7 @@ class PersonnelSearch extends Personnel
             ->andFilterWhere(['like', 'province', $this->province])
             ->andFilterWhere(['like', 'amphur', $this->amphur])
             ->andFilterWhere(['like', 'district', $this->district])
-            ->andFilterWhere(['like', 'zip_code', $this->zip_code])
+            ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'phone', $this->phone]);
 
         return $dataProvider;

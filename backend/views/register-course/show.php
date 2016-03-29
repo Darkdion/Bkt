@@ -31,13 +31,13 @@
 <h3 class="text-danger"><i class="fa fa-shopping-cart"></i> ยังไม่ชำระ</h3>
         <?php if(!empty($models)):?>
         <div class="table-responsive">
-            <table class="table table-hover" width="100%"style="font-size: 14pt;">
+            <table class="table table-hover" width="100%"style="font-size: 12pt;">
                 <thead>
                 <tr>
                     <th width="10%" class="text-center">ลำดับ</th>
                     <th width="20%" class="text-center">เลบที่ใบเสร็จ</th>
-                    <th width="20%" class="text-center">ผู้ลงลงทะเบียน</th>
-                    <th width="20%" class="text-center">วันที่ลงทะเบียน</th>
+                    <th width="30%" class="text-center">ผู้ลงลงทะเบียน</th>
+                    <th width="10%" class="text-center">วันที่ลงทะเบียน</th>
                     <th width="10%" class="text-center">สถานะ</th>
                     <th width="30%" class="text-center">จัดการ</th>
                 </tr>

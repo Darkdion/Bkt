@@ -60,11 +60,11 @@ class Personnel extends \yii\db\ActiveRecord
         return [
 
 
-            [['birthday', 'sex', 'expire_date','title','marital','phone','salary'], 'safe'],
+            [['birthday', 'sex', 'expire_date','title','marital','phone','salary'   ,'status'], 'safe'],
             [['firstname', 'lastname'], 'string', 'max' => 50],
             [['identification'], 'required'],
             [['address'], 'string', 'max' => 100],
-            [['province', 'amphur', 'district', 'zip_code'], 'string', 'max' => 6],
+            [['province', 'amphur', 'district'], 'string', 'max' => 6],
 
         ];
     }
@@ -89,7 +89,7 @@ class Personnel extends \yii\db\ActiveRecord
             'province' => 'จังหวัด',
             'amphur' => 'อำเภอ',
             'district' => 'ตำบล',
-            'zip_code' => 'รหัสไปรษณีย์',
+            'status' => 'สถานะการทำงาน',
             'salary' => 'เงินเดือน',
             'expire_date' => 'วันที่ลาออก',
             'phone' => 'เบอร์โทรศัพท์',

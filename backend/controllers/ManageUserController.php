@@ -108,8 +108,8 @@ class ManageUserController extends Controller
           if($model->save()){
             $model->assignment();
           }
-
-            return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['personnel/index']);
+            //return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

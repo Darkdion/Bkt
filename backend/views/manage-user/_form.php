@@ -27,8 +27,8 @@ use yii\bootstrap\ActiveForm;
 
     <?= $form->field($model, 'status')->radioList($model->getItemStatus()) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <div class="form-group text-center">
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', ' <i class="fa fa-edit"> </i>  บันทึกการปรับปรุง'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

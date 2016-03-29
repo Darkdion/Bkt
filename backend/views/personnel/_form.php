@@ -87,7 +87,7 @@ use yii\helpers\Url;
 
     <div class="form-group row">
         <div class="col-sm-2"></div>
-        <label for="inputEmail3" class="col-sm-2 form-control-label">ระดับการศึกษา</label>
+        <label for="inputEmail3" class="col-sm-2 form-control-label">สถานะ</label>
         <div class="col-sm-4">
             <?= $form->field($model, 'marital')->label(false)->dropDownList($model->getItemMarital()
                 , [
@@ -102,7 +102,7 @@ use yii\helpers\Url;
         <label for="inputEmail3" class="col-sm-2 form-control-label">บ้านเลขที่, ถนน, หมู่บ้าน</label>
         <div class="col-sm-8">
 
-            <?= $form->field($model, 'address')->label(false)->textarea(['rows' => 3]) ?>
+            <?= $form->field($model, 'address')->label(false)->textInput(['placeholder' => 'กรอก บ้านเลขที่, ถนน, หมู่บ้าน']) ; ?>
 
 
         </div>

@@ -6,6 +6,7 @@ use common\models\UserSeach;
 use Yii;
 use common\models\Personnel;
 use common\models\PersonnelSearch;
+use yii\db\Expression;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -42,6 +43,25 @@ class PersonnelController extends Controller
      * Lists all Personnel models.
      * @return mixed
      */
+
+    public function actionQuit($user_id,$id)
+    { 
+          $per=Personnel::findOne($id);
+         $per->expire_date = new Expression('NOW()');;
+        $per->status=9;
+       if( $per->save()){
+           $register =User::find()->where(['id'=>$per->user_id])->all();
+           foreach($register as $model){
+
+           }
+           $model->status=0;
+          $model->save(false);
+       }
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+    
     public function actionIndex()
     {
         $searchModel = new PersonnelSearch();
@@ -146,11 +166,11 @@ class PersonnelController extends Controller
                 $user->setPassword($user->password);
             }
             if($user->save()){
-                $auth = Yii::$app->authManager;
-                $authorRole = $auth->getRole('Manager');
-                $auth->assign($authorRole, $user->getId());
-                $model->user_id =$user->id;
-                $model->save();
+            //  $auth = Yii::$app->authManager;
+            //  $authorRole = $auth->getRole('Manager');
+            //  $auth->assign($authorRole, $user->getId());
+              $model->user_id =$user->id;
+              $model->save();
             }
             Yii::$app->getSession()->setFlash('alert', [
                 'type' => Growl::TYPE_INFO,

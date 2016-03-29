@@ -76,14 +76,7 @@ use kartik\widgets\FileInput;
                         ]); ?>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">หลักฐานการชำระ</label>
-                    <div class="col-sm-8">
-                        <?= $form->field($model, 'verifyCode')->widget(\yii\captcha\Captcha::className(), [
-                            'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                        ]) ?>
-                    </div>
-                </div>
+
 
             <div class="form-group text-center">
                 <div class="col-sm-2"></div>
